@@ -1,0 +1,24 @@
+THIRD-PARTY ASSETS AND LICENSES
+
+SR-71 Blackbird: Gerard Robin / GRTux hangar contributors.
+Source: https://github.com/l0k1/SR71-BlackBird
+GPL-2.0-or-later. License and original AC3D meshes: model-source/.
+assets/blackbird.json is a converted derivative: transforms baked, exterior
+geometry selected, polygon faces triangulated. Runtime recoloring and separated
+display groups added. Conversion source is model-source/convert_aircraft.py;
+run with Python 3 and NumPy installed. Keep source and license with redistribution.
+
+Free McLaren P1 GTR by Desiccated_Lemon (embedded metadata; listing now ALIEEEN).
+https://sketchfab.com/3d-models/free-mclaren-p1-gtr-d805bec04cf5407fa7c036c20c726d39
+CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+Downloaded binary mirror: https://github.com/Nissmo89/Supercar-Vault-3D
+File: models/free_mclaren_p1_gtr.glb. Original binary retained; materials recolored
+and parts animated at runtime. No endorsement by model creator or manufacturer.
+
+Three.js 0.180.0: MIT; vendor/three/LICENSE.
+Anime.js 4.1.3: MIT; vendor/animejs/LICENSE.md.
+Barlow Condensed by Jeremy Tribby: SIL OFL; assets/BarlowCondensed-OFL.txt.
+Manrope by Mikhail Sharanda: SIL OFL; assets/Manrope-OFL.txt.
+Project screenshots supplied by Sriakshay Vaitla. PhotoMosaic target artwork
+is a processing demonstration and is not claimed as his original artwork.
+Vehicle models illustrate personal interests and are not portfolio modeling work.
