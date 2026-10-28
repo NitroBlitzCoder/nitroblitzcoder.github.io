@@ -1,41 +1,41 @@
 # Sriakshay Vaitla — portfolio
 
-## Upload to GitHub Pages
+Static GitHub Pages portfolio. No package installation, build process, backend, or API keys are required.
 
-1. Extract the ZIP.
-2. Open your NitroBlitzCoder/nitroblitzcoder.github.io repository.
-3. Upload the extracted files and folders into the repository root, replacing
-   matching files. index.html must be at the root, not inside another folder.
-4. Commit the changes. Keep your existing GitHub Pages deployment configuration.
-5. After deployment completes, reload your website. Hard refresh if needed.
+## Preview and deploy
 
-Upload the contents, not the ZIP. Include assets, vendor, model-source, all JS/CSS,
-and the credits/license files. No npm install or build step is required.
-The resume is already linked at assets/resume.pdf.
+Run `python3 -m http.server 8000 --bind 127.0.0.1` from this folder and open http://127.0.0.1:8000. Use HTTP rather than opening index.html directly, because the model loaders use browser modules and fetch.
 
-## Preview locally
+Deploy the repository root through the repository's existing GitHub Pages configuration. Include assets/, vendor/, model-source/, license files, and the root HTML/CSS/JS files. Version query strings on the stylesheet and scripts prevent stale files after a deployment; update these when changing those files.
 
-From this folder, run `python3 -m http.server 8000`, then open
-http://localhost:8000. Opening index.html directly as a file will prevent model
-loading because browser module/fetch security requires HTTP.
+## Editing
 
-## Edit
+- index.html: factual content, links, project descriptions, and credits.
+- style.css: Anybody/Instrument Sans typography, responsive editorial layouts, colors, focus states.
+- ui.js: dependable browser-rendered custom cursor, short canvas trail, comparison/zoom controls, dialogs, effects preference, resume availability.
+- scene.js: ambient SR-71 and P1; procedural camera lens and Anime.js scroll-scrubbed component separation.
+- software-renderer.js: simplified static fallback when WebGL is unavailable.
+- PRODUCT.md: confirmed product/content constraints.
+- DESIGN.md and .impeccable/design.json: documented final design system.
 
-Content and links: index.html. Layout/color/type: style.css.
-Cursor, comparison slider and dialogs: ui.js. 3D scenes: scene.js.
-Software fallback: software-renderer.js. Replace assets/resume.pdf to update CV.
+The cars and aircraft are background details and have no click controls. The lens sequence responds to ordinary page scrolling and reverses naturally. Photography is represented by the optical study, not a gallery. The lens is an illustrative assembly created for this website, not a manufacturer-specific engineering model.
 
-## Rendering and accessibility
+## Resume
 
-WebGL supports the fully shaded 3D presentation. A simplified flat-shaded software
-renderer displays the same geometry if WebGL is unavailable. The car loads near
-its section. Effects can be disabled; reduced-motion preferences are respected.
-Cursor effects are intended for mouse/trackpad users, not touchscreens.
+The requested replacement PDF has not yet been supplied. Add it at assets/resume.pdf. The resume link checks for a PDF at that exact path and becomes a download when present; otherwise it remains a working email request. No other resume was substituted.
 
-Validation: desktop/mobile layouts and software model rendering reviewed;
-interactive model controls and comparison controls exercised. The preview
-browser disabled WebGL, so GPU shading was not visually verified. This is an
-original portfolio inspired by bold motorsport layouts and interactive 3D,
-not a reproduction of Lusion's custom shader effects.
+## Motion and rendering
 
-See CREDITS.txt. Retain model-source and all license/attribution files.
+The lens and car load near their sections. Rendering is scheduled on scroll, resize, and visibility changes, with no idle animation loop. Hidden/offscreen scenes do not render. Mobile pixel ratio is capped. Static graphics retain their drawing buffers so demand-driven scenes remain available to browser snapshots.
+
+Effects off and the operating system's reduced-motion preference disable spatial choreography and the trail, and shorten the lens passage to a static study. The software renderer also uses a static study. Append `?renderer=software#interests` to a local preview URL to exercise that fallback explicitly.
+
+The SVG cursor is rendered by the browser rather than moved with JavaScript. Native cursors remain for text, ranges, enlarged images, and modal content. Trails reset on leaving the document, blur, touch, resize, scrolling, dialogs, and effects changes.
+
+## Validation
+
+Run `node --test tests/ui.test.cjs` (Node.js is needed for tests only). Fourteen checks cover effects semantics, reduced-motion and fine-pointer defaults, trail expiry/reset/re-entry, modal cleanup, and comparison/zoom state.
+
+Browser review used 1280×720 desktop and 390×844 phone viewports. Actual WebGL lens rendering, bidirectional scroll separation, static/software fallback, effects switching, keyboard comparison/pan, and modal focus/Escape restoration were exercised. No physical-phone performance benchmark or cross-browser certification is claimed. The 11 MB P1 remains a lazy-loaded third-party asset. See .impeccable/review/ for selected viewport evidence and review notes.
+
+Keep all model source files and licenses. See CREDITS.txt and the credits dialog. The third-party vehicle models are not claimed as Sriakshay's modeling work.

@@ -159,5 +159,13 @@
         event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
     });
   });
+  // The PDF can be supplied later without editing the page. Until then the link is useful.
+  fetch('assets/resume.pdf', {method: 'HEAD'}).then(response => {
+    if (!response.ok || !response.headers.get('content-type')?.includes('pdf')) return;
+    document.querySelectorAll('[data-resume]').forEach(link => {
+      link.href = 'assets/resume.pdf'; link.setAttribute('download', 'Sriakshay-Vaitla-Resume.pdf');
+      link.firstChild.textContent = 'Download resume ';
+    });
+  }).catch(() => {});
   applyEffects();
 })();

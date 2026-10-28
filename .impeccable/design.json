@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T00:00:00Z",
+  "title": "Design System: Sriakshay Vaitla Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0025 0.0)",
+          "oklch(26% 0.0049 0.0)",
+          "oklch(38% 0.0069 0.0)",
+          "oklch(50% 0.0079 0.0)",
+          "oklch(62% 0.0078 0.0)",
+          "oklch(74% 0.0066 0.0)",
+          "oklch(86% 0.0045 0.0)",
+          "oklch(95% 0.0025 0.0)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0025 45.0)",
+          "oklch(26% 0.0049 45.0)",
+          "oklch(38% 0.0069 45.0)",
+          "oklch(50% 0.0079 45.0)",
+          "oklch(62% 0.0078 45.0)",
+          "oklch(74% 0.0066 45.0)",
+          "oklch(86% 0.0045 45.0)",
+          "oklch(95% 0.0025 45.0)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15% 0.0025 60.0)",
+          "oklch(26% 0.0049 60.0)",
+          "oklch(38% 0.0069 60.0)",
+          "oklch(50% 0.0079 60.0)",
+          "oklch(62% 0.0078 60.0)",
+          "oklch(74% 0.0066 60.0)",
+          "oklch(86% 0.0045 60.0)",
+          "oklch(95% 0.0025 60.0)"
+        ]
+      },
+      "red": {
+        "role": "primary",
+        "displayName": "Red",
+        "tonalRamp": [
+          "oklch(15% 0.0402 3.2)",
+          "oklch(26% 0.0797 3.2)",
+          "oklch(38% 0.1119 3.2)",
+          "oklch(50% 0.1284 3.2)",
+          "oklch(62% 0.1269 3.2)",
+          "oklch(74% 0.1075 3.2)",
+          "oklch(86% 0.0731 3.2)",
+          "oklch(95% 0.0402 3.2)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15% 0.0025 0.0)",
+          "oklch(26% 0.0049 0.0)",
+          "oklch(38% 0.0069 0.0)",
+          "oklch(50% 0.0079 0.0)",
+          "oklch(62% 0.0078 0.0)",
+          "oklch(74% 0.0066 0.0)",
+          "oklch(86% 0.0045 0.0)",
+          "oklch(95% 0.0025 0.0)"
+        ]
+      },
+      "optical-red": {
+        "role": "primary",
+        "displayName": "Optical Red",
+        "tonalRamp": [
+          "oklch(15% 0.0402 2.4)",
+          "oklch(26% 0.0797 2.4)",
+          "oklch(38% 0.1119 2.4)",
+          "oklch(50% 0.1284 2.4)",
+          "oklch(62% 0.1269 2.4)",
+          "oklch(74% 0.1075 2.4)",
+          "oklch(86% 0.0731 2.4)",
+          "oklch(95% 0.0402 2.4)"
+        ]
+      },
+      "optical-red-hover": {
+        "role": "primary",
+        "displayName": "Optical Red Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0402 2.8)",
+          "oklch(26% 0.0797 2.8)",
+          "oklch(38% 0.1119 2.8)",
+          "oklch(50% 0.1284 2.8)",
+          "oklch(62% 0.1269 2.8)",
+          "oklch(74% 0.1075 2.8)",
+          "oklch(86% 0.0731 2.8)",
+          "oklch(95% 0.0402 2.8)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero name."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Major section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Dates, captions, and utility controls."
+      }
+    },
+    "shadows": [
+      {
+        "name": "screenshot-depth",
+        "value": "0 18px 35px #0003",
+        "purpose": "MotionStudio screenshot presentation only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-color",
+        "value": ".18s ease",
+        "purpose": "Link and button color transition."
+      },
+      {
+        "name": "screenshot-filter",
+        "value": ".2s ease",
+        "purpose": "Screenshot hover brightness."
+      },
+      {
+        "name": "lens-separation",
+        "value": "duration:1200; ease:inOut(3); offset:index*75",
+        "purpose": "Anime.js scroll-scrubbed group separation, not wall-clock playback."
+      },
+      {
+        "name": "pointer-trail-lifetime",
+        "value": "180ms",
+        "purpose": "Decorative trail expiration."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "min-width:1600px"
+      },
+      {
+        "name": "medium",
+        "value": "max-width:1000px"
+      },
+      {
+        "name": "mobile",
+        "value": "max-width:700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Text link",
+      "kind": "button",
+      "description": "Text link extracted from the shipped portfolio.",
+      "html": "<a class=\"ds-text-link\" href=\"#work\">Explore the work <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a>",
+      "css": ".ds-text-link{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9e7e1);display:inline-flex;align-items:center;gap:26px;min-height:44px;border-bottom:1px solid #777;text-decoration:none;transition:color .18s ease}.ds-text-link svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6}.ds-text-link:hover{color:var(--red,#ff3b30)}.ds-text-link:focus-visible{outline:2px solid var(--red,#ff3b30);outline-offset:6px;}",
+      "refersTo": "text-link"
+    },
+    {
+      "name": "Effects button",
+      "kind": "button",
+      "description": "Effects button extracted from the shipped portfolio.",
+      "html": "<button class=\"ds-effects\" aria-pressed=\"true\">Effects on</button>",
+      "css": ".ds-effects{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9e7e1);color:var(--muted,#adada8);font-size:12px;background:transparent;border:0;border-bottom:1px solid #666;padding:0;min-height:44px;cursor:pointer;transition:color .18s ease}.ds-effects:hover{color:var(--red,#ff3b30)}.ds-effects:focus-visible{outline:2px solid var(--red,#ff3b30);outline-offset:6px;}",
+      "refersTo": "effects-button"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Navigation extracted from the shipped portfolio.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#work\">Work</a><a href=\"#about\">About</a><a href=\"#contact\">Contact</a></nav>",
+      "css": ".ds-nav{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9e7e1);display:flex;gap:28px;border-bottom:1px solid #444}.ds-nav a{color:inherit;display:inline-flex;align-items:center;min-height:44px;text-decoration:none;transition:color .18s ease}.ds-nav a:hover{color:var(--red,#ff3b30)}.ds-nav a:focus-visible{outline:2px solid var(--red,#ff3b30);outline-offset:6px;}"
+    },
+    {
+      "name": "Comparison range",
+      "kind": "input",
+      "description": "Comparison range extracted from the shipped portfolio.",
+      "html": "<label class=\"ds-range\">Before / after<input type=\"range\" min=\"0\" max=\"100\" value=\"50\" aria-label=\"Original versus mosaic comparison\"></label>",
+      "css": ".ds-range{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9e7e1);display:flex;align-items:center;gap:18px;font-size:12px}.ds-range input{flex:1;min-width:20px;min-height:44px;accent-color:var(--red,#ff3b30)}.ds-range input:focus-visible{outline:2px solid var(--red,#ff3b30);outline-offset:6px;}"
+    },
+    {
+      "name": "Engineering disclosure",
+      "kind": "custom",
+      "description": "Engineering disclosure extracted from the shipped portfolio.",
+      "html": "<details class=\"ds-details\"><summary>The engineering</summary><p>A modular pipeline compares tiles in LAB color space and assembles the output.</p></details>",
+      "css": ".ds-details{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9e7e1);border-top:1px solid var(--line,#393939);padding-top:8px;margin-top:20px}.ds-details summary{cursor:pointer;min-height:44px;padding:10px 0;font-size:13px}.ds-details summary:focus-visible{outline:2px solid var(--red,#ff3b30);outline-offset:6px;}.ds-details p{font-size:14px;color:var(--muted,#adada8);line-height:1.7;margin:10px 0}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Industrial Optical Monograph",
+    "overview": "An industrial optical monograph: wide, compactly spaced typography, charcoal fields, warm paper, and a vivid red signal. Software evidence appears in generous editorial compositions, with hairline divisions rather than enclosing cards.\n\nDepth belongs to the objects and screenshots. Motion reveals the construction of a camera lens through native scrolling; it remains optional, and the static experience retains readable project evidence and contact access.",
+    "keyCharacteristics": [
+      "Wide display typography and restrained utility text.",
+      "Flat editorial surfaces with real project screenshots.",
+      "Physical optical geometry and quiet ambient vehicles.",
+      "Native scrolling, visible focus, and static graphics fallbacks."
+    ],
+    "rules": [
+      {
+        "name": "The Red Signal Rule",
+        "body": "Use red for deliberate emphasis, interaction feedback, and the contact field; use the darker optical red on warm paper.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Anybody carries expressive headings; Instrument Sans carries reading and controls. Retained alternative font assets are inactive, not additional type roles.",
+        "section": "typography"
+      },
+      {
+        "name": "The Object Depth Rule",
+        "body": "Keep editorial containers flat; reserve dimensional treatment for screenshot presentation and physical scene geometry.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve real screenshots and distinct editorial project compositions.",
+      "Do keep red focus outlines and controls with at least the existing 44px interaction height.",
+      "Do provide the static lens state for reduced motion, effects off, and software rendering.",
+      "Do use SVG paths for interface icons and keep vehicles ambient."
+    ],
+    "donts": [
+      "Don't replace this system with generic card grids, decorative pills, glowing gradients, or burgundy page backgrounds.",
+      "Don't turn vehicles into click-operated exhibits or turn the camera theme into a photography gallery.",
+      "Don't require motion, hover, or graphics to reach factual content."
+    ]
+  }
+}

@@ -22,3 +22,22 @@ Manrope by Mikhail Sharanda: SIL OFL; assets/Manrope-OFL.txt.
 Project screenshots supplied by Sriakshay Vaitla. PhotoMosaic target artwork
 is a processing demonstration and is not claimed as his original artwork.
 Vehicle models illustrate personal interests and are not portfolio modeling work.
+
+2026-10-28 optical-study redesign additions:
+Anybody variable font: The Anybody Project Authors / Etcetera Type Company.
+Official source: https://github.com/Etcetera-Type-Co/Anybody
+Distributed via https://github.com/google/fonts/tree/main/ofl/anybody
+SIL Open Font License 1.1: assets/Anybody-OFL.txt.
+Instrument Sans variable font: The Instrument Sans Project Authors.
+Official source: https://github.com/Instrument/instrument-sans
+Distributed via https://github.com/google/fonts/tree/main/ofl/instrumentsans
+SIL Open Font License 1.1: assets/InstrumentSans-OFL.txt.
+The older Barlow Condensed and Manrope files and licenses remain preserved,
+but the redesigned page uses Anybody and Instrument Sans.
+
+The camera lens is procedural geometry authored for this website in scene.js:
+barrels, ribbed focus ring, optical elements, aperture, and rear mount.
+It is an illustrative optical assembly, not a model of a specific product,
+and is not presented as Sriakshay's own modeling work.
+The scroll choreography takes inspiration from the assembled/exploded lens
+sequence on https://animejs.com/; no Anime.js site models or art were copied.

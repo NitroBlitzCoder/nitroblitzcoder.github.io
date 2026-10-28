@@ -1,113 +1,300 @@
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
-import {animate} from 'animejs';
+import {createTimeline} from 'animejs';
 import {SoftwareRenderer} from './software-renderer.js';
-const $=s=>document.querySelector(s);let motion=window.portfolioEffects!==false;const stages=[];const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
-// Rendering is demand-driven. No idle loop, and no scroll-driven geometry work.
-function stage(canvas, container, bg) {
+
+const $ = selector => document.querySelector(selector);
+const clamp = (value, low = 0, high = 1) => Math.max(low, Math.min(high, value));
+const smooth = value => { const t = clamp(value); return t * t * (3 - 2 * t); };
+let effects = window.portfolioEffects !== false;
+let frame = 0;
+const stages = [];
+const forceSoftware = new URLSearchParams(location.search).get('renderer') === 'software';
+
+function makeStage(id, background, {fov = 34, position = [0, 3, 10]} = {}) {
+  const canvas = $('#' + id), container = canvas.parentElement;
   let renderer;
-  try { renderer = new THREE.WebGLRenderer({canvas, antialias: true, alpha: true, powerPreference: 'low-power'}); }
-  catch { renderer = new SoftwareRenderer(canvas); }
+  try {
+    if (forceSoftware) throw new Error('Software rendering requested');
+    renderer = new THREE.WebGLRenderer({canvas, alpha: true, antialias: true, preserveDrawingBuffer: true, powerPreference: 'low-power'});
+  } catch { renderer = new SoftwareRenderer(canvas); }
   container.dataset.renderer = renderer.isSoftware ? 'software' : 'webgl';
-  renderer.setClearColor(bg, 0);
+  renderer.setClearColor(background, 0);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.05;
+  renderer.toneMappingExposure = 1.1;
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(33, 1, .1, 100);
-  camera.position.set(-9, 8, 15); camera.lookAt(0, 0, 0);
+  const camera = new THREE.PerspectiveCamera(fov, 1, .1, 100);
+  camera.position.set(...position); camera.lookAt(0, 0, 0);
   const root = new THREE.Group(); scene.add(root);
   if (!renderer.isSoftware) {
-    const pmrem = new THREE.PMREMGenerator(renderer);
-    const env = new RoomEnvironment();
-    const environment = pmrem.fromScene(env, .04);
-    scene.environment = environment.texture;
-    env.dispose(); pmrem.dispose();
+    const generator = new THREE.PMREMGenerator(renderer), room = new RoomEnvironment();
+    scene.environment = generator.fromScene(room, .04).texture;
+    room.dispose(); generator.dispose();
   }
-  scene.add(new THREE.HemisphereLight(0xffffff, 0x252525, 1.3));
-  const key = new THREE.DirectionalLight(0xffffff, 2.3); key.position.set(-4, 9, 6); scene.add(key);
-  const accent = new THREE.DirectionalLight(0xff3b3b, .45); accent.position.set(5, 3, -6); scene.add(accent);
-  const rim = new THREE.DirectionalLight(0xe4eaff, 1.8); rim.position.set(-5, 3, -7); scene.add(rim);
-  let lastWidth = 0, lastHeight = 0;
-  const s = {
-    renderer, scene, camera, root, container, visible: false, ready: false, lost: false,
-    anim: null, finish: null, update: () => {},
-    render() {
-      if (s.ready && s.visible && !s.lost && !document.hidden) renderer.render(scene, camera);
-    },
-    resize() {
-      const {width, height} = container.getBoundingClientRect();
-      if (!width || !height) return;
-      if (width !== lastWidth || height !== lastHeight) {
-        lastWidth = width; lastHeight = height;
-        renderer.setPixelRatio(Math.min(devicePixelRatio || 1, width < 650 ? 1.25 : 1.5));
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x28282a, 1.5));
+  const key = new THREE.DirectionalLight(0xfffaf2, 3.2); key.position.set(-3, 6, 7); scene.add(key);
+  const rim = new THREE.DirectionalLight(0xffffff, 2.4); rim.position.set(5, 3, -5); scene.add(rim);
+  const fill = new THREE.DirectionalLight(0xffffff, .6); fill.position.set(-4, -2, -3); scene.add(fill);
+  let width = 0, height = 0;
+  const stage = {
+    canvas, container, renderer, scene, camera, root, visible: false, ready: false, lost: false,
+    softwareDrawn: false, update: () => {}, render() {
+      if (renderer.isSoftware && stage.softwareDrawn) return;
+      if (stage.ready && stage.visible && !stage.lost && !document.hidden) {renderer.render(scene, camera); stage.softwareDrawn = true;}
+    }, resize() {
+      const rect = container.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      if (width !== rect.width || height !== rect.height) {
+        width = rect.width; height = rect.height; stage.softwareDrawn = false;
+        renderer.setPixelRatio(Math.min(devicePixelRatio || 1, innerWidth < 700 ? 1.2 : 1.5));
         renderer.setSize(width, height, false);
         camera.aspect = width / height; camera.updateProjectionMatrix();
       }
-      s.render();
+      schedule();
     }
   };
-  const controls = canvas.id === 'aircraft' ? ['plane-view', 'explode'] : ['car-view', 'car-explode'];
-  const placeholder = container.querySelector('.model-placeholder');
   canvas.addEventListener('webglcontextlost', event => {
-    event.preventDefault(); s.lost = true; s.anim?.pause();
-    placeholder.hidden = false;
-    placeholder.querySelector('p').textContent = 'Graphics paused. Reload the page to restore this model.';
-    placeholder.style.zIndex = '1';
-    controls.forEach(id => $('#' + id).disabled = true);
+    event.preventDefault(); stage.lost = true; container.style.opacity = '0';
+    if (id === 'lens') $('.lens-fallback').hidden = false;
   });
   canvas.addEventListener('webglcontextrestored', () => {
-    s.lost = false; placeholder.hidden = true;
-    controls.forEach(id => $('#' + id).disabled = false);
-    s.finish?.(); s.update();
+    stage.lost = false; container.style.opacity = '';
+    if (id === 'lens') $('.lens-fallback').hidden = true;
+    schedule();
   });
-  new ResizeObserver(s.resize).observe(container);
+  new ResizeObserver(() => stage.resize()).observe(container);
   new IntersectionObserver(entries => {
-    s.visible = entries[0].isIntersecting;
-    if (!s.visible) { s.anim?.pause(); s.finish?.(); }
-    else { s.resize(); s.update(); }
+    stage.visible = entries[0].isIntersecting;
+    if (stage.visible) schedule();
   }, {threshold: 0}).observe(container);
-  stages.push(s); s.resize();
-  return s;
+  stages.push(stage); stage.resize();
+  return stage;
 }
-const error=(placeholder,message)=>{placeholder.querySelector('p').textContent=message;placeholder.style.zIndex='1';};
-let aircraft;const planeState={explode:0,angle:0,scroll:0};let planeParts=[];let planeManual=false;let planeView=0;
-async function makePlane(){
- try{aircraft=stage($('#aircraft'),$('#aircraft-stage'),0x090909);const response=await fetch('assets/blackbird.json');if(!response.ok)throw Error('model unavailable');const data=await response.json();const bins={body:[],port:[],starboard:[],canopy:[]};
- for(const p of data.parts){const pos=p.positions;for(let i=0;i<p.indices.length;i+=3){const ids=p.indices.slice(i,i+3);const z=ids.reduce((a,n)=>a+pos[n*3+2],0)/3;const name=p.name;const type=/Canopy|Vitr|PareBrise/.test(name)?'canopy':z>2.5?'port':z< -2.5?'starboard':'body';for(const n of ids)bins[type].push((pos[n*3]+3.94)*.32,(pos[n*3+1]-.6)*.32,pos[n*3+2]*.32)}}
- const material=new THREE.MeshStandardMaterial({color:0x30363d,metalness:.55,roughness:.5,envMapIntensity:.65,side:THREE.DoubleSide});
- for(const [name,vertices] of Object.entries(bins)){const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.computeVertexNormals();let mat=material;if(name==='canopy')mat=new THREE.MeshPhysicalMaterial({color:0x121c25,metalness:.55,roughness:.15,clearcoat:1,side:THREE.DoubleSide});const mesh=new THREE.Mesh(geometry,mat);mesh.name=name;aircraft.root.add(mesh);planeParts.push(mesh);}
- aircraft.root.rotation.y=.18;aircraft.camera.position.set(-7,8,15);aircraft.camera.lookAt(0,0,0);aircraft.camera.zoom=1.12;aircraft.camera.updateProjectionMatrix();aircraft.ready=true;$('#aircraft-stage').setAttribute('aria-busy','false');$('#plane-placeholder').hidden=true;$('#plane-view').disabled=false;$('#explode').disabled=false;
- aircraft.update=()=>{const t=planeState.explode;const outer=clamp(t*1.35,0,1);const cockpit=clamp((t-.25)/.75,0,1);for(const mesh of planeParts){mesh.position.set(0,0,0);if(mesh.name==='port'){mesh.position.z=outer*1.2;mesh.position.y=outer*.45}else if(mesh.name==='starboard'){mesh.position.z=-outer*1.2;mesh.position.y=outer*.45}else if(mesh.name==='canopy')mesh.position.y=cockpit*1.15;}aircraft.root.rotation.y=.18+planeState.angle;aircraft.root.rotation.z=0;aircraft.render();$('#plane-status').textContent=['Perspective','Profile','Rear quarter'][planeView%3]+' / '+(planeManual?'separated display groups':'assembled')};aircraft.resize();aircraft.update();
- }catch(e){$('#aircraft-stage').setAttribute('aria-busy','false');$('#plane-status').textContent='Model unavailable';console.warn('Aircraft:',e);error($('#plane-placeholder'),'3D unavailable in this browser. The projects below are ready to explore.');$('#plane-view').disabled=true;$('#explode').disabled=true;}
+function schedule() {
+  if (!frame && !document.hidden) frame = requestAnimationFrame(update);
 }
-function tweenState(target, properties, s) {
-  if (!s?.ready || s.lost) return;
-  s.anim?.pause();
-  s.finish = () => { Object.assign(target, properties); s.finish = null; s.update(); };
-  if (!motion || s.renderer.isSoftware || !s.visible || document.hidden) { s.finish(); return; }
-  s.anim = animate(target, {
-    ...properties, duration: 900, ease: 'inOutQuint', frameRate: 60,
-    onUpdate: () => s.update(), onComplete: () => { s.anim = null; s.finish?.(); }
-  });
+function update() {
+  frame = 0;
+  for (const stage of stages) {
+    if (!stage.ready || !stage.visible || stage.lost) continue;
+    stage.update();
+    stage.render();
+  }
 }
-$('#plane-view').disabled=true;$('#explode').disabled=true;$('#plane-view').addEventListener('click',()=>{planeView++;tweenState(planeState,{angle:planeView*Math.PI*2/3},aircraft)});$('#explode').addEventListener('click',()=>{planeManual=!planeManual;$('#explode').setAttribute('aria-pressed',String(planeManual));$('#explode').textContent=planeManual?'Reassemble':'Inspect parts';$('#aircraft-stage').classList.toggle('inspecting',planeManual);tweenState(planeState,{explode:planeManual?1:0},aircraft)});
-let carStage,carStarted=false;const carState={angle:0,explode:0};let carView=0,carOpen=false,carParts=[];
-async function makeCar(){if(carStarted)return;carStarted=true;try{carStage=stage($('#car'),$('#car-stage'),0x121212);carStage.camera.position.set(-9,4.5,13);carStage.camera.lookAt(0,0,0);$('#car-status').textContent='Loading model…';const loaded=await new GLTFLoader().loadAsync('assets/mclaren-p1-gtr.glb');const model=loaded.scene;model.updateMatrixWorld(true);const box=new THREE.Box3().setFromObject(model),size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());const normalization=new THREE.Group();normalization.scale.setScalar(8.3/Math.max(size.x,size.y,size.z));model.position.sub(center);normalization.add(model);carStage.root.add(normalization);
- carStage.root.updateMatrixWorld(true);model.traverse(o=>{if(!o.isMesh)return;let mats=Array.isArray(o.material)?o.material:[o.material];for(const mat of mats){if(mat.name==='main_body'||mat.name==='wing'||mat.name==='back_body_metal'){mat.map=null;mat.color.set(0xe3232e);mat.metalness=.65;mat.roughness=.25;}if(mat.name==='windshieldwindows'){mat.color.set(0x101319);mat.opacity=.92;mat.roughness=.17;}if(/Carbon|Vents|plastic|tires|interior|exhaust|black|extra|back_body/i.test(mat.name)&&!['back_body_metal'].includes(mat.name))mat.color.set(0x242426);if(/rims|disk/.test(mat.name))mat.color.set(0x7d7e81);if(mat.name==='tire_logo')o.visible=false;mat.envMapIntensity=1.1;}o.geometry.computeBoundingBox();const lift=mats.some(m=>/main_body|wing|windshieldwindows|Carbon|side_mirrors|headlight_glass/.test(m.name));const base=o.position.clone();const parentInverse=new THREE.Matrix3().setFromMatrix4(o.parent.matrixWorld.clone().invert());const dir=new THREE.Vector3(0,lift?1:0,0).applyMatrix3(parentInverse);carParts.push({mesh:o,base,dir});});
- carStage.root.rotation.y=.6;carStage.camera.zoom=1.05;carStage.camera.updateProjectionMatrix();carStage.ready=true;$('#car-stage').setAttribute('aria-busy','false');$('#car-placeholder').hidden=true;$('#car-view').disabled=false;$('#car-explode').disabled=false;carStage.update=()=>{carStage.root.rotation.y=.6+carState.angle;for(const p of carParts)p.mesh.position.copy(p.base).addScaledVector(p.dir,carState.explode*1.1);carStage.render();$('#car-status').textContent=(carOpen?'Bodywork lifted':'Assembled')+' / '+['front quarter','side','rear quarter','side'][carView%4]};carStage.resize();carStage.update();
- }catch(e){$('#car-stage').setAttribute('aria-busy','false');$('#car-status').textContent='Model unavailable';console.warn('Car:',e);error($('#car-placeholder'),'The 3D car could not load. Try a WebGL-enabled browser.');$('#car-view').disabled=true;$('#car-explode').disabled=true;}}
-$('#car-view').disabled=true;$('#car-explode').disabled=true;$('#car-view').addEventListener('click',()=>{carView++;tweenState(carState,{angle:carView*Math.PI/2},carStage)});$('#car-explode').addEventListener('click',()=>{carOpen=!carOpen;$('#car-explode').setAttribute('aria-pressed',String(carOpen));$('#car-explode').textContent=carOpen?'Reassemble':'Lift bodywork';tweenState(carState,{explode:carOpen?1:0},carStage)});
-const carObserver=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){makeCar();carObserver.disconnect()}},{rootMargin:'200px'});carObserver.observe($('#garage'));
-addEventListener('effectschange', event => {
-  motion = event.detail;
-  stages.forEach(s => { s.anim?.pause(); s.anim = null; s.finish?.(); s.update(); });
-});
+window.addEventListener('scroll', schedule, {passive: true});
+window.addEventListener('resize', schedule);
+window.addEventListener('effectschange', event => {effects = event.detail; schedule();});
 document.addEventListener('visibilitychange', () => {
-  stages.forEach(s => {
-    if (document.hidden) { s.anim?.pause(); s.finish?.(); }
-    else if (s.visible) s.update();
-  });
+  if (document.hidden) { cancelAnimationFrame(frame); frame = 0; }
+  else schedule();
 });
-makePlane();
+
+async function loadAircraft() {
+  try {
+    const stage = makeStage('aircraft', 0x111111, {position: [-5, 8, 13]});
+    const response = await fetch('assets/blackbird.json');
+    if (!response.ok) throw new Error('Aircraft asset unavailable');
+    const data = await response.json(), vertices = [];
+    for (const part of data.parts) {
+      for (const index of part.indices) {
+        vertices.push((part.positions[index * 3] + 3.94) * .32,
+          (part.positions[index * 3 + 1] - .6) * .32, part.positions[index * 3 + 2] * .32);
+      }
+    }
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+    geometry.computeVertexNormals();
+    const material = new THREE.MeshStandardMaterial({color: 0x42474d, metalness: .65, roughness: .45, side: THREE.DoubleSide, envMapIntensity: .65});
+    stage.root.add(new THREE.Mesh(geometry, material));
+    stage.root.rotation.y = -.28;
+    stage.ready = true;
+    stage.update = () => {
+      if (stage.renderer.isSoftware) return;
+      const progress = effects ? clamp(scrollY / $('.hero').offsetHeight) : 0;
+      stage.root.rotation.y = -.28 + progress * .6;
+      stage.root.rotation.z = -.08 + progress * .05;
+      stage.root.position.x = -progress * 1.3;
+      stage.root.position.y = progress * .3;
+    };
+    schedule();
+  } catch (error) { console.warn('Aircraft decoration unavailable:', error.message); $('#aircraft-stage').hidden = true; }
+}
+
+function ringMaterial(color, metalness = .5, roughness = .45) {
+  return new THREE.MeshStandardMaterial({color, metalness, roughness, side: THREE.DoubleSide});
+}
+function buildLens() {
+  const stage = makeStage('lens', 0xe9e7e1, {fov: 31, position: [0, 2, 10.5]});
+  const black = ringMaterial(0x16191b, .4, .38);
+  const rubber = ringMaterial(0x101214, .1, .72);
+  const metal = ringMaterial(0x777b7b, .9, .25);
+  const darkMetal = ringMaterial(0x303638, .8, .3);
+  const red = ringMaterial(0xc72922, .45, .3);
+  const parts = [];
+  function part(z, separation) {
+    const group = new THREE.Group(); group.position.z = z; stage.root.add(group);
+    parts.push({group, base: z, separation}); return group;
+  }
+  function torus(parent, radius, tube, z, material = black) {
+    const mesh = new THREE.Mesh(new THREE.TorusGeometry(radius, tube, 8, 72), material);
+    mesh.position.z = z; parent.add(mesh); return mesh;
+  }
+  function barrel(parent, outside, inside, length, z, material = black) {
+    const profile = [[inside, -length / 2], [outside - .035, -length / 2], [outside, -length / 2 + .04],
+      [outside, length / 2 - .04], [outside - .035, length / 2], [inside, length / 2], [inside, -length / 2]];
+    const geometry = new THREE.LatheGeometry(profile.map(([r,y]) => new THREE.Vector2(r,y)), 80);
+    geometry.rotateX(Math.PI / 2);
+    const mesh = new THREE.Mesh(geometry, material); mesh.position.z = z; parent.add(mesh); return mesh;
+  }
+  function ribs(parent, radius, length, z, count = 80) {
+    const geometry = new THREE.BoxGeometry(.025, .055, length);
+    const mesh = new THREE.InstancedMesh(geometry, rubber, count), object = new THREE.Object3D();
+    for (let index = 0; index < count; index++) {
+      const angle = index / count * Math.PI * 2;
+      object.position.set(Math.cos(angle) * radius, Math.sin(angle) * radius, z);
+      object.rotation.z = angle - Math.PI / 2;
+      object.updateMatrix(); mesh.setMatrixAt(index, object.matrix);
+    }
+    parent.add(mesh);
+  }
+  function glass(parent, radius, z) {
+    const material = new THREE.MeshPhysicalMaterial({color: 0x182b37, metalness: .42, roughness: .08, clearcoat: 1, clearcoatRoughness: .05, side: THREE.DoubleSide});
+    const element = new THREE.Mesh(new THREE.SphereGeometry(radius, 48, 24), material);
+    element.scale.z = .11; element.position.z = z; parent.add(element);
+    torus(parent, radius + .015, .018, z, darkMetal);
+  }
+  const front = part(1.05, 2.3);
+  barrel(front, 1.15, .94, .24, 0, darkMetal);
+  torus(front, 1.12, .035, .14, metal);
+  barrel(front, 1.02, .91, .12, .12, black);
+  glass(front, .92, .10);
+  // Lettering belongs to the physical front ring, rather than floating page decoration.
+  if (!stage.renderer.isSoftware) {
+    const labelCanvas = document.createElement('canvas'); labelCanvas.width = labelCanvas.height = 1024;
+    const ctx = labelCanvas.getContext('2d');
+    ctx.clearRect(0, 0, 1024, 1024); ctx.fillStyle = '#b9bcb9'; ctx.font = '24px sans-serif'; ctx.textAlign = 'center';
+    const lettering = 'O P T I C A L   S T U D Y   /   S V';
+    for (let i = 0; i < lettering.length; i++) {
+      const angle = -.95 + i * .06;
+      ctx.save(); ctx.translate(512 + Math.sin(angle) * 458, 512 - Math.cos(angle) * 458); ctx.rotate(angle); ctx.fillText(lettering[i], 0, 0); ctx.restore();
+    }
+    const texture = new THREE.CanvasTexture(labelCanvas); texture.colorSpace = THREE.SRGBColorSpace;
+    const label = new THREE.Mesh(new THREE.PlaneGeometry(2.3, 2.3), new THREE.MeshBasicMaterial({map: texture, transparent: true, depthWrite: false}));
+    label.position.z = .155; front.add(label);
+  }
+  const focus = part(.4, .95);
+  barrel(focus, 1.12, .8, .65, 0, rubber); ribs(focus, 1.135, .51, 0);
+  torus(focus, 1.12, .035, .32, black); torus(focus, 1.12, .024, -.32, metal);
+  const optics = part(.04, .18);
+  barrel(optics, .87, .72, .14, 0, darkMetal); glass(optics, .71, .02);
+  const aperture = part(-.25, -.65);
+  barrel(aperture, .94, .29, .10, 0, darkMetal);
+  const bladeShape = new THREE.Shape();
+  bladeShape.moveTo(.24, -.05); bladeShape.lineTo(.76, -.21); bladeShape.lineTo(.84, .13); bladeShape.lineTo(.31, .18); bladeShape.closePath();
+  const bladeGeometry = new THREE.ShapeGeometry(bladeShape);
+  for (let i = 0; i < 9; i++) {
+    const blade = new THREE.Mesh(bladeGeometry, ringMaterial(i % 2 ? 0x454a4c : 0x303638, .7, .38));
+    blade.rotation.z = i / 9 * Math.PI * 2; blade.position.z = .06 + i * .001; aperture.add(blade);
+  }
+  torus(aperture, .91, .025, .07, metal);
+  const body = part(-.68, -1.25);
+  barrel(body, .98, .7, .68, 0, black); ribs(body, .99, .21, -.1, 64);
+  torus(body, .99, .027, .31, red); torus(body, .98, .024, -.31, darkMetal);
+  const mount = part(-1.15, -2.2);
+  barrel(mount, .82, .57, .23, 0, metal); torus(mount, .8, .04, -.12, darkMetal); glass(mount, .56, .10);
+  const screwGeometry = new THREE.CylinderGeometry(.035, .035, .02, 12), screwMaterial = ringMaterial(0x333738, .9, .3);
+  for (let i = 0; i < 4; i++) {
+    const angle = i * Math.PI / 2 + .4, screw = new THREE.Mesh(screwGeometry, screwMaterial);
+    screw.rotation.x = Math.PI / 2; screw.position.set(Math.cos(angle)*.7, Math.sin(angle)*.7, .13); mount.add(screw);
+  }
+  const timeline = createTimeline({autoplay: false});
+  parts.forEach(({group, base, separation}, index) => {
+    timeline.add(group.position, {z: [base, base + separation], duration: 1200, ease: 'inOut(3)'}, index * 75);
+  });
+  stage.root.rotation.set(-.15, -.38, -.32);
+  stage.root.position.set(.35, -.2, 0);
+  stage.ready = true;
+  const labels = $('#lens-labels');
+  const anchors = [front, focus, aperture, mount];
+  const desktopCoords = [[.10,.28],[.10,.72],[.90,.28],[.90,.72]];
+  const mobileCoords = [[.08,.10],[.08,.90],[.92,.10],[.92,.90]];
+  $('#interests').classList.toggle('static-graphics', !!stage.renderer.isSoftware);
+  const anchor = new THREE.Vector3();
+  let lastProgress = -1;
+  stage.update = () => {
+    const story = $('#interests'), rect = story.getBoundingClientRect();
+    const progress = effects && !stage.renderer.isSoftware ? clamp(-rect.top / (story.offsetHeight - innerHeight)) : 0;
+    if (progress !== lastProgress) {
+      timeline.seek(progress * timeline.duration);
+      stage.root.rotation.y = -.55 - smooth(progress) * .8;
+      stage.root.rotation.z = -.32 + smooth(progress) * .42;
+      stage.root.rotation.x = -.15 + smooth(progress) * .18;
+      lastProgress = progress;
+    }
+    const mobile = innerWidth < 700;
+    stage.root.position.x = mobile ? 0 : .35;
+    stage.camera.position.z = mobile ? (5.2 + smooth(progress) * 3.1) / (2 * Math.tan(THREE.MathUtils.degToRad(31 / 2)) * stage.camera.aspect) : 10.5;
+    stage.camera.lookAt(0, 0, 0);
+    story.style.setProperty('--progress', progress);
+    $('#lens-phase').textContent = progress < .23 ? 'A study in focus.' : progress < .65 ? 'The whole, becoming its parts.' : 'Front optics / focus barrel / aperture / mount';
+    labels.style.opacity = smooth((progress - .38) / .32);
+    $('#lens-instruction').textContent = effects && !stage.renderer.isSoftware ? 'Scroll to look inside' : 'Static lens study';
+    const labelWidth = stage.container.clientWidth, labelHeight = stage.container.clientHeight;
+    labels.setAttribute('viewBox', `0 0 ${labelWidth} ${labelHeight}`);
+    stage.root.updateMatrixWorld(true); stage.camera.updateMatrixWorld(true);
+    [...labels.children].forEach((label, index) => {
+      anchor.copy(anchors[index].position); anchor.applyMatrix4(stage.root.matrixWorld).project(stage.camera);
+      const x = (anchor.x * .5 + .5) * labelWidth, y = (-anchor.y * .5 + .5) * labelHeight;
+      const [nx, ny] = (mobile ? mobileCoords : desktopCoords)[index], right = index > 1;
+      const tx = nx * labelWidth, ty = ny * labelHeight;
+      label.querySelector('path').setAttribute('d', `M${x.toFixed(1)},${y.toFixed(1)} L${right?tx-35:tx+80},${ty} H${tx}`);
+      const text = label.querySelector('text'); text.setAttribute('x', tx); text.setAttribute('y', ty - 12);
+      text.setAttribute('text-anchor', right ? 'end' : 'start');
+    });
+  };
+  schedule();
+}
+
+let carStarted = false;
+async function loadCar() {
+  if (carStarted) return; carStarted = true;
+  try {
+    const stage = makeStage('car', 0x111111, {position: [-8, 3.8, 12]});
+    const loaded = await new GLTFLoader().loadAsync('assets/mclaren-p1-gtr.glb');
+    const model = loaded.scene;
+    const box = new THREE.Box3().setFromObject(model), size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
+    model.position.sub(center);
+    const normalized = new THREE.Group(); normalized.scale.setScalar(8.3 / Math.max(size.x, size.y, size.z)); normalized.add(model); stage.root.add(normalized);
+    model.traverse(object => {
+      if (!object.isMesh) return;
+      const materials = Array.isArray(object.material) ? object.material : [object.material];
+      for (const material of materials) {
+        if (/main_body|wing|back_body_metal/.test(material.name)) { material.map = null; material.color.set(0x6c1716); material.metalness = .65; material.roughness = .35; }
+        if (/Carbon|Vents|plastic|tires|interior|exhaust|black|extra/i.test(material.name)) material.color.set(0x151719);
+        if (/windshieldwindows/.test(material.name)) {material.color.set(0x101316); material.roughness=.15;}
+        if (material.name === 'tire_logo') object.visible = false;
+        material.envMapIntensity = .75;
+      }
+    });
+    stage.root.rotation.y = .55; stage.ready = true;
+    stage.update = () => {
+      if (stage.renderer.isSoftware) return;
+      const rect = $('.offscreen-interests').getBoundingClientRect();
+      const progress = effects ? clamp((innerHeight - rect.top) / (innerHeight + rect.height)) : .35;
+      stage.root.rotation.y = .4 + progress * .45;
+      stage.root.position.x = (progress - .5) * .7;
+    };
+    schedule();
+  } catch (error) { console.warn('Car decoration unavailable:', error.message); $('#car-stage').hidden = true; }
+}
+function lazy(target, callback, margin) {
+  const observer = new IntersectionObserver(entries => {
+    if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); callback(); }
+  }, {rootMargin: margin});
+  observer.observe(target);
+}
+loadAircraft();
+lazy($('#interests'), () => {try {buildLens();} catch(error) {console.warn('Lens unavailable:',error.message); $('#lens-stage').hidden = true; $('.lens-fallback').hidden = false;}}, '400px');
+lazy($('.offscreen-interests'), loadCar, '250px');
