@@ -25,3 +25,7 @@ Make project evidence easy to evaluate. Express personal interests without obscu
 
 ## Accessibility & Inclusion
 Responsive mobile, keyboard navigation, readable contrast, reduced motion, effects switch, dependable browser-rendered cursor. Expensive effects pause offscreen and when hidden.
+
+## Latest composition feedback
+
+The lens is liked, but must belong to the photography/modeling context in About. Vehicles are small background graphics rather than foreground scenes. Prioritize actual software evidence and consult multiple strong studio/portfolio references (see RESEARCH.md).

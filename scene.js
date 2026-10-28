@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {createTimeline} from 'animejs';
 import {SoftwareRenderer} from './software-renderer.js';
@@ -90,37 +89,6 @@ document.addEventListener('visibilitychange', () => {
   if (document.hidden) { cancelAnimationFrame(frame); frame = 0; }
   else schedule();
 });
-
-async function loadAircraft() {
-  try {
-    const stage = makeStage('aircraft', 0x111111, {position: [-5, 8, 13]});
-    const response = await fetch('assets/blackbird.json');
-    if (!response.ok) throw new Error('Aircraft asset unavailable');
-    const data = await response.json(), vertices = [];
-    for (const part of data.parts) {
-      for (const index of part.indices) {
-        vertices.push((part.positions[index * 3] + 3.94) * .32,
-          (part.positions[index * 3 + 1] - .6) * .32, part.positions[index * 3 + 2] * .32);
-      }
-    }
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-    geometry.computeVertexNormals();
-    const material = new THREE.MeshStandardMaterial({color: 0x42474d, metalness: .65, roughness: .45, side: THREE.DoubleSide, envMapIntensity: .65});
-    stage.root.add(new THREE.Mesh(geometry, material));
-    stage.root.rotation.y = -.28;
-    stage.ready = true;
-    stage.update = () => {
-      if (stage.renderer.isSoftware) return;
-      const progress = effects ? clamp(scrollY / $('.hero').offsetHeight) : 0;
-      stage.root.rotation.y = -.28 + progress * .6;
-      stage.root.rotation.z = -.08 + progress * .05;
-      stage.root.position.x = -progress * 1.3;
-      stage.root.position.y = progress * .3;
-    };
-    schedule();
-  } catch (error) { console.warn('Aircraft decoration unavailable:', error.message); $('#aircraft-stage').hidden = true; }
-}
 
 function ringMaterial(color, metalness = .5, roughness = .45) {
   return new THREE.MeshStandardMaterial({color, metalness, roughness, side: THREE.DoubleSide});
@@ -216,16 +184,16 @@ function buildLens() {
   stage.root.rotation.set(-.15, -.38, -.32);
   stage.root.position.set(.35, -.2, 0);
   stage.ready = true;
-  const labels = $('#lens-labels');
-  const anchors = [front, focus, aperture, mount];
-  const desktopCoords = [[.10,.28],[.10,.72],[.90,.28],[.90,.72]];
-  const mobileCoords = [[.08,.10],[.08,.90],[.92,.10],[.92,.90]];
-  $('#interests').classList.toggle('static-graphics', !!stage.renderer.isSoftware);
-  const anchor = new THREE.Vector3();
+  const practice = $('#interests');
+  practice.classList.toggle('static-graphics', !!stage.renderer.isSoftware);
   let lastProgress = -1;
   stage.update = () => {
-    const story = $('#interests'), rect = story.getBoundingClientRect();
-    const progress = effects && !stage.renderer.isSoftware ? clamp(-rect.top / (story.offsetHeight - innerHeight)) : 0;
+    const compact = innerWidth < 700;
+    const about = $('#about'), aboutRect = about.getBoundingClientRect();
+    const lensRect = stage.container.getBoundingClientRect();
+    const progress = !effects || stage.renderer.isSoftware ? 0 : compact
+      ? clamp((innerHeight * .62 - lensRect.top) / (innerHeight * .58))
+      : clamp((110 - aboutRect.top) / Math.max(1, about.offsetHeight - practice.offsetHeight));
     if (progress !== lastProgress) {
       timeline.seek(progress * timeline.duration);
       stage.root.rotation.y = -.55 - smooth(progress) * .8;
@@ -233,68 +201,21 @@ function buildLens() {
       stage.root.rotation.x = -.15 + smooth(progress) * .18;
       lastProgress = progress;
     }
-    const mobile = innerWidth < 700;
-    stage.root.position.x = mobile ? 0 : .35;
-    stage.camera.position.z = mobile ? (5.2 + smooth(progress) * 3.1) / (2 * Math.tan(THREE.MathUtils.degToRad(31 / 2)) * stage.camera.aspect) : 10.5;
+    stage.root.position.set(0, 0, 0);
+    const worldWidth = 4.8 + smooth(progress) * 3.6;
+    stage.camera.position.z = Math.max(7.8, worldWidth / (2 * Math.tan(THREE.MathUtils.degToRad(31 / 2)) * stage.camera.aspect));
     stage.camera.lookAt(0, 0, 0);
-    story.style.setProperty('--progress', progress);
-    $('#lens-phase').textContent = progress < .23 ? 'A study in focus.' : progress < .65 ? 'The whole, becoming its parts.' : 'Front optics / focus barrel / aperture / mount';
-    labels.style.opacity = smooth((progress - .38) / .32);
-    $('#lens-instruction').textContent = effects && !stage.renderer.isSoftware ? 'Scroll to look inside' : 'Static lens study';
-    const labelWidth = stage.container.clientWidth, labelHeight = stage.container.clientHeight;
-    labels.setAttribute('viewBox', `0 0 ${labelWidth} ${labelHeight}`);
-    stage.root.updateMatrixWorld(true); stage.camera.updateMatrixWorld(true);
-    [...labels.children].forEach((label, index) => {
-      anchor.copy(anchors[index].position); anchor.applyMatrix4(stage.root.matrixWorld).project(stage.camera);
-      const x = (anchor.x * .5 + .5) * labelWidth, y = (-anchor.y * .5 + .5) * labelHeight;
-      const [nx, ny] = (mobile ? mobileCoords : desktopCoords)[index], right = index > 1;
-      const tx = nx * labelWidth, ty = ny * labelHeight;
-      label.querySelector('path').setAttribute('d', `M${x.toFixed(1)},${y.toFixed(1)} L${right?tx-35:tx+80},${ty} H${tx}`);
-      const text = label.querySelector('text'); text.setAttribute('x', tx); text.setAttribute('y', ty - 12);
-      text.setAttribute('text-anchor', right ? 'end' : 'start');
-    });
+    practice.dataset.lensState = progress > .75 ? 'separated' : progress > .15 ? 'separating' : 'assembled';
+    $('#lens-phase').textContent = progress > .75 ? 'A lens, in parts' : 'An optical study';
+    $('#lens-instruction').textContent = effects && !stage.renderer.isSoftware ? 'Photography + modeling' : 'Static lens study';
   };
   schedule();
 }
 
-let carStarted = false;
-async function loadCar() {
-  if (carStarted) return; carStarted = true;
-  try {
-    const stage = makeStage('car', 0x111111, {position: [-8, 3.8, 12]});
-    const loaded = await new GLTFLoader().loadAsync('assets/mclaren-p1-gtr.glb');
-    const model = loaded.scene;
-    const box = new THREE.Box3().setFromObject(model), size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
-    model.position.sub(center);
-    const normalized = new THREE.Group(); normalized.scale.setScalar(8.3 / Math.max(size.x, size.y, size.z)); normalized.add(model); stage.root.add(normalized);
-    model.traverse(object => {
-      if (!object.isMesh) return;
-      const materials = Array.isArray(object.material) ? object.material : [object.material];
-      for (const material of materials) {
-        if (/main_body|wing|back_body_metal/.test(material.name)) { material.map = null; material.color.set(0x6c1716); material.metalness = .65; material.roughness = .35; }
-        if (/Carbon|Vents|plastic|tires|interior|exhaust|black|extra/i.test(material.name)) material.color.set(0x151719);
-        if (/windshieldwindows/.test(material.name)) {material.color.set(0x101316); material.roughness=.15;}
-        if (material.name === 'tire_logo') object.visible = false;
-        material.envMapIntensity = .75;
-      }
-    });
-    stage.root.rotation.y = .55; stage.ready = true;
-    stage.update = () => {
-      if (stage.renderer.isSoftware) return;
-      const rect = $('.offscreen-interests').getBoundingClientRect();
-      const progress = effects ? clamp((innerHeight - rect.top) / (innerHeight + rect.height)) : .35;
-      stage.root.rotation.y = .4 + progress * .45;
-      stage.root.position.x = (progress - .5) * .7;
-    };
-    schedule();
-  } catch (error) { console.warn('Car decoration unavailable:', error.message); $('#car-stage').hidden = true; }
-}
 function lazy(target, callback, margin) {
   const observer = new IntersectionObserver(entries => {
     if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); callback(); }
   }, {rootMargin: margin});
   observer.observe(target);
 }
-loadAircraft();
 lazy($('#interests'), () => {try {buildLens();} catch(error) {console.warn('Lens unavailable:',error.message); $('#lens-stage').hidden = true; $('.lens-fallback').hidden = false;}}, '400px');
-lazy($('.offscreen-interests'), loadCar, '250px');

@@ -1,31 +1,32 @@
 ---
 name: Sriakshay Vaitla Portfolio
-description: An editorial software portfolio with an industrial optical study.
+description: A work-first editorial software portfolio with contextual creative interests.
 colors:
   ink: "#111"
   paper: "#e9e7e1"
   muted: "#adada8"
   red: "#ff3b30"
   line: "#393939"
-  optical-red: "#d32c25"
-  optical-red-hover: "#b4241d"
+  about-ink: "#171715"
+  about-muted: "#5a5954"
+  about-line: "#c7c5bc"
+  about-red: "#b4241d"
 typography:
   display:
     fontFamily: "Anybody, sans-serif"
-    fontSize: "clamp(68px,9.9vw,160px)"
-    fontWeight: 550
-    lineHeight: 1
-    letterSpacing: "-0.04em"
-    fontVariation: "'wdth' 105"
-  headline:
-    fontFamily: "Anybody, sans-serif"
-    fontSize: "clamp(38px,4.3vw,70px)"
+    fontSize: "clamp(44px,5.4vw,82px)"
     fontWeight: 500
     lineHeight: 1.08
     letterSpacing: "-0.04em"
+  headline:
+    fontFamily: "Anybody, sans-serif"
+    fontSize: "clamp(32px,3.2vw,50px)"
+    fontWeight: 500
+    lineHeight: 1.15
+    letterSpacing: "-0.035em"
   title:
     fontFamily: "Anybody, sans-serif"
-    fontSize: "clamp(27px,3.2vw,50px)"
+    fontSize: "clamp(30px,3.3vw,50px)"
     fontWeight: 500
     lineHeight: 1.12
     letterSpacing: "-0.035em"
@@ -58,9 +59,9 @@ components:
   project-body:
     textColor: "{colors.muted}"
     typography: "{typography.body}"
-  optical-field:
+  about-field:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
+    textColor: "{colors.about-ink}"
 ---
 
 # Design System: Sriakshay Vaitla Portfolio
@@ -76,26 +77,26 @@ Depth belongs to the objects and screenshots. Motion reveals the construction of
 **Key Characteristics:**
 - Wide display typography and restrained utility text.
 - Flat editorial surfaces with real project screenshots.
-- Physical optical geometry and quiet ambient vehicles.
+- A compact optical study within personal context and faint vehicle margin marks.
 - Native scrolling, visible focus, and static graphics fallbacks.
 
 ## Colors
 
-A charcoal and warm-paper foundation uses vivid red as its sole interface accent. Frontmatter records the actual CSS custom properties plus the optical section's explicit red variants.
+A charcoal and warm-paper foundation uses vivid red as its sole interface accent. Frontmatter records the root CSS custom properties and the warm-paper About overrides.
 
 ### Primary
 
-- **Red signal:** the name accent, hover feedback, range controls, focus outline, and full contact background.
-- **Optical red / optical red hover:** darker red emphasis and interaction feedback on the paper field.
+- **Red signal:** the introduction emphasis, hover feedback, range controls, focus outline, and full contact background.
+- **About red:** darker interaction and focus emphasis on the paper field.
 
 ### Neutral
 
 - **Ink:** main page background and text on paper.
-- **Paper:** primary foreground and optical field.
+- **Paper:** primary foreground and About field.
 - **Muted:** supporting descriptions, dates, and utility text.
-- **Line:** project and timeline divisions.
+- **Line:** project divisions; About overrides this with a lighter line for its timeline and captions.
 
-**The Red Signal Rule.** Use red for deliberate emphasis, interaction feedback, and the contact field; use the darker optical red on warm paper.
+**The Red Signal Rule.** Use red for deliberate emphasis, interaction feedback, and the contact field; use the darker About red on warm paper.
 
 ## Typography
 
@@ -106,21 +107,23 @@ The variable display face is broad and closely spaced. Reading text stays quiet 
 
 ### Hierarchy
 
-- **Display:** the hero name, using the display token and width axis (105); at the mobile breakpoint it becomes two lines, with `clamp(47px,12vw,82px)` sizing and line-height (1.06).
-- **Headline:** major section headings; mobile size (35px). The optical heading is its own observed variant: `clamp(48px,6.5vw,105px)` with line-height (.98), becoming (52px/1) on mobile.
-- **Title:** project headings; (30px) at the middle breakpoint and (26px/1.18) on mobile.
-- **Body:** the base role; project descriptions use line-height (1.65) and maximum width (64ch). About copy uses (17px/1.7).
-- **Label:** dates, metadata, captions, and utility controls. Other navigation and link text uses (13px), without uppercase tracking.
+- **Display:** the creative-software introduction, with selective red emphasis; mobile uses `clamp(35px,8.8vw,56px)` and line-height (1.12). At 360px and below it becomes (32px).
+- **Headline:** the About greeting, using the headline token; mobile size (31px). The personal-practice heading uses `clamp(26px,2.6vw,38px)` with line-height (1.15), becoming (28px) on mobile.
+- **Title:** project headings; (31px) at the middle breakpoint and `clamp(27px,7vw,38px)` with line-height (1.18) on mobile.
+- **Body:** project descriptions use line-height (1.65) and maximum width (64ch). About copy uses (16px/1.75), becoming (15px) on mobile.
+- **Label:** dates, metadata, captions, and utility controls. Navigation and text links use (13px), without uppercase tracking. The full-name wordmark is Instrument Sans (18px/1.2, weight 600), with a smaller credential line; mobile uses (15px) and hides that secondary line.
 
 **The Two Voices Rule.** Anybody carries expressive headings; Instrument Sans carries reading and controls. Retained alternative font assets are inactive, not additional type roles.
 
 ## Layout
 
-The centered frame uses `min(1440px,88%)`. Wide sections use asymmetric or paired columns with generous separation. Project heading rows use three columns; project explanations pair a large statement with evidence. The mosaic uses a (1.6fr/1fr) split; the collection project reverses this emphasis at (1fr/1.7fr). The timeline occupies the right half on wide screens.
+The centered frame uses `min(1440px,88%)`. A compact introduction pairs a purpose statement with identity context at (1.8fr/1fr); the sticky header holds the full-name wordmark, credential line, anchor links, and effects control. The first project follows immediately after the introduction.
 
-At (1000px), gaps and type reduce. At (700px), project and about grids become single columns, the timeline fills the frame, and the collection screenshot precedes its text. A (1600px) minimum-width query caps the hero name and enlarges ambient aircraft space. Space is contextual, not a universal scale: the frontmatter lists reused gaps only. Work begins with (110px) top padding, about with (120px), and mobile spacing contracts to (60px) and (65px).
+Project heading rows use three columns (1.4fr/1.15fr/auto). MotionStudio pairs a broad screenshot with a statement and explanation below. PhotoMosaic uses a (1.6fr/1fr) split, while Smart Collection Manager uses (1fr/1.7fr). Each case starts with a hairline rule and has (30px 0 100px) padding. Work has (12px) top padding.
 
-The lens chapter uses a sticky viewport inside a long scroll region: (245svh), minimum (1550px), on desktop; (230svh), minimum (1350px), on mobile. Its final mobile stage has full width and inset (235px 0 80px). Reduced-motion, effects-off, and software modes collapse the long narrative to a static viewport.
+About is a warm-paper field with (88px 0 96px) padding. Its (1.05fr/1fr) grid places biography and timeline on the left and a sticky personal-practice column on the right, offset (116px) from the top. The lens figure is (305px) high, growing to (365px) at 1600px and above. There is no independent optical scroll chapter: lens progress follows the natural About region.
+
+At (1000px), gaps and type reduce and the lens becomes (285px) high. At (700px), introduction, project and About grids become single columns; personal practice becomes normal flow beneath the biography with a top rule, and the lens remains a compact (285px) figure. Case padding contracts to (22px 0 60px), About to (52px 0 72px). At (360px), the header wraps and navigation controls use (36px) minimum height. Space is contextual; frontmatter lists reused gaps only.
 
 ## Elevation & Depth
 
@@ -130,17 +133,17 @@ The interface is flat. Hairline borders and tonal changes distinguish regions, w
 
 ## Shapes
 
-Editorial regions, links, screenshots, and dialogs have square corners. The before/after handle alone is circular (38px diameter). Optical rings and vehicle silhouettes belong to scene geometry, not a rounded container vocabulary. Interface icons use thin inline SVG strokes; the standard icon is (20px), with stroke width (1.6).
+Editorial regions, links, screenshots, and dialogs have square corners. The before/after handle alone is circular (38px diameter). Optical rings belong to scene geometry; vehicle silhouettes are raster margin marks. Neither establishes a rounded container vocabulary. Interface icons use thin inline SVG strokes; the standard icon is (20px), with stroke width (1.6).
 
 ## Components
 
 ### Links and buttons
 
-Understated text controls use an underline or bottom border, a minimum interaction height (44px), and a red hover. The project screenshot button retains a zoom-in cursor and brightens its image on hover. Links and buttons transition color over (.18s ease). Keyboard focus uses a red outline (2px) offset by (6px). The effects button reports its pressed state and persists the preference.
+Understated text controls use an underline or bottom border, a minimum interaction height (44px, with the compact-header exception at 360px), and a red hover. The project screenshot button retains a zoom-in cursor and brightens its image on hover. Links and buttons transition color over (.18s ease). Keyboard focus uses a red outline (2px) offset by (6px). The effects button reports its pressed state and persists the preference.
 
 ### Navigation
 
-A wordmark and compact right-aligned links share a fine bottom rule. The header is (82px) high, becoming (72px) on mobile. Mobile hides the Interests navigation link while the native scroll section remains available.
+A wordmark and compact right-aligned links share a fine bottom rule. The sticky header has an (86px) minimum navigation height, becoming (74px) on mobile. Work, About, Contact, and effects remain compact anchor controls; current location is red.
 
 ### Editorial project presentations
 
@@ -152,9 +155,9 @@ The before/after view clips two images around a single divider with an SVG handl
 
 ### Optical study
 
-Six procedural groups separate along the optical axis using an Anime.js timeline. Each group uses duration (1200), stagger offsets (75), and easing `inOut(3)`; native scroll seeks timeline progress rather than playing a timed loop. Projected SVG leaders track actual group anchors and appear during separation. Mobile computes the annotation viewBox from the stage dimensions. Static graphics explicitly say “Static lens study.”
+Six procedural groups separate along the optical axis using an Anime.js timeline. Each group uses duration (1200), stagger offsets (75), and easing `inOut(3)`; native scroll seeks timeline progress rather than playing a timed loop. The figure sits beside biography and teaching history on desktop and follows them in normal flow on mobile. There are no projected leaders or part annotations. Static graphics explicitly say “Static lens study.”
 
-The model uses dark metal, rubber, silver, and dark glass materials; these scene-specific colors are not additional page accent tokens. Vehicles remain pointer-transparent ambient stages. The custom pointer is browser-rendered SVG; its decorative trail expires after (180ms) and clears when effects disable, focus conditions change, or a dialog opens.
+The model uses dark metal, rubber, silver, and dark glass materials; these scene-specific colors are not additional page accent tokens. Aircraft and car references are small pointer-transparent WebP silhouettes in page margins (112px and 120px desktop widths), rather than runtime scenes. The custom pointer is browser-rendered SVG; its decorative trail expires after (180ms) and clears when effects disable, focus conditions change, or a dialog opens.
 
 ### Dialogs
 
@@ -164,9 +167,9 @@ Screenshot and credit dialogs use native dialog semantics, a dark surface, fine 
 
 ### Do:
 - **Do** preserve real screenshots and distinct editorial project compositions.
-- **Do** keep red focus outlines and controls with at least the existing 44px interaction height.
+- **Do** keep red focus outlines and controls with the existing interaction heights (44px generally, 36px in the narrowest header).
 - **Do** provide the static lens state for reduced motion, effects off, and software rendering.
-- **Do** use SVG paths for interface icons and keep vehicles ambient.
+- **Do** use SVG paths for interface icons and keep vehicle silhouettes faint and subordinate.
 
 ### Don't:
 - **Don't** replace this system with generic card grids, decorative pills, glowing gradients, or burgundy page backgrounds.

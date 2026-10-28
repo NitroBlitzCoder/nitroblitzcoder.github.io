@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-28T00:00:00Z",
+  "generatedAt": "2026-10-28T16:00:00Z",
   "title": "Design System: Sriakshay Vaitla Portfolio",
   "extensions": {
     "colorMeta": {
@@ -74,43 +74,31 @@
           "oklch(95% 0.0025 0.0)"
         ]
       },
-      "optical-red": {
-        "role": "primary",
-        "displayName": "Optical Red",
-        "tonalRamp": [
-          "oklch(15% 0.0402 2.4)",
-          "oklch(26% 0.0797 2.4)",
-          "oklch(38% 0.1119 2.4)",
-          "oklch(50% 0.1284 2.4)",
-          "oklch(62% 0.1269 2.4)",
-          "oklch(74% 0.1075 2.4)",
-          "oklch(86% 0.0731 2.4)",
-          "oklch(95% 0.0402 2.4)"
-        ]
+      "about-ink": {
+        "role": "neutral",
+        "displayName": "About Ink"
       },
-      "optical-red-hover": {
+      "about-muted": {
+        "role": "neutral",
+        "displayName": "About Muted"
+      },
+      "about-line": {
+        "role": "neutral",
+        "displayName": "About Line"
+      },
+      "about-red": {
         "role": "primary",
-        "displayName": "Optical Red Hover",
-        "tonalRamp": [
-          "oklch(15% 0.0402 2.8)",
-          "oklch(26% 0.0797 2.8)",
-          "oklch(38% 0.1119 2.8)",
-          "oklch(50% 0.1284 2.8)",
-          "oklch(62% 0.1269 2.8)",
-          "oklch(74% 0.1075 2.8)",
-          "oklch(86% 0.0731 2.8)",
-          "oklch(95% 0.0402 2.8)"
-        ]
+        "displayName": "About Red"
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero name."
+        "purpose": "Creative-software introduction; selective red emphasis."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Major section headings."
+        "purpose": "About greeting; personal-practice heading is a smaller variant."
       },
       "title": {
         "displayName": "Title",
@@ -166,6 +154,10 @@
       {
         "name": "mobile",
         "value": "max-width:700px"
+      },
+      {
+        "name": "narrow-header",
+        "value": "max-width:360px"
       }
     ]
   },
@@ -175,7 +167,7 @@
       "kind": "button",
       "description": "Text link extracted from the shipped portfolio.",
       "html": "<a class=\"ds-text-link\" href=\"#work\">Explore the work <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a>",
-      "css": ".ds-text-link{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9e7e1);display:inline-flex;align-items:center;gap:26px;min-height:44px;border-bottom:1px solid #777;text-decoration:none;transition:color .18s ease}.ds-text-link svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6}.ds-text-link:hover{color:var(--red,#ff3b30)}.ds-text-link:focus-visible{outline:2px solid var(--red,#ff3b30);outline-offset:6px;}",
+      "css": ".ds-text-link{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9e7e1);display:inline-flex;align-items:center;gap:24px;min-height:44px;border-bottom:1px solid #777;text-decoration:none;transition:color .18s ease}.ds-text-link svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6}.ds-text-link:hover{color:var(--red,#ff3b30)}.ds-text-link:focus-visible{outline:2px solid var(--red,#ff3b30);outline-offset:6px;}",
       "refersTo": "text-link"
     },
     {
@@ -183,15 +175,15 @@
       "kind": "button",
       "description": "Effects button extracted from the shipped portfolio.",
       "html": "<button class=\"ds-effects\" aria-pressed=\"true\">Effects on</button>",
-      "css": ".ds-effects{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9e7e1);color:var(--muted,#adada8);font-size:12px;background:transparent;border:0;border-bottom:1px solid #666;padding:0;min-height:44px;cursor:pointer;transition:color .18s ease}.ds-effects:hover{color:var(--red,#ff3b30)}.ds-effects:focus-visible{outline:2px solid var(--red,#ff3b30);outline-offset:6px;}",
+      "css": ".ds-effects{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9e7e1);color:var(--muted,#adada8);font-size:12px;background:transparent;border:0;padding:0;min-height:44px;cursor:pointer;transition:color .18s ease}.ds-effects:hover{color:var(--red,#ff3b30)}.ds-effects:focus-visible{outline:2px solid var(--red,#ff3b30);outline-offset:6px;}",
       "refersTo": "effects-button"
     },
     {
       "name": "Navigation",
       "kind": "nav",
-      "description": "Navigation extracted from the shipped portfolio.",
+      "description": "Sticky-header anchor links; current location uses the red accent.",
       "html": "<nav class=\"ds-nav\"><a href=\"#work\">Work</a><a href=\"#about\">About</a><a href=\"#contact\">Contact</a></nav>",
-      "css": ".ds-nav{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9e7e1);display:flex;gap:28px;border-bottom:1px solid #444}.ds-nav a{color:inherit;display:inline-flex;align-items:center;min-height:44px;text-decoration:none;transition:color .18s ease}.ds-nav a:hover{color:var(--red,#ff3b30)}.ds-nav a:focus-visible{outline:2px solid var(--red,#ff3b30);outline-offset:6px;}"
+      "css": ".ds-nav{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9e7e1);display:flex;gap:30px}.ds-nav a{color:inherit;display:inline-flex;align-items:center;min-height:44px;text-decoration:none;transition:color .18s ease}.ds-nav a:hover{color:var(--red,#ff3b30)}.ds-nav a:focus-visible{outline:2px solid var(--red,#ff3b30);outline-offset:6px;}.ds-nav a[aria-current=location]{color:var(--red,#ff3b30)}"
     },
     {
       "name": "Comparison range",
@@ -210,17 +202,17 @@
   ],
   "narrative": {
     "northStar": "Industrial Optical Monograph",
-    "overview": "An industrial optical monograph: wide, compactly spaced typography, charcoal fields, warm paper, and a vivid red signal. Software evidence appears in generous editorial compositions, with hairline divisions rather than enclosing cards.\n\nDepth belongs to the objects and screenshots. Motion reveals the construction of a camera lens through native scrolling; it remains optional, and the static experience retains readable project evidence and contact access.",
+    "overview": "An industrial optical monograph: wide, compactly spaced typography, charcoal fields, warm paper, and a vivid red signal. Software evidence appears in generous editorial compositions, with hairline divisions rather than enclosing cards.\n\nDepth belongs to the objects and screenshots. A compact lens figure accompanies photography and modeling interests in About. Native scrolling reveals its construction; it remains optional, and the static experience retains readable project evidence and contact access.",
     "keyCharacteristics": [
       "Wide display typography and restrained utility text.",
       "Flat editorial surfaces with real project screenshots.",
-      "Physical optical geometry and quiet ambient vehicles.",
+      "A compact optical study within personal context and faint vehicle margin marks.",
       "Native scrolling, visible focus, and static graphics fallbacks."
     ],
     "rules": [
       {
         "name": "The Red Signal Rule",
-        "body": "Use red for deliberate emphasis, interaction feedback, and the contact field; use the darker optical red on warm paper.",
+        "body": "Use red for deliberate emphasis, interaction feedback, and the contact field; use the darker About red on warm paper.",
         "section": "colors"
       },
       {
@@ -236,9 +228,9 @@
     ],
     "dos": [
       "Do preserve real screenshots and distinct editorial project compositions.",
-      "Do keep red focus outlines and controls with at least the existing 44px interaction height.",
+      "Do keep red focus outlines and controls with the existing interaction heights (44px generally, 36px in the narrowest header).",
       "Do provide the static lens state for reduced motion, effects off, and software rendering.",
-      "Do use SVG paths for interface icons and keep vehicles ambient."
+      "Do use SVG paths for interface icons and keep vehicle silhouettes faint and subordinate."
     ],
     "donts": [
       "Don't replace this system with generic card grids, decorative pills, glowing gradients, or burgundy page backgrounds.",

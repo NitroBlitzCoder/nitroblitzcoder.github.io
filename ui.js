@@ -167,5 +167,24 @@
       link.firstChild.textContent = 'Download resume ';
     });
   }).catch(() => {});
+  // Location follows the document; it never competes with the content.
+  const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  if (navLinks.length) {
+    const sections = navLinks.map(link => document.querySelector(link.getAttribute('href')));
+    let pendingNav = false;
+    function syncLocation() {
+      pendingNav = false;
+      let active = -1;
+      sections.forEach((section, index) => { if (section && section.getBoundingClientRect().top <= 160) active = index; });
+      navLinks.forEach((link, index) => {
+        if (index === active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }
+    function scheduleLocation() { if (!pendingNav) { pendingNav = true; requestAnimationFrame(syncLocation); } }
+    window.addEventListener('scroll', scheduleLocation, {passive: true});
+    window.addEventListener('resize', scheduleLocation);
+    syncLocation();
+  }
   applyEffects();
 })();

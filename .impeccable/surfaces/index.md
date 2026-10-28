@@ -1,12 +1,13 @@
-# Portfolio direction — optical study
+# Portfolio direction — work first, personal context second
 
-MODE: Experience, with fast access to fellowship evidence.
-FORM: Industrial optical monograph, adapted to an editorial web portfolio. Impeccable seed:ca9d1879786eee1a; assigned fifth grounded candidate, constrained by the user's explicit Anime.js lens, charcoal/red palette, and ambient-vehicle decisions. Other grounded references considered: photographic contact print, motorsport launch catalogue, Swiss exhibition poster, sculptural design studio, letterpress arts journal, paddock editorial. The user's chosen reference governs the build.
-BUILD: Code-led functional redesign of an existing static site; no approved raster comp. The reference site's actual scroll sequence was inspected in-browser. No claim of pixel matching or Lusion-equivalent shaders.
-FIRST VIEWPORT: Clear creative-software purpose, Rutgers credentials, a broad single-line name, small factual HackRU evidence, and an ambient SR-71. Direct project access. New wide Anybody and Instrument Sans type, graphite and warm paper, bright red accents. Avoid condensed display/pill/card template from rejected version.
-VISITOR PATH: Opening -> three real project case studies -> light optical study -> education and teaching -> quiet P1 interest detail -> red contact close.
-SIGNATURE INTERACTION: A procedural camera lens separates along its optical axis, rotates toward a side view, and gains component leader labels in response to ordinary native scroll. Reverse scrolling reassembles it. No click or hover required. Photography is a camera/lens theme, not a photo gallery. Vehicles stay ambient, with small scroll-linked orientation changes and no controls.
-QUALITY BAR: The scope of the Anime.js lens transition—assembled object, separating groups, annotated exploded view—implemented as real geometry. Preserve legible text and simple navigation. Distinct project compositions and real screenshots, no invented achievements or fabricated photography.
-PERFORMANCE: Lazy lens and P1; single scheduled frame per scroll/resize; no idle loops; offscreen/hidden stages do not render; software fallback stays static; mobile DPR cap. Browser-rendered SVG pointer and short independently-cleared trail.
-ACCESSIBILITY: Native document scrolling, semantic project headings, focus visibility, labeled comparison and pan sliders, modal focus/escape behavior, effects toggle and prefers-reduced-motion. All factual content remains readable if graphics fail.
-OPEN CONTENT: User will supply a different resume. Until then use a useful mailto resume request. Once assets/resume.pdf is present, the existing link automatically becomes a PDF download. Preserve external project/profile links and third-party model/source licenses.
+MODE: Experience with fast access to fellowship evidence.
+THESIS: Creative software provides the foreground. Personal interests add context alongside biography rather than interrupting the portfolio.
+OWN-WORLD: Charcoal, warm paper, vivid red, wide Anybody typography and Instrument Sans body copy. Editorial rules, real screenshots, restrained controls, no card grid, pills, glow, or fabricated achievements.
+FORM: Compact introduction, three varied project presentations, warm-paper About with a personal-practice column, red contact close.
+FIRST VIEWPORT: Identity and university credentials, concise creative-software purpose, direct project access, MotionStudio and its factual HackRU result. The aircraft is a faint 112px margin mark, not a scene.
+STORY: Purpose -> MotionStudio -> PhotoMosaic -> Smart Collection Manager -> biography/education/teaching alongside creative practice -> contact.
+SIGNATURE INTERACTION: A procedural lens supports the explicitly named photography and modeling interests in About. Ordinary scrolling separates its parts; reverse scrolling reassembles them. No extra scroll chapter or click trigger. Mobile uses a compact normal-flow figure.
+QUALITY BAR: Clear identity, professional evidence hierarchy, distinct project compositions and coherent placement of personal detail. See RESEARCH.md for the five primary studio/portfolio references inspected.
+PERFORMANCE: Only the lens is a runtime 3D scene. Vehicle references are approximately 2KB each, derived from licensed meshes. Lens renders on demand, pauses offscreen, has a static software fallback and respects reduced motion/effects off.
+ACCESSIBILITY: Native scrolling, sticky anchor navigation, visible focus, semantic headings, labeled comparison/pan controls, modal focus/Escape, no horizontal overflow at 390px. Core content remains readable without graphics.
+OPEN CONTENT: User will provide a replacement resume. Keep a useful mailto request until assets/resume.pdf is supplied. Preserve source models and licenses.

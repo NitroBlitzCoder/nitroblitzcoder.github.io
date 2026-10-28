@@ -41,3 +41,5 @@ It is an illustrative optical assembly, not a model of a specific product,
 and is not presented as Sriakshay's own modeling work.
 The scroll choreography takes inspiration from the assembled/exploded lens
 sequence on https://animejs.com/; no Anime.js site models or art were copied.
+
+Margin graphics: aircraft-mark.webp and car-mark.webp are orthographic silhouette derivatives of the credited SR-71 and P1 meshes. Generated offline by model-source/render-margin-marks.mjs; retain the original attributions and licenses above. They are decorative interest references, not original modeling work.
