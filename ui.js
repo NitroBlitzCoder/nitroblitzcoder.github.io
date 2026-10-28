@@ -1,7 +1,163 @@
-(()=>{'use strict';const $=s=>document.querySelector(s);const reduced=matchMedia('(prefers-reduced-motion: reduce)');let enabled=!reduced.matches;let preference;try{preference=localStorage.getItem('sv-effects')}catch{}if(preference==='off')enabled=false;window.portfolioEffects=enabled;
-const button=$('#effects');function apply(){window.portfolioEffects=enabled;document.body.classList.toggle('still',!enabled);document.documentElement.style.scrollBehavior=enabled?'smooth':'auto';button.textContent=enabled?'Effects on':'Effects off';button.setAttribute('aria-pressed',String(!enabled));window.dispatchEvent(new CustomEvent('effectschange',{detail:enabled}));if(!enabled){document.body.classList.remove('custom-cursor');$('#cursor').style.opacity=0;}else if(pointerInside&&fine.matches)document.body.classList.add('custom-cursor');}
-button.addEventListener('click',()=>{enabled=!enabled;try{localStorage.setItem('sv-effects',enabled?'on':'off')}catch{}apply()});reduced.addEventListener('change',e=>{enabled=!e.matches;apply()});
-const compare=$('#comparison-view');$('#compare-range').addEventListener('input',e=>compare.style.setProperty('--split',e.target.value+'%'));$('#zoom').addEventListener('click',()=>{let zoom=$('#zoom').getAttribute('aria-pressed')!=='true';$('#zoom').setAttribute('aria-pressed',String(zoom));$('#zoom').textContent=zoom?'Reset zoom':'Zoom 4×';compare.style.setProperty('--zoom',zoom?'4':'1')});
-const imageDialog=$('#image-dialog');document.querySelectorAll('[data-image]').forEach(b=>b.addEventListener('click',()=>{$('#full-image').src=b.dataset.image;$('#full-image').alt=b.dataset.alt;imageDialog.showModal()}));$('#credits-button').addEventListener('click',()=>$('#credits-dialog').showModal());document.querySelectorAll('dialog').forEach(d=>{d.querySelector('.close-dialog').addEventListener('click',()=>d.close());d.addEventListener('click',e=>{if(e.target===d){let r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()}})});
-const cursor=$('#cursor'),canvas=$('#cursor-trail'),ctx=canvas.getContext('2d');const fine=matchMedia('(hover:hover) and (pointer:fine)');let pointerInside=false;let x=-100,y=-100,lastMove=0,points=Array.from({length:24},()=>({x:-100,y:-100}));let raf=0;function size(){let d=Math.min(devicePixelRatio||1,2);canvas.width=innerWidth*d;canvas.height=innerHeight*d;ctx.setTransform(d,0,0,d,0,0)}size();addEventListener('resize',size);function draw(now){raf=0;ctx.clearRect(0,0,innerWidth,innerHeight);if(!enabled||!fine.matches)return;let alpha=Math.max(0,1-(now-lastMove)/650);points[0].x+=(x-points[0].x)*.65;points[0].y+=(y-points[0].y)*.65;for(let i=1;i<points.length;i++){points[i].x+=(points[i-1].x-points[i].x)*.38;points[i].y+=(points[i-1].y-points[i].y)*.38;}if(alpha>0){ctx.lineCap='round';for(let i=points.length-1;i>0;i--){ctx.beginPath();ctx.moveTo(points[i].x,points[i].y);ctx.lineTo(points[i-1].x,points[i-1].y);ctx.strokeStyle=`rgba(241,46,54,${alpha*(1-i/points.length)*.55})`;ctx.lineWidth=(1-i/points.length)*5;ctx.stroke();}raf=requestAnimationFrame(draw)}}document.addEventListener('pointermove',e=>{if(e.pointerType==='touch'||!fine.matches||!enabled)return;if(!pointerInside){points.forEach(p=>{p.x=e.clientX;p.y=e.clientY});pointerInside=true;document.body.classList.add('custom-cursor')}x=e.clientX;y=e.clientY;cursor.style.transform=`translate3d(${x-3}px,${y-2}px,0)`;cursor.style.opacity=1;cursor.classList.toggle('hover',!!e.target.closest('a,button,summary,input'));lastMove=performance.now();if(!raf)raf=requestAnimationFrame(draw)},{passive:true});document.addEventListener('pointerleave',()=>{pointerInside=false;cursor.style.opacity=0;document.body.classList.remove('custom-cursor')});document.addEventListener('pointerdown',()=>cursor.style.scale='.85');document.addEventListener('pointerup',()=>cursor.style.scale='1');addEventListener('effectschange',()=>{if(!enabled){ctx.clearRect(0,0,innerWidth,innerHeight);if(raf)cancelAnimationFrame(raf);raf=0}});apply();
+(() => {
+  'use strict';
+  const $ = selector => document.querySelector(selector);
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const fine = matchMedia('(hover: hover) and (pointer: fine)');
+  let preference;
+  try { preference = localStorage.getItem('sv-effects'); } catch {}
+  let enabled = !reduced.matches && preference !== 'off';
+  const effects = $('#effects');
+  const canvas = $('#cursor-trail');
+  const context = canvas.getContext('2d');
+  let points = [], frame = 0, lastPoint = null;
+  const lifetime = 180;
+
+  // The actual pointer is browser-rendered. This canvas is decoration only.
+  function resetTrail() {
+    cancelAnimationFrame(frame);
+    frame = 0;
+    points = [];
+    lastPoint = null;
+    context?.clearRect(0, 0, innerWidth, innerHeight);
+  }
+  function sizeTrail() {
+    resetTrail();
+    const ratio = Math.min(devicePixelRatio || 1, 1.5);
+    canvas.width = Math.round(innerWidth * ratio);
+    canvas.height = Math.round(innerHeight * ratio);
+    context?.setTransform(ratio, 0, 0, ratio, 0, 0);
+  }
+  const modalOpen = () => !!document.querySelector('dialog[open]');
+  function canTrail() {
+    return context && enabled && fine.matches && !document.hidden && !modalOpen();
+  }
+  function drawTrail(now) {
+    frame = 0;
+    context.clearRect(0, 0, innerWidth, innerHeight);
+    if (!canTrail()) { resetTrail(); return; }
+    points = points.filter(point => now - point.time < lifetime);
+    context.lineCap = 'round';
+    for (let i = 1; i < points.length; i++) {
+      const alpha = Math.max(0, 1 - (now - points[i - 1].time) / lifetime);
+      context.beginPath();
+      context.moveTo(points[i - 1].x, points[i - 1].y);
+      context.lineTo(points[i].x, points[i].y);
+      context.strokeStyle = `rgba(255,59,59,${alpha * .34})`;
+      context.lineWidth = alpha * 2.5;
+      context.stroke();
+    }
+    if (points.length) frame = requestAnimationFrame(drawTrail);
+    else lastPoint = null;
+  }
+  function applyEffects() {
+    resetTrail();
+    window.portfolioEffects = enabled;
+    document.body.classList.toggle('still', !enabled);
+    document.body.classList.toggle('custom-cursor', enabled && fine.matches);
+    effects.textContent = enabled ? 'Effects on' : 'Effects off';
+    effects.setAttribute('aria-pressed', String(enabled));
+    window.dispatchEvent(new CustomEvent('effectschange', { detail: enabled }));
+  }
+  effects.addEventListener('click', () => {
+    enabled = !enabled;
+    try { localStorage.setItem('sv-effects', enabled ? 'on' : 'off'); } catch {}
+    applyEffects();
+  });
+  reduced.addEventListener('change', () => {
+    enabled = !reduced.matches && localStoragePreference() !== 'off';
+    applyEffects();
+  });
+  function localStoragePreference() {
+    try { return localStorage.getItem('sv-effects'); } catch { return preference; }
+  }
+  fine.addEventListener('change', applyEffects);
+  document.addEventListener('pointermove', event => {
+    if (event.pointerType !== 'mouse' || !canTrail()) { resetTrail(); return; }
+    if (event.target.closest('input, textarea, select, dialog, [contenteditable]')) {
+      resetTrail(); return;
+    }
+    const time = performance.now();
+    // A discontinuous move (window re-entry, teleport, stale event) starts a new stroke.
+    if (lastPoint && (time - lastPoint.time > lifetime ||
+      Math.hypot(event.clientX - lastPoint.x, event.clientY - lastPoint.y) > 160)) resetTrail();
+    lastPoint = { x: event.clientX, y: event.clientY, time };
+    points.push(lastPoint);
+    if (points.length > 36) points.shift();
+    if (!frame) frame = requestAnimationFrame(drawTrail);
+  }, { passive: true });
+  document.addEventListener('pointerdown', event => {
+    if (event.pointerType !== 'mouse') resetTrail();
+  }, { passive: true });
+  document.addEventListener('pointerout', event => { if (!event.relatedTarget) resetTrail(); });
+  document.documentElement.addEventListener('pointerleave', resetTrail);
+  document.addEventListener('pointercancel', resetTrail);
+  document.addEventListener('visibilitychange', resetTrail);
+  window.addEventListener('blur', resetTrail);
+  window.addEventListener('pagehide', resetTrail);
+  window.addEventListener('scroll', resetTrail, { passive: true });
+  window.addEventListener('resize', sizeTrail);
+  sizeTrail();
+
+  const comparison = $('#comparison-view');
+  const range = $('#compare-range');
+  function setComparison() {
+    comparison.style.setProperty('--split', `${range.value}%`);
+    range.setAttribute('aria-valuetext', `${range.value}% original, ${100 - range.value}% mosaic`);
+  }
+  range.addEventListener('input', setComparison);
+  setComparison();
+  const zoom = $('#zoom');
+  const pan = $('#mosaic-pan');
+  zoom.addEventListener('click', () => {
+    const zoomed = zoom.getAttribute('aria-pressed') !== 'true';
+    zoom.setAttribute('aria-pressed', String(zoomed));
+    zoom.textContent = zoomed ? 'Reset zoom' : 'Zoom 4×';
+    comparison.style.setProperty('--zoom', zoomed ? '4' : '1');
+    comparison.classList.toggle('zoomed', zoomed);
+    pan.hidden = !zoomed;
+    $('#mosaic-hint').textContent = zoomed
+      ? 'Explore the tiles: move across the image, or use the detail controls.'
+      : 'Slide to compare the original with the mosaic. Zoom in to see the individual tiles.';
+  });
+  const panX = $('#pan-x'), panY = $('#pan-y');
+  function setPan(x, y) {
+    comparison.style.setProperty('--origin-x', `${x}%`);
+    comparison.style.setProperty('--origin-y', `${y}%`);
+    panX.value = x; panY.value = y;
+  }
+  pan.addEventListener('input', () => setPan(panX.value, panY.value));
+  comparison.addEventListener('pointermove', event => {
+    if (zoom.getAttribute('aria-pressed') !== 'true' || event.pointerType !== 'mouse') return;
+    const rect = comparison.getBoundingClientRect();
+    setPan(Math.round((event.clientX - rect.left) / rect.width * 100),
+      Math.round((event.clientY - rect.top) / rect.height * 100));
+  }, { passive: true });
+
+  function openDialog(dialog) {
+    resetTrail();
+    document.body.classList.add('modal-open');
+    dialog.showModal();
+  }
+  document.querySelectorAll('[data-image]').forEach(button => {
+    button.addEventListener('click', () => {
+      $('#full-image').src = button.dataset.image;
+      $('#full-image').alt = button.dataset.alt;
+      openDialog($('#image-dialog'));
+    });
+  });
+  $('#credits-button').addEventListener('click', () => openDialog($('#credits-dialog')));
+  document.querySelectorAll('dialog').forEach(dialog => {
+    dialog.querySelector('.close-dialog').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('close', () => {
+      document.body.classList.toggle('modal-open', modalOpen());
+      resetTrail();
+    });
+    dialog.addEventListener('click', event => {
+      if (event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      if (event.clientX < rect.left || event.clientX > rect.right ||
+        event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+    });
+  });
+  applyEffects();
 })();
