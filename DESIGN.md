@@ -2,11 +2,11 @@
 name: Sriakshay Vaitla Portfolio
 description: A work-first editorial software portfolio with contextual creative interests.
 colors:
-  ink: "#111"
-  paper: "#e9e7e1"
-  muted: "#adada8"
-  red: "#ff3b30"
-  line: "#393939"
+  ink: "#09111d"
+  paper: "#e9edf1"
+  muted: "#a8b6c6"
+  red: "#ff6157"
+  line: "#2a3849"
   about-ink: "#171715"
   about-muted: "#5a5954"
   about-line: "#c7c5bc"
@@ -70,19 +70,19 @@ components:
 
 **Creative North Star: "Industrial Optical Monograph"**
 
-An industrial optical monograph: wide, compactly spaced typography, charcoal fields, warm paper, and a vivid red signal. Software evidence appears in generous editorial compositions, with hairline divisions rather than enclosing cards.
+An industrial optical monograph: wide, compactly spaced typography, deep-navy fields, cool paper, and a vivid red signal. Software evidence appears in generous editorial compositions, with hairline divisions rather than enclosing cards.
 
 Depth belongs to the objects and screenshots. Motion reveals the construction of a camera lens through native scrolling; it remains optional, and the static experience retains readable project evidence and contact access.
 
 **Key Characteristics:**
 - Wide display typography and restrained utility text.
 - Flat editorial surfaces with real project screenshots.
-- A compact optical study within personal context and faint vehicle margin marks.
+- A compact optical study within personal context and an upward-angled circuit plane with faint technical vehicle drawings.
 - Native scrolling, visible focus, and static graphics fallbacks.
 
 ## Colors
 
-A charcoal and warm-paper foundation uses vivid red as its sole interface accent. Frontmatter records the root CSS custom properties and the warm-paper About overrides.
+A deep-navy and cool-paper foundation uses vivid red as its sole interface accent. Frontmatter records the root CSS custom properties and the cool-paper About overrides.
 
 ### Primary
 
@@ -96,7 +96,7 @@ A charcoal and warm-paper foundation uses vivid red as its sole interface accent
 - **Muted:** supporting descriptions, dates, and utility text.
 - **Line:** project divisions; About overrides this with a lighter line for its timeline and captions.
 
-**The Red Signal Rule.** Use red for deliberate emphasis, interaction feedback, and the contact field; use the darker About red on warm paper.
+**The Red Signal Rule.** Use red for deliberate emphasis, interaction feedback, and the contact field; use the darker About red on cool paper.
 
 ## Typography
 
@@ -121,7 +121,7 @@ The centered frame uses `min(1440px,88%)`. A compact introduction pairs a purpos
 
 Project heading rows use three columns (1.4fr/1.15fr/auto). MotionStudio pairs a broad screenshot with a statement and explanation below. PhotoMosaic uses a (1.6fr/1fr) split, while Smart Collection Manager uses (1fr/1.7fr). Each case starts with a hairline rule and has (30px 0 100px) padding. Work has (12px) top padding.
 
-About is a warm-paper field with (88px 0 96px) padding. Its (1.05fr/1fr) grid places biography and timeline on the left and a sticky personal-practice column on the right, offset (116px) from the top. The lens figure is (305px) high, growing to (365px) at 1600px and above. There is no independent optical scroll chapter: lens progress follows the natural About region.
+About is a cool-paper field with (88px 0 96px) padding. Its (1.05fr/1fr) grid places biography and timeline on the left and a sticky personal-practice column on the right, offset (116px) from the top. The lens figure is (305px) high, growing to (365px) at 1600px and above. There is no independent optical scroll chapter: lens progress follows the natural About region.
 
 At (1000px), gaps and type reduce and the lens becomes (285px) high. At (700px), introduction, project and About grids become single columns; personal practice becomes normal flow beneath the biography with a top rule, and the lens remains a compact (285px) figure. Case padding contracts to (22px 0 60px), About to (52px 0 72px). At (360px), the header wraps and navigation controls use (36px) minimum height. Space is contextual; frontmatter lists reused gaps only.
 
@@ -133,7 +133,7 @@ The interface is flat. Hairline borders and tonal changes distinguish regions, w
 
 ## Shapes
 
-Editorial regions, links, screenshots, and dialogs have square corners. The before/after handle alone is circular (38px diameter). Optical rings belong to scene geometry; vehicle silhouettes are raster margin marks. Neither establishes a rounded container vocabulary. Interface icons use thin inline SVG strokes; the standard icon is (20px), with stroke width (1.6).
+Editorial regions, links, screenshots, and dialogs have square corners. The before/after handle alone is circular (38px diameter). Optical rings belong to scene geometry; vehicle drawings are raster circuit details. Neither establishes a rounded container vocabulary. Interface icons use thin inline SVG strokes; the standard icon is (20px), with stroke width (1.6).
 
 ## Components
 
@@ -157,7 +157,7 @@ The before/after view clips two images around a single divider with an SVG handl
 
 Six procedural groups separate along the optical axis using an Anime.js timeline. Each group uses duration (1200), stagger offsets (75), and easing `inOut(3)`; native scroll seeks timeline progress rather than playing a timed loop. The figure sits beside biography and teaching history on desktop and follows them in normal flow on mobile. There are no projected leaders or part annotations. Static graphics explicitly say “Static lens study.”
 
-The model uses dark metal, rubber, silver, and dark glass materials; these scene-specific colors are not additional page accent tokens. Aircraft and car references are small pointer-transparent WebP silhouettes in page margins (112px and 120px desktop widths), rather than runtime scenes. The custom pointer is browser-rendered SVG; its decorative trail expires after (180ms) and clears when effects disable, focus conditions change, or a dialog opens.
+The model uses dark metal, rubber, silver, and dark glass materials; these scene-specific colors are not additional page accent tokens. Aircraft and car references are pointer-transparent technical WebP drawings (155px and 205px desktop widths), embedded within the fixed circuitry plane. Licensed meshes are projected offline with visibility-tested crease lines. The full vehicle models are not downloaded at runtime. The custom pointer is browser-rendered SVG; its decorative trail expires after (180ms) and clears when effects disable, focus conditions change, or a dialog opens.
 
 ### Dialogs
 
@@ -169,9 +169,27 @@ Screenshot and credit dialogs use native dialog semantics, a dark surface, fine 
 - **Do** preserve real screenshots and distinct editorial project compositions.
 - **Do** keep red focus outlines and controls with the existing interaction heights (44px generally, 36px in the narrowest header).
 - **Do** provide the static lens state for reduced motion, effects off, and software rendering.
-- **Do** use SVG paths for interface icons and keep vehicle silhouettes faint and subordinate.
+- **Do** use SVG paths for interface icons and keep circuit details faint and subordinate.
 
 ### Don't:
 - **Don't** replace this system with generic card grids, decorative pills, glowing gradients, or burgundy page backgrounds.
 - **Don't** turn vehicles into click-operated exhibits or turn the camera theme into a photography gallery.
 - **Don't** require motion, hover, or graphics to reach factual content.
+
+## Circuit material and supporting motion
+
+The body is deep navy (#09111d). A fixed, pointer-transparent circuit plane uses #6c9cc0 routing at 28% opacity (21% on phones), a central fading mask, and a -10° vertical skew. This gives traces an upward slope without tilting content. Camera/sensor, CPU, and dimensioned volume diagrams connect to routed traces; vehicle drawings share their color and material. The About surface is #e7ebee and preserves the existing legible dark-text overrides.
+
+Only the circuit plane has a small pointer-dependent shift (at most 2.5px horizontally) and bounded scroll drift (32px). Four light segments progress along traces in response to native scroll. ambient.js coalesces background changes into one scheduled frame and has no idle animation loop. Screenshot hover tilts by at most one degree and receives a brief reflective sweep. Navigation labels roll once on hover/focus; link arrows and underlines confirm interaction. Effects off and reduced motion suppress spatial motion. Touch does not tilt images. The separating lens remains the primary authored interaction.
+
+## Cinematic project viewer
+
+The approved page composition and circuitry field stay fixed. The primary motion is a reversible journey from a project image to a full-screen native-dialog gallery. Its three records are the real MotionStudio, PhotoMosaic, and Smart Collection Manager images; PhotoMosaic adds an Enlarge action beside the existing comparison controls.
+
+Opening uses a 900ms desktop / 760ms phone flight. A tessellated WebGL image plane lifts, turns by up to about 26 degrees, bends slightly along both image axes, receives a traveling reflection, and resolves into an ordinary sharp DOM image. Texture crop coordinates interpolate from the visible source crop to the full image. The destination fits the complete image inside the available stage with no distortion. Closing takes 680ms / 560ms and returns the image to its project; if gallery navigation chose another project, the inert page moves behind the cover before the return flight.
+
+Gallery changes take 780ms / 640ms: outgoing and incoming image planes travel through depth in opposite directions. Metadata follows with a 420ms masked-opacity/blur transition, and circuit signals run for a finite 1000–1100ms. The viewer uses the same navy/ice-blue material as the page, a 100px desktop header, 93px footer, and the site's 88% frame. Phone controls retain 44px targets, the header can wrap, and footer navigation sits below the description.
+
+Left/Right arrows navigate. Escape and Close reverse the flight, including during an opening or gallery change. Native dialog semantics protect focus; return restores focus to the relevant project trigger. Rapid navigation retains the latest requested destination. Resize settles the active image without leaving a hidden source. Effects off, reduced motion, unavailable WebGL and context loss retain a working static gallery. If the animation module fails, the pre-existing native screenshot viewer still works.
+
+The WebGL context is created on first animated open and uses a capped pixel ratio (1.5 desktop / 1.25 phone). Only active flights request frames; the GPU canvas is hidden and cleared at rest. Project textures are cached, and resources are disposed on page exit. Lens scroll motion now settles toward its native-scroll target over about 75ms; it still has no idle loop or additional scroll chapter.

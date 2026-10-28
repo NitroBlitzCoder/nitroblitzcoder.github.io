@@ -13,12 +13,16 @@ Deploy the repository root through the repository's existing GitHub Pages config
 - index.html: factual content, links, project descriptions, and credits.
 - style.css: Anybody/Instrument Sans typography, responsive editorial layouts, colors, focus states.
 - ui.js: dependable browser-rendered custom cursor, short canvas trail, comparison/zoom controls, dialogs, effects preference, resume availability.
+- ambient.js: event-driven circuitry, scroll-linked signal segments, and subtle screenshot hover depth.
+- viewer.js: native-dialog gallery, reversible image flight, keyboard and interruption handling.
+- viewer-renderer.js: tessellated WebGL image planes, curvature, reflection, and depth.
+- viewer-motion.mjs: source crop, aspect-fit and flight geometry.
 - scene.js: procedural camera lens and Anime.js scroll-scrubbed component separation within About.
 - software-renderer.js: simplified static fallback when WebGL is unavailable.
 - PRODUCT.md: confirmed product/content constraints.
 - DESIGN.md and .impeccable/design.json: documented final design system.
 
-The cars and aircraft are background details and have no click controls. The lens sequence responds to ordinary page scrolling and reverses naturally. Photography is represented by the optical study, not a gallery. The lens is an illustrative assembly created for this website, not a manufacturer-specific engineering model.
+The cars and aircraft are technical line drawings integrated into an upward-angled blue circuit background and have no click controls. The lens sequence responds to ordinary page scrolling and reverses naturally. Photography is represented by the optical study, not a gallery. The lens is an illustrative assembly created for this website, not a manufacturer-specific engineering model.
 
 ## Resume
 
@@ -26,7 +30,7 @@ The requested replacement PDF has not yet been supplied. Add it at assets/resume
 
 ## Motion and rendering
 
-The lens loads near About. Vehicle references are small raster silhouettes, so their model files are not downloaded at runtime. Rendering is scheduled on scroll, resize, and visibility changes, with no idle animation loop. Hidden/offscreen scenes do not render. Mobile pixel ratio is capped. Static graphics retain their drawing buffers so demand-driven scenes remain available to browser snapshots.
+The lens loads near About. Vehicle references are small raster technical drawings, so their model files are not downloaded at runtime. Rendering is scheduled on scroll, resize, and visibility changes, with no idle animation loop. Hidden/offscreen scenes do not render. Mobile pixel ratio is capped. Static graphics retain their drawing buffers so demand-driven scenes remain available to browser snapshots.
 
 Effects off and the operating system's reduced-motion preference disable spatial choreography and the trail, and leave the lens in a static pose without changing the page layout. The software renderer also uses a static study. Append `?renderer=software#interests` to a local preview URL to exercise that fallback explicitly.
 
@@ -34,8 +38,18 @@ The SVG cursor is rendered by the browser rather than moved with JavaScript. Nat
 
 ## Validation
 
-Run `node --test tests/ui.test.cjs` (Node.js is needed for tests only). Fourteen checks cover effects semantics, reduced-motion and fine-pointer defaults, trail expiry/reset/re-entry, modal cleanup, and comparison/zoom state.
+Run `node --test tests/*.test.*` (Node.js is needed for tests only). Twenty-five checks cover effects semantics, reduced-motion and fine-pointer defaults, trail expiry/reset/re-entry, modal cleanup, and comparison/zoom state.
 
 Browser review used 1280×800 desktop and 390×844 phone viewports. Actual WebGL lens rendering, bidirectional scroll separation, static/software fallback, effects switching, keyboard comparison/pan, and modal focus/Escape restoration were exercised. No physical-phone performance benchmark or cross-browser certification is claimed. The original third-party vehicle meshes remain as source assets only. See .impeccable/review/ for selected viewport evidence and review notes.
 
 Keep all model source files and licenses. See CREDITS.txt and the credits dialog. The third-party vehicle models are not claimed as Sriakshay's modeling work.
+
+Circuit graphics use no idle animation loop; effects off/reduced motion keep the background static, and touch does not tilt screenshots. Vehicle source meshes and licenses remain included. Regenerate their line drawings with model-source/render-circuit-marks.mjs, then render the generated MVG files with ImageMagick as documented in the script.
+
+## Cinematic gallery
+
+Click either project screenshot, or Enlarge beside PhotoMosaic. Next/Previous and the Left/Right keys rotate through all three project images. Close or Escape reverses the flight into the selected project and restores its trigger focus. The main page layout and background theme are preserved.
+
+The animated viewer uses a lazily created Three.js context and renders only during finite transitions. At rest it shows the original sharp image in the native dialog. Reduced motion, Effects off and `?renderer=software` use a static gallery. The native screenshot dialog remains the fallback if the viewer module fails. Existing screenshot/profile/model credits are unchanged.
+
+Verification includes desktop1280×720 and phone390×844, keyboard navigation/Escape, rapid navigation followed by close, selected-project focus return, static Effects off, software fallback, and modal geometry. Captures are in .impeccable/review/. This is browser verification, not a physical-phone performance certification.

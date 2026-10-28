@@ -43,3 +43,5 @@ The scroll choreography takes inspiration from the assembled/exploded lens
 sequence on https://animejs.com/; no Anime.js site models or art were copied.
 
 Margin graphics: aircraft-mark.webp and car-mark.webp are orthographic silhouette derivatives of the credited SR-71 and P1 meshes. Generated offline by model-source/render-margin-marks.mjs; retain the original attributions and licenses above. They are decorative interest references, not original modeling work.
+
+Circuit background vehicle drawings: aircraft-circuit.webp and car-circuit.webp are visibility-tested technical projections of the credited SR-71 and P1 meshes. Source: model-source/render-circuit-marks.mjs. Camera sensor, component package and dimensioned volume diagrams are authored geometric linework. Earlier silhouette source assets are retained but no longer displayed.

@@ -29,3 +29,11 @@ Responsive mobile, keyboard navigation, readable contrast, reduced motion, effec
 ## Latest composition feedback
 
 The lens is liked, but must belong to the photography/modeling context in About. Vehicles are small background graphics rather than foreground scenes. Prioritize actual software evidence and consult multiple strong studio/portfolio references (see RESEARCH.md).
+
+## Circuit background refinement
+
+Preserve the approved compact layout and contextual lens. Remove the sentence about being known as Nitro. User requests an upward-angled blue circuit background with vehicles and creative-interest graphics integrated subtly; permits a lighter palette if useful. Chosen treatment: deep navy, muted ice-blue routing, cool paper About, retained red interface accent. User motion references: https://a24.raviklaassens.com/ and https://christendijoux.com/.
+
+## Approved motion direction
+
+User selected the cinematic project viewer: screenshots lift, turn and expand to full-screen, then return to their original position; coordinated circuit signals and lens motion, while keeping the approved layout and background theme. Preserve modest hover effects as supporting feedback. The viewer must work through static fallbacks, native modal focus, keyboard controls, and mobile adaptation.

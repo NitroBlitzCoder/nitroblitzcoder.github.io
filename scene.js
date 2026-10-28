@@ -76,15 +76,18 @@ function schedule() {
 }
 function update() {
   frame = 0;
+  if ($('#image-dialog').open) return;
   for (const stage of stages) {
     if (!stage.ready || !stage.visible || stage.lost) continue;
-    stage.update();
+    const settling = stage.update();
     stage.render();
+    if (settling) schedule();
   }
 }
 window.addEventListener('scroll', schedule, {passive: true});
 window.addEventListener('resize', schedule);
 window.addEventListener('effectschange', event => {effects = event.detail; schedule();});
+window.addEventListener('viewerclosed', schedule);
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) { cancelAnimationFrame(frame); frame = 0; }
   else schedule();
@@ -186,14 +189,19 @@ function buildLens() {
   stage.ready = true;
   const practice = $('#interests');
   practice.classList.toggle('static-graphics', !!stage.renderer.isSoftware);
-  let lastProgress = -1;
+  let lastProgress = -1, followedProgress = null, lastUpdate = 0;
   stage.update = () => {
     const compact = innerWidth < 700;
     const about = $('#about'), aboutRect = about.getBoundingClientRect();
     const lensRect = stage.container.getBoundingClientRect();
-    const progress = !effects || stage.renderer.isSoftware ? 0 : compact
+    const target = !effects || stage.renderer.isSoftware ? 0 : compact
       ? clamp((innerHeight * .62 - lensRect.top) / (innerHeight * .58))
       : clamp((110 - aboutRect.top) / Math.max(1, about.offsetHeight - practice.offsetHeight));
+    const now = performance.now(), elapsed = Math.min(50, now - lastUpdate || 16);lastUpdate = now;
+    if (followedProgress === null || !effects || stage.renderer.isSoftware) followedProgress = target;
+    else followedProgress += (target - followedProgress) * (1 - Math.exp(-elapsed / 75));
+    if (Math.abs(target - followedProgress) < .0005) followedProgress = target;
+    const progress = followedProgress;
     if (progress !== lastProgress) {
       timeline.seek(progress * timeline.duration);
       stage.root.rotation.y = -.55 - smooth(progress) * .8;
@@ -208,6 +216,7 @@ function buildLens() {
     practice.dataset.lensState = progress > .75 ? 'separated' : progress > .15 ? 'separating' : 'assembled';
     $('#lens-phase').textContent = progress > .75 ? 'A lens, in parts' : 'An optical study';
     $('#lens-instruction').textContent = effects && !stage.renderer.isSoftware ? 'Photography + modeling' : 'Static lens study';
+    return progress !== target;
   };
   schedule();
 }

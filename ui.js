@@ -140,6 +140,7 @@
   }
   document.querySelectorAll('[data-image]').forEach(button => {
     button.addEventListener('click', () => {
+      if (window.portfolioViewer) { resetTrail(); window.portfolioViewer.open(button); return; }
       $('#full-image').src = button.dataset.image;
       $('#full-image').alt = button.dataset.alt;
       openDialog($('#image-dialog'));
@@ -147,7 +148,10 @@
   });
   $('#credits-button').addEventListener('click', () => openDialog($('#credits-dialog')));
   document.querySelectorAll('dialog').forEach(dialog => {
-    dialog.querySelector('.close-dialog').addEventListener('click', () => dialog.close());
+    dialog.querySelector('.close-dialog').addEventListener('click', () => {
+      if (dialog === $('#image-dialog') && window.portfolioViewer) window.portfolioViewer.close();
+      else dialog.close();
+    });
     dialog.addEventListener('close', () => {
       document.body.classList.toggle('modal-open', modalOpen());
       resetTrail();

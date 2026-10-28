@@ -1,0 +1,12 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {fitRect,sourceFrame,flat,liftPose,galleryPose} from '../viewer-motion.mjs';
+const near=(a,b)=>assert.ok(Math.abs(a-b)<.00001,`${a} != ${b}`);
+const from=flat({left:70,top:400,width:900,height:300}),to=flat({left:250,top:120,width:740,height:480});
+test('image fit preserves aspect ratio and stays within the viewer stage',()=>{const r=fitRect(1600,900,{left:100,top:100,width:800,height:600});assert.deepEqual(r,{left:100,top:175,width:800,height:450})});
+test('cropped source mapping preserves visible pixels and texture coordinates',()=>{const r=sourceFrame({left:100,top:100,width:1000,height:600},{left:200,top:200,width:600,height:300},{width:1280,height:720});assert.deepEqual(r.rect,{left:200,top:200,width:600,height:300});near(r.crop[0],.1);near(r.crop[1],1/3);near(r.crop[2],.6);near(r.crop[3],.5)});
+test('offscreen source does not produce invalid return geometry',()=>assert.equal(sourceFrame({left:0,top:1000,width:500,height:500},{left:0,top:1000,width:500,height:500},{width:390,height:844}),null));
+test('opening flight starts and ends at the exact source and destination',()=>{for(const [p,wanted] of [[0,from],[1,to]]){const actual=liftPose(from,to,p);for(const key of ['left','top','width','height','ry','z','bend'])near(actual[key],wanted[key])}});
+test('closing returns to the original crop without changing the settled endpoints',()=>{const cropped={...from,crop:[.1,.2,.7,.6]};const actual=liftPose(to,cropped,1,true);actual.crop.forEach((v,i)=>near(v,cropped.crop[i]));near(actual.left,cropped.left);near(actual.top,cropped.top)});
+test('gallery navigation settles the incoming panel flat and sends the outgoing panel away',()=>{const incoming=galleryPose(to,1,true,1),outgoing=galleryPose(to,1,false,1);near(incoming.left,to.left);near(incoming.z,0);near(incoming.ry,0);near(incoming.alpha,1);near(outgoing.alpha,0);assert.ok(outgoing.left<0)});
+test('mobile keeps the same endpoint while reducing depth and turn amplitude',()=>{const desktop=liftPose(from,to,.5),phone=liftPose(from,to,.5,false,true);assert.ok(phone.z<desktop.z);assert.ok(Math.abs(phone.ry)<Math.abs(desktop.ry));near(liftPose(from,to,1,false,true).width,to.width)});

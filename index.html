@@ -1,26 +1,62 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111111">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#09111d">
 <meta name="description" content="Sriakshay Vaitla — creative software, image processing, and Blender tools. Computer Science and Data Science at Rutgers University–New Brunswick.">
 <title>Sriakshay Vaitla — Software & creative work</title>
 <link rel="preload" href="assets/Anybody.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="assets/InstrumentSans.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="style.css?v=20261028-context-1">
+<link rel="stylesheet" href="style.css?v=20261028-cinema-1">
 <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/","animejs":"./vendor/animejs/lib/anime.esm.min.js"}}</script>
 </head>
 <body>
+<div class="circuit-background" aria-hidden="true"><div class="circuit-board">
+<svg class="circuit-traces" viewBox="0 0 1440 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g class="board-routes" stroke="currentColor" stroke-width="1">
+<path d="M-80 180H150L208 238H350M-80 196H142L200 254H318M-80 212H134L192 270H285M-80 228H126L184 286H260M-80 244H118L176 302H230"/>
+<path d="M0 340H90L130 380V530L174 574H300M0 356H82L114 388V538L166 590H265M0 372H74L98 396V546L158 606H230"/>
+<path d="M180 -80V80L236 136H440L478 174H590M196 -80V72L244 120H448L486 158H620M212 -80V64L252 104H456L494 142H650"/>
+<path d="M1530 160H1280L1224 216H1050M1530 176H1288L1232 232H1080M1530 192H1296L1240 248H1110M1530 208H1304L1248 264H1140"/>
+<path d="M1530 440H1335L1290 485V565L1240 615H1120M1530 456H1343L1306 493V573L1256 623H1160M1530 472H1351L1322 501V581L1272 639H1200"/>
+<path d="M1530 780H1280L1220 720H1020M1530 796H1272L1212 736H1060M1530 812H1264L1204 752H1100M1530 828H1256L1196 768H1140"/>
+<path d="M-80 850H100L150 800H400L460 740H600M-80 866H108L158 816H408L468 756H650M-80 882H116L166 832H416L476 772H700M-80 898H124L174 848H424L484 788H750"/>
+<path d="M300 1080V970L350 920H520M316 1080V978L358 936H560M332 1080V986L366 952H600M1200 1080V930L1150 880H950M1216 1080V922L1158 864H990"/>
+<path d="M305 574H350V625H420M285 270H340V310H395M590 174H680L710 204H800M1080 232H1030V280H965M1120 615H1080V660H1000M650 756H720V710H800"/>
+</g>
+<g class="board-pads" stroke="currentColor" stroke-width="1.4">
+<circle cx="350" cy="238" r="4"/><circle cx="318" cy="254" r="3"/><circle cx="260" cy="286" r="3"/><circle cx="230" cy="302" r="3"/>
+<circle cx="300" cy="574" r="4"/><circle cx="265" cy="590" r="3"/><circle cx="230" cy="606" r="3"/><circle cx="420" cy="625" r="4"/>
+<circle cx="620" cy="158" r="3"/><circle cx="650" cy="142" r="3"/><circle cx="800" cy="204" r="4"/><circle cx="965" cy="280" r="4"/>
+<circle cx="1050" cy="216" r="4"/><circle cx="1110" cy="248" r="3"/><circle cx="1140" cy="264" r="3"/>
+<circle cx="1160" cy="623" r="3"/><circle cx="1200" cy="639" r="3"/><circle cx="1000" cy="660" r="4"/>
+<circle cx="1020" cy="720" r="4"/><circle cx="1060" cy="736" r="3"/><circle cx="1100" cy="752" r="3"/><circle cx="1140" cy="768" r="3"/>
+<circle cx="600" cy="740" r="4"/><circle cx="700" cy="772" r="3"/><circle cx="750" cy="788" r="3"/><circle cx="520" cy="920" r="4"/><circle cx="560" cy="936" r="3"/>
+</g>
+<g class="board-components" stroke="currentColor" stroke-width="1.1">
+<!-- Camera sensor and optical elements -->
+<path d="M97 660H126L137 645H177L188 660H218V729H97Z M107 672H124 M194 672H208"/><circle cx="157" cy="695" r="26"/><circle cx="157" cy="695" r="19"/><circle cx="157" cy="695" r="9"/>
+<path d="M157 729V762L179 784H235M157 645V622L140 605"/>
+<!-- Modeling axes and a dimensioned volume -->
+<path d="m1240 350 39-23 39 23v46l-39 23-39-23Z m0 0 39 23 39-23m-39 23v46 M1230 318v-13h98v13 M1228 327h-13v92h13 M1279 419v27l25 25h85"/>
+<!-- Computing is a literal circuit-board component -->
+<rect x="62" y="430" width="39" height="55"/><path d="M68 424v-10m10 10v-10m10 10v-10M68 491v10m10-10v10m10-10v10M56 440H45m11 12H45m11 12H45m62-24h11m-11 12h11m-11 12h11"/>
+</g>
+<g class="board-signals" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M-80 196H142L200 254H318"/><path d="M1530 176H1288L1232 232H1080"/><path d="M1530 796H1272L1212 736H1060"/><path d="M-80 866H108L158 816H408L468 756H650"/></g>
+</svg>
+<img class="circuit-vehicle circuit-aircraft" src="assets/aircraft-circuit.webp" width="800" height="360" alt="">
+<img class="circuit-vehicle circuit-car" src="assets/car-circuit.webp" width="800" height="360" alt="">
+</div></div>
 <a class="skip" href="#work">Skip to projects</a>
 <header class="site-header"><nav class="frame" aria-label="Main navigation">
 <a class="wordmark" href="#top" aria-label="Sriakshay Vaitla home">Sriakshay Vaitla<span>NitroBlitzCoder</span></a>
-<div class="nav-links"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a><button id="effects" aria-label="Visual effects" aria-pressed="true">Effects on</button></div>
+<div class="nav-links"><a href="#work"><span class="nav-label"><span>Work</span><span aria-hidden="true">Work</span></span></a><a href="#about"><span class="nav-label"><span>About</span><span aria-hidden="true">About</span></span></a><a href="#contact"><span class="nav-label"><span>Contact</span><span aria-hidden="true">Contact</span></span></a><button id="effects" aria-label="Visual effects" aria-pressed="true">Effects on</button></div>
 </nav></header>
 <main>
 <section class="intro frame" id="top" aria-labelledby="intro-title">
 <div class="intro-grid"><h1 id="intro-title">I build software<br>for <em>creative work.</em></h1>
 <div class="intro-context"><p>Computer Science + Data Science<br>Rutgers University–New Brunswick</p><p>Expected graduation: May 2030</p><a class="text-link" href="#about">A little about me <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div></div>
 <div class="intro-bottom"><a class="text-link" href="#work">Explore the projects <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a><span>Gestures. Images. Tools for making.</span></div>
-<img class="background-mark aircraft-mark" src="assets/aircraft-mark.webp" alt="" aria-hidden="true" width="400" height="180">
+
 </section>
 <section class="work frame" id="work" aria-label="Selected software projects">
 
@@ -31,7 +67,7 @@
 </article>
 <article class="case mosaic-case" id="photomosaic">
 <div class="case-heading"><h2 class="case-title">PhotoMosaic</h2><p>One image.<br>Many smaller photographs.</p><a class="code-link" href="https://github.com/NitroBlitzCoder/PhotoMosaic" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div>
-<div class="mosaic-layout"><div class="mosaic-art"><div class="comparison" id="comparison-view"><img src="assets/original.jpg" alt="Original target artwork of a traveler and a horse" width="1920" height="1080" loading="lazy"><div class="mosaic-overlay"><img src="assets/mosaic.webp" alt="The same scene reconstructed as a photomosaic" width="1920" height="1080" loading="lazy"></div><div class="comparison-line"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M8 8l-4 4 4 4m8-8 4 4-4 4"/></svg></span></div><span class="image-tag original-tag">Original</span><span class="image-tag mosaic-tag">Mosaic</span></div><div class="comparison-controls"><label for="compare-range">Before / after</label><input id="compare-range" type="range" min="0" max="100" value="50" aria-label="Original versus mosaic comparison" aria-describedby="mosaic-hint"><button id="zoom" aria-pressed="false">Zoom 4×</button></div><div id="mosaic-pan" class="mosaic-pan" hidden><label for="pan-x">Detail position X</label><input id="pan-x" type="range" min="0" max="100" value="50"><label for="pan-y">Detail position Y</label><input id="pan-y" type="range" min="0" max="100" value="55"></div><p class="mosaic-caption" id="mosaic-hint">Slide to compare the original with the mosaic. Zoom in to see the individual tiles.</p></div> <div class="project-info"><p>PhotoMosaic rebuilds a target image from smaller photographs. From a distance, the scene holds together. Up close, the individual tiles emerge.</p><p class="project-proof">LAB color matching with a reuse penalty keeps tile selection varied.</p><p class="stack">Python / OpenCV / NumPy</p><details><summary>The engineering</summary><p>A modular pipeline crops source images into square tiles, compares average colors in LAB color space, adjusts the selected tiles toward the target, and assembles a PNG output.</p></details></div></div>
+<div class="mosaic-layout"><div class="mosaic-art"><div class="comparison" id="comparison-view"><img src="assets/original.jpg" alt="Original target artwork of a traveler and a horse" width="1920" height="1080" loading="lazy"><div class="mosaic-overlay"><img src="assets/mosaic.webp" alt="The same scene reconstructed as a photomosaic" width="1920" height="1080" loading="lazy"></div><div class="comparison-line"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M8 8l-4 4 4 4m8-8 4 4-4 4"/></svg></span></div><span class="image-tag original-tag">Original</span><span class="image-tag mosaic-tag">Mosaic</span></div><div class="comparison-controls"><label for="compare-range">Before / after</label><input id="compare-range" type="range" min="0" max="100" value="50" aria-label="Original versus mosaic comparison" aria-describedby="mosaic-hint"><button class="mosaic-enlarge" data-image="assets/mosaic.webp" data-origin="#comparison-view" data-alt="PhotoMosaic reconstruction made from smaller photographic tiles" aria-label="Enlarge PhotoMosaic result">Enlarge</button><button id="zoom" aria-pressed="false">Zoom 4×</button></div><div id="mosaic-pan" class="mosaic-pan" hidden><label for="pan-x">Detail position X</label><input id="pan-x" type="range" min="0" max="100" value="50"><label for="pan-y">Detail position Y</label><input id="pan-y" type="range" min="0" max="100" value="55"></div><p class="mosaic-caption" id="mosaic-hint">Slide to compare the original with the mosaic. Zoom in to see the individual tiles.</p></div> <div class="project-info"><p>PhotoMosaic rebuilds a target image from smaller photographs. From a distance, the scene holds together. Up close, the individual tiles emerge.</p><p class="project-proof">LAB color matching with a reuse penalty keeps tile selection varied.</p><p class="stack">Python / OpenCV / NumPy</p><details><summary>The engineering</summary><p>A modular pipeline crops source images into square tiles, compares average colors in LAB color space, adjusts the selected tiles toward the target, and assembles a PNG output.</p></details></div></div>
 </article>
 <article class="case collection-case" id="collections">
 <div class="case-heading"><h2 class="case-title">Smart Collection<br>Manager</h2><p>A little less scene management.<br>A little more making.</p><a class="code-link" href="https://github.com/NitroBlitzCoder/Smart-Collection-Manager" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div>
@@ -39,7 +75,7 @@
 </article>
 </section>
 <section class="about-shell" id="about" aria-labelledby="about-title">
-<div class="about-grid frame"><div class="about-content"><h2 id="about-title">Hi, I’m Sriakshay.</h2><div class="about-copy"><p>I’m Sriakshay. Most people online know me as Nitro. I’m studying Computer Science and Data Science at Rutgers, and I enjoy building software that connects technical ideas with things people can use.</p><p>Teaching has shaped how I work, too—from coaching tennis to helping younger students write their first programs.</p><a class="text-link resume-link" data-resume href="mailto:sriakshayvaitla@gmail.com?subject=Resume%20request">Request resume <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div>
+<div class="about-grid frame"><div class="about-content"><h2 id="about-title">Hi, I’m Sriakshay.</h2><div class="about-copy"><p>I’m Sriakshay. I’m studying Computer Science and Data Science at Rutgers, and I enjoy building software that connects technical ideas with things people can use.</p><p>Teaching has shaped how I work, too—from coaching tennis to helping younger students write their first programs.</p><a class="text-link resume-link" data-resume href="mailto:sriakshayvaitla@gmail.com?subject=Resume%20request">Request resume <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div>
 <div class="timeline"><div class="entry"><span>2026–2030</span><div><h3>Rutgers University–New Brunswick</h3><p>Computer Science &amp; Data Science<br>School of Arts and Sciences<br>Expected graduation: May 2030</p><p>Current coursework: Intro to Computer Science, Data 101, Calculus II, and General Psychology.</p><p>Member of USACS.</p></div></div><div class="entry"><span>2022–2025</span><div><h3>Summer Tennis Coach</h3><p>Princeton Tennis Program</p><p>Coached students across ages and skill levels, including individualized instruction for children with autism.</p></div></div><div class="entry"><span>2023</span><div><h3>Volunteer Programming Instructor</h3><p>Brooks Crossing Middle School</p><p>Taught Scratch through hands-on projects, helping students practice logical thinking and problem solving.</p></div></div><div class="entry"><span>TOOLKIT</span><div><p class="toolkit">Python · Java · TypeScript · JavaScript · C++ · React · OpenCV · NumPy · Blender API · Git</p></div></div></div>
 </div>
 <aside class="personal-practice" id="interests" aria-labelledby="practice-title">
@@ -50,12 +86,19 @@
 <p class="practice-note">A small study of a lens and its parts—a nod to those interests.</p>
 <p class="other-interests">Also into tennis, cars, and aircraft.</p>
 </aside></div>
-<img class="background-mark car-mark" src="assets/car-mark.webp" alt="" aria-hidden="true" width="400" height="180" loading="lazy">
+
 </section>
 <footer id="contact"><div class="frame"><div class="footer-intro"><p>Have a project, an opportunity,<br>or something interesting to share?</p><a href="mailto:sriakshayvaitla@gmail.com" class="email">Let’s talk. <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div><div class="footer-bottom"><span>Sriakshay Vaitla / 2026</span><div><a href="https://github.com/NitroBlitzCoder" target="_blank" rel="noopener">GitHub <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a><a href="https://www.linkedin.com/in/sriakshay-vaitla-052825340/" target="_blank" rel="noopener">LinkedIn <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a><button id="credits-button">Credits</button><a href="#top">Back to top</a></div></div></div></footer>
 </main>
 <canvas id="cursor-trail" aria-hidden="true"></canvas>
-<dialog id="image-dialog" aria-label="Project screenshot"><button class="close-dialog" aria-label="Close screenshot">Close ×</button><img id="full-image" src="assets/motionstudio.webp" alt=""></dialog>
-<dialog id="credits-dialog" aria-labelledby="credits-title"><button class="close-dialog" aria-label="Close credits">Close ×</button><h2 id="credits-title">Credits &amp; details</h2><p>Aircraft and car models are third-party assets used to express my interests. They are not presented as my own modeling work.</p><p><b>SR-71 Blackbird:</b> Gerard Robin / GRTux hangar contributors, via <a href="https://github.com/l0k1/SR71-BlackBird">l0k1/SR71-BlackBird</a>. GPL-2.0-or-later. Converted from AC3D; geometry simplified for presentation. The small background aircraft graphic is an orthographic silhouette of the converted mesh. Original model files, conversion script, and license are included in <a href="model-source/COPYING-SR71.txt">the site package</a>.</p><p><b>McLaren P1 GTR:</b> Desiccated_Lemon (model metadata; listing now ALIEEEN), <a href="https://sketchfab.com/3d-models/free-mclaren-p1-gtr-d805bec04cf5407fa7c036c20c726d39">Sketchfab</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The small background car graphic is an orthographic silhouette of this model.</p><p>Built with Three.js and Anime.js (MIT). Anybody by ETC (Etcetera Type Company) and Instrument Sans by Rodrigo Fuenzalida (SIL Open Font License). Project screenshots supplied by Sriakshay Vaitla. PhotoMosaic artwork is shown as a processing example, not claimed as original artwork.</p><p>The camera lens is a procedural optical study created for this website, inspired by the scroll choreography on Anime.js. It is an illustrative assembly, not a manufacturer’s technical model.</p><p><a href="CREDITS.txt">Full credits</a></p></dialog>
-<script src="ui.js?v=20261028-context-1" defer></script><script type="module" src="scene.js?v=20261028-context-1"></script>
+<dialog id="image-dialog" aria-labelledby="viewer-title" aria-describedby="viewer-description">
+<header class="viewer-header"><div class="viewer-heading"><h2 id="viewer-title">Project screenshot</h2><span id="viewer-count" aria-live="polite"></span></div><button class="close-dialog" aria-label="Close screenshot">Close <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header>
+<div class="viewer-stage"><img id="full-image" src="assets/motionstudio.webp" alt=""></div>
+<footer class="viewer-footer"><p id="viewer-description"></p><div class="viewer-controls"><button data-viewer-prev aria-label="Previous project"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Previous</button><button data-viewer-next aria-label="Next project">Next<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div></footer>
+<canvas class="viewer-canvas" aria-hidden="true" hidden></canvas>
+</dialog>
+<dialog id="credits-dialog" aria-labelledby="credits-title"><button class="close-dialog" aria-label="Close credits">Close ×</button><h2 id="credits-title">Credits &amp; details</h2><p>Aircraft and car models are third-party assets used to express my interests. They are not presented as my own modeling work.</p><p><b>SR-71 Blackbird:</b> Gerard Robin / GRTux hangar contributors, via <a href="https://github.com/l0k1/SR71-BlackBird">l0k1/SR71-BlackBird</a>. GPL-2.0-or-later. Converted from AC3D; geometry simplified for presentation. The small background aircraft graphic is a visibility-tested technical line drawing of the converted mesh. Original model files, conversion script, and license are included in <a href="model-source/COPYING-SR71.txt">the site package</a>.</p><p><b>McLaren P1 GTR:</b> Desiccated_Lemon (model metadata; listing now ALIEEEN), <a href="https://sketchfab.com/3d-models/free-mclaren-p1-gtr-d805bec04cf5407fa7c036c20c726d39">Sketchfab</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The small background car graphic is a visibility-tested technical line drawing of this model.</p><p>Built with Three.js and Anime.js (MIT). Anybody by ETC (Etcetera Type Company) and Instrument Sans by Rodrigo Fuenzalida (SIL Open Font License). Project screenshots supplied by Sriakshay Vaitla. PhotoMosaic artwork is shown as a processing example, not claimed as original artwork.</p><p>The camera lens is a procedural optical study created for this website, inspired by the scroll choreography on Anime.js. It is an illustrative assembly, not a manufacturer’s technical model.</p><p><a href="CREDITS.txt">Full credits</a></p></dialog>
+<script defer src="ambient.js?v=20261028-cinema-1"></script>
+<script src="ui.js?v=20261028-cinema-1" defer></script><script type="module" src="scene.js?v=20261028-cinema-1"></script>
+<script type="module" src="viewer.js?v=20261028-cinema-1"></script>
 </body></html>
