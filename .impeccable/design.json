@@ -134,6 +134,25 @@
       "controls": "Previous / Next, Left / Right, Close / Escape; 44px phone targets",
       "layout": "Full viewport dialog; 88% chrome frame, complete aspect-fit image",
       "performance": "Capped DPR, no idle render loop; resources disposed on page exit"
+    },
+    "scrollSurfaces": {
+      "trigger": "Ordinary native scroll; reversible",
+      "layout": "Existing frame geometry; no pinning or extra scroll height",
+      "projects": {
+        "MotionStudio": "Continuous curved editor plane",
+        "PhotoMosaic": "24x14 assembling tiles over the native comparison",
+        "Smart Collection Manager": "Three aligning Blender panels"
+      },
+      "renderer": "One lazy WebGL canvas; clips to existing media frames; native images by default",
+      "dprCap": {
+        "desktop": 1.4,
+        "phone": 1.1
+      },
+      "phoneAmplitude": 0.55,
+      "settlingMs": 65,
+      "fallback": "Static native images for reduced motion, effects off, no WebGL or lost context",
+      "coordination": "Paused during native dialogs; resynchronized when viewer closes",
+      "backgroundChange": "Ten additional margin traces; existing angle, palette and details preserved"
     }
   },
   "components": [

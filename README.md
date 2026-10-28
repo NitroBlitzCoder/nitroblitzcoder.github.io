@@ -17,6 +17,9 @@ Deploy the repository root through the repository's existing GitHub Pages config
 - viewer.js: native-dialog gallery, reversible image flight, keyboard and interruption handling.
 - viewer-renderer.js: tessellated WebGL image planes, curvature, reflection, and depth.
 - viewer-motion.mjs: source crop, aspect-fit and flight geometry.
+- scroll.js: native-scroll choreography and safe handoff to the existing viewer.
+- scroll-renderer.js: one shared WebGL canvas for curved editor, assembling mosaic, and aligning Blender surfaces.
+- scroll-motion.mjs: reveal, crop, cover and finite settling calculations.
 - scene.js: procedural camera lens and Anime.js scroll-scrubbed component separation within About.
 - software-renderer.js: simplified static fallback when WebGL is unavailable.
 - PRODUCT.md: confirmed product/content constraints.
@@ -38,7 +41,7 @@ The SVG cursor is rendered by the browser rather than moved with JavaScript. Nat
 
 ## Validation
 
-Run `node --test tests/*.test.*` (Node.js is needed for tests only). Twenty-five checks cover effects semantics, reduced-motion and fine-pointer defaults, trail expiry/reset/re-entry, modal cleanup, and comparison/zoom state.
+Run `node --test tests/*.test.*` (Node.js is needed for tests only). Thirty-one checks cover effects semantics, reduced-motion and fine-pointer defaults, trail expiry/reset/re-entry, modal cleanup, and comparison/zoom state.
 
 Browser review used 1280×800 desktop and 390×844 phone viewports. Actual WebGL lens rendering, bidirectional scroll separation, static/software fallback, effects switching, keyboard comparison/pan, and modal focus/Escape restoration were exercised. No physical-phone performance benchmark or cross-browser certification is claimed. The original third-party vehicle meshes remain as source assets only. See .impeccable/review/ for selected viewport evidence and review notes.
 
@@ -53,3 +56,7 @@ Click either project screenshot, or Enlarge beside PhotoMosaic. Next/Previous an
 The animated viewer uses a lazily created Three.js context and renders only during finite transitions. At rest it shows the original sharp image in the native dialog. Reduced motion, Effects off and `?renderer=software` use a static gallery. The native screenshot dialog remains the fallback if the viewer module fails. Existing screenshot/profile/model credits are unchanged.
 
 Verification includes desktop1280×720 and phone390×844, keyboard navigation/Escape, rapid navigation followed by close, selected-project focus return, static Effects off, software fallback, and modal geometry. Captures are in .impeccable/review/. This is browser verification, not a physical-phone performance certification.
+
+## Scrolling projects
+
+The project frames retain their original layout, while their real imagery curves, assembles or aligns during ordinary scrolling. Motion reverses naturally. The comparison, zoom/pan and click viewer remain usable. The background has ten additional margin traces with its existing colors and angle. Reduced motion/Effects off display static native images; `?renderer=software` exercises the no-WebGL image fallback. There is no extra scroll height or intercepted wheel input.

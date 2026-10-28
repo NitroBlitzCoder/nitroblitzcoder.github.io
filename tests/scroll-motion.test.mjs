@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {presentation,coveredImage,imageCrop,follow} from '../scroll-motion.mjs';
+const near=(a,b)=>assert.ok(Math.abs(a-b)<.00001,`${a} != ${b}`);
+test('project formation follows native scroll monotonically and reverses',()=>{const a=presentation(700,500,800),b=presentation(350,500,800),c=presentation(0,500,800);assert.ok(a.reveal<b.reveal);assert.ok(b.reveal<=c.reveal);assert.equal(c.reveal,1);assert.equal(presentation(350,500,800).reveal,b.reveal)});
+test('phone keeps reveal timing but reduces spatial amplitude',()=>{const a=presentation(400,300,844),b=presentation(400,300,844,true);assert.equal(a.reveal,b.reveal);assert.equal(b.strength,.55)});
+test('object-fit cover keeps the correct image crop on a narrow comparison',()=>{const box={left:30,top:200,width:340,height:260};const image=coveredImage(box,1920,1080);near(image.height,260);assert.ok(image.width>340);const crop=imageCrop(image,box);assert.equal(crop.width,340);assert.ok(crop.crop[0]>0);assert.ok(crop.crop[2]<1);near(crop.crop[3],1)});
+test('screenshot clipping cannot sample outside the texture',()=>{const crop=imageCrop({left:100,top:200,width:600,height:400},{left:150,top:210,width:300,height:200});assert.ok(crop.crop.every(x=>x>=0&&x<=1));near(crop.crop[0],50/600);near(crop.crop[2],.5)});
+test('non-intersecting image returns no GPU surface',()=>assert.equal(imageCrop({left:0,top:0,width:10,height:10},{left:50,top:50,width:10,height:10}),null));
+test('settling is time based and eventually stops requesting work',()=>{const a=follow(0,1,48),b=follow(follow(follow(0,1,16),1,16),1,16);near(a,b);let p=1;for(let i=0;i<100;i++)p=follow(p,0,16);assert.equal(p,0)});

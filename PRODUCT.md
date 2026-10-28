@@ -37,3 +37,7 @@ Preserve the approved compact layout and contextual lens. Remove the sentence ab
 ## Approved motion direction
 
 User selected the cinematic project viewer: screenshots lift, turn and expand to full-screen, then return to their original position; coordinated circuit signals and lens motion, while keeping the approved layout and background theme. Preserve modest hover effects as supporting feedback. The viewer must work through static fallbacks, native modal focus, keyboard controls, and mobile adaptation.
+
+## Scroll presentation refinement
+
+User likes the cinematic viewer but wants the main page animated during ordinary scrolling. Keep the existing layout and background, increase circuit density slightly, and take inspiration from Fabian Tjoe-A-On's project presentation (https://fabiantjoeaon.com/). The resulting direction is responsive project surfaces within existing frames, with distinct treatments appropriate to each project and all controls/fallbacks retained.

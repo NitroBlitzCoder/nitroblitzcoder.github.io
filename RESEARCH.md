@@ -22,3 +22,9 @@ The circuit field slopes upward by 10 degrees. Visibility-tested vehicle line dr
 ## Cinematic viewer direction
 
 The user approved the cinematic viewer option after requesting A24-level animation ambition. A24's gallery was inspected again for spatial selection and object reversal. The implementation uses original project imagery on tessellated planes, not film discs or copied artwork: a matched crop-to-full-image flight, curved reflection during motion, opposing depth rotations between projects, and a reversible return to the page. Stable native content remains the resting state.
+
+## Fabian Tjoe-A-On — native-scroll refinement
+
+[Fabian Tjoe-A-On](https://fabiantjoeaon.com/) was inspected in-browser, entering without sound, scrolling through scene changes, and activating a project tile preview. Its project labels and preview imagery live in a responsive, rippling tile matrix within a dimensional scene. The useful lesson is to make project media behave like a physical surface rather than only animate interface controls.
+
+This portfolio keeps its approved editorial layout and blue circuits. MotionStudio gets a continuous curved editor plane, PhotoMosaic assembles image tiles, and the Blender workspace aligns from three panels. Native scrolling drives and reverses these surfaces, which settle into their actual readable images. No reference artwork, sound, loader, environment or source code was copied.
