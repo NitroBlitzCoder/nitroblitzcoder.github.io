@@ -60,3 +60,7 @@ Verification includes desktop1280×720 and phone390×844, keyboard navigation/Es
 ## Scrolling projects
 
 The project frames retain their original layout, while their real imagery curves, assembles or aligns during ordinary scrolling. Motion reverses naturally. The comparison, zoom/pan and click viewer remain usable. The background has ten additional margin traces with its existing colors and angle. Reduced motion/Effects off display static native images; `?renderer=software` exercises the no-WebGL image fallback. There is no extra scroll height or intercepted wheel input.
+
+## Project tile field
+
+`tile-field.js` connects the three semantic project anchors to previews and the existing viewer. `tile-field-renderer.js` renders instanced beveled blocks, shadows, preview textures, hit testing and projected labels; `tile-field-motion.mjs` defines responsive anchors, seeded heights and the finite spring response. The CSS fallback remains navigable without WebGL. The field stops rendering when settled and pauses during viewer flights, offscreen and on hidden pages. Reduced motion / Effects off keep selection available without displacement. Run all motion and UI checks with `node --test tests/*.cjs tests/*.mjs`.

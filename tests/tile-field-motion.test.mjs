@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {configuration,heightTarget,spring} from '../tile-field-motion.mjs';
+test('project anchors are distinct and inside both field sizes',()=>{for(const compact of[false,true]){const c=configuration(compact);assert.equal(new Set(c.anchors.map(String)).size,3);for(const[x,y]of c.anchors)assert.ok(x>=0&&x<c.columns&&y>=0&&y<c.rows);}});
+test('pointer mound falls away radially above varied resting heights',()=>{const p={x:8,y:5};const rise=(x,y)=>heightTarget(x,y,p)-heightTarget(x,y,null);assert.ok(rise(8,5)>rise(11,5));assert.ok(rise(11,5)>rise(20,5));assert.notEqual(heightTarget(1,1,null),heightTarget(2,1,null));});
+test('spring settles at the same height for different frame durations',()=>{for(const dt of[8,16,33,50]){let state={value:.2,velocity:0};for(let i=0;i<300;i++){state=spring(state.value,state.velocity,2,dt);assert.ok(Number.isFinite(state.value)&&state.value<3&&state.value>0);}assert.equal(state.settled,true);assert.equal(state.value,2);}});

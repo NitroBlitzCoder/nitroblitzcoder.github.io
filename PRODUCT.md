@@ -41,3 +41,7 @@ User selected the cinematic project viewer: screenshots lift, turn and expand to
 ## Scroll presentation refinement
 
 User likes the cinematic viewer but wants the main page animated during ordinary scrolling. Keep the existing layout and background, increase circuit density slightly, and take inspiration from Fabian Tjoe-A-On's project presentation (https://fabiantjoeaon.com/). The resulting direction is responsive project surfaces within existing frames, with distinct treatments appropriate to each project and all controls/fallbacks retained.
+
+## Physical project selector — latest request
+
+The user explicitly requests a closer interpretation of Fabian Tjoe-A-On’s selectable tile field: rounded blocks with varied heights and a radial rise toward the pointer. A physical tile selector now precedes the existing case studies. Three labeled tiles open the corresponding cinematic viewer; previews span the block faces. Keep the approved navy circuitry and all existing project details, controls, contextual lens, and contact content. Keyboard and touch have the same project choices.

@@ -28,3 +28,7 @@ The user approved the cinematic viewer option after requesting A24-level animati
 [Fabian Tjoe-A-On](https://fabiantjoeaon.com/) was inspected in-browser, entering without sound, scrolling through scene changes, and activating a project tile preview. Its project labels and preview imagery live in a responsive, rippling tile matrix within a dimensional scene. The useful lesson is to make project media behave like a physical surface rather than only animate interface controls.
 
 This portfolio keeps its approved editorial layout and blue circuits. MotionStudio gets a continuous curved editor plane, PhotoMosaic assembles image tiles, and the Blender workspace aligns from three panels. Native scrolling drives and reverses these surfaces, which settle into their actual readable images. No reference artwork, sound, loader, environment or source code was copied.
+
+## Fabian — explicit tile-field request
+
+The user clarified that the desired reference is the selectable rounded tile matrix, its radial hover displacement, and differing block heights. The reference was revisited in-browser without sound. This iteration implements that interaction directly as the portfolio’s project selector, using the portfolio’s own screenshots, blue circuit backdrop, three project choices, and existing viewer. It does not recreate the reference’s sound, full-screen terrain, project work, assets, or source.

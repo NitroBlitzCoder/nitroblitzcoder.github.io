@@ -153,6 +153,24 @@
       "fallback": "Static native images for reduced motion, effects off, no WebGL or lost context",
       "coordination": "Paused during native dialogs; resynchronized when viewer closes",
       "backgroundChange": "Ten additional margin traces; existing angle, palette and details preserved"
+    },
+    "projectTileField": {
+      "desktop": [
+        26,
+        13
+      ],
+      "compact": [
+        18,
+        11
+      ],
+      "material": "smoked blue metal",
+      "bevelRadius": 0.12,
+      "pointerRadius": 2.65,
+      "compactPointerRadius": 2.15,
+      "springStiffness": 225,
+      "springDamping": 25,
+      "preview": "actual project screenshots across front faces",
+      "fallback": "CSS rounded blocks and semantic project links"
     }
   },
   "components": [

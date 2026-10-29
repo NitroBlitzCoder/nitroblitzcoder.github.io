@@ -203,3 +203,9 @@ scroll.js reads visible frame geometry, follows native progress with a short tim
 Images remain native DOM content by default. Only a successfully rendered image receives the hidden-source class. Effects off, reduced motion, missing WebGL, and context loss reveal the native images. Opening the cinematic viewer pauses and clears the scroll canvas; closing resynchronizes the page surface. Hidden pages and offscreen regions stop rendering. Active settling requests frames only until it converges. Pixel ratio is capped at 1.4 desktop / 1.1 phone; phone spatial amplitude is 55% of desktop.
 
 Circuit density increases by ten routed traces and matching pads in the margins. Palette, upward 10-degree angle, vehicles, camera/modeling details, and the central fading mask stay unchanged.
+
+## Rounded project field
+
+The work section begins with a physical selector under “Choose a project.” It uses 26×13 beveled, rounded blocks on desktop and 18×11 on narrow screens. Seeded resting heights, a spring-damped radial pointer mound, directional shadows and smoked blue metal give the field depth. Project anchors remain semantic, 44px-minimum links projected onto the actual blocks; the long Blender label turns inward to stay in bounds. Hover/focus selects a project image across the front faces while the project block stays distinct.
+
+The field opens the existing viewer with a source rectangle derived from the projected board. Closing returns to the field and restores the selected project link; gallery changes update the return preview. Detailed case studies remain below in normal document flow. The scene sleeps when settled, offscreen, hidden, or during viewer flights. Resolution is capped at 1.45 desktop / 1.1 phone. Reduced motion and Effects off use static geometry with immediate preview changes. A CSS rounded-tile field and native case-study anchors survive a module or WebGL failure. No sound, asset, environment, or code from the reference was reused.

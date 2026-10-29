@@ -13,6 +13,7 @@ const triggers=[...document.querySelectorAll('[data-image]')];
 const records=triggers.map(trigger=>({trigger,src:trigger.dataset.image,alt:trigger.dataset.alt,title:trigger.closest('.case').querySelector('h2').innerText.replace(/\s+/g,' ').trim(),description:trigger.closest('.case').querySelector('.project-info>p')?.textContent||''}));
 let engine,unavailable=false,current=0,requested=0,state='closed',serial=0,tweenFrame=0,tweenResolve=null,primary=null,secondary=null,outgoingIndex=null,opener=null,returnY=0;
 const loaded=new Map();
+let returnContext=null;
 const motion=()=>!reduced.matches&&window.portfolioEffects!==false&&!document.hidden;
 const compact=()=>innerWidth<700;
 function signal(kind,direction=1){
@@ -25,6 +26,7 @@ function signal(kind,direction=1){
 }
 function sourceNode(record){return record.trigger.dataset.origin?document.querySelector(record.trigger.dataset.origin):record.trigger.querySelector('img');}
 function origin(record){
+  const custom=returnContext?.source?.(record);if(custom)return custom;
   const node=sourceNode(record);if(!node)return null;
   const img=node.tagName==='IMG'?node:node.querySelector('.mosaic-overlay img')||node.querySelector('img');
   if(!img)return null;
@@ -61,7 +63,7 @@ function tween(duration,step){
     if(p<1)tweenFrame=requestAnimationFrame(tick);else{tweenFrame=0;tweenResolve=null;dialog.dataset.flightFrames=String(frames);dialog.dataset.flightMaxGap=String(Math.round(maxGap));resolve(true);}
   }step(0);tweenFrame=requestAnimationFrame(tick);});
 }
-function hideOrigin(){const node=sourceNode(records[current]);if(node)node.classList.add('viewer-source-hidden');}
+function hideOrigin(){if(returnContext)return;const node=sourceNode(records[current]);if(node)node.classList.add('viewer-source-hidden');}
 function restoreOrigins(){document.querySelectorAll('.viewer-source-hidden').forEach(node=>node.classList.remove('viewer-source-hidden'));}
 function exposeCanvas(){canvas.hidden=false;image.style.opacity='0';dialog.classList.add('viewer-moving');}
 function settle(){
@@ -75,13 +77,13 @@ function finishClose(){
   restoreOrigins();image.style.opacity='';dialog.classList.remove('viewer-moving','viewer-entering','viewer-leaving');
   dialog.style.removeProperty('--viewer-cover');dialog.removeAttribute('aria-busy');state='closed';
   if(dialog.open)dialog.close();
-  window.scrollTo({top:returnY,behavior:'instant'});opener?.focus({preventScroll:true});
+  window.scrollTo({top:returnY,behavior:'instant'});opener?.focus({preventScroll:true});returnContext=null;
   window.dispatchEvent(new CustomEvent('viewerclosed'));
 }
-async function open(trigger){
+async function open(trigger,context=null){
   if(state!=='closed')return;
   const index=records.findIndex(r=>r.trigger===trigger);if(index<0)return;
-  const token=++serial;current=requested=index;opener=trigger;returnY=scrollY;
+  returnContext=context;const token=++serial;current=requested=index;opener=trigger;returnY=scrollY;
   state='loading';metadata(index,false);document.body.classList.add('modal-open');dialog.showModal();
   dialog.classList.add('viewer-entering');dialog.style.setProperty('--viewer-cover',motion()?'0':'1');
   const source=origin(records[index]);
@@ -135,9 +137,10 @@ async function close(){
   if(secondary&&primary?.pose?.alpha<.5&&outgoingIndex!==null){current=outgoingIndex;[primary,secondary]=[secondary,primary];metadata(current,false);}
   state='closing';requested=current;
   // Move the inert page under the opaque viewer before returning to another project.
-  const record=records[current];opener=record.trigger;
-  if(!origin(record)||origin(record).rect.height<100)record.trigger.scrollIntoView({behavior:'instant',block:'center'});
-  returnY=scrollY;const source=origin(record);
+  const record=records[current];
+  if(returnContext){returnContext.beforeReturn?.(record);opener=returnContext.focus?.(record)||opener;}
+  else{opener=record.trigger;if(!origin(record)||origin(record).rect.height<100)record.trigger.scrollIntoView({behavior:'instant',block:'center'});returnY=scrollY;}
+  const source=origin(record);
   dialog.classList.add('viewer-leaving');signal('close');
   if(!motion()||!source||!engine||!loaded.has(record.src)){finishClose();return;}
   engine.resize();
