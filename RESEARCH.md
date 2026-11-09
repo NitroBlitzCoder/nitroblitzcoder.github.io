@@ -32,3 +32,13 @@ This portfolio keeps its approved editorial layout and blue circuits. MotionStud
 ## Fabian — explicit tile-field request
 
 The user clarified that the desired reference is the selectable rounded tile matrix, its radial hover displacement, and differing block heights. The reference was revisited in-browser without sound. This iteration implements that interaction directly as the portfolio’s project selector, using the portfolio’s own screenshots, blue circuit backdrop, three project choices, and existing viewer. It does not recreate the reference’s sound, full-screen terrain, project work, assets, or source.
+
+
+## Photography archive — November 8, 2026
+
+The following primary sites were inspected in the browser for this surface:
+
+- [Tyler Mitchell](https://www.tylermitchell.co/): an image-first archive with adjustable image density. Applied as an explicit Gallery wall / Contact sheet choice and a desktop density range, so visitors can move between overview and individual photographs.
+- [Romain Laprade](https://www.romainlaprade.com/): a compact image index and deliberate spacing let the photographs carry the sequence. Applied as restrained navigation, full-ratio prints, varied spacing, occasional double-width images and an unobtrusive nearby-thumbnail strip in the full viewer.
+
+These references inform archive behavior and pacing. The implementation retains Sriakshay’s existing navy/ice-blue/red palette, Anybody and Instrument Sans typography, original photographs and separate software homepage. No reference photographs, branding or source code were reused. Image enlargement uses finite DOM motion, native-dialog focus and static reduced-motion behavior rather than introducing a new rendering engine.

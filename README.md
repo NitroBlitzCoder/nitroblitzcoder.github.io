@@ -22,10 +22,11 @@ Deploy the repository root through the repository's existing GitHub Pages config
 - scroll-motion.mjs: reveal, crop, cover and finite settling calculations.
 - scene.js: procedural camera lens and Anime.js scroll-scrubbed component separation within About.
 - software-renderer.js: simplified static fallback when WebGL is unavailable.
+- photography/: standalone photographic archive, local optimized images and thumbnails, prerendered HTML, gallery styles and interaction script.
 - PRODUCT.md: confirmed product/content constraints.
 - DESIGN.md and .impeccable/design.json: documented final design system.
 
-The cars and aircraft are technical line drawings integrated into an upward-angled blue circuit background and have no click controls. The lens sequence responds to ordinary page scrolling and reverses naturally. Photography is represented by the optical study, not a gallery. The lens is an illustrative assembly created for this website, not a manufacturer-specific engineering model.
+The cars and aircraft are technical line drawings integrated into an upward-angled blue circuit background and have no click controls. The lens sequence responds to ordinary page scrolling and reverses naturally. The homepage retains its optical study and links to the separate `/photography/` archive of actual photographs. The lens is an illustrative assembly created for this website, not a manufacturer-specific engineering model.
 
 ## Resume
 
@@ -64,3 +65,12 @@ The project frames retain their original layout, while their real imagery curves
 ## Project tile field
 
 `tile-field.js` connects the three semantic project anchors to previews and the existing viewer. `tile-field-renderer.js` renders instanced beveled blocks, shadows, preview textures, hit testing and projected labels; `tile-field-motion.mjs` defines responsive anchors, seeded heights and the finite spring response. The CSS fallback remains navigable without WebGL. The field stops rendering when settled and pauses during viewer flights, offscreen and on hidden pages. Reduced motion / Effects off keep selection available without displacement. Run all motion and UI checks with `node --test tests/*.cjs tests/*.mjs`.
+
+
+## Photography
+
+Open `/photography/` for the separate photographic archive. The gallery wall preserves full image ratios, with staggered prints and occasional double-width images. Contact sheet mode gives a compact overview. Desktop Distance adjusts wall columns; the orientation selector filters the visible set. Open a photograph for its complete image, previous/next controls and arrow keys, nearby thumbnails, and 2× zoom with native scrolling. Close or Escape returns focus to the opening photograph. Reduced motion disables spatial animation in CSS and JavaScript. The archive has no WebGL dependency or idle animation loop; without JavaScript its prerendered image links still open the local full-view assets.
+
+`photography/images/` holds maximum-2000px WebP copies and `photography/thumbs/` holds 560px previews, exported with correct orientation and no EXIF/GPS metadata. `photography/photos.json` contains local IDs, display filenames and dimensions; publish no local filesystem paths, Drive URLs or credentials. CR3 originals and XMP sidecars stay out of the public repository. All 253 images are the user-supplied local JPEG photographs, including alternate edited versions and numbered duplicates. Copies were created read-only from Pictures/Lightroom Saved Photos; the originals stay in place. The shared Drive folder remains an alternate source.
+
+This is a static snapshot of the local saved-photo folder. To update it, add JPEG exports to that folder (or the shared Drive folder) and request a sync; regenerate optimized assets, metadata and prerendered HTML together. Include `photography/` in the existing root GitHub Pages deployment. See `photography/README.md` for archive maintenance and `.impeccable/surfaces/photography.md` for its approved direction. The existing software-project viewer remains independent.

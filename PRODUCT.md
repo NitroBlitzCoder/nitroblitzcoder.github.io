@@ -6,7 +6,7 @@
 web
 
 ## Users
-MLH Fellowship reviewers initially; internship and professional opportunity reviewers later.
+MLH Fellowship reviewers initially; internship and professional opportunity reviewers later. The separate photography archive also serves visitors exploring Sriakshay’s creative work.
 
 ## Product Purpose
 Sriakshay Vaitla (NitroBlitzCoder)'s personal portfolio, presenting real software projects, Rutgers education, teaching/coaching experience, and contact details.
@@ -15,7 +15,7 @@ Sriakshay Vaitla (NitroBlitzCoder)'s personal portfolio, presenting real softwar
 GitHub Pages static HTML/CSS/JavaScript with local Three.js and Anime.js. Preserve three projects: MotionStudio, PhotoMosaic, Smart Collection Manager. Preserve factual qualifications, source files, asset licenses, and external links. Resume download remains assets/resume.pdf; the file is absent and the user will provide a different PDF. Do not choose an existing resume without their approval.
 
 ## Brand Commitments
-Charcoal/neutral black, vivid red, off-white. Strong typography and distinctive composition. Lando Norris for confident motorsport direction, Lusion for interaction craft, Anime.js's separating camera lens for scroll choreography. Cars and aircraft are ambient background details, not click-operated exhibits. Photography is represented by camera/lens components, not a gallery. Other interests: 3D printing/modeling, Blender animation, tennis. No anime, Gundam/model-kit, or sailing themes. No generic card grids, glowing gradients, burgundy backgrounds, or unnecessary pills. The user rejected the previous large condensed-name and click-to-explode vehicle UI as insufficiently distinctive.
+Charcoal/neutral black, vivid red, off-white. Strong typography and distinctive composition. Lando Norris for confident motorsport direction, Lusion for interaction craft, Anime.js's separating camera lens for scroll choreography. Cars and aircraft are ambient background details, not click-operated exhibits. On the software homepage, photography remains represented by the contextual camera/lens study. A separate, linked photography archive now presents the actual photographs. Other interests: 3D printing/modeling, Blender animation, tennis. No anime, Gundam/model-kit, or sailing themes. No generic card grids, glowing gradients, burgundy backgrounds, or unnecessary pills. The user rejected the previous large condensed-name and click-to-explode vehicle UI as insufficiently distinctive.
 
 ## Evidence on Hand
 MotionStudio screenshot and repository; second place in Solo Hack division at HackRU Fall 2026 (user supplied). PhotoMosaic original/result and repository; OpenCV/NumPy, LAB matching and reuse penalty verified from code. Smart Collection Manager Blender screenshot and repository; sorting, batch rename, scene statistics verified from code. Third-party SR-71 and P1 GTR models, source and credits retained. Rutgers Computer Science/Data Science, expected May 2030; existing tennis coach and programming instructor content supplied in incumbent portfolio.
@@ -45,3 +45,12 @@ User likes the cinematic viewer but wants the main page animated during ordinary
 ## Physical project selector — latest request
 
 The user explicitly requests a closer interpretation of Fabian Tjoe-A-On’s selectable tile field: rounded blocks with varied heights and a radial rise toward the pointer. A physical tile selector now precedes the existing case studies. Three labeled tiles open the corresponding cinematic viewer; previews span the block faces. Keep the approved navy circuitry and all existing project details, controls, contextual lens, and contact content. Keyboard and touch have the same project choices.
+
+
+## Separate photography archive — November 8, 2026
+
+The user requests a creative photography portfolio at `/photography/`, linked from the software portfolio, and authorizes publishing the supplied photographs. Extend the established navy/ice-blue/red and Anybody/Instrument Sans identity. Preserve the software page’s composition, project evidence, lens and existing controls.
+
+The archive presents 253 JPEG exports from the user’s local Pictures/Lightroom Saved Photos folder, including alternate edited versions and numbered duplicates. The shared Drive folder is an alternate source. Read local files only to create copies; never move or alter the originals. Exclude CR3 camera originals and XMP sidecars from the public site. Serve optimized, orientation-corrected local WebP copies (560px previews and maximum 2000px full views), without EXIF/GPS metadata. Local originals remain in their existing folder. Public assets and metadata must contain no local filesystem paths, Drive URLs, credentials or tokens. This is a static snapshot: add future JPEG exports to the local saved-photo folder (or the shared Drive folder) and request another sync.
+
+Use a spacious staggered gallery wall with occasional double-width prints, a compact contact sheet, desktop density adjustment and portrait/landscape filtering. A native-dialog viewer shows each full image without cropping, with an opening flight matched to its originating print, previous/next arrows and keys, Escape/Close, nearby thumbnails and 2× zoom with native pan. Native image links remain useful without JavaScript. Respect reduced motion in both CSS and JavaScript; this surface needs no WebGL or idle animation loop. Primary visual research: Tyler Mitchell’s density archive and Romain Laprade’s image-first index and pacing (see RESEARCH.md).

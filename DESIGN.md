@@ -1,6 +1,6 @@
 ---
 name: Sriakshay Vaitla Portfolio
-description: A work-first editorial software portfolio with contextual creative interests.
+description: An editorial software portfolio and separate photographic archive in a shared optical identity.
 colors:
   ink: "#09111d"
   paper: "#e9edf1"
@@ -11,6 +11,10 @@ colors:
   about-muted: "#5a5954"
   about-line: "#c7c5bc"
   about-red: "#b4241d"
+  photography-line: "#334256"
+  photography-muted: "#b8c8d8"
+  photography-focus: "#ff756b"
+  photography-viewer: "#050b13"
 typography:
   display:
     fontFamily: "Anybody, sans-serif"
@@ -30,6 +34,12 @@ typography:
     fontWeight: 500
     lineHeight: 1.12
     letterSpacing: "-0.035em"
+  photography-display:
+    fontFamily: "Anybody, sans-serif"
+    fontSize: "clamp(50px,7vw,96px)"
+    fontWeight: 500
+    lineHeight: 0.95
+    letterSpacing: "-0.04em"
   body:
     fontFamily: "Instrument, sans-serif"
     fontSize: "16px"
@@ -62,6 +72,13 @@ components:
   about-field:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.about-ink}"
+  photography-toolbar:
+    backgroundColor: "#09111df5"
+    textColor: "{colors.paper}"
+    padding: "18px 4vw"
+  photography-viewer:
+    backgroundColor: "{colors.photography-viewer}"
+    textColor: "{colors.paper}"
 ---
 
 # Design System: Sriakshay Vaitla Portfolio
@@ -70,7 +87,7 @@ components:
 
 **Creative North Star: "Industrial Optical Monograph"**
 
-An industrial optical monograph: wide, compactly spaced typography, deep-navy fields, cool paper, and a vivid red signal. Software evidence appears in generous editorial compositions, with hairline divisions rather than enclosing cards.
+An industrial optical monograph: wide, compactly spaced typography, deep-navy fields, cool paper, and a vivid red signal. Software evidence appears in generous editorial compositions, with hairline divisions rather than enclosing cards. A separate photographic archive extends that identity through full-ratio prints and quiet gallery controls.
 
 Depth belongs to the objects and screenshots. Motion reveals the construction of a camera lens through native scrolling; it remains optional, and the static experience retains readable project evidence and contact access.
 
@@ -95,6 +112,7 @@ A deep-navy and cool-paper foundation uses vivid red as its sole interface accen
 - **Paper:** primary foreground and About field.
 - **Muted:** supporting descriptions, dates, and utility text.
 - **Line:** project divisions; About overrides this with a lighter line for its timeline and captions.
+- **Photography line, muted, focus and viewer:** the archive’s blue-gray rules and captions, brighter red keyboard outline, and near-black full-image stage. These are surface-specific extensions of the shared navy/paper/red foundation.
 
 **The Red Signal Rule.** Use red for deliberate emphasis, interaction feedback, and the contact field; use the darker About red on cool paper.
 
@@ -111,6 +129,7 @@ The variable display face is broad and closely spaced. Reading text stays quiet 
 - **Headline:** the About greeting, using the headline token; mobile size (31px). The personal-practice heading uses `clamp(26px,2.6vw,38px)` with line-height (1.15), becoming (28px) on mobile.
 - **Title:** project headings; (31px) at the middle breakpoint and `clamp(27px,7vw,38px)` with line-height (1.18) on mobile.
 - **Body:** project descriptions use line-height (1.65) and maximum width (64ch). About copy uses (16px/1.75), becoming (15px) on mobile.
+- **Photography display:** the archive introduction uses the photography-display token on desktop and (54px) on phones; reading text is (15px/1.5), introduction copy (13px), and print captions (10px desktop / 9px phone).
 - **Label:** dates, metadata, captions, and utility controls. Navigation and text links use (13px), without uppercase tracking. The full-name wordmark is Instrument Sans (18px/1.2, weight 600), with a smaller credential line; mobile uses (15px) and hides that secondary line.
 
 **The Two Voices Rule.** Anybody carries expressive headings; Instrument Sans carries reading and controls. Retained alternative font assets are inactive, not additional type roles.
@@ -125,11 +144,15 @@ About is a cool-paper field with (88px 0 96px) padding. Its (1.05fr/1fr) grid pl
 
 At (1000px), gaps and type reduce and the lens becomes (285px) high. At (700px), introduction, project and About grids become single columns; personal practice becomes normal flow beneath the biography with a top rule, and the lens remains a compact (285px) figure. Case padding contracts to (22px 0 60px), About to (52px 0 72px). At (360px), the header wraps and navigation controls use (36px) minimum height. Space is contextual; frontmatter lists reused gaps only.
 
+The photography surface uses a wider (4vw) page inset, becoming (5vw) on phones. Its native-scroll wall starts with four columns; a desktop range chooses two through seven. Staggered offsets and occasional double-width desktop prints create pacing. Contact sheet mode uses eight compact columns, with density fixed; at (700px) and below the wall uses two columns and contact sheet four. The toolbar remains sticky. This image archive grid does not replace the software page’s editorial project compositions. See `.impeccable/surfaces/photography.md` for the surface-specific layout and controls.
+
 ## Elevation & Depth
 
 The interface is flat. Hairline borders and tonal changes distinguish regions, while the optical model provides physical material depth. A screenshot presentation alone uses the observed diffuse shadow (`0 18px 35px #0003`). Dialog depth comes from the dark backdrop (`#000e`) and a fine border, not a floating card shadow system.
 
-**The Object Depth Rule.** Keep editorial containers flat; reserve dimensional treatment for screenshot presentation and physical scene geometry.
+Photography prints add a restrained shadow (`0 16px 30px #0004`); the contact sheet removes it. The full-image stage is flat and near-black. Hover briefly gives the print slight perspective and brightness; reduced motion removes the spatial transform.
+
+**The Object Depth Rule.** Keep editorial containers flat; reserve dimensional treatment for screenshot presentation, photographic prints and physical scene geometry.
 
 ## Shapes
 
@@ -159,6 +182,12 @@ Six procedural groups separate along the optical axis using an Anime.js timeline
 
 The model uses dark metal, rubber, silver, and dark glass materials; these scene-specific colors are not additional page accent tokens. Aircraft and car references are pointer-transparent technical WebP drawings (155px and 205px desktop widths), embedded within the fixed circuitry plane. Licensed meshes are projected offline with visibility-tested crease lines. The full vehicle models are not downloaded at runtime. The custom pointer is browser-rendered SVG; its decorative trail expires after (180ms) and clears when effects disable, focus conditions change, or a dialog opens.
 
+### Photography controls and viewer
+
+Text buttons switch wall/contact-sheet modes; a red underline and `aria-pressed` identify the selection. A labeled native range changes desktop wall density; it is disabled in contact sheet mode and hidden on phones. A labeled native select filters image orientation. The photograph count is a status region. Prints preserve aspect ratio, and each remains an ordinary link to its local full-view file. Content-based descriptions label all 253 photographs, their links and nearby-thumbnail controls; filenames remain visual metadata. Photography navigation, close and arrow controls use thin inline SVG icons (16px standard / 24px viewer arrows, stroke width 1.5).
+
+The photography viewer is an independent native dialog, with a complete aspect-fit photograph at rest, close and zoom controls, side arrows, filename/counter, and a horizontal strip of up to fifteen nearby thumbnails. Arrow keys navigate the filtered set; Escape closes and restores the originating link’s focus. Touch swipe changes images outside zoom. Zoom uses a 200% image inside native overflow scrolling. Opening animates from the print’s measured position (680ms); changes use a shorter (480ms) entrance. These finite DOM animations and optional CSS view-timeline drift respect reduced motion. There is no photography WebGL context or idle frame loop.
+
 ### Dialogs
 
 Screenshot and credit dialogs use native dialog semantics, a dark surface, fine border, visible close control, and constrained viewport sizing. Preserve modal focus and Escape behavior.
@@ -173,7 +202,7 @@ Screenshot and credit dialogs use native dialog semantics, a dark surface, fine 
 
 ### Don't:
 - **Don't** replace this system with generic card grids, decorative pills, glowing gradients, or burgundy page backgrounds.
-- **Don't** turn vehicles into click-operated exhibits or turn the camera theme into a photography gallery.
+- **Don't** turn vehicles into click-operated exhibits or replace the homepage’s contextual optical study with the photography archive; keep the archive on its own linked route.
 - **Don't** require motion, hover, or graphics to reach factual content.
 
 ## Circuit material and supporting motion
