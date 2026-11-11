@@ -63,12 +63,13 @@ export function createTileField(canvas){
     camera.position.set(0,-distance*.19,distance);camera.lookAt(0,0,0);camera.updateProjectionMatrix();root.updateMatrixWorld(true);
   }
   function setActive(index){
+    const palette=getComputedStyle(document.documentElement),token=name=>palette.getPropertyValue(name).trim();
     active=index;if(!mesh)return;
     for(let i=0;i<tiles.length;i++){
-      const t=tiles[i];if(t.project>=0)color.set(t.project===active?0xff6157:0xb2c8d7);else color.setRGB(.035+(i%7)*.003,.065+(i%5)*.005,.105+(i%9)*.006);
+      const t=tiles[i];if(t.project>=0)color.set(t.project===active?token('--tile-active'):token('--tile-key'));else color.set(token('--tile-idle')).multiplyScalar(.85+(i%9)*.025);
       mesh.setColorAt(i,color);
     }
-    mesh.instanceColor.needsUpdate=true;markers.forEach((m,i)=>m.material.color.set(i===active?0xff8b7d:0xcde3f1));
+    mesh.instanceColor.needsUpdate=true;markers.forEach((m,i)=>m.material.color.set(i===active?token('--red'):token('--blue')));
   }
   function setPreview(image,immediate=false){
     if(!image){previewTarget=0;if(immediate)uniforms.uPreview.value=0;return;}
@@ -109,5 +110,6 @@ export function createTileField(canvas){
     const left=Math.min(...corners.map(p=>p.x)),top=Math.min(...corners.map(p=>p.y));return{left,top,width:Math.max(...corners.map(p=>p.x))-left,height:Math.max(...corners.map(p=>p.y))-top};
   }
   resize();
-  return{resize,update,render(){renderer.render(scene,camera);},setActive,setPreview,hitTest,focus,leave(){pointer=null;},project,previewRect,dispose(){geometry.dispose();material.dispose();textureCache.forEach(t=>t.dispose());placeholder.dispose();environment.dispose();markers.forEach(m=>{m.geometry.dispose();m.material.dispose();});floor.geometry.dispose();floor.material.dispose();renderer.dispose();}};
+  const theme=()=>{setActive(active);renderer.shadowMap.needsUpdate=true;renderer.render(scene,camera);};window.addEventListener('themechange',theme);
+  return{resize,update,render(){renderer.render(scene,camera);},setActive,setPreview,hitTest,focus,leave(){pointer=null;},project,previewRect,dispose(){window.removeEventListener('themechange',theme);geometry.dispose();material.dispose();textureCache.forEach(t=>t.dispose());placeholder.dispose();environment.dispose();markers.forEach(m=>{m.geometry.dispose();m.material.dispose();});floor.geometry.dispose();floor.material.dispose();renderer.dispose();}};
 }

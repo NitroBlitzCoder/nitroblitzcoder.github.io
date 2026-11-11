@@ -42,9 +42,12 @@
       context.beginPath();
       context.moveTo(points[i - 1].x, points[i - 1].y);
       context.lineTo(points[i].x, points[i].y);
-      context.strokeStyle = `rgba(255,59,59,${alpha * .34})`;
+      context.strokeStyle = typeof getComputedStyle === 'function'
+        ? getComputedStyle(document.documentElement).getPropertyValue('--red').trim() || '#ffac78' : '#ffac78';
+      context.globalAlpha = alpha * .34;
       context.lineWidth = alpha * 2.5;
       context.stroke();
+      context.globalAlpha = 1;
     }
     if (points.length) frame = requestAnimationFrame(drawTrail);
     else lastPoint = null;

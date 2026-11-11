@@ -1,66 +1,490 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-08T23:00:00Z",
+  "generatedAt": "2026-11-11T00:00:00Z",
   "title": "Design System: Sriakshay Vaitla Portfolio",
   "extensions": {
     "colorMeta": {
       "ink": {
         "role": "neutral",
-        "displayName": "Ink"
+        "displayName": "CobaltSky page field",
+        "tonalRamp": [
+          "oklch(0.15 0.0171 257.68)",
+          "oklch(0.25 0.0318 257.68)",
+          "oklch(0.36 0.0416 257.68)",
+          "oklch(0.47 0.0490 257.68)",
+          "oklch(0.59 0.0490 257.68)",
+          "oklch(0.71 0.0416 257.68)",
+          "oklch(0.83 0.0318 257.68)",
+          "oklch(0.95 0.0122 257.68)"
+        ]
       },
       "paper": {
         "role": "neutral",
-        "displayName": "Paper"
+        "displayName": "CobaltSky foreground",
+        "tonalRamp": [
+          "oklch(0.15 0.0050 84.58)",
+          "oklch(0.25 0.0093 84.58)",
+          "oklch(0.36 0.0122 84.58)",
+          "oklch(0.47 0.0143 84.58)",
+          "oklch(0.59 0.0143 84.58)",
+          "oklch(0.71 0.0122 84.58)",
+          "oklch(0.83 0.0093 84.58)",
+          "oklch(0.95 0.0036 84.58)"
+        ]
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Muted"
+        "displayName": "CobaltSky muted",
+        "tonalRamp": [
+          "oklch(0.15 0.0144 255.32)",
+          "oklch(0.25 0.0267 255.32)",
+          "oklch(0.36 0.0349 255.32)",
+          "oklch(0.47 0.0411 255.32)",
+          "oklch(0.59 0.0411 255.32)",
+          "oklch(0.71 0.0349 255.32)",
+          "oklch(0.83 0.0267 255.32)",
+          "oklch(0.95 0.0103 255.32)"
+        ]
       },
       "red": {
-        "role": "primary",
-        "displayName": "Red"
+        "role": "secondary",
+        "displayName": "CobaltSky orange signal",
+        "tonalRamp": [
+          "oklch(0.15 0.0416 52.42)",
+          "oklch(0.25 0.0772 52.42)",
+          "oklch(0.36 0.1010 52.42)",
+          "oklch(0.47 0.1188 52.42)",
+          "oklch(0.59 0.1188 52.42)",
+          "oklch(0.71 0.1010 52.42)",
+          "oklch(0.83 0.0772 52.42)",
+          "oklch(0.95 0.0297 52.42)"
+        ]
       },
       "line": {
         "role": "neutral",
-        "displayName": "Line"
+        "displayName": "CobaltSky line",
+        "tonalRamp": [
+          "oklch(0.15 0.0192 255.87)",
+          "oklch(0.25 0.0357 255.87)",
+          "oklch(0.36 0.0467 255.87)",
+          "oklch(0.47 0.0549 255.87)",
+          "oklch(0.59 0.0549 255.87)",
+          "oklch(0.71 0.0467 255.87)",
+          "oklch(0.83 0.0357 255.87)",
+          "oklch(0.95 0.0137 255.87)"
+        ]
       },
-      "about-ink": {
+      "raised": {
         "role": "neutral",
-        "displayName": "About Ink"
+        "displayName": "CobaltSky raised",
+        "tonalRamp": [
+          "oklch(0.15 0.0221 255.98)",
+          "oklch(0.25 0.0410 255.98)",
+          "oklch(0.36 0.0537 255.98)",
+          "oklch(0.47 0.0631 255.98)",
+          "oklch(0.59 0.0631 255.98)",
+          "oklch(0.71 0.0537 255.98)",
+          "oklch(0.83 0.0410 255.98)",
+          "oklch(0.95 0.0158 255.98)"
+        ]
       },
-      "about-muted": {
+      "hover": {
         "role": "neutral",
-        "displayName": "About Muted"
+        "displayName": "CobaltSky hover",
+        "tonalRamp": [
+          "oklch(0.15 0.0240 253.20)",
+          "oklch(0.25 0.0445 253.20)",
+          "oklch(0.36 0.0582 253.20)",
+          "oklch(0.47 0.0685 253.20)",
+          "oklch(0.59 0.0685 253.20)",
+          "oklch(0.71 0.0582 253.20)",
+          "oklch(0.83 0.0445 253.20)",
+          "oklch(0.95 0.0171 253.20)"
+        ]
       },
-      "about-line": {
-        "role": "neutral",
-        "displayName": "About Line"
-      },
-      "about-red": {
+      "blue": {
         "role": "primary",
-        "displayName": "About Red"
+        "displayName": "CobaltSky blue",
+        "tonalRamp": [
+          "oklch(0.15 0.0422 260.12)",
+          "oklch(0.25 0.0784 260.12)",
+          "oklch(0.36 0.1025 260.12)",
+          "oklch(0.47 0.1205 260.12)",
+          "oklch(0.59 0.1205 260.12)",
+          "oklch(0.71 0.1025 260.12)",
+          "oklch(0.83 0.0784 260.12)",
+          "oklch(0.95 0.0301 260.12)"
+        ]
       },
-      "photography-line": {
-        "role": "neutral",
-        "displayName": "Photography line"
-      },
-      "photography-muted": {
-        "role": "neutral",
-        "displayName": "Photography muted"
-      },
-      "photography-focus": {
+      "blue-strong": {
         "role": "primary",
-        "displayName": "Photography focus"
+        "displayName": "CobaltSky blue strong",
+        "tonalRamp": [
+          "oklch(0.15 0.0653 262.99)",
+          "oklch(0.25 0.1213 262.99)",
+          "oklch(0.36 0.1586 262.99)",
+          "oklch(0.47 0.1866 262.99)",
+          "oklch(0.59 0.1866 262.99)",
+          "oklch(0.71 0.1586 262.99)",
+          "oklch(0.83 0.1213 262.99)",
+          "oklch(0.95 0.0466 262.99)"
+        ]
       },
-      "photography-viewer": {
+      "glow": {
         "role": "neutral",
-        "displayName": "Photography viewer"
+        "displayName": "CobaltSky glow",
+        "tonalRamp": [
+          "oklch(0.15 0.0636 264.27)",
+          "oklch(0.25 0.1182 264.27)",
+          "oklch(0.36 0.1545 264.27)",
+          "oklch(0.47 0.1818 264.27)",
+          "oklch(0.59 0.1818 264.27)",
+          "oklch(0.71 0.1545 264.27)",
+          "oklch(0.83 0.1182 264.27)",
+          "oklch(0.95 0.0454 264.27)"
+        ]
+      },
+      "header": {
+        "role": "neutral",
+        "displayName": "CobaltSky header",
+        "tonalRamp": [
+          "oklch(0.15 0.0171 257.68)",
+          "oklch(0.25 0.0318 257.68)",
+          "oklch(0.36 0.0416 257.68)",
+          "oklch(0.47 0.0490 257.68)",
+          "oklch(0.59 0.0490 257.68)",
+          "oklch(0.71 0.0416 257.68)",
+          "oklch(0.83 0.0318 257.68)",
+          "oklch(0.95 0.0122 257.68)"
+        ]
+      },
+      "shadow": {
+        "role": "neutral",
+        "displayName": "CobaltSky shadow",
+        "tonalRamp": [
+          "oklch(0.15 0.0126 251.72)",
+          "oklch(0.25 0.0234 251.72)",
+          "oklch(0.36 0.0306 251.72)",
+          "oklch(0.47 0.0360 251.72)",
+          "oklch(0.59 0.0360 251.72)",
+          "oklch(0.71 0.0306 251.72)",
+          "oklch(0.83 0.0234 251.72)",
+          "oklch(0.95 0.0090 251.72)"
+        ]
+      },
+      "tile-idle": {
+        "role": "neutral",
+        "displayName": "CobaltSky tile idle",
+        "tonalRamp": [
+          "oklch(0.15 0.0217 255.74)",
+          "oklch(0.25 0.0403 255.74)",
+          "oklch(0.36 0.0527 255.74)",
+          "oklch(0.47 0.0620 255.74)",
+          "oklch(0.59 0.0620 255.74)",
+          "oklch(0.71 0.0527 255.74)",
+          "oklch(0.83 0.0403 255.74)",
+          "oklch(0.95 0.0155 255.74)"
+        ]
+      },
+      "tile-key": {
+        "role": "neutral",
+        "displayName": "CobaltSky tile key",
+        "tonalRamp": [
+          "oklch(0.15 0.0182 251.21)",
+          "oklch(0.25 0.0338 251.21)",
+          "oklch(0.36 0.0442 251.21)",
+          "oklch(0.47 0.0520 251.21)",
+          "oklch(0.59 0.0520 251.21)",
+          "oklch(0.71 0.0442 251.21)",
+          "oklch(0.83 0.0338 251.21)",
+          "oklch(0.95 0.0130 251.21)"
+        ]
+      },
+      "tile-active": {
+        "role": "secondary",
+        "displayName": "CobaltSky tile active",
+        "tonalRamp": [
+          "oklch(0.15 0.0399 50.39)",
+          "oklch(0.25 0.0741 50.39)",
+          "oklch(0.36 0.0969 50.39)",
+          "oklch(0.47 0.1140 50.39)",
+          "oklch(0.59 0.1140 50.39)",
+          "oklch(0.71 0.0969 50.39)",
+          "oklch(0.83 0.0741 50.39)",
+          "oklch(0.95 0.0285 50.39)"
+        ]
+      },
+      "image-mat": {
+        "role": "neutral",
+        "displayName": "CobaltSky image mat",
+        "tonalRamp": [
+          "oklch(0.15 0.0103 241.67)",
+          "oklch(0.25 0.0192 241.67)",
+          "oklch(0.36 0.0251 241.67)",
+          "oklch(0.47 0.0295 241.67)",
+          "oklch(0.59 0.0295 241.67)",
+          "oklch(0.71 0.0251 241.67)",
+          "oklch(0.83 0.0192 241.67)",
+          "oklch(0.95 0.0074 241.67)"
+        ]
+      },
+      "selection-ink": {
+        "role": "neutral",
+        "displayName": "CobaltSky selection ink",
+        "tonalRamp": [
+          "oklch(0.15 0.0171 257.68)",
+          "oklch(0.25 0.0318 257.68)",
+          "oklch(0.36 0.0416 257.68)",
+          "oklch(0.47 0.0490 257.68)",
+          "oklch(0.59 0.0490 257.68)",
+          "oklch(0.71 0.0416 257.68)",
+          "oklch(0.83 0.0318 257.68)",
+          "oklch(0.95 0.0122 257.68)"
+        ]
+      },
+      "light-ink": {
+        "role": "neutral",
+        "displayName": "Day page field",
+        "tonalRamp": [
+          "oklch(0.15 0.0050 84.58)",
+          "oklch(0.25 0.0093 84.58)",
+          "oklch(0.36 0.0122 84.58)",
+          "oklch(0.47 0.0143 84.58)",
+          "oklch(0.59 0.0143 84.58)",
+          "oklch(0.71 0.0122 84.58)",
+          "oklch(0.83 0.0093 84.58)",
+          "oklch(0.95 0.0036 84.58)"
+        ]
+      },
+      "light-paper": {
+        "role": "neutral",
+        "displayName": "Day foreground",
+        "tonalRamp": [
+          "oklch(0.15 0.0200 252.52)",
+          "oklch(0.25 0.0371 252.52)",
+          "oklch(0.36 0.0485 252.52)",
+          "oklch(0.47 0.0571 252.52)",
+          "oklch(0.59 0.0571 252.52)",
+          "oklch(0.71 0.0485 252.52)",
+          "oklch(0.83 0.0371 252.52)",
+          "oklch(0.95 0.0143 252.52)"
+        ]
+      },
+      "light-muted": {
+        "role": "neutral",
+        "displayName": "Day muted",
+        "tonalRamp": [
+          "oklch(0.15 0.0169 248.83)",
+          "oklch(0.25 0.0313 248.83)",
+          "oklch(0.36 0.0410 248.83)",
+          "oklch(0.47 0.0482 248.83)",
+          "oklch(0.59 0.0482 248.83)",
+          "oklch(0.71 0.0410 248.83)",
+          "oklch(0.83 0.0313 248.83)",
+          "oklch(0.95 0.0120 248.83)"
+        ]
+      },
+      "light-red": {
+        "role": "secondary",
+        "displayName": "Day orange signal",
+        "tonalRamp": [
+          "oklch(0.15 0.0486 40.19)",
+          "oklch(0.25 0.0902 40.19)",
+          "oklch(0.36 0.1179 40.19)",
+          "oklch(0.47 0.1387 40.19)",
+          "oklch(0.59 0.1387 40.19)",
+          "oklch(0.71 0.1179 40.19)",
+          "oklch(0.83 0.0902 40.19)",
+          "oklch(0.95 0.0347 40.19)"
+        ]
+      },
+      "light-line": {
+        "role": "neutral",
+        "displayName": "Day line",
+        "tonalRamp": [
+          "oklch(0.15 0.0066 232.56)",
+          "oklch(0.25 0.0123 232.56)",
+          "oklch(0.36 0.0161 232.56)",
+          "oklch(0.47 0.0190 232.56)",
+          "oklch(0.59 0.0190 232.56)",
+          "oklch(0.71 0.0161 232.56)",
+          "oklch(0.83 0.0123 232.56)",
+          "oklch(0.95 0.0047 232.56)"
+        ]
+      },
+      "light-raised": {
+        "role": "neutral",
+        "displayName": "Day raised",
+        "tonalRamp": [
+          "oklch(0.15 0.0053 235.38)",
+          "oklch(0.25 0.0098 235.38)",
+          "oklch(0.36 0.0128 235.38)",
+          "oklch(0.47 0.0151 235.38)",
+          "oklch(0.59 0.0151 235.38)",
+          "oklch(0.71 0.0128 235.38)",
+          "oklch(0.83 0.0098 235.38)",
+          "oklch(0.95 0.0038 235.38)"
+        ]
+      },
+      "light-hover": {
+        "role": "neutral",
+        "displayName": "Day hover",
+        "tonalRamp": [
+          "oklch(0.15 0.0089 236.85)",
+          "oklch(0.25 0.0165 236.85)",
+          "oklch(0.36 0.0215 236.85)",
+          "oklch(0.47 0.0253 236.85)",
+          "oklch(0.59 0.0253 236.85)",
+          "oklch(0.71 0.0215 236.85)",
+          "oklch(0.83 0.0165 236.85)",
+          "oklch(0.95 0.0063 236.85)"
+        ]
+      },
+      "light-blue": {
+        "role": "primary",
+        "displayName": "Day blue",
+        "tonalRamp": [
+          "oklch(0.15 0.0388 250.08)",
+          "oklch(0.25 0.0721 250.08)",
+          "oklch(0.36 0.0943 250.08)",
+          "oklch(0.47 0.1109 250.08)",
+          "oklch(0.59 0.1109 250.08)",
+          "oklch(0.71 0.0943 250.08)",
+          "oklch(0.83 0.0721 250.08)",
+          "oklch(0.95 0.0277 250.08)"
+        ]
+      },
+      "light-blue-strong": {
+        "role": "primary",
+        "displayName": "Day blue strong",
+        "tonalRamp": [
+          "oklch(0.15 0.0647 264.38)",
+          "oklch(0.25 0.1202 264.38)",
+          "oklch(0.36 0.1571 264.38)",
+          "oklch(0.47 0.1849 264.38)",
+          "oklch(0.59 0.1849 264.38)",
+          "oklch(0.71 0.1571 264.38)",
+          "oklch(0.83 0.1202 264.38)",
+          "oklch(0.95 0.0462 264.38)"
+        ]
+      },
+      "light-glow": {
+        "role": "neutral",
+        "displayName": "Day glow",
+        "tonalRamp": [
+          "oklch(0.15 0.0340 245.83)",
+          "oklch(0.25 0.0632 245.83)",
+          "oklch(0.36 0.0826 245.83)",
+          "oklch(0.47 0.0972 245.83)",
+          "oklch(0.59 0.0972 245.83)",
+          "oklch(0.71 0.0826 245.83)",
+          "oklch(0.83 0.0632 245.83)",
+          "oklch(0.95 0.0243 245.83)"
+        ]
+      },
+      "light-header": {
+        "role": "neutral",
+        "displayName": "Day header",
+        "tonalRamp": [
+          "oklch(0.15 0.0050 84.58)",
+          "oklch(0.25 0.0093 84.58)",
+          "oklch(0.36 0.0122 84.58)",
+          "oklch(0.47 0.0143 84.58)",
+          "oklch(0.59 0.0143 84.58)",
+          "oklch(0.71 0.0122 84.58)",
+          "oklch(0.83 0.0093 84.58)",
+          "oklch(0.95 0.0036 84.58)"
+        ]
+      },
+      "light-shadow": {
+        "role": "neutral",
+        "displayName": "Day shadow",
+        "tonalRamp": [
+          "oklch(0.15 0.0198 245.36)",
+          "oklch(0.25 0.0367 245.36)",
+          "oklch(0.36 0.0480 245.36)",
+          "oklch(0.47 0.0564 245.36)",
+          "oklch(0.59 0.0564 245.36)",
+          "oklch(0.71 0.0480 245.36)",
+          "oklch(0.83 0.0367 245.36)",
+          "oklch(0.95 0.0141 245.36)"
+        ]
+      },
+      "light-tile-idle": {
+        "role": "neutral",
+        "displayName": "Day tile idle",
+        "tonalRamp": [
+          "oklch(0.15 0.0115 239.45)",
+          "oklch(0.25 0.0213 239.45)",
+          "oklch(0.36 0.0279 239.45)",
+          "oklch(0.47 0.0328 239.45)",
+          "oklch(0.59 0.0328 239.45)",
+          "oklch(0.71 0.0279 239.45)",
+          "oklch(0.83 0.0213 239.45)",
+          "oklch(0.95 0.0082 239.45)"
+        ]
+      },
+      "light-tile-key": {
+        "role": "neutral",
+        "displayName": "Day tile key",
+        "tonalRamp": [
+          "oklch(0.15 0.0270 246.94)",
+          "oklch(0.25 0.0501 246.94)",
+          "oklch(0.36 0.0655 246.94)",
+          "oklch(0.47 0.0771 246.94)",
+          "oklch(0.59 0.0771 246.94)",
+          "oklch(0.71 0.0655 246.94)",
+          "oklch(0.83 0.0501 246.94)",
+          "oklch(0.95 0.0193 246.94)"
+        ]
+      },
+      "light-tile-active": {
+        "role": "secondary",
+        "displayName": "Day tile active",
+        "tonalRamp": [
+          "oklch(0.15 0.0491 45.99)",
+          "oklch(0.25 0.0912 45.99)",
+          "oklch(0.36 0.1192 45.99)",
+          "oklch(0.47 0.1403 45.99)",
+          "oklch(0.59 0.1403 45.99)",
+          "oklch(0.71 0.1192 45.99)",
+          "oklch(0.83 0.0912 45.99)",
+          "oklch(0.95 0.0351 45.99)"
+        ]
+      },
+      "light-image-mat": {
+        "role": "neutral",
+        "displayName": "Day image mat",
+        "tonalRamp": [
+          "oklch(0.15 0.0062 229.01)",
+          "oklch(0.25 0.0116 229.01)",
+          "oklch(0.36 0.0151 229.01)",
+          "oklch(0.47 0.0178 229.01)",
+          "oklch(0.59 0.0178 229.01)",
+          "oklch(0.71 0.0151 229.01)",
+          "oklch(0.83 0.0116 229.01)",
+          "oklch(0.95 0.0044 229.01)"
+        ]
+      },
+      "light-selection-ink": {
+        "role": "neutral",
+        "displayName": "Day selection ink",
+        "tonalRamp": [
+          "oklch(0.15 0.0069 77.32)",
+          "oklch(0.25 0.0128 77.32)",
+          "oklch(0.36 0.0167 77.32)",
+          "oklch(0.47 0.0197 77.32)",
+          "oklch(0.59 0.0197 77.32)",
+          "oklch(0.71 0.0167 77.32)",
+          "oklch(0.83 0.0128 77.32)",
+          "oklch(0.95 0.0049 77.32)"
+        ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Creative-software introduction; selective red emphasis."
+        "purpose": "Full-viewport live-text hero; blue emphasis, responsive clamp(42px,9.2vw,64px) on phones."
       },
       "headline": {
         "displayName": "Headline",
@@ -91,7 +515,7 @@
       },
       {
         "name": "photography-print",
-        "value": "0 16px 30px #0004",
+        "value": "0 16px 30px var(--shadow)",
         "purpose": "Gallery wall prints only; removed in contact sheet mode."
       }
     ],
@@ -125,6 +549,26 @@
         "name": "photography-change",
         "value": "480ms cubic-bezier(.16,1,.3,1)",
         "purpose": "Finite DOM image change; disabled with reduced motion."
+      },
+      {
+        "name": "theme-reveal",
+        "value": "760ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Switch-centered radial root View Transition; reduced motion, Effects off or unsupported API applies immediately."
+      },
+      {
+        "name": "hero-word-reveal",
+        "value": "950ms; delay:index*65ms",
+        "purpose": "Native split/blur entrance after hero loader; gated by reduced motion and Effects."
+      },
+      {
+        "name": "section-word-reveal",
+        "value": "780ms; delay:min(index*55ms,220ms)",
+        "purpose": "Once at half-visible; same motion gates."
+      },
+      {
+        "name": "comparison-elasticity",
+        "value": "skew bounded \u00b12.88deg; blur up to 1.08px; sparks 420ms",
+        "purpose": "Drag feedback using existing native comparison range; JS feedback obeys reduced motion and Effects."
       }
     ],
     "breakpoints": [
@@ -143,15 +587,19 @@
       {
         "name": "narrow-header",
         "value": "max-width:360px"
+      },
+      {
+        "name": "theme-header",
+        "value": "max-width:850px"
       }
     ],
     "circuitBackground": {
-      "base": "#09111d",
-      "routing": "#6c9cc0",
+      "base": "var(--ink)",
+      "routing": "var(--blue)",
       "opacity": 0.28,
       "mobileOpacity": 0.21,
       "skewY": "-10deg",
-      "aboutSurface": "#e7ebee",
+      "aboutSurface": "var(--raised)",
       "motion": "Event-driven pointer shift and bounded scroll drift; no idle loop. Static with effects off/reduced motion."
     },
     "cinematicViewer": {
@@ -187,7 +635,7 @@
       "settlingMs": 65,
       "fallback": "Static native images for reduced motion, effects off, no WebGL or lost context",
       "coordination": "Paused during native dialogs; resynchronized when viewer closes",
-      "backgroundChange": "Ten additional margin traces; existing angle, palette and details preserved"
+      "backgroundChange": "Ten additional margin traces; upward angle, details and theme-blue routing preserved"
     },
     "projectTileField": {
       "desktop": [
@@ -198,7 +646,7 @@
         18,
         11
       ],
-      "material": "smoked blue metal",
+      "material": "theme-aware blue metal; CSS tile-idle, tile-key and tile-active roles",
       "bevelRadius": 0.12,
       "pointerRadius": 2.65,
       "compactPointerRadius": 2.15,
@@ -226,6 +674,35 @@
       "rendering": "No WebGL or idle animation loop; CSS/JS reduced motion",
       "updates": "Static local snapshot of 253 user JPEG exports from Pictures/Lightroom Saved Photos; Drive is an alternate source. Read originals only to make copies, preserve them in place, and regenerate on requested sync. Public metadata contains no local paths or Drive URLs.",
       "accessibility": "All 253 photographs have content-based descriptions shared by gallery links, full-view images and nearby-thumbnail controls; filenames remain visual metadata. Thin inline SVG icons are 16px (24px viewer arrows), with 1.5 stroke width."
+    },
+    "themeSystem": {
+      "source": "theme.css",
+      "themes": {
+        "dark": {
+          "name": "CobaltSky",
+          "tokenPrefix": ""
+        },
+        "light": {
+          "name": "Light blue / cream / hint orange",
+          "tokenPrefix": "light-"
+        }
+      },
+      "input": "Native checkbox role=switch; Dark theme; checked means dark",
+      "persistence": "sv-theme localStorage; early theme-init.js; OS preference before explicit choice; live OS and storage events",
+      "renderers": "themechange reads --blue in hero-renderer.js and tile tokens in tile-field-renderer.js",
+      "transition": "760ms switch-centered radial View Transition; reduced motion, Effects off or unsupported API applies immediately",
+      "supersedes": [
+        "lime hero candidate",
+        "navy/red interface palette"
+      ],
+      "content": "Existing copy and assets preserved; static site, no build step"
+    },
+    "tonalRampPurpose": "Derived preview-only OKLCH ramps; normative theme primitives remain in DESIGN.md frontmatter.",
+    "pointerTrail": {
+      "color": "var(--red) read per stroke",
+      "lifetimeMs": 180,
+      "pointer": "Native pointer remains visible; trail is decoration only",
+      "hero": "Trail suppressed in hero"
     }
   },
   "components": [
@@ -234,7 +711,7 @@
       "kind": "button",
       "description": "Text link extracted from the shipped portfolio.",
       "html": "<a class=\"ds-text-link\" href=\"#work\">Explore the work <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a>",
-      "css": ".ds-text-link{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9edf1);display:inline-flex;align-items:center;gap:24px;min-height:44px;border-bottom:1px solid #777;text-decoration:none;transition:color .18s ease}.ds-text-link svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6}.ds-text-link:hover{color:var(--red,#ff6157)}.ds-text-link:focus-visible{outline:2px solid var(--red,#ff6157);outline-offset:6px;}",
+      "css": ".ds-text-link{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#f5f0e6);display:inline-flex;align-items:center;gap:24px;min-height:44px;border-bottom:1px solid #777;text-decoration:none;transition:color .18s ease}.ds-text-link svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6}.ds-text-link:hover{color:var(--red,#ffac78)}.ds-text-link:focus-visible{outline:2px solid var(--red,#ffac78);outline-offset:6px;}",
       "refersTo": "text-link"
     },
     {
@@ -242,58 +719,68 @@
       "kind": "button",
       "description": "Effects button extracted from the shipped portfolio.",
       "html": "<button class=\"ds-effects\" aria-pressed=\"true\">Effects on</button>",
-      "css": ".ds-effects{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9edf1);color:var(--muted,#a8b6c6);font-size:12px;background:transparent;border:0;padding:0;min-height:44px;cursor:pointer;transition:color .18s ease}.ds-effects:hover{color:var(--red,#ff6157)}.ds-effects:focus-visible{outline:2px solid var(--red,#ff6157);outline-offset:6px;}",
+      "css": ".ds-effects{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#f5f0e6);color:var(--muted,#afc2db);font-size:12px;background:transparent;border:0;padding:0;min-height:44px;cursor:pointer;transition:color .18s ease}.ds-effects:hover{color:var(--red,#ffac78)}.ds-effects:focus-visible{outline:2px solid var(--red,#ffac78);outline-offset:6px;}",
       "refersTo": "effects-button"
     },
     {
       "name": "Navigation",
       "kind": "nav",
-      "description": "Sticky-header anchor links; current location uses the red accent.",
+      "description": "Sticky-header anchor links; current location uses the orange signal.",
       "html": "<nav class=\"ds-nav\"><a href=\"#work\">Work</a><a href=\"#about\">About</a><a href=\"#contact\">Contact</a></nav>",
-      "css": ".ds-nav{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9edf1);display:flex;gap:30px}.ds-nav a{color:inherit;display:inline-flex;align-items:center;min-height:44px;text-decoration:none;transition:color .18s ease}.ds-nav a:hover{color:var(--red,#ff6157)}.ds-nav a:focus-visible{outline:2px solid var(--red,#ff6157);outline-offset:6px;}.ds-nav a[aria-current=location]{color:var(--red,#ff6157)}"
+      "css": ".ds-nav{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#f5f0e6);display:flex;gap:30px}.ds-nav a{color:inherit;display:inline-flex;align-items:center;min-height:44px;text-decoration:none;transition:color .18s ease}.ds-nav a:hover{color:var(--red,#ffac78)}.ds-nav a:focus-visible{outline:2px solid var(--red,#ffac78);outline-offset:6px;}.ds-nav a[aria-current=location]{color:var(--red,#ffac78)}"
     },
     {
       "name": "Comparison range",
       "kind": "input",
       "description": "Comparison range extracted from the shipped portfolio.",
       "html": "<label class=\"ds-range\">Before / after<input type=\"range\" min=\"0\" max=\"100\" value=\"50\" aria-label=\"Original versus mosaic comparison\"></label>",
-      "css": ".ds-range{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9edf1);display:flex;align-items:center;gap:18px;font-size:12px}.ds-range input{flex:1;min-width:20px;min-height:44px;accent-color:var(--red,#ff6157)}.ds-range input:focus-visible{outline:2px solid var(--red,#ff6157);outline-offset:6px;}"
+      "css": ".ds-range{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#f5f0e6);display:flex;align-items:center;gap:18px;font-size:12px}.ds-range input{flex:1;min-width:20px;min-height:44px;accent-color:var(--red,#ffac78)}.ds-range input:focus-visible{outline:2px solid var(--red,#ffac78);outline-offset:6px;}"
     },
     {
       "name": "Engineering disclosure",
       "kind": "custom",
       "description": "Engineering disclosure extracted from the shipped portfolio.",
       "html": "<details class=\"ds-details\"><summary>The engineering</summary><p>A modular pipeline compares tiles in LAB color space and assembles the output.</p></details>",
-      "css": ".ds-details{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#e9edf1);border-top:1px solid var(--line,#2a3849);padding-top:8px;margin-top:20px}.ds-details summary{cursor:pointer;min-height:44px;padding:10px 0;font-size:13px}.ds-details summary:focus-visible{outline:2px solid var(--red,#ff6157);outline-offset:6px;}.ds-details p{font-size:14px;color:var(--muted,#a8b6c6);line-height:1.7;margin:10px 0}"
+      "css": ".ds-details{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#f5f0e6);border-top:1px solid var(--line,#304561);padding-top:8px;margin-top:20px}.ds-details summary{cursor:pointer;min-height:44px;padding:10px 0;font-size:13px}.ds-details summary:focus-visible{outline:2px solid var(--red,#ffac78);outline-offset:6px;}.ds-details p{font-size:14px;color:var(--muted,#afc2db);line-height:1.7;margin:10px 0}"
     },
     {
       "name": "Photography layout modes",
       "kind": "button",
-      "description": "Selected archive layout is underlined with the red signal.",
+      "description": "Selected archive layout is underlined with the orange signal.",
       "html": "<div class=\"ds-photo-modes\" role=\"group\" aria-label=\"Gallery layout\"><button aria-pressed=\"true\">Gallery wall</button><button aria-pressed=\"false\">Contact sheet</button></div>",
-      "css": ".ds-photo-modes{display:flex;gap:18px;font:15px/1.5 Instrument,sans-serif}.ds-photo-modes button{font:inherit;cursor:pointer;background:none;border:0;color:#9db0c5;padding:4px 0}.ds-photo-modes button[aria-pressed=true]{color:#fff;border-bottom:2px solid #ff6157}.ds-photo-modes button:hover{color:#e9edf1}.ds-photo-modes button:focus-visible{outline:2px solid #ff756b;outline-offset:6px}"
+      "css": ".ds-photo-modes{display:flex;gap:18px;font:15px/1.5 Instrument,sans-serif}.ds-photo-modes button{font:inherit;cursor:pointer;background:none;border:0;color:var(--muted,#afc2db);padding:4px 0}.ds-photo-modes button[aria-pressed=true]{color:var(--paper,#f5f0e6);border-bottom:2px solid var(--red,#ffac78)}.ds-photo-modes button:hover{color:var(--paper,#f5f0e6)}.ds-photo-modes button:focus-visible{outline:2px solid var(--red,#ffac78);outline-offset:6px}"
     },
     {
       "name": "Photography density",
       "kind": "input",
       "description": "Native desktop range chooses two through seven wall columns.",
       "html": "<label class=\"ds-photo-density\">Distance <input type=\"range\" min=\"2\" max=\"7\" value=\"4\" aria-label=\"Photographs per row\"></label>",
-      "css": ".ds-photo-density{display:flex;align-items:center;gap:12px;font:12px/1.5 Instrument,sans-serif;color:#e9edf1}.ds-photo-density input{accent-color:#ff6157;width:105px}.ds-photo-density input:focus-visible{outline:2px solid #ff756b;outline-offset:6px}.ds-photo-density:has(input:disabled){opacity:.45}"
+      "css": ".ds-photo-density{display:flex;align-items:center;gap:12px;font:12px/1.5 Instrument,sans-serif;color:var(--paper,#f5f0e6)}.ds-photo-density input{accent-color:var(--red,#ffac78);width:105px}.ds-photo-density input:focus-visible{outline:2px solid var(--red,#ffac78);outline-offset:6px}.ds-photo-density:has(input:disabled){opacity:.45}"
+    },
+    {
+      "name": "Theme switch",
+      "kind": "input",
+      "refersTo": "theme-switch",
+      "description": "Native sliding day/night checkbox; checked means dark. Preview uses CSS state only.",
+      "html": "<label class=\"ds-theme-switch\"><input type=\"checkbox\" role=\"switch\" aria-label=\"Dark theme\" checked><span class=\"ds-theme-track\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2m0 16v2M2 12h2m16 0h2\"/></svg><svg viewBox=\"0 0 24 24\"><path d=\"M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10Z\"/></svg></span></label>",
+      "css": ".ds-theme-switch{position:relative;display:inline-flex;width:76px;height:44px;align-items:center;cursor:pointer}.ds-theme-switch input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:pointer;z-index:2}.ds-theme-track{position:relative;width:58px;height:34px;padding:0 9px;border-radius:20px;background:var(--raised,#102745);box-shadow:inset 0 0 0 1px var(--line,#304561);display:flex;align-items:center;justify-content:space-between;color:var(--muted,#afc2db)}.ds-theme-track:after{content:\"\";position:absolute;left:4px;top:4px;width:26px;height:26px;border-radius:50%;background:var(--red,#ffac78);transition:transform .5s cubic-bezier(.16,1,.3,1)}.ds-theme-switch input:checked+.ds-theme-track:after{transform:translateX(42px)}.ds-theme-track svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;z-index:1;transition:transform .5s}.ds-theme-switch:hover svg{transform:rotate(-12deg)}.ds-theme-switch input:focus-visible+.ds-theme-track{outline:2px solid var(--red,#ffac78);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-theme-track:after,.ds-theme-track svg{transition:none}}"
     }
   ],
   "narrative": {
     "northStar": "Industrial Optical Monograph",
-    "overview": "An industrial optical monograph: wide, compactly spaced typography, deep-navy fields, cool paper, and a vivid red signal. Software evidence appears in generous editorial compositions, with hairline divisions rather than enclosing cards. A separate photographic archive extends that identity through full-ratio prints and quiet gallery controls.\n\nDepth belongs to the objects and screenshots. Motion reveals the construction of a camera lens through native scrolling; it remains optional, and the static experience retains readable project evidence and contact access.",
+    "overview": "An industrial optical monograph in two materials: light-blue structure on warm cream by day, and CobaltSky navy with luminous blue by night. A small orange signal marks interaction. Wide typography, real software evidence, hairline divisions, and full-ratio photographs preserve the shared editorial identity across the portfolio and its separate archive.\n\nDepth belongs to procedural geometry, screenshots, and prints. The full-viewport hero introduces the experience with a blue particle ribbon; native-scroll project surfaces and the contextual lens carry it onward. Optional motion adds expression while static text, images, controls, and contact access remain available.",
     "keyCharacteristics": [
       "Wide display typography and restrained utility text.",
       "Flat editorial surfaces with real project screenshots.",
+      "Persistent day/night materials shared with the photography archive.",
+      "Split/blur live text and a direct, elastic image comparison.",
       "A compact optical study within personal context and an upward-angled circuit plane with faint technical vehicle drawings.",
       "Native scrolling, visible focus, and static graphics fallbacks."
     ],
     "rules": [
       {
-        "name": "The Red Signal Rule",
-        "body": "Use red for deliberate emphasis, interaction feedback, and the contact field; use the darker About red on cool paper.",
+        "name": "The Shared Materials Rule",
+        "body": "Apply one selected theme across hero, project field, case studies, About, contact, dialogs and photography; use orange sparingly for action and feedback.",
         "section": "colors"
       },
       {
@@ -309,12 +796,12 @@
     ],
     "dos": [
       "Do preserve real screenshots and distinct editorial project compositions.",
-      "Do keep red focus outlines and controls with the existing interaction heights (44px generally, 36px in the narrowest header).",
+      "Do keep orange focus outlines and controls with the existing interaction heights (44px generally, 36px in the narrowest header).",
       "Do provide the static lens state for reduced motion, effects off, and software rendering.",
       "Do use SVG paths for interface icons and keep circuit details faint and subordinate."
     ],
     "donts": [
-      "Don't replace this system with generic card grids, decorative pills, glowing gradients, or burgundy page backgrounds.",
+      "Don't replace this system with generic card grids, decorative pills, or burgundy page backgrounds.",
       "Don't turn vehicles into click-operated exhibits or replace the homepage\u2019s contextual optical study with the photography archive; keep the archive on its own linked route.",
       "Don't require motion, hover, or graphics to reach factual content."
     ]
