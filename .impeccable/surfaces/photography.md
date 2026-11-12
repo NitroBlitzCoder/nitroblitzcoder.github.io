@@ -1,5 +1,7 @@
 # Photography direction — looking, closer
 
+> Current direction — November 11, 2026: `fluid-gallery.md` supersedes the two-mode composition and no-WebGL/no-idle-loop statements below. Infinite atlas now joins Gallery wall and Contact sheet, using existing photographs with recycled coordinates, drag/wheel/keyboard exploration, zoom and the existing native viewer. WebGL/drift are optional: reduced motion, saved Effects off, software rendering and unavailable/lost graphics keep the wall/sheet. Shared day/night tokens in DESIGN.md supersede the old red palette. The 253-photo snapshot, source handling, descriptions, native links and complete-image viewer commitments remain.
+
 MODE: Image-first archive, separate from the software portfolio.
 THESIS: Give the photographs room as individual prints, with a compact contact sheet available when the visitor wants to scan the collection.
 OWN-WORLD: Extend the incumbent Industrial Optical Monograph: deep navy, ice-blue utility text and rules, red signal, Anybody headings and Instrument Sans reading/control text. Keep the homepage’s existing projects, circuitry, lens and contact experience.

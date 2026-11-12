@@ -1,0 +1,57 @@
+[
+  {
+    "file": "atlas-1280-light.jpg",
+    "width": 1280,
+    "height": 720
+  },
+  {
+    "file": "atlas-390-light.jpg",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "explorer-desktop-dark.jpg",
+    "width": 1280,
+    "height": 720
+  },
+  {
+    "file": "explorer-mobile-light.jpg",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "hero-1280-dark.jpg",
+    "width": 1280,
+    "height": 720
+  },
+  {
+    "file": "hero-1280-light.jpg",
+    "width": 1280,
+    "height": 720
+  },
+  {
+    "file": "hero-390-dark.jpg",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "hero-390-light.jpg",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "hero-681-light.jpg",
+    "width": 681,
+    "height": 788
+  },
+  {
+    "file": "reel-desktop-dark.jpg",
+    "width": 1280,
+    "height": 720
+  },
+  {
+    "file": "reel-mobile-dark.jpg",
+    "width": 390,
+    "height": 844
+  }
+]

@@ -36,12 +36,16 @@ colors:
   light-tile-active: "#c96734"
   light-image-mat: "#d8e6ed"
   light-selection-ink: "#fff6e9"
+  paper-sheet: "#244e73"
+  paper-sheet-alt: "#2f5e88"
+  paper-ink: "#f5f0e6"
+  paper-emphasis: "#d7ecff"
 typography:
   display:
     fontFamily: "Anybody, sans-serif"
-    fontSize: "clamp(58px,7.4vw,112px)"
+    fontSize: "clamp(52px,6.8vw,96px)"
     fontWeight: 500
-    lineHeight: 1.025
+    lineHeight: 1.08
     letterSpacing: "-0.04em"
   headline:
     fontFamily: "Anybody, sans-serif"
@@ -51,7 +55,7 @@ typography:
     letterSpacing: "-0.035em"
   title:
     fontFamily: "Anybody, sans-serif"
-    fontSize: "clamp(30px,3.3vw,50px)"
+    fontSize: "clamp(38px,4.8vw,72px)"
     fontWeight: 500
     lineHeight: 1.12
     letterSpacing: "-0.035em"
@@ -81,6 +85,16 @@ spacing:
   content-gap: "20px"
   section-gap: "30px"
 components:
+  paper-title:
+    backgroundColor: "{colors.paper-sheet}"
+    textColor: "{colors.paper-ink}"
+    typography: "{typography.display}"
+    padding: "10px 22px 14px"
+  paper-title-blue:
+    backgroundColor: "{colors.paper-sheet-alt}"
+    textColor: "{colors.paper-emphasis}"
+    typography: "{typography.display}"
+    padding: "10px 22px 14px"
   text-link:
     textColor: "{colors.paper}"
     typography: "{typography.body}"
@@ -119,172 +133,147 @@ components:
 
 An industrial optical monograph in two materials: light-blue structure on warm cream by day, and CobaltSky navy with luminous blue by night. A small orange signal marks interaction. Wide typography, real software evidence, hairline divisions, and full-ratio photographs preserve the shared editorial identity across the portfolio and its separate archive.
 
-Depth belongs to procedural geometry, screenshots, and prints. The full-viewport hero introduces the experience with a blue particle ribbon; native-scroll project surfaces and the contextual lens carry it onward. Optional motion adds expression while static text, images, controls, and contact access remain available.
+The current expression is fluid and airy: images carry momentum and shallow curvature, while factual text stays readable. Layered torn paper gives the live headline a tactile continuous movement; a curved project reel and branching workspace reveal software evidence progressively. Photography has its own spatial atlas alongside the print wall and contact sheet. These compositions supersede the rounded block selector and the hero contour/word entrance. The active surface contract is `.impeccable/surfaces/fluid-gallery.md`.
 
 **Key Characteristics:**
-- Wide display typography and restrained utility text.
-- Flat editorial surfaces with real project screenshots.
-- Persistent day/night materials shared with the photography archive.
-- Split/blur live text and a direct, elastic image comparison.
-- A compact optical study within personal context and an upward-angled circuit plane with faint technical vehicle drawings.
-- Native scrolling, visible focus, and static graphics fallbacks.
+- Wide display typography and quiet reading/control text.
+- Airy image surfaces with real project screenshots and photographs.
+- Persistent day/night materials shared across both routes.
+- Live wording printed on continuously floating dark torn-paper surfaces.
+- Curved scroll-and-drag projects with progressive evidence branches.
+- A contextual About lens and faint upward-angled circuit details.
+- Native links, visible focus, and static graphics fallbacks.
 
 ## Colors
 
-The light theme pairs cream fields with light-blue surfaces and blue type accents; the CobaltSky dark theme pairs deep navy with warm cream text and sky-blue structure. Frontmatter keeps the active dark token names and records every light counterpart with a `light-` prefix. `theme.css` remains the runtime source of truth: `ink` means page background and `paper` means foreground in both themes, and the legacy `red` name now means orange interaction signal.
+The selected theme pairs cream/light-blue/burnt orange by day and navy/cobalt/warm paper/peach orange by night. Frontmatter preserves the existing dark token names and each light counterpart with a `light-` prefix. `theme.css` is the runtime source: `ink` means background, `paper` means foreground, and legacy `red` means orange interaction signal.
 
 ### Primary
 
-- **Sky blue / day blue (`blue`):** hero emphasis and procedural geometry, circuit routing, contact link and photography identity accents.
-- **Strong blue (`blue-strong`):** the defined companion blue token; do not introduce additional uses without a component need.
+- **Sky blue / day blue (`blue`):** procedural hero geometry, circuit routing, contact and photography identity accents.
+- **Strong blue (`blue-strong`):** retained companion token; use only where a component needs it.
 
 ### Secondary
 
-- **Orange signal (`red`):** focus, hover feedback, ranges, active tile markers, comparison divider and theme thumb. Dark mode uses warm peach-orange; light mode uses a deeper burnt orange for contrast.
+- **Orange signal (`red`):** hover, focus, selected-control underlines, comparison divider, ranges and theme thumb.
 
 ### Neutral
 
-- **Navy / cream (`ink`):** page and dialog fields.
-- **Warm cream / blue ink (`paper`):** primary readable foreground.
-- **Muted:** supporting text and metadata; **line:** rules and control borders.
-- **Raised and hover:** About, contact, switch track and selected/hover surfaces. About and contact inherit the chosen theme rather than using separate paper/red palettes.
-- **Header, glow and shadow:** translucent sticky chrome, a restrained blue hero atmosphere and object depth. **Image mat:** screenshot backing.
-- **Tile idle, key and active:** theme-aware project-field materials. **Selection ink:** text on the orange selection and switch thumb.
-- The photography toolbar, rules, captions, selected modes, ranges, focus and viewer use these same roles. Photography assets and their intrinsic colors remain unchanged.
+- **Navy / cream (`ink`):** page and dialog fields; **warm paper / blue ink (`paper`):** primary readable foreground.
+- **Muted:** supporting text and metadata; **line:** rules and borders; **raised and hover:** tonal control and About/contact fields.
+- **Header, glow and shadow:** translucent chrome, restrained blue hero atmosphere and object depth. **Image mat:** screenshot backing.
+- **Tile idle, key and active:** retained legacy block-field primitives; the active project reel does not use the old selector. **Selection ink:** text on orange selection and switch thumb.
+- **Paper title primitives:** dark blue and muted cobalt strip fills with warm paper lettering and pale-blue emphasis are fixed local materials in both themes. They do not replace the selected page palette. Frontmatter records the exact reusable strip primitives; folded-edge gradients stay in the sidecar snippet.
+- Photographs and screenshots keep their original image colors.
 
-**The Shared Materials Rule.** Apply one selected theme across hero, project field, case studies, About, contact, dialogs and photography; use orange sparingly for action and feedback.
+**The Shared Materials Rule.** Apply one selected theme across hero, reel, case studies, About, contact, dialogs and photography; use orange sparingly for action and feedback.
 
 ## Typography
 
-**Display Font:** Anybody, locally served under the CSS family `Anybody`, with sans-serif fallback.
-**Body Font:** Instrument Sans, locally served under the CSS family `Instrument`, with sans-serif fallback.
+**Display Font:** Anybody, locally served as `Anybody`, with sans-serif fallback.
+**Body Font:** Instrument Sans, locally served as `Instrument`, with sans-serif fallback.
 
-The variable display face is broad and closely spaced. Reading text stays quiet and open. The frontmatter records the desktop base roles; responsive overrides are part of the implementation, not a rigid modular scale.
+The broad variable display face is closely spaced; reading text stays quiet and open. Frontmatter records active base roles, not a rigid modular scale.
 
 ### Hierarchy
 
-- **Display:** the existing creative-software introduction, with blue emphasis on its final phrase; mobile uses `clamp(42px,9.2vw,64px)` and line-height (1.09), with tracking (-.035em). Wide screens cap at (112px).
-- **Headline:** the About greeting, using the headline token; mobile size (31px). The personal-practice heading uses `clamp(26px,2.6vw,38px)` with line-height (1.15), becoming (28px) on mobile.
-- **Title:** project headings; (31px) at the middle breakpoint and `clamp(27px,7vw,38px)` with line-height (1.18) on mobile.
-- **Body:** project descriptions use line-height (1.65) and maximum width (64ch). About copy uses (16px/1.75), becoming (15px) on mobile.
-- **Photography display:** the archive introduction uses the photography-display token on desktop and (54px) on phones; reading text is (15px/1.5), introduction copy (13px), and print captions (10px desktop / 9px phone).
-- **Label:** dates, metadata, captions, and utility controls. Navigation and text links use (13px), without uppercase tracking. The full-name wordmark is Instrument Sans (18px/1.2, weight 600), with a smaller credential line; mobile uses (15px) and hides that secondary line.
+- **Display:** exact live headline “I build software for creative work.” on two torn-paper strips. Desktop uses the display token; at (600px) and below it becomes `clamp(33px,8.5vw,48px)` with line-height (1.12). Text does not need letter movement to express motion.
+- **Headline:** About greeting uses the headline role; personal-practice heading remains a smaller variant.
+- **Title:** fluid case headings use `clamp(38px,4.8vw,72px)`; at (700px) and below, `clamp(31px,8.2vw,43px)`. Reel title uses `clamp(27px,3.5vw,52px)`, weight (450), then (34px) and (28px) at its responsive breakpoints.
+- **Body:** normal body role is (16px/1.55); project reading text retains its open line spacing. Workspace paragraphs use (14px/1.7), maximum (55ch), then (13px) at narrower widths.
+- **Photography display:** wall introduction retains the photography-display role; atlas mode compacts it to `clamp(38px,4.5vw,64px)` and (35px) below (480px). Archive reveal words remain inline-block to preserve the intended phone heading line-height.
+- **Label:** small metadata and control text remain Instrument Sans. Reel and workspace navigation use (11–13px), with smaller phone labels. The full-name wordmark stays readable rather than becoming a decorative display title.
 
 **The Two Voices Rule.** Anybody carries expressive headings; Instrument Sans carries reading and controls. Retained alternative font assets are inactive, not additional type roles.
 
 ## Layout
 
-The centered frame uses `min(1440px,88%)`. The full-width hero fills the viewport below the measured header using `100svh`; its inner frame retains the centered width. The introduction is a live two-line headline, followed by compact identity context and a direct project link. The work section starts with the rounded project selector before the three case studies. The sticky header holds the full-name wordmark, credential line, anchor links, effects control and sliding theme switch.
+The main frame remains `min(1440px,88%)`; the reel breaks out to the viewport width. Header, name, credentials, anchor navigation, theme and Effects controls retain clear access. The fluid hero has an (88svh) minimum, (83svh) on phones. Its paper headline is offset and slightly rotated; identity context follows with breathing room.
 
-Project heading rows use three columns (1.4fr/1.15fr/auto). MotionStudio pairs a broad screenshot with a statement and explanation below. PhotoMosaic uses a (1.6fr/1fr) split, while Smart Collection Manager uses (1fr/1.7fr). Each case starts with a hairline rule and has (30px 0 100px) padding. Work has (12px) top padding.
+The enhanced project reel spans (190svh) with a sticky stage. Desktop stage top is (80px), then (108px) at (1000px) and (104px) on phones; its viewport height subtracts that offset. Named choices sit above the image; title, description, Explore/details and previous/next controls sit below. At (1000px) captions reorganize into two columns; at (700px) the title takes the full row. Reduced motion and Effects off remove the sticky scroll runway and present a local stage with native controls.
 
-About is a theme-raised field with (88px 0 96px) padding. Its (1.05fr/1fr) grid places biography and timeline on the left and a sticky personal-practice column on the right, offset (116px) from the top. The lens figure is (305px) high, growing to (365px) at 1600px and above. There is no independent optical scroll chapter: lens progress follows the natural About region.
+Editorial case studies follow in document flow with (100px 0 140px) padding, reduced to (65px 0 80px) on phones. MotionStudio's inset screenshot and broad statement, PhotoMosaic's comparison split, and the Blender presentation retain distinct compositions. The About field has a softened top edge and retains biography beside a contextual lens on desktop, becoming normal flow on phones. Contact remains accessible after it.
 
-At (1000px), gaps and type reduce and the lens becomes (285px) high. At (700px), introduction, project and About grids become single columns; personal practice becomes normal flow beneath the biography with a top rule, and the lens remains a compact (285px) figure. Case padding contracts to (22px 0 60px), About to (52px 0 72px). At (850px), the header wraps navigation below the wordmark and theme switch; the switch narrows from (76px) to (68px). At (360px), the header retains its compact control sizing and navigation controls use (36px) minimum height. Space is contextual; frontmatter lists reused gaps only.
+The native project dialog opens at Overview with a large complete image. Interface, Features or Engineering reveal a left reading pane beside it. At (600px) and below, image and reading pane stack vertically with independent overflow. A persistent branch menu, breadcrumb and parent/back control preserve location. Individual features are a further level beneath Features.
 
-The photography surface uses a wider (4vw) page inset, becoming (5vw) on phones. Its native-scroll wall starts with four columns; a desktop range chooses two through seven. Staggered offsets and occasional double-width desktop prints create pacing. Contact sheet mode uses eight compact columns, with density fixed; at (700px) and below the wall uses two columns and contact sheet four. The toolbar remains sticky. This image archive grid does not replace the software page’s editorial project compositions. See `.impeccable/surfaces/photography.md` for the surface-specific layout and controls.
+Photography has three modes: Infinite atlas, Gallery wall and Contact sheet. The atlas occupies the remaining viewport below compact identity/controls and provides bottom navigation/zoom tools. Its coordinates recycle existing photographs in every direction. The wall retains a (4vw) inset, (5vw) on phones, desktop two-to-seven density (four initially), occasional double-width prints and eight-column contact sheet. Phone wall/sheet densities remain two/four. Orientation filtering applies to the same 253-photo snapshot in every mode. Wall and sheet remain available without atlas graphics.
 
 ## Elevation & Depth
 
-The interface is flat. Hairline borders and tonal changes distinguish regions, while the optical model provides physical material depth. A screenshot presentation alone uses the observed diffuse shadow (`0 18px 35px #0003`). Dialog depth comes from the dark backdrop (`#000e`) and a fine border, not a floating card shadow system.
+Editorial reading surfaces stay flat. Depth belongs to image planes, screenshot presentation, paper folds and the contextual optical study. The reel uses shallow curved planes, visible neighbors and faint mirrored copies below on desktop; reflections disappear on phones. The atlas gives prints restrained depth and velocity-dependent flex without autonomous pan. Screenshot fields use the observed diffuse theme shadow (`0 24px 60px var(--shadow)`). Photography wall prints retain `0 16px 30px var(--shadow)`.
 
-Photography prints use the selected theme shadow (`0 16px 30px var(--shadow)`); the contact sheet keeps its compact print sizing. The full-image stage is flat and uses the selected page field. Hover briefly gives the print slight perspective and brightness; reduced motion removes the spatial transform.
+Paper strips use a drop shadow (`0 9px 12px var(--shadow)`) and a narrow gradient folded edge. Native dialogs use the selected material and backdrop; avoid a general floating-card shadow system.
 
-**The Object Depth Rule.** Keep editorial containers flat; reserve dimensional treatment for screenshot presentation, photographic prints and physical scene geometry.
+**The Object Depth Rule.** Keep editorial containers flat; reserve dimensional treatment for screenshot presentation, photographic prints, paper folds and physical scene geometry.
 
 ## Shapes
 
-Editorial regions, links, ordinary screenshots, and dialogs retain square corners. The comparison frame has a deliberate (14px) radius and a circular (48px) handle; project-field link plates use (8px), and the theme track uses (20px) with a circular (26px) sliding thumb. Optical rings belong to scene geometry; vehicle drawings are raster circuit details. Neither establishes a rounded container vocabulary. Interface icons use thin inline SVG strokes; the standard icon is (20px), with stroke width (1.6).
+Torn paper is a deliberate local material: irregular polygon edges, slight opposing strip rotations (-1.4° / .8°), and a narrow folding corner. It is not a global container treatment. Image fields use (14px) corners where implemented; the existing comparison retains its rounded frame and circular handle. About has (36px) upper corners, becoming (24px) on phones. Reel/atlas arrow and zoom controls are circular; workspace gallery navigation uses (8px) corners. The native sliding theme track stays (20px) with a circular thumb.
+
+Rules, editorial regions, text links and the basic dialog remain restrained. Use thin inline SVG icons; retain clear control hit areas at responsive sizes.
 
 ## Components
 
-### Links and buttons
+### Paper title and procedural hero
 
-Understated text controls use an underline or bottom border, a minimum interaction height (44px, with the compact-header exception at 360px), and an orange hover. The project screenshot button retains a zoom-in cursor and brightens its image on hover. Links and buttons transition color over (.18s ease). Keyboard focus uses the orange signal outline (2px), with the theme stylesheet setting the general offset to (5px) and the switch track to (4px). The effects button reports its pressed state and persists the preference.
+The exact headline remains live HTML printed on dark blue/cobalt paper with warm lettering and pale-blue emphasis. Each whole strip reveals with a clipped paper entrance (950ms, second strip delayed 160ms), then continuously floats through a small translation and tilt (5.8s / 6.7s; second strip offset -2.4s). Motion stays within (±3px) horizontally and (±5px) vertically, with perspective rotation and a small angle change. Independent edge folds run continuously (4.8s / 5.6s; second edge offset -1.9s), without the former long hold. In-view state gates both loops; reduced motion and Effects off keep the paper static. This supersedes the previous contour trace and word-only hero entrance. Section typography can retain its existing independent reveals.
 
-### Navigation
+The blue particle ribbon/wireframe remains behind the paper, with (12,000) desktop / (4,500) narrow-viewport particles. Its render loop stops offscreen, hidden or with effects disabled; reduced motion skips hero WebGL. Software/unavailable/lost graphics retain live text. The byte-counted homepage loader retains Skip intro, releases inert content, and is bounded by a one-second minimum and twelve-second deadline. It does not preload the photography archive.
 
-A wordmark and compact right-aligned links share a fine bottom rule. The sticky header has an (86px) minimum navigation height, becoming (74px) on mobile. Work, About, Contact, and effects remain compact anchor controls; current location uses the orange signal.
+### Curved project reel
 
-### Editorial project presentations
+A scroll-scrubbed position and horizontal drag select among MotionStudio, PhotoMosaic and Smart Collection Manager. Named native buttons and previous/next controls provide explicit choices; Left/Right work on the stage. Exponential settling gives images momentum; velocity adds shallow flex. Metadata and selected underlines identify the active record. Explore or the central image opens the existing native-dialog flight; returning coordinates the selected image and focus with the reel.
 
-Each project starts at a rule and combines title, factual summary, source link, screenshot, and engineering disclosure. These are open compositions rather than reusable enclosed cards. Native details and summary preserve keyboard behavior.
+The local renderer uses actual screenshots, shallow tessellated planes and the shared media shader. It pauses offscreen/hidden and disposes on exit. The native DOM image strip is the baseline. Failed/context-lost WebGL reveals it; reduced motion/Effects off use immediate native selection. The old rounded block selector is historical, not an active component.
 
-### Comparison controls
+### Progressive project workspace
 
-The before/after view clips the same two images around an orange divider with an SVG handle. Drag anywhere on the unzoomed image, or drag the handle while zoomed; pointer capture supports movement outside the frame. Pointer position writes the existing native range and dispatches its input event, preserving it as the keyboard slider and source of truth. The existing Zoom 4×, separate X/Y ranges and Enlarge remain available. Focus on the range outlines the visual handle. The Aceternity-inspired elastic treatment uses a bounded divider skew, slight drag blur, a growing handle and short-lived sparks; release restores the divider. Reduced motion and Effects off suppress the JS bend, blur and sparks while comparison still works. Text tags remain image interpretation, not a general badge system.
+Overview is the root. Interface exposes image inspection and Zoom 2× with native overflow pan; Features exposes named feature branches and an individual feature view; Engineering exposes the existing stack and engineering paragraphs. Project names in the breadcrumb return to Overview, the Features parent returns from a detail, and Back follows the same hierarchy. A PhotoMosaic feature can return to the live comparison. Source links remain available.
 
-### Optical study
+All project facts come from existing case DOM text and real image records. Branches do not invent product capabilities. Previous/next projects reset the tree. Close/Escape, modal focus, return focus and static gallery behavior remain part of the viewer. Animated image flights use the existing (900/760ms) desktop/phone open, (780/640ms) change and (680/560ms) close timing; the resting image is a sharp complete DOM image. The flight canvas renders only during transitions. Effects off, reduced motion, unavailable WebGL and context loss retain a working static gallery.
 
-Six procedural groups separate along the optical axis using an Anime.js timeline. Each group uses duration (1200), stagger offsets (75), and easing `inOut(3)`; native scroll seeks timeline progress rather than playing a timed loop. The figure sits beside biography and teaching history on desktop and follows them in normal flow on mobile. There are no projected leaders or part annotations. Static graphics explicitly say “Static lens study.”
+### Editorial projects and comparison
 
-The model uses dark metal, rubber, silver, and dark glass materials; these scene-specific colors are not additional page accent tokens. Aircraft and car references are pointer-transparent technical WebP drawings (155px and 205px desktop widths), embedded within the fixed circuitry plane. Licensed meshes are projected offline with visibility-tested crease lines. The full vehicle models are not downloaded at runtime. The active theme restores the native pointer. Its decorative trail takes the current orange signal on each stroke, expires after (180ms), and clears when effects disable, pointer/focus conditions change, or a dialog opens; the hero suppresses the trail. Circuit details stay pointer-transparent.
+Distinct project compositions keep screenshots, factual summaries, source links and native engineering disclosures. Existing scroll surface enhancements remain scoped to these media frames; their absence never hides content. The reel owns the new sticky runway, while individual case enhancements retain their local frame geometry.
 
-### Photography controls and viewer
+PhotoMosaic preserves its native range, Zoom 4×, X/Y pan and Enlarge. Pointer capture supports direct divider dragging. Optional bounded skew, drag blur and finite sparks yield to reduced motion and Effects off; the keyboard range remains the source of truth. A workspace Interface zoom is separate from the live comparison's 4× inspection.
 
-Text buttons switch wall/contact-sheet modes; an orange underline and `aria-pressed` identify the selection. A labeled native range changes desktop wall density; it is disabled in contact sheet mode and hidden on phones. A labeled native select filters image orientation. The photograph count is a status region. Prints preserve aspect ratio, and each remains an ordinary link to its local full-view file. Content-based descriptions label all 253 photographs, their links and nearby-thumbnail controls; filenames remain visual metadata. Photography navigation, close and arrow controls use thin inline SVG icons (16px standard / 24px viewer arrows, stroke width 1.5).
+### Photography atlas, wall and viewer
 
-The photography viewer is an independent native dialog, with a complete aspect-fit photograph at rest, close and zoom controls, side arrows, filename/counter, and a horizontal strip of up to fifteen nearby thumbnails. Arrow keys navigate the filtered set; Escape closes and restores the originating link’s focus. Touch swipe changes images outside zoom. Zoom uses a 200% image inside native overflow scrolling. Opening animates from the print’s measured position (680ms); changes use a shorter (480ms) entrance. These finite DOM animations and optional CSS view-timeline drift respect reduced motion. There is no photography WebGL context or idle frame loop.
+The atlas is an optional WebGL spatial browser of the same existing 253 local photographs. Dragging pans with release momentum, wheel pans, controls adjust zoom (.45–2), and previous/next plus arrow keys reach the filtered set. Enter opens the center photograph; pointer selection supplies its measured source rectangle. Images recycle across coordinates rather than adding generated content. The native photograph dialog retains complete-image fit, nearby thumbnails, arrows, Escape/Close, focus return and 2× overflow zoom. Opening uses (680ms); image changes use (480ms); closing is immediate.
 
-### Dialogs
+The atlas defaults on only after successful initialization. Missing WebGL or `renderer=software` keeps Gallery wall; context loss returns there. Reduced motion or saved Effects off skips atlas initialization and uses Gallery wall/Contact sheet without WebGL; changing the preference during atlas use returns to the wall and stops frames. Restoring motion re-enables the available atlas. In normal motion it renders gentle surface drift only while visible, the document is shown and no photo dialog is open. The photography route honors both OS reduced motion and the saved homepage Effects preference (`sv-effects`); cross-tab changes update it live. Wall/contact sheet remain native image links without JavaScript. Do not claim that the photography route has no WebGL or no idle render loop.
 
-Screenshot and credit dialogs use native dialog semantics, the selected theme surface, fine border, visible close control, and constrained viewport sizing. Preserve modal focus and Escape behavior.
+Layout buttons use `aria-pressed`; orientation filtering and photo count remain shared. Wall density is disabled in contact sheet mode; the same Distance range changes atlas zoom where shown. Content-based descriptions label all photo links, full images and nearby-thumbnail buttons. Local originals remain untouched; the public archive stays a static snapshot of orientation-corrected WebP previews/full views with stripped metadata.
 
-### Circuit material and supporting motion
+### Navigation, controls and themes
 
-The body uses the selected theme background. A fixed, pointer-transparent circuit plane uses the theme blue routing at 28% opacity (21% on phones), a central fading mask, and a -10° vertical skew. This gives traces an upward slope without tilting content. Camera/sensor, CPU, and dimensioned volume diagrams connect to routed traces; vehicle drawings share their color and material. The About surface uses the theme raised material and the same foreground, muted and line roles.
+Use understated text controls and orange hover/focus. Preserve the native Effects pressed state, keyboard ranges, visible focus and source links. Focus generally uses a (2px) orange outline; the theme track has its own offset. Most controls use (44px) interaction heights; compact reel/workspace/phone controls retain their observed smaller sizing, so inspect those targets at actual widths.
 
-Only the circuit plane has a small pointer-dependent shift (at most 2.5px horizontally) and bounded scroll drift (32px). Four light segments progress along traces in response to native scroll. ambient.js coalesces background changes into one scheduled frame and has no idle animation loop. Screenshot hover tilts by at most one degree and receives a brief reflective sweep. Navigation labels roll once on hover/focus; link arrows and underlines confirm interaction. Effects off and reduced motion suppress spatial motion. Touch does not tilt images. The separating lens remains the contextual About interaction.
+The shared theme switch is a labeled native checkbox with `role="switch"`; checked means Dark theme. Early `theme-init.js` applies saved `sv-theme` or OS preference before styling. Unsaved OS changes and cross-tab storage changes stay live. A theme change updates browser chrome and emits `themechange`. When supported and motion is allowed, a (760ms) radial View Transition originates at the switch; reduced motion and Effects off apply immediately. Dark paper strip materials remain local fixed colors in both themes.
 
-### Cinematic project viewer
+### Contextual lens and circuit material
 
-The approved page composition and circuitry field stay fixed. The primary motion is a reversible journey from a project image to a full-screen native-dialog gallery. Its three records are the real MotionStudio, PhotoMosaic, and Smart Collection Manager images; PhotoMosaic adds an Enlarge action beside the existing comparison controls.
+The procedural lens stays within personal practice in About. Six groups separate along their optical axis through a scroll-seeked Anime.js timeline (duration 1200, stagger 75, easing `inOut(3)`). Reduced motion, Effects off and software rendering keep a labeled static lens. Technical vehicle drawings remain small pointer-transparent raster circuit details; licensed full meshes are not downloaded at runtime.
 
-Opening uses a 900ms desktop / 760ms phone flight. A tessellated WebGL image plane lifts, turns by up to about 26 degrees, bends slightly along both image axes, receives a traveling reflection, and resolves into an ordinary sharp DOM image. Texture crop coordinates interpolate from the visible source crop to the full image. The destination fits the complete image inside the available stage with no distortion. Closing takes 680ms / 560ms and returns the image to its project; if gallery navigation chose another project, the inert page moves behind the cover before the return flight.
+The fixed blue circuit plane keeps its central fading mask and upward (-10°) skew; subtle event-driven pointer/scroll movement and finite light segments remain subordinate to images and text. The selected theme retains the native cursor. Its short-lived decorative trail and screenshot hover motion are optional; no interest graphic becomes a click-operated exhibit.
 
-Gallery changes take 780ms / 640ms: outgoing and incoming image planes travel through depth in opposite directions. Metadata follows with a 420ms masked-opacity/blur transition, and circuit signals run for a finite 1000–1100ms. The viewer uses the same selected day/night material as the page, a 100px desktop header, 93px footer, and the site's 88% frame. Phone controls retain 44px targets, the header can wrap, and footer navigation sits below the description.
+### Scroll coordination and delivery
 
-Left/Right arrows navigate. Escape and Close reverse the flight, including during an opening or gallery change. Native dialog semantics protect focus; return restores focus to the relevant project trigger. Rapid navigation retains the latest requested destination. Resize settles the active image without leaving a hidden source. Effects off, reduced motion, unavailable WebGL and context loss retain a working static gallery. If the animation module fails, the pre-existing native screenshot viewer still works.
+Local Lenis (1.3.27, MIT) smooths native page scrolling and anchors with lerp (.085), without synchronized touch scrolling. It is destroyed for reduced motion/Effects off and stopped for loader, modal or hidden-page state. Native scroll remains the fallback. Dialogs and input/select controls are excluded from its interception.
 
-The WebGL context is created on first animated open and uses a capped pixel ratio (1.5 desktop / 1.25 phone). Only active flights request frames; the GPU canvas is hidden and cleared at rest. Project textures are cached, and resources are disposed on page exit. Lens scroll motion now settles toward its native-scroll target over about 75ms; it still has no idle loop or additional scroll chapter.
-
-### Native-scroll project surfaces
-
-The page keeps the same layout boxes, theme-blue circuit material, real images, and cinematic click viewer. Ordinary scroll now gives each project its own material response. MotionStudio is a continuous curved editor surface, PhotoMosaic assembles 24×14 image tiles over its original-image comparison, and Smart Collection Manager aligns three panels into the Blender workspace. Each settles into the exact native image crop as it reaches the reading area and reverses when scrolling back. Intro lines drift in opposite directions as they leave; project headings turn into their existing baselines; the contact link settles within the raised contact close. The existing About lens remains scroll-responsive.
-
-scroll.js reads visible frame geometry, follows native progress with a short time-based settling response, and drives scroll-renderer.js. The renderer uses one lazy WebGL context for all three project surfaces and clips drawing to each existing frame. Texture crop coordinates account for object-fit cover and the Blender screenshot's crop. The comparison split remains a native range; focusing the controls settles the tiles, and zoom/pan update the same underlying image. No pinned sections, extra scroll height, forced wheel handling, or sound are introduced.
-
-Images remain native DOM content by default. Only a successfully rendered image receives the hidden-source class. Effects off, reduced motion, missing WebGL, and context loss reveal the native images. Opening the cinematic viewer pauses and clears the scroll canvas; closing resynchronizes the page surface. Hidden pages and offscreen regions stop rendering. Active settling requests frames only until it converges. Pixel ratio is capped at 1.4 desktop / 1.1 phone; phone spatial amplitude is 55% of desktop.
-
-Circuit density increases by ten routed traces and matching pads in the margins. The upward 10-degree angle, vehicles, camera/modeling details, and the central fading mask stay unchanged.
-
-### Rounded project field
-
-The work section begins with a physical selector under “Choose a project.” It uses 26×13 beveled, rounded blocks on desktop and 18×11 on narrow screens. Seeded resting heights, a spring-damped radial pointer mound, directional shadows and theme-aware blue metal give the field depth. Project anchors remain semantic, 44px-minimum links projected onto the actual blocks; the long Blender label turns inward to stay in bounds. Hover/focus selects a project image across the front faces while the project block stays distinct.
-
-The field opens the existing viewer with a source rectangle derived from the projected board. Closing returns to the field and restores the selected project link; gallery changes update the return preview. Detailed case studies remain below in normal document flow. The scene sleeps when settled, offscreen, hidden, or during viewer flights. Resolution is capped at 1.45 desktop / 1.1 phone. Reduced motion and Effects off use static geometry with immediate preview changes. A CSS rounded-tile field and native case-study anchors survive a module or WebGL failure. No sound, asset, environment, or code from the reference was reused.
-
-### Theme switch and state
-
-A labeled native checkbox with `role="switch"` and the accessible name “Dark theme” supplies the state. Checked means dark. Its (44px) hit area encloses a (34px) track with separate sun/moon SVG silhouettes and a physically sliding thumb. Keyboard Space operates the same input. The shared `sv-theme` local-storage preference persists across routes; `theme-init.js` runs before styles to apply a saved valid theme or the operating system preference on a first visit. Unsaved OS changes remain live. Storage events synchronize other open tabs. Runtime application updates the browser theme-color and emits `themechange`; the hero and project-field renderer read the active CSS colors rather than keeping lime or legacy red materials.
-
-When supported, reduced motion is absent and Effects are enabled, changing theme reveals the new root through a radial View Transition centered on the switch (760ms, `cubic-bezier(.16,1,.3,1)`). Unsupported transitions, reduced motion and Effects off apply the theme immediately. Ordinary surface color transitions are (450ms background / 350ms foreground and border), removed by reduced motion.
-
-### Live text and hero experience
-
-ReactBits-inspired split/blur typography is adapted to native DOM and Web Animations without React or a build step. The exact existing text and emphasis elements survive word wrapping. Hero words resolve from blur, low opacity and a small rotated lift (950ms, 65ms word staggering). Section/project headings, About headings and the archive introduction resolve once at half visibility (780ms, 55ms stagger capped at 220ms). Case statements resolve their words from a readable base opacity (.48) as they cross the native-scroll reading line, with at most (1.4px) blur. Reduced motion and Effects off leave these statements fully resolved and skip new entrances.
-
-The hero's toroidal particle ribbon and twisted wireframe use blue from the selected theme, with (12,000) desktop / (4,500) phone particles and pixel-ratio caps (1.5 / 1.15). Slow rotation, damped pointer reaction and native-scroll rotation stop when offscreen, hidden or effects are disabled. Reduced motion skips its WebGL and loader. Software or unavailable/lost WebGL retains the plain live-text hero. The byte-counted loader retains Skip intro, releases inert content on completion, and is bounded by a one-second minimum and twelve-second deadline; it fetches homepage assets rather than the separate photography archive. Existing scroll and lens enhancements load near their sections after scrolling, and the cinematic viewer loads on relevant pointer/focus intent. This is a static HTML/CSS/JS site using local Three.js/Anime.js, with no new framework, backend or build pipeline.
+Delivery stays static HTML/CSS/JavaScript on GitHub Pages with vendored local libraries. No required framework, build step or backend is introduced. Preserve exact supplied names, qualifications, project evidence, asset licenses and links. The missing replacement resume remains a product content dependency, not a design asset to invent.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** preserve real screenshots and distinct editorial project compositions.
-- **Do** keep orange focus outlines and controls with the existing interaction heights (44px generally, 36px in the narrowest header).
-- **Do** provide the static lens state for reduced motion, effects off, and software rendering.
-- **Do** use SVG paths for interface icons and keep circuit details faint and subordinate.
+- Do preserve real screenshots, all 253 photographs and exact factual project content.
+- Do keep named native controls, visible orange focus and a clear path back through each project branch.
+- Do gate optional movement by the preferences implemented on each route and preserve static/native fallbacks.
+- Do keep the lens contextual, circuit details faint, and the linked photography archive on its own route.
 
 ### Don't:
-- **Don't** replace this system with generic card grids, decorative pills, or burgundy page backgrounds.
-- **Don't** turn vehicles into click-operated exhibits or replace the homepage’s contextual optical study with the photography archive; keep the archive on its own linked route.
-- **Don't** require motion, hover, or graphics to reach factual content.
+- Don't restore the superseded rounded block selector, contour title trace or letter-only hero treatment.
+- Don't replace the system with generic card grids, decorative pills or burgundy page backgrounds.
+- Don't require motion, hover or WebGL to reach factual content or photographs.
+- Don't treat a recycled atlas position as a new photograph or alter local originals during archive updates.

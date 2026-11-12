@@ -1,4 +1,4 @@
-import {THREE,mediaMaterial,makeRenderer} from '../fluid-media.js';
+import {THREE,mediaMaterial,makeRenderer} from '../fluid-media.js?v=20261111-5';
 import {atlasIndex,clamp} from '../fluid-motion.mjs';
 export function createAtlas(canvas,wake){
  const renderer=makeRenderer(canvas),scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(40,1,1,6000),geometry=new THREE.PlaneGeometry(1,1,16,12),tiles=new Map(),textures=new Map(),ray=new THREE.Raycaster(),ndc=new THREE.Vector2();let width=1,height=1,dead=false;

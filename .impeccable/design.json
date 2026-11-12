@@ -479,12 +479,68 @@
           "oklch(0.83 0.0128 77.32)",
           "oklch(0.95 0.0049 77.32)"
         ]
+      },
+      "paper-sheet": {
+        "role": "neutral",
+        "displayName": "Dark blue title paper",
+        "tonalRamp": [
+          "oklch(0.15 0.0273 247.57)",
+          "oklch(0.25 0.0507 247.57)",
+          "oklch(0.36 0.0663 247.57)",
+          "oklch(0.47 0.0780 247.57)",
+          "oklch(0.59 0.0780 247.57)",
+          "oklch(0.71 0.0663 247.57)",
+          "oklch(0.83 0.0507 247.57)",
+          "oklch(0.95 0.0195 247.57)"
+        ]
+      },
+      "paper-sheet-alt": {
+        "role": "neutral",
+        "displayName": "Muted cobalt title paper",
+        "tonalRamp": [
+          "oklch(0.15 0.0300 247.70)",
+          "oklch(0.25 0.0557 247.70)",
+          "oklch(0.36 0.0729 247.70)",
+          "oklch(0.47 0.0857 247.70)",
+          "oklch(0.59 0.0857 247.70)",
+          "oklch(0.71 0.0729 247.70)",
+          "oklch(0.83 0.0557 247.70)",
+          "oklch(0.95 0.0214 247.70)"
+        ]
+      },
+      "paper-ink": {
+        "role": "neutral",
+        "displayName": "Warm paper title lettering",
+        "tonalRamp": [
+          "oklch(0.15 0.0050 84.58)",
+          "oklch(0.25 0.0093 84.58)",
+          "oklch(0.36 0.0122 84.58)",
+          "oklch(0.47 0.0143 84.58)",
+          "oklch(0.59 0.0143 84.58)",
+          "oklch(0.71 0.0122 84.58)",
+          "oklch(0.83 0.0093 84.58)",
+          "oklch(0.95 0.0036 84.58)"
+        ]
+      },
+      "paper-emphasis": {
+        "role": "neutral",
+        "displayName": "Pale-blue title emphasis",
+        "tonalRamp": [
+          "oklch(0.15 0.0120 245.47)",
+          "oklch(0.25 0.0222 245.47)",
+          "oklch(0.36 0.0290 245.47)",
+          "oklch(0.47 0.0342 245.47)",
+          "oklch(0.59 0.0342 245.47)",
+          "oklch(0.71 0.0290 245.47)",
+          "oklch(0.83 0.0222 245.47)",
+          "oklch(0.95 0.0085 245.47)"
+        ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Full-viewport live-text hero; blue emphasis, responsive clamp(42px,9.2vw,64px) on phones."
+        "purpose": "Live headline on two torn-paper strips; clamp(52px,6.8vw,96px), then clamp(33px,8.5vw,48px) at 600px."
       },
       "headline": {
         "displayName": "Headline",
@@ -492,7 +548,7 @@
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Project headings."
+        "purpose": "Fluid editorial project headings; clamp(38px,4.8vw,72px), then clamp(31px,8.2vw,43px) on phones."
       },
       "body": {
         "displayName": "Body",
@@ -504,7 +560,7 @@
       },
       "photography-display": {
         "displayName": "Photography display",
-        "purpose": "Separate archive introduction; 54px on phones."
+        "purpose": "Separate archive introduction; atlas mode compacts it to clamp(38px,4.5vw,64px), then 35px below 480px."
       }
     },
     "shadows": [
@@ -543,22 +599,17 @@
       {
         "name": "photography-open",
         "value": "680ms cubic-bezier(.16,1,.3,1)",
-        "purpose": "Finite DOM entrance from measured print origin; disabled with reduced motion."
+        "purpose": "Finite DOM entrance from measured print origin; disabled with reduced motion. Saved Effects off also suppresses this animation."
       },
       {
         "name": "photography-change",
         "value": "480ms cubic-bezier(.16,1,.3,1)",
-        "purpose": "Finite DOM image change; disabled with reduced motion."
+        "purpose": "Finite DOM image change; disabled with reduced motion. Saved Effects off also suppresses this animation."
       },
       {
         "name": "theme-reveal",
         "value": "760ms cubic-bezier(.16,1,.3,1)",
         "purpose": "Switch-centered radial root View Transition; reduced motion, Effects off or unsupported API applies immediately."
-      },
-      {
-        "name": "hero-word-reveal",
-        "value": "950ms; delay:index*65ms",
-        "purpose": "Native split/blur entrance after hero loader; gated by reduced motion and Effects."
       },
       {
         "name": "section-word-reveal",
@@ -569,6 +620,26 @@
         "name": "comparison-elasticity",
         "value": "skew bounded \u00b12.88deg; blur up to 1.08px; sparks 420ms",
         "purpose": "Drag feedback using existing native comparison range; JS feedback obeys reduced motion and Effects."
+      },
+      {
+        "name": "paper-strip-reveal",
+        "value": "950ms; delay:index*160ms; cubic-bezier(.16,1,.3,1)",
+        "purpose": "Whole-paper clipped entrance; reduced motion and Effects off retain the static live title."
+      },
+      {
+        "name": "paper-corner-fold",
+        "value": "4.8s / 5.6s infinite ease-in-out; second edge offset:-1.9s",
+        "purpose": "Independent continuous edge fold without holds; only in-view, reduced motion and Effects off disable it."
+      },
+      {
+        "name": "reel-settling",
+        "value": "Exponential damping rate 6.5",
+        "purpose": "Native-scroll and drag progress; immediate selection without motion."
+      },
+      {
+        "name": "paper-strip-float",
+        "value": "5.8s / 6.7s infinite ease-in-out; second strip offset:-2.4s",
+        "purpose": "Whole dark paper strips carry printed lettering through \u00b13px X/\u00b15px Y with small perspective/tilt. Only in-view; static for reduced motion and Effects off."
       }
     ],
     "breakpoints": [
@@ -603,7 +674,7 @@
       "motion": "Event-driven pointer shift and bounded scroll drift; no idle loop. Static with effects off/reduced motion."
     },
     "cinematicViewer": {
-      "purpose": "Shared project image continuity inside a native-dialog gallery",
+      "purpose": "Native-dialog image continuity with progressive project workspace",
       "durationsMs": {
         "openDesktop": 900,
         "openPhone": 760,
@@ -614,13 +685,13 @@
       },
       "rendering": "Lazy WebGL tessellated image planes with texture crop interpolation, curvature, perspective and reflection; DOM image at rest",
       "fallback": "Static gallery for reduced motion, effects off or unavailable WebGL; native screenshot dialog if enhancement module fails",
-      "controls": "Previous / Next, Left / Right, Close / Escape; 44px phone targets",
-      "layout": "Full viewport dialog; 88% chrome frame, complete aspect-fit image",
+      "controls": "Previous / Next, Close / Escape, branch buttons and breadcrumbs; Left/Right gallery keys yield to the inspector or zoomed image",
+      "layout": "Complete aspect-fit image at Overview; branch reading pane beside image, stacked below 600px",
       "performance": "Capped DPR, no idle render loop; resources disposed on page exit"
     },
     "scrollSurfaces": {
       "trigger": "Ordinary native scroll; reversible",
-      "layout": "Existing frame geometry; no pinning or extra scroll height",
+      "layout": "Individual case media frames retain their geometry; the separate project reel adds the sticky 190svh runway.",
       "projects": {
         "MotionStudio": "Continuous curved editor plane",
         "PhotoMosaic": "24x14 assembling tiles over the native comparison",
@@ -636,24 +707,6 @@
       "fallback": "Static native images for reduced motion, effects off, no WebGL or lost context",
       "coordination": "Paused during native dialogs; resynchronized when viewer closes",
       "backgroundChange": "Ten additional margin traces; upward angle, details and theme-blue routing preserved"
-    },
-    "projectTileField": {
-      "desktop": [
-        26,
-        13
-      ],
-      "compact": [
-        18,
-        11
-      ],
-      "material": "theme-aware blue metal; CSS tile-idle, tile-key and tile-active roles",
-      "bevelRadius": 0.12,
-      "pointerRadius": 2.65,
-      "compactPointerRadius": 2.15,
-      "springStiffness": 225,
-      "springDamping": 25,
-      "preview": "actual project screenshots across front faces",
-      "fallback": "CSS rounded blocks and semantic project links"
     },
     "photographyArchive": {
       "route": "/photography/",
@@ -671,9 +724,24 @@
       },
       "doubleWidth": "Every 13th desktop wall print",
       "viewer": "Native dialog, full aspect-fit DOM image, nearby thumbnails, arrows, Escape, 2\u00d7 native-scroll zoom",
-      "rendering": "No WebGL or idle animation loop; CSS/JS reduced motion",
+      "rendering": "Optional WebGL atlas with in-view surface drift; no autonomous pan. Reduced motion or stored Effects off skips atlas and uses native wall/sheet; software/missing/context-lost WebGL also keeps or returns to wall. Hidden document or open photo dialog stops atlas frames.",
       "updates": "Static local snapshot of 253 user JPEG exports from Pictures/Lightroom Saved Photos; Drive is an alternate source. Read originals only to make copies, preserve them in place, and regenerate on requested sync. Public metadata contains no local paths or Drive URLs.",
-      "accessibility": "All 253 photographs have content-based descriptions shared by gallery links, full-view images and nearby-thumbnail controls; filenames remain visual metadata. Thin inline SVG icons are 16px (24px viewer arrows), with 1.5 stroke width."
+      "accessibility": "All 253 photographs have content-based descriptions shared by gallery links, full-view images and nearby-thumbnail controls; filenames remain visual metadata. Thin inline SVG icons are 16px (24px viewer arrows), with 1.5 stroke width.",
+      "modes": [
+        "Infinite atlas",
+        "Gallery wall",
+        "Contact sheet"
+      ],
+      "atlas": {
+        "source": "All 253 existing local photographs; filtered records recycle through coordinates",
+        "input": "Drag/release momentum, wheel pan, arrows and previous/next, Enter/click open, zoom/reset controls",
+        "zoomRange": [
+          0.45,
+          2
+        ],
+        "preference": "gallery.js honors sv-effects and OS reduced motion; live storage and photomotionchange updates",
+        "viewerOrigin": "Measured atlas image rectangle feeds existing native dialog entrance"
+      }
     },
     "themeSystem": {
       "source": "theme.css",
@@ -689,11 +757,13 @@
       },
       "input": "Native checkbox role=switch; Dark theme; checked means dark",
       "persistence": "sv-theme localStorage; early theme-init.js; OS preference before explicit choice; live OS and storage events",
-      "renderers": "themechange reads --blue in hero-renderer.js and tile tokens in tile-field-renderer.js",
+      "renderers": "Hero and circuit materials read the active blue; reel/atlas retain actual image colors. Paper strips use fixed local dark blue/cobalt materials.",
       "transition": "760ms switch-centered radial View Transition; reduced motion, Effects off or unsupported API applies immediately",
       "supersedes": [
         "lime hero candidate",
-        "navy/red interface palette"
+        "navy/red interface palette",
+        "rounded block selector composition",
+        "hero contour trace and word-only reveal"
       ],
       "content": "Existing copy and assets preserved; static site, no build step"
     },
@@ -703,6 +773,53 @@
       "lifetimeMs": 180,
       "pointer": "Native pointer remains visible; trail is decoration only",
       "hero": "Trail suppressed in hero"
+    },
+    "projectReel": {
+      "purpose": "Primary curved scroll-and-drag project selector replacing the rounded block field",
+      "projects": [
+        "MotionStudio",
+        "PhotoMosaic",
+        "Smart Collection Manager"
+      ],
+      "runway": "190svh sticky stage; local nonsticky stage for reduced motion and Effects off",
+      "selection": "Scroll progress, horizontal drag, named buttons, previous/next and stage Left/Right",
+      "rendering": "Actual screenshot planes; shared fluid-media shader; shallow bend, velocity flex, desktop mirrored surfaces, in-view idle drift",
+      "dprCap": 1.7,
+      "fallback": "Native DOM image strip and controls for reduced motion, Effects off, unavailable or context-lost WebGL",
+      "viewer": "Cinematic native-dialog opening and return coordinate active selection and focus"
+    },
+    "paperTitle": {
+      "source": "paper-explorer.css and hero.js",
+      "wording": "I build software for creative work.",
+      "material": "Fixed dark blue/cobalt strips with warm paper lettering and pale-blue emphasis in both themes; lettering stays printed on each moving surface",
+      "rotationsDeg": [
+        -1.4,
+        0.8
+      ],
+      "fold": "32px corner; 19px at 600px; dark-blue gradient clipped edge, independent 4.8s/5.6s continuous loops",
+      "fallback": "Live static paper text for reduced motion or Effects off; supersedes contour trace and word-only hero reveal",
+      "float": "Whole-strip 5.8s/6.7s loops; \u00b13px X, \u00b15px Y, small tilt/perspective rotateX; in-view only"
+    },
+    "projectWorkspace": {
+      "root": "Overview",
+      "branches": [
+        "Interface",
+        "Features",
+        "Engineering"
+      ],
+      "featureDepth": "Features > named feature; breadcrumb and parent/back controls",
+      "interface": "Complete image at rest; 2\u00d7 inspection using native overflow pan",
+      "facts": "Existing case DOM descriptions, proof, stack and engineering paragraphs only",
+      "navigation": "Project changes reset the tree; native modal Close/Escape and return focus preserved",
+      "layout": "Reading pane beside image; stacked at 600px and below"
+    },
+    "smoothScroll": {
+      "library": "Lenis 1.3.27",
+      "license": "MIT; vendored local",
+      "lerp": 0.085,
+      "syncTouch": false,
+      "gates": "Destroy for reduced motion/Effects off; stop for loader/modal/hidden state",
+      "fallback": "Native scroll; dialogs and inputs excluded"
     }
   },
   "components": [
@@ -737,23 +854,16 @@
       "css": ".ds-range{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#f5f0e6);display:flex;align-items:center;gap:18px;font-size:12px}.ds-range input{flex:1;min-width:20px;min-height:44px;accent-color:var(--red,#ffac78)}.ds-range input:focus-visible{outline:2px solid var(--red,#ffac78);outline-offset:6px;}"
     },
     {
-      "name": "Engineering disclosure",
-      "kind": "custom",
-      "description": "Engineering disclosure extracted from the shipped portfolio.",
-      "html": "<details class=\"ds-details\"><summary>The engineering</summary><p>A modular pipeline compares tiles in LAB color space and assembles the output.</p></details>",
-      "css": ".ds-details{font-family:var(--font-body,Instrument,sans-serif);font-size:13px;color:var(--paper,#f5f0e6);border-top:1px solid var(--line,#304561);padding-top:8px;margin-top:20px}.ds-details summary{cursor:pointer;min-height:44px;padding:10px 0;font-size:13px}.ds-details summary:focus-visible{outline:2px solid var(--red,#ffac78);outline-offset:6px;}.ds-details p{font-size:14px;color:var(--muted,#afc2db);line-height:1.7;margin:10px 0}"
-    },
-    {
       "name": "Photography layout modes",
       "kind": "button",
-      "description": "Selected archive layout is underlined with the orange signal.",
-      "html": "<div class=\"ds-photo-modes\" role=\"group\" aria-label=\"Gallery layout\"><button aria-pressed=\"true\">Gallery wall</button><button aria-pressed=\"false\">Contact sheet</button></div>",
+      "description": "Three explicit archive modes; atlas is disabled when motion or WebGL is unavailable.",
+      "html": "<div class=\"ds-photo-modes\" role=\"group\" aria-label=\"Gallery layout\"><button aria-pressed=\"true\">Infinite atlas</button><button aria-pressed=\"false\">Gallery wall</button><button aria-pressed=\"false\">Contact sheet</button></div>",
       "css": ".ds-photo-modes{display:flex;gap:18px;font:15px/1.5 Instrument,sans-serif}.ds-photo-modes button{font:inherit;cursor:pointer;background:none;border:0;color:var(--muted,#afc2db);padding:4px 0}.ds-photo-modes button[aria-pressed=true]{color:var(--paper,#f5f0e6);border-bottom:2px solid var(--red,#ffac78)}.ds-photo-modes button:hover{color:var(--paper,#f5f0e6)}.ds-photo-modes button:focus-visible{outline:2px solid var(--red,#ffac78);outline-offset:6px}"
     },
     {
       "name": "Photography density",
       "kind": "input",
-      "description": "Native desktop range chooses two through seven wall columns.",
+      "description": "Native desktop Distance range chooses wall columns or atlas zoom; disabled for contact sheet.",
       "html": "<label class=\"ds-photo-density\">Distance <input type=\"range\" min=\"2\" max=\"7\" value=\"4\" aria-label=\"Photographs per row\"></label>",
       "css": ".ds-photo-density{display:flex;align-items:center;gap:12px;font:12px/1.5 Instrument,sans-serif;color:var(--paper,#f5f0e6)}.ds-photo-density input{accent-color:var(--red,#ffac78);width:105px}.ds-photo-density input:focus-visible{outline:2px solid var(--red,#ffac78);outline-offset:6px}.ds-photo-density:has(input:disabled){opacity:.45}"
     },
@@ -764,23 +874,46 @@
       "description": "Native sliding day/night checkbox; checked means dark. Preview uses CSS state only.",
       "html": "<label class=\"ds-theme-switch\"><input type=\"checkbox\" role=\"switch\" aria-label=\"Dark theme\" checked><span class=\"ds-theme-track\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2m0 16v2M2 12h2m16 0h2\"/></svg><svg viewBox=\"0 0 24 24\"><path d=\"M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10Z\"/></svg></span></label>",
       "css": ".ds-theme-switch{position:relative;display:inline-flex;width:76px;height:44px;align-items:center;cursor:pointer}.ds-theme-switch input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:pointer;z-index:2}.ds-theme-track{position:relative;width:58px;height:34px;padding:0 9px;border-radius:20px;background:var(--raised,#102745);box-shadow:inset 0 0 0 1px var(--line,#304561);display:flex;align-items:center;justify-content:space-between;color:var(--muted,#afc2db)}.ds-theme-track:after{content:\"\";position:absolute;left:4px;top:4px;width:26px;height:26px;border-radius:50%;background:var(--red,#ffac78);transition:transform .5s cubic-bezier(.16,1,.3,1)}.ds-theme-switch input:checked+.ds-theme-track:after{transform:translateX(42px)}.ds-theme-track svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;z-index:1;transition:transform .5s}.ds-theme-switch:hover svg{transform:rotate(-12deg)}.ds-theme-switch input:focus-visible+.ds-theme-track{outline:2px solid var(--red,#ffac78);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-theme-track:after,.ds-theme-track svg{transition:none}}"
+    },
+    {
+      "name": "Paper headline",
+      "kind": "custom",
+      "refersTo": "paper-title",
+      "description": "Live warm lettering printed on dark blue/cobalt torn paper. Whole strips float continuously in-view with independent folding edges; preview shows the static accessible material.",
+      "html": "<h1 class=\"ds-paper-title\"><span>I build software</span><span><em>for creative work.</em></span></h1>",
+      "css": ".ds-paper-title{font:500 clamp(30px,6.8vw,70px)/1.08 Anybody,sans-serif;letter-spacing:-.04em;margin:20px;color:#f5f0e6}.ds-paper-title>span{position:relative;display:table;padding:10px 22px 14px;isolation:isolate;transform:rotate(-1.4deg);filter:drop-shadow(0 9px 12px var(--shadow,rgba(0,6,19,.3)))}.ds-paper-title>span:before{content:\"\";position:absolute;inset:0;z-index:-1;background:#244e73;clip-path:polygon(0 3%,15% 0,28% 2%,44% 0,59% 2%,74% 0,90% 2%,100% 0,99% 98%,86% 100%,70% 98%,56% 100%,40% 98%,24% 100%,8% 98%,0 100%)}.ds-paper-title>span+span{margin:10px 0 0 18px;transform:rotate(.8deg)}.ds-paper-title>span+span:before{background:#2f5e88}.ds-paper-title em{font-style:normal;color:#d7ecff}.ds-paper-title>span:after{content:\"\";position:absolute;right:-1px;top:0;bottom:0;width:32px;background:linear-gradient(90deg,#183852,#3c7296 80%);clip-path:polygon(25% 2%,100% 0,98% 100%,18% 98%,33% 72%,14% 48%,32% 25%)}.ds-paper-title>span+span:after{background:linear-gradient(90deg,#1c4266,#4884ac 80%)}"
+    },
+    {
+      "name": "Project branch navigation",
+      "kind": "nav",
+      "description": "Progressive native branch controls with selected orange underline and breadcrumb parent path. Preview shows Features.",
+      "html": "<div class=\"ds-project-nav\"><div class=\"ds-project-path\" aria-label=\"Project path\"><button>MotionStudio</button><span aria-hidden=\"true\">/</span><button>Features</button></div><nav aria-label=\"Explore this project\"><button aria-pressed=\"false\">Overview</button><button aria-pressed=\"false\">Interface</button><button aria-pressed=\"true\">Features</button><button aria-pressed=\"false\">Engineering</button></nav></div>",
+      "css": ".ds-project-nav{font:13px/1.5 Instrument,sans-serif;color:var(--paper,#f5f0e6)}.ds-project-path{display:flex;gap:10px;align-items:center;color:var(--muted,#afc2db);font-size:11px}.ds-project-nav nav{display:flex;gap:26px;flex-wrap:wrap}.ds-project-nav button{position:relative;font:inherit;color:var(--muted,#afc2db);background:none;border:0;padding:0;min-height:44px;cursor:pointer}.ds-project-nav button:hover{color:var(--red,#ffac78)}.ds-project-nav button[aria-pressed=true]{color:var(--paper,#f5f0e6)}.ds-project-nav button[aria-pressed=true]:after{content:\"\";position:absolute;bottom:2px;left:0;right:0;height:1px;background:var(--red,#ffac78)}.ds-project-nav button:focus-visible{outline:2px solid var(--red,#ffac78);outline-offset:5px}.ds-project-nav button:active{opacity:.7}"
+    },
+    {
+      "name": "Reel project choices",
+      "kind": "button",
+      "description": "Named native choices track the curved reel selection; active state uses a fine orange underline.",
+      "html": "<div class=\"ds-reel-index\" role=\"group\" aria-label=\"Choose a project\"><button aria-pressed=\"true\">MotionStudio</button><button aria-pressed=\"false\">PhotoMosaic</button><button aria-pressed=\"false\">Smart Collection Manager</button></div>",
+      "css": ".ds-reel-index{display:flex;gap:22px;flex-wrap:wrap;font:12px/1.5 Instrument,sans-serif}.ds-reel-index button{position:relative;background:none;border:0;padding:0;text-align:left;min-height:44px;font:inherit;color:var(--muted,#afc2db);cursor:pointer}.ds-reel-index button[aria-pressed=true]{color:var(--paper,#f5f0e6)}.ds-reel-index button:after{content:\"\";position:absolute;bottom:0;left:0;width:100%;height:1px;background:var(--red,#ffac78);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.16,1,.3,1)}.ds-reel-index button[aria-pressed=true]:after,.ds-reel-index button:hover:after{transform:scaleX(1)}.ds-reel-index button:focus-visible{outline:2px solid var(--red,#ffac78);outline-offset:5px}.ds-reel-index button:active{opacity:.7}@media(prefers-reduced-motion:reduce){.ds-reel-index button:after{transition:none}}"
     }
   ],
   "narrative": {
     "northStar": "Industrial Optical Monograph",
-    "overview": "An industrial optical monograph in two materials: light-blue structure on warm cream by day, and CobaltSky navy with luminous blue by night. A small orange signal marks interaction. Wide typography, real software evidence, hairline divisions, and full-ratio photographs preserve the shared editorial identity across the portfolio and its separate archive.\n\nDepth belongs to procedural geometry, screenshots, and prints. The full-viewport hero introduces the experience with a blue particle ribbon; native-scroll project surfaces and the contextual lens carry it onward. Optional motion adds expression while static text, images, controls, and contact access remain available.",
+    "overview": "An industrial optical monograph in two materials: light-blue structure on warm cream by day, and CobaltSky navy with luminous blue by night. A small orange signal marks interaction. Wide typography, real software evidence, hairline divisions, and full-ratio photographs preserve the shared editorial identity across the portfolio and its separate archive.\n\nThe current expression is fluid and airy: images carry momentum and shallow curvature, while factual text stays readable. Layered torn paper gives the live headline a tactile continuous movement; a curved project reel and branching workspace reveal software evidence progressively. Photography has its own spatial atlas alongside the print wall and contact sheet. These compositions supersede the rounded block selector and the hero contour/word entrance. The active surface contract is `.impeccable/surfaces/fluid-gallery.md`.",
     "keyCharacteristics": [
-      "Wide display typography and restrained utility text.",
-      "Flat editorial surfaces with real project screenshots.",
-      "Persistent day/night materials shared with the photography archive.",
-      "Split/blur live text and a direct, elastic image comparison.",
-      "A compact optical study within personal context and an upward-angled circuit plane with faint technical vehicle drawings.",
-      "Native scrolling, visible focus, and static graphics fallbacks."
+      "Wide display typography and quiet reading/control text.",
+      "Airy image surfaces with real project screenshots and photographs.",
+      "Persistent day/night materials shared across both routes.",
+      "Live wording printed on continuously floating dark torn-paper surfaces.",
+      "Curved scroll-and-drag projects with progressive evidence branches.",
+      "A contextual About lens and faint upward-angled circuit details.",
+      "Native links, visible focus, and static graphics fallbacks."
     ],
     "rules": [
       {
         "name": "The Shared Materials Rule",
-        "body": "Apply one selected theme across hero, project field, case studies, About, contact, dialogs and photography; use orange sparingly for action and feedback.",
+        "body": "Apply one selected theme across hero, reel, case studies, About, contact, dialogs and photography; use orange sparingly for action and feedback.",
         "section": "colors"
       },
       {
@@ -790,20 +923,21 @@
       },
       {
         "name": "The Object Depth Rule",
-        "body": "Keep editorial containers flat; reserve dimensional treatment for screenshot presentation, photographic prints and physical scene geometry.",
+        "body": "Keep editorial containers flat; reserve dimensional treatment for screenshot presentation, photographic prints, paper folds and physical scene geometry.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do preserve real screenshots and distinct editorial project compositions.",
-      "Do keep orange focus outlines and controls with the existing interaction heights (44px generally, 36px in the narrowest header).",
-      "Do provide the static lens state for reduced motion, effects off, and software rendering.",
-      "Do use SVG paths for interface icons and keep circuit details faint and subordinate."
+      "Do preserve real screenshots, all 253 photographs and exact factual project content.",
+      "Do keep named native controls, visible orange focus and a clear path back through each project branch.",
+      "Do gate optional movement by the preferences implemented on each route and preserve static/native fallbacks.",
+      "Do keep the lens contextual, circuit details faint, and the linked photography archive on its own route."
     ],
     "donts": [
-      "Don't replace this system with generic card grids, decorative pills, or burgundy page backgrounds.",
-      "Don't turn vehicles into click-operated exhibits or replace the homepage\u2019s contextual optical study with the photography archive; keep the archive on its own linked route.",
-      "Don't require motion, hover, or graphics to reach factual content."
+      "Don't restore the superseded rounded block selector, contour title trace or letter-only hero treatment.",
+      "Don't replace the system with generic card grids, decorative pills or burgundy page backgrounds.",
+      "Don't require motion, hover or WebGL to reach factual content or photographs.",
+      "Don't treat a recycled atlas position as a new photograph or alter local originals during archive updates."
     ]
   }
 }

@@ -21,3 +21,4 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 @media(prefers-reduced-motion:reduce){.headline-trace{display:none}.reel-canvas,.reel-source,.reel-index button:after,.reel-navigation button{transition:none}.project-reel.reel-booted{height:auto}.reel-booted .reel-stage{position:relative;top:0;height:720px}.reel-booted .reel-source{transform:translateX(calc(var(--reel-offset,0)*100%))}.reel-source[aria-hidden=true]{visibility:hidden}.reel-booted .reel-fallback{overflow:hidden}.fluid-home .motion-shot,.fluid-home .collection-shot{box-shadow:none}}
 
 .still .project-reel.reel-booted{height:auto}.still .reel-booted .reel-stage{position:relative;top:0;height:720px}.still .reel-booted .reel-fallback{overflow:hidden}.still .reel-source[aria-hidden=true]{visibility:hidden}
+.fluid-home #work{scroll-margin-top:0}

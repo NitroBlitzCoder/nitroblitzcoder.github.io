@@ -1,5 +1,7 @@
 # Theme system — shared day and CobaltSky materials
 
+> Current direction — November 11, 2026: `fluid-gallery.md` supersedes the layout freeze, rounded selector and hero split/blur entrance below. The active composition uses an airy curved reel, a continuously floating dark-paper title with independent edge folds and a progressive project workspace. Paired theme roles, persistence, native switch, comparison and reduced-motion/Effects fallbacks remain; the photography atlas is optional and respects the saved Effects preference.
+
 MODE: Experience. Authorized revision of the shared portfolio and photography materials; supersedes the earlier lime hero candidate and navy/red interface palette.
 THESIS: Keep the editorial optical identity and factual software evidence while making day/night materials, expressive live text and direct image comparison feel like one coherent experience.
 OWN-WORLD: Light blue, cream and a hint of burnt orange by day; CobaltSky navy, warm cream and sky blue with peach-orange feedback by night. Anybody display and Instrument Sans reading/control text remain. Theme roles and exact values are normative in DESIGN.md and theme.css.

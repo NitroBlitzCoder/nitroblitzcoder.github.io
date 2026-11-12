@@ -1,5 +1,7 @@
 # Hero rebuild — retained experience, shared theme
 
+> Current direction — November 11, 2026: `fluid-gallery.md` supersedes this brief’s title animation and composition guidance. The live headline now sits on dark blue/cobalt torn-paper strips with continuously floating surfaces and independent edge folds, not a split/blur word entrance or contour trace. The procedural blue hero, exact wording, loader, shared themes and static fallbacks remain. Read this brief as history where those details conflict.
+
 MODE: Experience. The procedural hero and asset scheduling are retained. The later authorized shared theme revision supersedes this brief’s original near-black/lime palette and hero-only styling scope; see theme-system.md for the active direction and DESIGN.md for normative tokens.
 
 Reference: Dominik Fojcik, https://fojcikdominik.com/, inspected November 11, 2026. Reference informs dark editorial scale and a continuous procedural 3D world; no artwork, portrait, code, or copy reused.

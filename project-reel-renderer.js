@@ -1,4 +1,4 @@
-import {THREE,mediaMaterial,makeRenderer} from './fluid-media.js';
+import {THREE,mediaMaterial,makeRenderer} from './fluid-media.js?v=20261111-5';
 import {clamp} from './fluid-motion.mjs';
 export function createReel(canvas,images){
  const renderer=makeRenderer(canvas),scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(38,1,1,6000),group=new THREE.Group();scene.add(group);
@@ -7,8 +7,8 @@ export function createReel(canvas,images){
  function resize(){const rect=canvas.getBoundingClientRect();width=rect.width;height=rect.height;renderer.setSize(width,height,false);camera.aspect=width/height;camera.position.z=height/(2*Math.tan(THREE.MathUtils.degToRad(19)));camera.updateProjectionMatrix();}resize();
  function render(position,velocity,time,entrance,pointer,motion){
   const compact=width<700;camera.position.x=motion?pointer.x*8:0;camera.position.y=motion?-pointer.y*5:0;camera.lookAt(0,0,0);
-  planes.forEach((plane,i)=>{const offset=i-position,aspect=plane.image.naturalWidth/plane.image.naturalHeight;let w=width*(compact?.8:.61),h=w/aspect;const limit=height*(compact?.47:.57);if(h>limit){h=limit;w=h*aspect;}const spread=width*(compact?.91:.7);const y=height*.035-Math.pow(Math.abs(offset),1.3)*height*.08;
-   plane.mesh.position.set(offset*spread,y,-Math.abs(offset)*width*.16-(1-entrance)*120);plane.mesh.rotation.set(motion?pointer.y*.025:0,-offset*.32,offset*.025);plane.mesh.scale.set(w,h,1);
+  planes.forEach((plane,i)=>{const offset=i-position,aspect=plane.image.naturalWidth/plane.image.naturalHeight;let w=width*(compact?.8:.61),h=w/aspect;const limit=height*(compact?.47:.57);if(h>limit){h=limit;w=h*aspect;}const spread=width*(compact?.84:.61);const y=height*.055-Math.pow(Math.abs(offset),1.3)*height*.09+(motion?Math.sin(time*.45+i*.8)*8:0);
+   plane.mesh.position.set(offset*spread,y,-Math.abs(offset)*width*.16-(1-entrance)*120);plane.mesh.rotation.set(motion?pointer.y*.025:0,-offset*.4,offset*.035+(motion?Math.sin(time*.4+i)*.007:0));plane.mesh.scale.set(w,h,1);
    const opacity=clamp(1-Math.abs(offset)*.34,.12,1);for(const mesh of[plane.mesh,plane.reflection]){mesh.material.uniforms.uTime.value=time;mesh.material.uniforms.uBend.value=motion?width*.035+Math.abs(velocity)*16:0;mesh.material.uniforms.uVelocity.value=motion?clamp(velocity,-3,3):0;mesh.material.uniforms.uOpacity.value=opacity;}
    plane.reflection.position.copy(plane.mesh.position);plane.reflection.position.y=y-h-14;plane.reflection.rotation.copy(plane.mesh.rotation);plane.reflection.scale.set(w,-h,1);plane.reflection.visible=!compact;
   });renderer.render(scene,camera);

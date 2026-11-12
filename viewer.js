@@ -1,3 +1,4 @@
+import {installProjectExplorer} from './project-explorer.js?v=20261111-5';
 import {createRenderer} from './viewer-renderer.js';
 import {fitRect,sourceFrame,flat,liftPose,galleryPose,ease} from './viewer-motion.mjs';
 const dialog=document.querySelector('#image-dialog');
@@ -15,6 +16,7 @@ let engine,unavailable=false,current=0,requested=0,state='closed',serial=0,tween
 const loaded=new Map();
 let returnContext=null;
 const motion=()=>!reduced.matches&&window.portfolioEffects!==false&&!document.hidden;
+const explorer=installProjectExplorer({dialog,image,records,getCurrent:()=>current,canInteract:()=>state==='open',close});
 const compact=()=>innerWidth<700;
 function signal(kind,direction=1){
   window.dispatchEvent(new CustomEvent('projectflight',{detail:{kind,direction}}));
@@ -34,7 +36,7 @@ function origin(record){
   return sourceFrame(img.getBoundingClientRect(),clip,{width:innerWidth,height:innerHeight});
 }
 function destination(record){
-  const box=stage.getBoundingClientRect(),asset=loaded.get(record.src);
+  const box=explorer.window.getBoundingClientRect(),asset=loaded.get(record.src);
   return fitRect(asset?.naturalWidth||image.naturalWidth||1600,asset?.naturalHeight||image.naturalHeight||1000,box);
 }
 async function load(record){
@@ -48,7 +50,7 @@ function getEngine(){
   return engine;
 }
 function metadata(index,animate=true){
-  const record=records[index];title.textContent=record.title;description.textContent=record.description;count.textContent=`${index+1} / ${records.length}`;
+  explorer.reset();explorer.busy(true);const record=records[index];title.textContent=record.title;description.textContent=record.description;count.textContent=`${index+1} / ${records.length}`;
   image.src=record.src;image.alt=record.alt;
   for(const el of [title,description,count]){
     el.getAnimations().forEach(a=>a.cancel());if(animate&&motion())el.animate([{opacity:0,transform:'translateY(12px)',filter:'blur(3px)'},{opacity:1,transform:'none',filter:'blur(0px)'}],{duration:420,easing:'cubic-bezier(.16,1,.3,1)',fill:'both'});
@@ -70,7 +72,7 @@ function settle(){
   if(!dialog.open)return;
   cancelTween();canvas.hidden=true;engine?.clear();primary=secondary=null;
   image.style.opacity='';dialog.classList.remove('viewer-moving');dialog.removeAttribute('aria-busy');
-  restoreOrigins();state='open';
+  restoreOrigins();state='open';explorer.busy(false);
 }
 function finishClose(){
   cancelTween();engine?.clear();canvas.hidden=true;primary=secondary=null;
@@ -135,7 +137,7 @@ async function close(){
   if(state==='closed'){if(dialog.open){returnY=scrollY;finishClose();}return;}
   ++serial;cancelTween();const previousState=state;
   if(secondary&&primary?.pose?.alpha<.5&&outgoingIndex!==null){current=outgoingIndex;[primary,secondary]=[secondary,primary];metadata(current,false);}
-  state='closing';requested=current;
+  state='closing';requested=current;explorer.reset();
   // Move the inert page under the opaque viewer before returning to another project.
   const record=records[current];
   if(returnContext){returnContext.beforeReturn?.(record);opener=returnContext.focus?.(record)||opener;}
@@ -157,6 +159,7 @@ async function close(){
 previous.addEventListener('click',()=>navigate(-1));next.addEventListener('click',()=>navigate(1));
 dialog.addEventListener('cancel',event=>{event.preventDefault();close();});
 dialog.addEventListener('keydown',event=>{
+  if(event.target.closest('.project-inspector')||explorer.window.classList.contains('interface-zoomed'))return;
   if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();navigate(event.key==='ArrowRight'?1:-1);}
 });
 dialog.addEventListener('close',()=>{if(state!=='closed'){++serial;cancelTween();restoreOrigins();canvas.hidden=true;engine?.clear();state='closed';}});
@@ -171,7 +174,7 @@ window.portfolioViewer={open,close};dialog.classList.add('viewer-ready');
 if(dialog.open){
   const found=records.findIndex(record=>image.src.endsWith(record.src));
   current=requested=found<0?0:found;opener=records[current].trigger;returnY=scrollY;
-  metadata(current,false);dialog.style.setProperty('--viewer-cover','1');state='open';
+  metadata(current,false);dialog.style.setProperty('--viewer-cover','1');state='open';explorer.busy(false);
 }
 const wires=document.querySelector('.circuit-traces')?.cloneNode(true);
 if(wires){wires.classList.add('viewer-wires');wires.setAttribute('aria-hidden','true');dialog.prepend(wires);}

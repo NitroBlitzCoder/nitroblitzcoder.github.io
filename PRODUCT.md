@@ -61,3 +61,12 @@ Use a spacious staggered gallery wall with occasional double-width prints, a com
 The user authorizes changing the composition and moving elements instead of preserving the rigid tile layout. Main-page projects lead: a fluid curved carousel informed by Dominik Fojcik and A24. The photography page should offer a creative, animated way to browse many images, with an infinite grid specifically welcomed. The main headline should stay continuously animated, for example through a moving drawing effect. These directions supersede earlier layout freezes and the rounded tile selector. Preserve exact supplied factual content and working links.
 
 The approved paired themes remain cream/light blue/burnt orange for day and navy/cobalt/warm paper/peach orange for night; prior red/black brand descriptions are historical. Implementation remains static, with local libraries, no required build, actual existing images only, and accessible native controls/fallbacks. Local photo originals are never altered.
+
+
+### Paper title and branching project exploration — current clarification
+
+The title should use the paper effect familiar from CapCut/video edits, not merely moving letters. The carousel and overall interface should feel more fluid and airy. Project clicks should progressively reveal more information, like a growing tree: a simple root view, branches, then detailed feature information with a clear path back. The implemented contour trace is superseded by a layered torn-paper reveal with animated corner folds; supplied headline wording remains exact.
+
+### Dark moving paper — latest clarification
+
+The user asks for darker paper behind the title and constant movement. The active strips use dark blue/cobalt with warm lettering and pale-blue emphasis. Each complete strip carries its printed wording through a continuous gentle float while its edge folds independently; both loops stop offscreen and yield to reduced motion and Effects off. This supersedes the prior cream/pale-blue strip treatment, while the shared day/night page palettes and exact headline remain unchanged.
