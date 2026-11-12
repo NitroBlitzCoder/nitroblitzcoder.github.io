@@ -1,11 +1,11 @@
-/* Exposure sheet: warm parchment, cool petrol, copper; the work owns the color. */
+/* Exposure sheet: creamy beige / Solarin sapphire and gunmetal; the work owns the color. */
 .editorial-home.fluid-home .frame{width:min(1440px,88%)}
 .editorial-home .site-header nav{min-height:84px;gap:24px;border-bottom:1px solid var(--line)}
 .editorial-home .wordmark{font-size:17px;letter-spacing:-.025em}.editorial-home .wordmark span{display:none}.editorial-home .nav-links{gap:30px;font-size:12px}.editorial-home .nav-links button{font-size:11px}
 .editorial-home .circuit-background{opacity:.19}.editorial-home .hero:before{background:none}.editorial-home .hero:after{display:none}
 .editorial-home.fluid-home .intro.hero{min-height:calc(100svh - 84px);overflow:clip}
 .editorial-home.fluid-home .hero-inner{width:88%;min-height:calc(100svh - 84px);padding:88px 0 82px;display:grid;grid-template-columns:1fr 1.1fr;grid-template-rows:auto auto auto;column-gap:7%;align-content:center;align-items:start}
-.editorial-home .hero .intro-grid{display:contents}.editorial-home.fluid-home .hero h1{grid-column:1;grid-row:1;max-width:none;font-size:clamp(40px,4.4vw,64px);line-height:1.12;letter-spacing:-.035em;z-index:2;--paper-sheet:#39636a;--paper-sheet-alt:#365e64}
+.editorial-home .hero .intro-grid{display:contents}.editorial-home.fluid-home .hero h1{grid-column:1;grid-row:1;max-width:none;font-size:clamp(40px,4.4vw,64px);line-height:1.12;letter-spacing:-.035em;z-index:2;--paper-sheet:var(--title-paper);--paper-sheet-alt:var(--title-paper-alt);--paper-ink:var(--title-ink);--paper-emphasis:var(--title-emphasis)}
 .editorial-home.fluid-home .hero h1 .hero-line{padding:5px 12px 9px;white-space:nowrap;max-width:none;margin-left:0}.editorial-home.fluid-home .hero h1 .hero-line+.hero-line{margin-top:18px;margin-left:6px}
 .editorial-home .hero-line:before{inset:-22px -25px -20px}
 .editorial-home.fluid-home .hero .intro-context{grid-column:1;grid-row:2;display:block;margin-top:42px;position:relative;z-index:2}
@@ -69,3 +69,6 @@ html:has(.editorial-home){scroll-padding-top:var(--site-header-height,84px)}
 .editorial-home.fluid-home #work,.editorial-home #about,.editorial-home #contact,.editorial-home .case{scroll-margin-top:0}
 @media(max-width:850px){html:has(.editorial-home){scroll-padding-top:var(--site-header-height,104px)}}
 @media(max-width:600px){html:has(.editorial-home){scroll-padding-top:var(--site-header-height,121px)}}
+
+/* Theme the real paper material as well as its lettering. */
+.editorial-home .hero-line:before{background-blend-mode:var(--title-blend,multiply)}

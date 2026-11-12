@@ -7,7 +7,7 @@
     controls.forEach(input => { input.checked = theme === 'dark'; });
     if (persist) { try { localStorage.setItem('sv-theme', theme); } catch {} }
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.content = theme === 'dark' ? '#07162c' : '#f6f1e7';
+    if (meta) meta.content = getComputedStyle(root).getPropertyValue('--ink').trim();
     window.dispatchEvent(new CustomEvent('themechange', {detail: theme}));
   }
   apply(root.dataset.theme, false);

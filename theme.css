@@ -1,6 +1,6 @@
-/* Day and night share blue structure, warm paper, and a small orange signal. */
-:root,[data-theme=dark]{color-scheme:dark;--ink:#101b20;--paper:#eeece4;--muted:#a6b4b7;--red:#e99c80;--line:#42565a;--raised:#1a3035;--hover:#254249;--blue:#74ced4;--blue-strong:#398b97;--glow:rgba(91,158,165,.09);--header:#101b20;--shadow:rgba(0,12,17,.25);--tile-idle:#254249;--tile-key:#a6b4b7;--tile-active:#e99c80;--image-mat:#263c41;--selection-ink:#101b20;--ease:cubic-bezier(.16,1,.3,1)}
-[data-theme=light]{color-scheme:light;--ink:#f2f0e9;--paper:#17252a;--muted:#526168;--red:#a8442d;--line:#b7c2c0;--raised:#e2e7e1;--hover:#d4dfd9;--blue:#075966;--blue-strong:#146c79;--glow:rgba(54,104,110,.07);--header:#f2f0e9;--shadow:rgba(21,49,48,.16);--tile-idle:#d4dfd9;--tile-key:#526168;--tile-active:#a8442d;--image-mat:#e0e5dd;--selection-ink:#fffaf1}
+/* Creamy beige by day; Solarin gunmetal, sapphire, platinum, peach and tan by night. */
+:root,[data-theme=dark]{color-scheme:dark;--ink:#2c3531;--paper:#d1e8e2;--muted:#b8c8c0;--red:#ffcb9a;--line:#52635b;--control-line:#91a79b;--raised:#35433d;--hover:#3d4c45;--blue:#d1e8e2;--blue-strong:#116466;--glow:rgba(17,100,102,.12);--header:#2c3531;--shadow:rgba(9,19,16,.38);--tile-idle:#3d4c45;--tile-key:#d9b08c;--tile-active:#ffcb9a;--image-mat:#d9b08c;--selection-ink:#2c3531;--ease:cubic-bezier(.16,1,.3,1);--title-paper:#116466;--title-paper-alt:#0d5759;--title-ink:#d1e8e2;--title-emphasis:#ffcb9a;--title-blend:multiply;}
+[data-theme=light]{color-scheme:light;--ink:#f6efdf;--paper:#3b332a;--muted:#605342;--red:#834329;--line:#c5b398;--control-line:#7a674f;--raised:#e9ddc8;--hover:#ded0b8;--blue:#5f5443;--blue-strong:#947655;--glow:rgba(148,118,85,.07);--header:#f6efdf;--shadow:rgba(79,57,30,.17);--tile-idle:#ded0b8;--tile-key:#605342;--tile-active:#834329;--image-mat:#e5d3b7;--selection-ink:#fff8ec;--title-paper:#d9b08c;--title-paper-alt:#cda47f;--title-ink:#302920;--title-emphasis:#583c29;--title-blend:soft-light;}
 html{scrollbar-color:var(--blue) var(--ink);caret-color:var(--red)}
 body,.hero-phase{background:var(--ink);color:var(--paper)}
 ::selection,.hero-phase ::selection{background:var(--red);color:var(--selection-ink)}
@@ -68,3 +68,9 @@ dialog,#image-dialog{background:var(--ink);color:var(--paper);border-color:var(-
 .tile-project{background:var(--header);border-radius:8px;box-shadow:0 4px 12px var(--shadow);text-shadow:none}.tile-project:hover{background:var(--raised)}
 .comparison.compare-focused .comparison-line span{outline:2px solid var(--red);outline-offset:5px}
 .photo-page .intro h1 .reveal-word{color:inherit}.photo-page .intro h1>span:not(.reveal-word){color:var(--blue)}
+
+/* Controls need an identifiable edge; editorial separators can remain quiet. */
+.theme-track{box-shadow:inset 0 0 0 1px var(--control-line)}
+.photo-page .tools select{border-color:var(--control-line)}
+:is(.editorial-home,.editorial-photo) :is(.reel-navigation,.atlas-tools) button:not(:disabled){box-shadow:inset 0 0 0 1px var(--control-line)}
+.hero-image-shell:focus-visible,.portal-window:focus-visible{outline-color:var(--red);box-shadow:0 0 0 9px var(--ink)}

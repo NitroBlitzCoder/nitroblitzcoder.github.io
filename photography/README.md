@@ -14,11 +14,11 @@ Add new JPEG exports to the same local folder (or the shared Drive folder) and a
 
 ## Interaction
 
-Gallery wall / contact sheet, desktop density adjustment, orientation filter, native image links as a fallback, native modal focus, previous/next keyboard controls, touch swipe, thumbnail navigation and 2× zoom with native scrolling. Spatial motion follows reduced-motion preferences. No idle animation loops or WebGL dependencies.
+Gallery wall / contact sheet, desktop density adjustment, orientation filter, native image links as a fallback, native modal focus, previous/next keyboard controls, touch swipe, thumbnail navigation and 2× zoom with native scrolling. Spatial motion follows reduced-motion preferences. The optional Three.js infinite atlas adds drag, arrow-key browsing, zoom and animated image planes. It animates while active and pauses for hidden pages or dialogs. The native wall/contact sheet remains available with effects disabled or unavailable WebGL.
 
 ## References
 
 - https://www.tylermitchell.co/ — image-density controls and a direct, image-first archive; inspected in browser.
 - https://www.romainlaprade.com/ — compact image index and deliberate pacing; inspected in browser.
 
-The palette and type extend the portfolio's existing deep navy, ice-blue, red signal, Anybody and Instrument Sans system. No reference imagery, source code, names or branding were reused.
+The palette and type extend the portfolio's creamy beige light mode and Solarin sapphire/gunmetal/platinum/peach/tan dark mode, Anybody and Instrument Sans system. No reference imagery, source code, names or branding were reused.

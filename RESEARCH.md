@@ -141,3 +141,68 @@ Verify the three projects and all archive items remain reachable with scripts di
 Verified 12 November 2026 against the [official repository package metadata](https://raw.githubusercontent.com/greensock/GSAP/master/package.json) and the headers of [core](https://raw.githubusercontent.com/greensock/GSAP/master/dist/gsap.min.js) and [ScrollTrigger](https://raw.githubusercontent.com/greensock/GSAP/master/dist/ScrollTrigger.min.js): both are **3.15.1**, committed 4 November according to the [official commit history](https://github.com/greensock/GSAP/commits). Vendor matching versions together, retaining the copyright/license header. Fully pinned package-distribution URLs are [gsap.min.js 3.15.1](https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js) and [ScrollTrigger.min.js 3.15.1](https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ScrollTrigger.min.js). Do not use floating `@latest` or `@3` when downloading the production copies. Load core before ScrollTrigger and register the plugin before authoring timelines; retain local fallbacks.
 
 GSAP uses its **Standard License, not MIT**. The [official license](https://gsap.com/community/standard-license/) allows commercial usage at no charge, prohibits removing/altering proprietary notices, and restricts competing visual animation-builder products; its FAQ explicitly allows AI-generated GSAP code. Record GSAP and ScrollTrigger with this license in the site's credits. This portfolio presentation fits ordinary website animation usage.
+
+
+# Color and attention research for the portfolio
+
+Research date: 2026-11-12. Read-only inspection: `theme.css` and `editorial.css` in the portfolio repository. No source changes.
+
+## Findings and limits
+
+**There is no scientifically established universally most attractive website color.** Palmer and Schloss's original ecological-valence experiment supports a relationship between preferences and affective associations with colored objects. Their sample and color patches do not establish which portfolio palette improves engagement or conversions. Blue/teal is a reasonable identity choice; claims that it intrinsically creates trust or maximizes clicks would overstate this evidence. [Palmer & Schloss, 2010, PNAS](https://pmc.ncbi.nlm.nih.gov/articles/PMC2889342/)
+
+**Relative salience and the viewer's goal matter.** In an original fMRI/visual-search experiment, a salient color distractor captured attention with diffuse attention but did not do so when participants initially focused centrally, despite identical displays. Inference for this site: a contrasting accent can distinguish the intended next action, but the research does not guarantee attention or prove a specific hue wins. [Belopolsky et al., 2011, Cerebral Cortex, abstract](https://pubmed.ncbi.nlm.nih.gov/21637812/)
+
+**Prioritize luminance contrast over a hue-only difference.** WCAG 2.2 calls for 4.5:1 for ordinary text and 3:1 for large text. Use at least 3:1 for meaningful control/state graphics against adjacent colors; purely decorative separators need not meet that threshold. Links, active navigation, and states should have visible non-color cues such as underlines, shape, text or inversion. [W3C text contrast](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), [W3C non-text contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html), [W3C use of color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html)
+
+**Light and dark should be separately tuned.** A 2007 proofreading experiment favored dark text on a light surface; the authors' 2009 experiment found that advantage disappeared when overall display luminance was equated. This is task/display evidence, not a universal claim that dark themes harm eyes or light themes are always preferred. Keep both readable and let the visitor choose. [Buchner & Baumgartner, 2007](https://pubmed.ncbi.nlm.nih.gov/17510822/), [Buchner, Mayr & Brandt, 2009, university-hosted original paper](https://www.hhu.de/fileadmin/redaktion/Oeffentliche_Medien/Fakultaeten/Mathematisch-Naturwissenschaftliche_Fakultaet/Psychologie/AAP/Publikationen/2009/Buchner_Mayr_Brandt__2009_.pdf)
+
+## Recommended palette
+
+These hex values and their aesthetic character are a design recommendation, not an experimentally proven optimum. Retain the current warm parchment / cool petrol / copper identity; refine the light background and surface separation. Teal and orange-red are separated in hue and temperature, giving a coherent cool structure with a warm action signal. The reason to use copper sparingly is visual hierarchy, not a universal psychological property of orange.
+
+| Role | Light | Dark | Application |
+|---|---|---|---|
+| Canvas | `#F5F2EA` | `#101B20` | Main page and header |
+| Raised surface | `#E6EBE5` | `#192D33` | About, footer, controls and photo mats |
+| Main text | `#17282D` | `#EEECE4` | Headings and body |
+| Secondary text | `#526168` | `#A6B4B7` | Captions and context; keep full opacity |
+| Teal | `#075C65` | `#79D0D4` | Hero emphasis and ordinary links |
+| Copper | `#A8442D` | `#E99C80` | Primary action, selected control and focus |
+| Text on copper | `#FFFAF1` | `#101B20` | Filled action buttons and toggle thumb |
+| Strong control border | `#758585` | `#627B80` | Controls that rely on an outline to be recognized |
+
+Keep a separate lower-contrast `--line` for decorative editorial rules, e.g. existing `#B7C2C0` / `#42565A`; do not require decorative lines to be as prominent as controls. Avoid using a pale teal token from dark mode as small text on the light canvas.
+
+## Computed contrast
+
+Own calculation using WCAG relative luminance, opaque sRGB hex values; ratios below are rounded for display only. Each ordinary text pair clears 4.5:1 on both recommended surfaces. This checks token combinations, not complete WCAG conformance or rendered overlays.
+
+| Pair | Light canvas / raised | Dark canvas / raised |
+|---|---|---|
+| Main text | 13.62 / 12.61 | 14.80 / 12.12 |
+| Secondary text | 5.74 / 5.32 | 8.20 / 6.72 |
+| Teal | 6.88 / 6.37 | 9.82 / 8.05 |
+| Copper | 5.32 / 4.92 | 7.95 / 6.51 |
+| Strong border | 3.44 / 3.19 | 3.89 / 3.19 |
+
+Filled copper action text: light 5.72:1; dark 7.95:1. Recompute final hover colors and any alpha-composited colors against actual backgrounds.
+
+## Attention strategy for implementation
+
+1. Let the large project imagery and heading dominate. Keep background circuitry low-contrast; avoid competing colored glows and many simultaneously saturated accents.
+2. Use one warm, clearly actionable focal point in the hero (the existing project-open mark or primary work CTA). Use teal for supporting emphasis and regular links, with an underline or recognizable link treatment.
+3. Keep role consistency across modes: copper is action/selection; teal is structure/emphasis. Change luminance and saturation per mode, rather than simply inverting colors.
+4. Apply copper focus outlines with sufficient offset so they touch the canvas/surface instead of a same-color filled button; use a two-color ring if a control crosses image content.
+5. Keep selected states recognizable through a marker, underline, filled shape, or label in addition to hue. A checked toggle already supplies physical position; retain that distinction.
+6. Read the system light/dark preference initially and preserve an explicit visitor override. The CSS media feature is defined specifically to detect a user preference for light/dark schemes; it is not a measurement of ambient light. [W3C Media Queries Level 5](https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme)
+
+Validate in real page contexts after implementation: hero word surfaces, project images, theme toggle icons, hover states, focus outlines, small captions, and photography toolbar. These recommendations do not establish that engagement increased; that would require representative user testing.
+
+
+## User-led palette correction — 12 November 2026
+
+The user finds teal bland. Palette selection now prioritizes that expressed preference: warm cream with light blue raised surfaces, deep navy in dark mode, cobalt title paper and restrained warm orange actions. Contextual preference research does not establish teal as a requirement or a universally attractive hue. All main/secondary/accent text pairs exceed 4.5:1 on canvas, raised and hover surfaces; control edges exceed 3:1. Color roles retain their labels, underlines and physical toggle position. Earlier teal/petrol recommendations are historical.
+
+
+12 November 2026 — latest user palette: creamy beige light theme; dark theme follows [the supplied Solarin reference](https://visme.co/blog/wp-content/uploads/2016/09/website16.jpg), with #2C3531 gunmetal, #116466 sapphire, #D9B08C tan, #FFCB9A peach and #D1E8E2 platinum. This supersedes previous cobalt/teal recommendations. Real title paper and ink now change with the mode. Preserve layout, motion, factual content and security policy.

@@ -2,44 +2,46 @@
 name: Sriakshay Vaitla Portfolio
 description: An editorial software portfolio and separate photographic archive in a shared optical identity.
 colors:
-  ink: "#101b20"
-  paper: "#eeece4"
-  muted: "#a6b4b7"
-  red: "#e99c80"
-  line: "#42565a"
-  raised: "#1a3035"
-  hover: "#254249"
-  blue: "#74ced4"
-  blue-strong: "#398b97"
-  glow: "rgba(91,158,165,.09)"
-  header: "#101b20"
-  shadow: "rgba(0,12,17,.25)"
-  tile-idle: "#254249"
-  tile-key: "#a6b4b7"
-  tile-active: "#e99c80"
-  image-mat: "#263c41"
-  selection-ink: "#101b20"
-  light-ink: "#f2f0e9"
-  light-paper: "#17252a"
-  light-muted: "#526168"
-  light-red: "#a8442d"
-  light-line: "#b7c2c0"
-  light-raised: "#e2e7e1"
-  light-hover: "#d4dfd9"
-  light-blue: "#075966"
-  light-blue-strong: "#146c79"
-  light-glow: "rgba(54,104,110,.07)"
-  light-header: "#f2f0e9"
-  light-shadow: "rgba(21,49,48,.16)"
-  light-tile-idle: "#d4dfd9"
-  light-tile-key: "#526168"
-  light-tile-active: "#a8442d"
-  light-image-mat: "#e0e5dd"
-  light-selection-ink: "#fffaf1"
-  paper-sheet: "#39636a"
-  paper-sheet-alt: "#365e64"
-  paper-ink: "#f5f0e6"
-  paper-emphasis: "#d7ecff"
+  ink: "#2c3531"
+  paper: "#d1e8e2"
+  muted: "#b8c8c0"
+  red: "#ffcb9a"
+  line: "#52635b"
+  control-line: "#91a79b"
+  raised: "#35433d"
+  hover: "#3d4c45"
+  blue: "#d1e8e2"
+  blue-strong: "#116466"
+  glow: "rgba(17,100,102,.12)"
+  header: "#2c3531"
+  shadow: "rgba(9,19,16,.38)"
+  tile-idle: "#3d4c45"
+  tile-key: "#d9b08c"
+  tile-active: "#ffcb9a"
+  image-mat: "#d9b08c"
+  selection-ink: "#2c3531"
+  light-ink: "#f6efdf"
+  light-paper: "#3b332a"
+  light-muted: "#605342"
+  light-red: "#834329"
+  light-line: "#c5b398"
+  light-control-line: "#7a674f"
+  light-raised: "#e9ddc8"
+  light-hover: "#ded0b8"
+  light-blue: "#5f5443"
+  light-blue-strong: "#947655"
+  light-glow: "rgba(148,118,85,.07)"
+  light-header: "#f6efdf"
+  light-shadow: "rgba(79,57,30,.17)"
+  light-tile-idle: "#ded0b8"
+  light-tile-key: "#605342"
+  light-tile-active: "#834329"
+  light-image-mat: "#e5d3b7"
+  light-selection-ink: "#fff8ec"
+  paper-sheet: "#116466"
+  paper-sheet-alt: "#0d5759"
+  paper-ink: "#d1e8e2"
+  paper-emphasis: "#ffcb9a"
 typography:
   display:
     fontFamily: "Anybody, sans-serif"
@@ -137,7 +139,7 @@ The first viewport pairs the exact live paper headline with a real software scre
 
 **Key Characteristics:**
 - Actual software evidence shares the opening viewport with identity.
-- Petrol, parchment and copper remain coherent across both themes.
+- Creamy beige by day; gunmetal, sapphire, platinum, peach and tan by night.
 - Anybody headings pair with Instrument Sans reading and controls.
 - Real crumpled paper holds twelve rotation poses over three seconds.
 - Image continuity connects introduction, reel, workspace and photographic portal.
@@ -145,22 +147,22 @@ The first viewport pairs the exact live paper headline with a real software scre
 
 ## Colors
 
-Cool low-chroma petrol surfaces and warm parchment support a small copper signal. Frontmatter records the exact active `theme.css` primitives and the fixed title materials from the final editorial override. Existing keys remain stable: `ink` is background, `paper` is foreground, `blue` is petrol/teal structure and legacy `red` is copper. The `light-` prefix records each day counterpart; it is not a second independent palette.
+Creamy beige light surfaces pair with the user-supplied Solarin palette in dark mode. Frontmatter records the exact active `theme.css` primitives and the fixed title materials from the final editorial override. Existing keys remain stable: `ink` is background, `paper` is foreground, `blue` is cobalt-blue structure and legacy `red` is copper. The `light-` prefix records each day counterpart; it is not a second independent palette.
 
 ### Primary
 
-- **Petrol / teal (`blue`, `blue-strong`):** identity emphasis, circuit routing, procedural hero atmosphere and contact. The strong companion remains available where the source uses it.
+- **Structural color (`blue`, `blue-strong`):** identity emphasis, circuit routing, procedural hero atmosphere and contact. The strong companion remains available where the source uses it.
 
 ### Secondary
 
-- **Copper (`red`):** action, focus, selected underlines, comparison divider, range accents and switch thumb.
+- **Orange (`red`):** action, focus, selected underlines, comparison divider, range accents and switch thumb.
 
 ### Neutral
 
-- **Dark petrol / parchment (`ink`):** page fields. **Warm paper / petrol ink (`paper`):** primary text.
+- **Deep navy / cream (`ink`):** page fields. **Warm paper / navy ink (`paper`):** primary text.
 - **Muted, line, raised and hover:** metadata, rules and tonal control/background layers. **Header:** solid matching page material. **Glow, shadow and image mat:** atmosphere, object depth and image backing.
 - **Tile idle/key/active:** retained legacy roles; their presence does not reinstate the old project selector. **Selection ink:** text on copper selection/thumb.
-- **Paper sheet / alternate sheet:** fixed muted petrol title tints. **Paper ink / emphasis:** fixed warm lettering and pale emphasis. These local print materials do not switch with page themes.
+- **Paper sheet / alternate sheet:** theme-specific real-paper tints. **Paper ink / emphasis:** fixed warm lettering and pale emphasis. These print materials switch with the page theme: tan paper and dark ink by day, sapphire paper and platinum/peach lettering by night.
 - Software screenshots and photographs retain their own colors.
 
 **The Shared Materials Rule.** Apply the selected theme across both routes; reserve copper for action, focus and selected feedback. Preserve original image colors.
@@ -244,3 +246,15 @@ The shared native checkbox switch is labeled Dark theme; checked means dark. Ear
 - **Don't** substitute generated artwork or generic equal cards for actual project and photographic evidence.
 - **Don't** describe the paper as polygon-cut geometry or continuously interpolated floating strips.
 - **Don't** mechanically invert photographs or alter originals when updating the archive.
+
+## Color and attention refinement — 12 November 2026
+
+Primary research supports contextual preference and relative salience, not a universally attractive hue. Preserve the teal/copper identity and let photographs supply broad chroma. The lighter parchment and distinct raised surfaces improve separation; copper remains the action/selection signal. Strong control edges use `--control-line` (#6d7d9f day / #627B80 night), separately from decorative rules. The theme track, orientation selector and enabled reel/atlas navigation use this edge. Image-link focus has an opaque canvas moat behind its copper outline. Body/secondary/teal/copper pairs exceed 4.5:1 on both canvas and raised surfaces; control edges exceed 3:1. See RESEARCH.md for sources and limits. Browser theme metadata follows the actual canvas token.
+
+## Palette correction — 12 November 2026
+
+The user rejected teal as bland. Current authority is cream/sky blue by day, deep navy/cobalt by night, with warm orange actions. This supersedes earlier teal/petrol recommendations; research informs contrast and hierarchy but does not override the user’s aesthetic preference. The actual crumpled title paper is retinted cobalt (#456EE8 / #3A60CF). Layout, imagery and motion remain the same.
+
+## User-selected themes — 12 November 2026
+
+Current palette authority supersedes the previous cobalt direction. Light mode uses cream #F6EFDF, beige #E9DDC8, brown ink #3B332A and warm tan paper. Dark mode follows the supplied Solarin/Visme reference: gunmetal #2C3531, sapphire #116466, platinum #D1E8E2, peach #FFCB9A and tan #D9B08C. Derived surface and control tones preserve contrast. Title component aliases root `--title-paper`, `--title-paper-alt`, `--title-ink` and `--title-emphasis`; light paper uses soft-light blending, dark paper multiply. Texture, mask and four-fps motion remain original.

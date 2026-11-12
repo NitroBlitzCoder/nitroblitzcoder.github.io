@@ -34,7 +34,7 @@ The requested replacement PDF has not yet been supplied. Add it at assets/resume
 
 ## Motion and rendering
 
-The lens loads near About. Vehicle references are small raster technical drawings, so their model files are not downloaded at runtime. Rendering is scheduled on scroll, resize, and visibility changes, with no idle animation loop. Hidden/offscreen scenes do not render. Mobile pixel ratio is capped. Static graphics retain their drawing buffers so demand-driven scenes remain available to browser snapshots.
+The lens loads near About. Vehicle references are small raster technical drawings, so their model files are not downloaded at runtime. Scene controllers coordinate scroll, resize and visibility. The hero and enhanced reel animate while visible; hidden/offscreen scenes pause. Mobile pixel ratio is capped. Static graphics retain their drawing buffers so demand-driven scenes remain available to browser snapshots.
 
 Effects off and the operating system's reduced-motion preference disable spatial choreography and the trail, and leave the lens in a static pose without changing the page layout. The software renderer also uses a static study. Append `?renderer=software#interests` to a local preview URL to exercise that fallback explicitly.
 
@@ -42,7 +42,7 @@ The SVG cursor is rendered by the browser rather than moved with JavaScript. Nat
 
 ## Validation
 
-Run `node --test tests/*.test.*` (Node.js is needed for tests only). Thirty-one checks cover effects semantics, reduced-motion and fine-pointer defaults, trail expiry/reset/re-entry, modal cleanup, and comparison/zoom state.
+Run `node --test tests/*.test.*` (Node.js is needed for tests only). The checks cover effects semantics, reduced-motion and fine-pointer defaults, trail expiry/reset/re-entry, modal cleanup, and comparison/zoom state.
 
 Browser review used 1280×800 desktop and 390×844 phone viewports. Actual WebGL lens rendering, bidirectional scroll separation, static/software fallback, effects switching, keyboard comparison/pan, and modal focus/Escape restoration were exercised. No physical-phone performance benchmark or cross-browser certification is claimed. The original third-party vehicle meshes remain as source assets only. See .impeccable/review/ for selected viewport evidence and review notes.
 
@@ -69,8 +69,16 @@ The project frames retain their original layout, while their real imagery curves
 
 ## Photography
 
-Open `/photography/` for the separate photographic archive. The gallery wall preserves full image ratios, with staggered prints and occasional double-width images. Contact sheet mode gives a compact overview. Desktop Distance adjusts wall columns; the orientation selector filters the visible set. Open a photograph for its complete image, previous/next controls and arrow keys, nearby thumbnails, and 2× zoom with native scrolling. Close or Escape returns focus to the opening photograph. Reduced motion disables spatial animation in CSS and JavaScript. The archive has no WebGL dependency or idle animation loop; without JavaScript its prerendered image links still open the local full-view assets.
+Open `/photography/` for the separate photographic archive. The gallery wall preserves full image ratios, with staggered prints and occasional double-width images. Contact sheet mode gives a compact overview. Desktop Distance adjusts wall columns; the orientation selector filters the visible set. Open a photograph for its complete image, previous/next controls and arrow keys, nearby thumbnails, and 2× zoom with native scrolling. Close or Escape returns focus to the opening photograph. Reduced motion disables spatial animation in CSS and JavaScript. The optional WebGL atlas animates while active; the native gallery remains available when effects are disabled or WebGL is unavailable. Without JavaScript its prerendered image links still open the local full-view assets.
 
 `photography/images/` holds maximum-2000px WebP copies and `photography/thumbs/` holds 560px previews, exported with correct orientation and no EXIF/GPS metadata. `photography/photos.json` contains local IDs, display filenames and dimensions; publish no local filesystem paths, Drive URLs or credentials. CR3 originals and XMP sidecars stay out of the public repository. All 253 images are the user-supplied local JPEG photographs, including alternate edited versions and numbered duplicates. Copies were created read-only from Pictures/Lightroom Saved Photos; the originals stay in place. The shared Drive folder remains an alternate source.
 
 This is a static snapshot of the local saved-photo folder. To update it, add JPEG exports to that folder (or the shared Drive folder) and request a sync; regenerate optimized assets, metadata and prerendered HTML together. Include `photography/` in the existing root GitHub Pages deployment. See `photography/README.md` for archive maintenance and `.impeccable/surfaces/photography.md` for its approved direction. The existing software-project viewer remains independent.
+
+## Browser security policy
+
+Both HTML pages declare a Content Security Policy before scripts. Scripts and network requests stay on the site origin; each inline import map is authorized by its exact SHA-256 hash. Inline executable scripts, event handlers, dynamic code evaluation, plugins, frames, workers, base-URL overrides and form submission are blocked. Inline styles remain allowed for the existing animation controllers. The pages send no referrer. This is defense in depth and trusts the published local assets.
+
+If changing an import map, regenerate its CSP SHA-256 hash and run `node --test tests/*.test.*`; the policy checks detect stale hashes and disallowed script sources. The same suite checks published photographs for EXIF/XMP metadata. Run `python3 tests/check_static_site.py` and review both pages in a browser for policy errors after dependency changes. No build step is needed.
+
+The source audit found no validated vulnerabilities in reviewed first-party code. This does not certify absence of vulnerabilities: bundled dependencies were not exhaustively audited, and live Pages settings, publishing-account permissions and HTTP response headers were not assessed. HTTP-only protections such as frame-ancestors or HSTS cannot be supplied by an HTML meta tag. A repository administrator can review HTTPS enforcement in Pages settings.

@@ -74,3 +74,9 @@ The user asks for darker paper behind the title and constant movement. The activ
 
 ## Research-led editorial redesign — November 12, 2026 (current)
 The user explicitly permits replacing the entire composition after research into UI/UX, color theory, animation, fluidity and distinctive websites. Preserve exact factual content, repositories, contact, the three software projects, all 253 archive photographs and static GitHub Pages delivery. The new identity uses parchment, cool petrol/teal and copper; this supersedes earlier cobalt-only composition locks. Actual software evidence shares the first viewport with the exact paper headline. The existing real-paper 4fps material remains a supporting signature. Selected work, readable cases, a new photographic contact-print bridge, About/lens and Contact form the path. Local GSAP ScrollTrigger coordinates scroll scenes with existing Lenis; native/static paths remain. The earlier blocking full-screen loader is superseded by immediate readable content. The archive remains a separate route and retains its complete atlas/wall/contact-sheet modes. Active design contract: .impeccable/surfaces/editorial-studio.md.
+
+
+12 November 2026 palette correction: user finds teal bland. Use stronger cobalt/sky blues with cream light mode and deep navy dark mode, restrained warm orange actions; this supersedes the teal/petrol palette. Preserve current layout, real title paper, imagery, motion and security controls.
+
+
+12 November 2026 — latest user palette: creamy beige light theme; dark theme follows [the supplied Solarin reference](https://visme.co/blog/wp-content/uploads/2016/09/website16.jpg), with #2C3531 gunmetal, #116466 sapphire, #D9B08C tan, #FFCB9A peach and #D1E8E2 platinum. This supersedes previous cobalt/teal recommendations. Real title paper and ink now change with the mode. Preserve layout, motion, factual content and security policy.
