@@ -140,7 +140,7 @@ async function close(){
   state='closing';requested=current;explorer.reset();
   // Move the inert page under the opaque viewer before returning to another project.
   const record=records[current];
-  if(returnContext){returnContext.beforeReturn?.(record);opener=returnContext.focus?.(record)||opener;}
+  if(returnContext){returnContext.beforeReturn?.(record);returnY=scrollY;opener=returnContext.focus?.(record)||opener;}
   else{opener=record.trigger;if(!origin(record)||origin(record).rect.height<100)record.trigger.scrollIntoView({behavior:'instant',block:'center'});returnY=scrollY;}
   const source=origin(record);
   dialog.classList.add('viewer-leaving');signal('close');

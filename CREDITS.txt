@@ -52,3 +52,6 @@ Paper title material (November 12, 2026)
 - Crumpled-paper texture: Texturelabs Paper 143, https://texturelabs.org/textures/paper_143/ . Used as an integrated element of this portfolio website, under https://texturelabs.org/terms/ . Copyright Texturelabs; not offered as a standalone texture or template.
 - Torn-strip alpha matte: https://tornpaperpng.com/assets/pack/torn-paper-edge-white-02.png , from https://tornpaperpng.com/ . Site permits personal/commercial use; paper base credited there to ambientCG Paper003 (CC0); tear contour supplied by tornpaperpng. Used as an alpha matte, not redistributed as a texture pack.
 - Motion reference: Mike Murphy, How To Animate Crumpled Paper Textures in After Effects, https://mikemurphy.ai/tutorials/crumpledpaper/ . Own CSS implementation of held rotational poses at 4fps.
+
+Research-led editorial motion (November 12, 2026)
+GSAP and ScrollTrigger 3.15.1, Copyright 2026 GreenSock. GSAP Standard License (not MIT), https://gsap.com/standard-license/ . Local distribution retains official proprietary headers. Official source: https://github.com/greensock/GSAP ; pinned package distribution https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ .

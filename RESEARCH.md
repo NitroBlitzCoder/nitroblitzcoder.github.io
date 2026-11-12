@@ -42,3 +42,102 @@ The following primary sites were inspected in the browser for this surface:
 - [Romain Laprade](https://www.romainlaprade.com/): a compact image index and deliberate spacing let the photographs carry the sequence. Applied as restrained navigation, full-ratio prints, varied spacing, occasional double-width images and an unobtrusive nearby-thumbnail strip in the full viewer.
 
 These references inform archive behavior and pacing. The implementation retains Sriakshay’s existing navy/ice-blue/red palette, Anybody and Instrument Sans typography, original photographs and separate software homepage. No reference photographs, branding or source code were reused. Image enlargement uses finite DOM motion, native-dialog focus and static reduced-motion behavior rather than introducing a new rendering engine.
+
+
+# Portfolio design research — 12 November 2026
+
+Scope: a static, no-build creative developer portfolio preserving the existing factual content, three software projects and complete 253-image photography archive. Production source was read only. The decisions below are design inferences informed by primary sources, not claims that a particular visual treatment is universally preferred.
+
+## Reference interpretation
+
+[Dominik Fojcik's own portfolio](https://www.fojcikdominik.com/) explicitly separates Selected work, About and Contact and identifies project roles. Take the clear identity/work hierarchy and the feeling of an authored experience; do not borrow his portrait treatment, artwork or code. [Ravi Klaassens's own A24 case study](https://www.raviklaassens.com/work/a24) describes physical media as the organizing metaphor, opening objects into detail and moving continuously between film and television. Take continuity and meaningful object-to-detail transformation, not discs, film artwork or the same layout. [Fabian Tjoe-A-On's portfolio](https://fabiantjoeaon.com/) was identified but could not be retrieved by the research browser; no unverified claims about its current implementation are used here.
+
+## Seven decisions
+
+### 1. Make the hierarchy legible before making it theatrical
+
+**Decision:** Identity and a short positioning statement lead into three selected projects, then personal practice/photography, About and Contact. Give the work the largest visual area, with title, actual purpose and repository link always available. Keep the archive as a clearly named destination rather than mixing 253 photographs with three projects.
+
+**Why:** W3C recommends logical heading ranks and descriptive headings so structure remains navigable independently of visual styling. Fojcik's selected-work/role structure is a relevant first-party precedent. This does not prescribe a bland visual layout: overscale type and asymmetric image composition can sit on a simple semantic structure. [W3C headings tutorial](https://www.w3.org/WAI/tutorials/page-structure/headings/)
+
+**Implementation:** One H1; section H2s; project H3s or correctly nested article headings. Use real anchor destinations and a visible Work/Photography/About/Contact navigation. Maintain the existing factual award, education, dates, toolkit, teaching experience and credits.
+
+**Risk:** A pinned visual reel can obscure the work overview. Show a persistent three-item index and direct project links so readers can choose immediately.
+
+### 2. Disclose engineering depth, not basic meaning
+
+**Decision:** Keep a one-sentence purpose, concrete capability and stack visible. Put longer engineering explanations behind an explicit disclosure. Image enlargement and project reading are separate, clearly labelled actions.
+
+**Why:** W3C's disclosure pattern defines an operable control with an expanded/collapsed state and Enter/Space activation. It supports optional depth without requiring hidden hover content. [W3C disclosure pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/)
+
+**Implementation:** Retain native `details/summary` for long engineering copy; use links for navigation and buttons for opening viewers. Preserve usable document order without JavaScript. Reserve animation for the panel transition, not the availability of the information.
+
+**Risk:** Over-disclosure can erase evidence of competence. Never hide the award, project purpose, repository link or first useful description.
+
+### 3. Use hue relationships and saturation to allocate attention
+
+**Decision:** Build the chrome around a low-chroma blue-green/teal family with adjacent cool surface hues; add a warm terracotta near-complement only for a small number of editorial accents. Photographs and project results supply the richest colors. Warm paper against cool ink gives the light theme a different temperature balance from the cool dark theme.
+
+**Why:** Adobe identifies complementary relationships as opposing hues and analogous relationships as neighboring hues. These are compositional tools, not guarantees of harmony. Use the analogous family to connect surfaces and the warm/cool opposition to create a deliberate point of tension. [Adobe's complementary-color guide](https://www.adobe.com/uk/creativecloud/design/discover/complementary-colors.html)
+
+**Implementation:** Keep surface chroma low; reserve the strongest chroma for the active state/accent, and let imagery dominate broad colored areas. No rainbow project categories or equal-strength competing accent colors. Author adjustments with separate hue/chroma/lightness controls in OKLCH; Ottosson's original account explains why HSV's equal values can yield visibly unequal lightness. [Ottosson, Oklab](https://bottosson.github.io/posts/oklab/), [W3C CSS Color 4](https://www.w3.org/TR/css-color/)
+
+**Risk:** A wheel-derived complement can look harsh beside image colors. Treat hue relationships as a starting hypothesis and preview against the real screenshots and photographs.
+
+### 4. Tune two contextual palettes rather than invert one
+
+**Decision:** Use semantic color roles and test each mode separately. Proposed sRGB starting tokens:
+
+| Role | Light | Dark |
+| --- | --- | --- |
+| Canvas | `#F2F0E9` | `#101B20` |
+| Main text | `#17252A` | `#EEECE4` |
+| Secondary text | `#526168` | `#A6B4B7` |
+| Teal action/focus | `#075966` | `#74CED4` |
+| Warm editorial accent | `#A8442D` | `#E99C80` |
+
+**Why:** The Albers Foundation emphasizes observing color in context; the Colour Literacy Project explains that neighboring color can alter perceived hue, lightness and vividness. Thus a photograph or accent will not necessarily feel equally bright or saturated on both surrounds. Keep image-viewer surrounds neutral and inspect both themes with the actual images. [Albers Foundation](https://www.albersfoundation.org/alberses/teaching/interaction-of-color), [Colour Literacy Project](https://colourliteracy.org/simultaneous-contrast)
+
+**Implementation:** Independently calculated WCAG sRGB luminance ratios on the listed canvases: main text 13.80/14.80; secondary 5.63/8.20; teal 7.00/9.60; warm accent 5.22/7.95 (light/dark). These verify only those opaque pairs, not all possible uses. Test buttons, hover, focus, overlays and actual adjacent surfaces. Normal text needs 4.5:1; large text 3:1; meaningful component/state cues generally 3:1. Color alone must not carry selection: pair it with labels, underline, shape or position. [W3C text contrast](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), [non-text contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html), [use of color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html)
+
+**Risk:** Low-chroma borders may fail when used as essential control boundaries; choose stronger control tokens separately. An OKLCH lightness value is not a WCAG contrast score.
+
+### 5. Create one ambitious image-led scroll sequence with intelligible handoffs
+
+**Decision:** Use a reversible work sequence: the selected image expands from an editorial overview into a dominant project frame, its title/index travel with it, then the next image enters as the previous one recedes. Finish the sequence by handing the same alignment/grid into the project details. Treat a photograph preview as a visual bridge to the archive. The continuity comes from the same objects retaining identity through scale, crop and position.
+
+**Why:** The A24 maker's object-to-detail account supports a coherent interaction metaphor; GSAP ScrollTrigger provides scrubbed timelines and pinned sections. This supports a substantial art-directed transition without reproducing the reference's disc metaphor. [A24 first-party case](https://www.raviklaassens.com/work/a24), [GSAP ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)
+
+**Implementation:** Use one master timeline per pinned work scene; hold a stable text rail and map image states to clear timeline labels. Reserve pinning for the three-work presentation, not the archive or About. Use shared transform origins, consistent easing for non-scrubbed interactions, and geometry-based start/end states. Do not apply a separate easing curve to every scrubbed object. Mobile can use shorter sequential panels while retaining the same crop/scale language.
+
+**Risk:** Long pins and repeated easing can make scroll feel delayed. Keep exits obvious, permit reverse scrolling, provide direct links, and test fast wheel, trackpad, keyboard and touch input.
+
+### 6. Synchronize GSAP and the existing Lenis on one clock
+
+**Decision:** Keep the authorized GSAP+Lenis architecture; fluidity requires synchronized state rather than multiple smoothing systems.
+
+**Why:** Lenis's own GSAP integration connects `lenis.on('scroll', ScrollTrigger.update)` and calls `lenis.raf(time * 1000)` from the GSAP ticker. Its documentation also supplies no-build script usage. [Lenis official README](https://github.com/darkroomengineering/lenis#gsap-scrolltrigger)
+
+**Implementation:** One Lenis instance, one ticker integration, no concurrent `autoRaf` loop when manually ticking. Use the bundled version's documented APIs; current online documentation may include newer options. Refresh ScrollTrigger after image/font layout settles and after disclosures resize the document. Keep native anchors/focus and explicit modal scroll handling. Favor transforms/opacity over layout animation where possible. [Motion performance guide](https://motion.dev/docs/performance)
+
+**Risk:** Double ticking, mismatched time units and stale image dimensions cause perceived jitter. Validate resize, zoom, back navigation and closing viewers, not merely a single downward scroll.
+
+### 7. Give ambitious motion a complete alternative and make images worth the wait
+
+**Decision:** Reduced-motion/effects-off and script-failure states show the same projects in a normal-flow image-led layout. No loader or mandatory animated journey gates the portfolio. Keep all archive photographs reachable; curate the home preview without removing archive content.
+
+**Why:** W3C's animation-from-interactions criterion (AAA) supports disabling non-essential spatial motion; automatic motion running beside content for more than five seconds generally needs a pause/stop/hide mechanism under the separate Level A criterion. Image alternatives depend on purpose, not merely appearance. [W3C interaction motion](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html), [pause/stop/hide](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html), [images tutorial](https://www.w3.org/WAI/tutorials/images/)
+
+**Implementation:** Honor `prefers-reduced-motion` at startup and on change; revert pins/spatial transforms and stop smoothing. Retain useful imagery and content. Supply meaningful screenshot/photo descriptions; decorative art has empty alt. Keep image dimensions/aspect ratios reserved, load the initial focal image promptly, and lazy-load archive images outside the first screen. Viewer controls remain conventional, labelled and keyboard operable.
+
+**Risk:** Hiding content in base CSS makes failed enhancement blank. Start with visible semantic content and enable animated states only after setup succeeds. Archive curation must never silently reduce the 253-image collection.
+
+## Review gates
+
+Verify the three projects and all archive items remain reachable with scripts disabled, reduced motion and effects off; compare real images in both themes; measure every control/text state rather than only palette swatches; test the continuous sequence in both scroll directions, touch, keyboard, resize and viewer-return flows. Confirm factual copy and third-party asset credits against the existing site before release.
+
+## GSAP vendoring verification
+
+Verified 12 November 2026 against the [official repository package metadata](https://raw.githubusercontent.com/greensock/GSAP/master/package.json) and the headers of [core](https://raw.githubusercontent.com/greensock/GSAP/master/dist/gsap.min.js) and [ScrollTrigger](https://raw.githubusercontent.com/greensock/GSAP/master/dist/ScrollTrigger.min.js): both are **3.15.1**, committed 4 November according to the [official commit history](https://github.com/greensock/GSAP/commits). Vendor matching versions together, retaining the copyright/license header. Fully pinned package-distribution URLs are [gsap.min.js 3.15.1](https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js) and [ScrollTrigger.min.js 3.15.1](https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ScrollTrigger.min.js). Do not use floating `@latest` or `@3` when downloading the production copies. Load core before ScrollTrigger and register the plugin before authoring timelines; retain local fallbacks.
+
+GSAP uses its **Standard License, not MIT**. The [official license](https://gsap.com/community/standard-license/) allows commercial usage at no charge, prohibits removing/altering proprietary notices, and restricts competing visual animation-builder products; its FAQ explicitly allows AI-generated GSAP code. Record GSAP and ScrollTrigger with this license in the site's credits. This portfolio presentation fits ordinary website animation usage.

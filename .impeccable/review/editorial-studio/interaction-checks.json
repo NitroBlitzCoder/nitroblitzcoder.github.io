@@ -1,0 +1,144 @@
+{
+  "checks": [
+    {
+      "name": "Hero image opens the correct project",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Progressive feature detail remains usable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Gallery return updates the hero to the displayed project",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Hero return restores keyboard focus",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Work remains a direct native anchor",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Archive orientation filter preserves 98 portraits",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Photography full viewer opens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Filtered viewer navigation stays in collection",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Photo zoom remains available",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Photo close restores source focus",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Contact sheet remains usable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Atlas keyboard opens a full photograph",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Atlas close restores its keyboard focus",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Explicit reel selection survives focus scrolling",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Mosaic branch returns to the live comparison",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Comparison remains keyboard operable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Mosaic zoom exposes pan controls",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Hero purpose survives returning to the same project",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Phone reel opens the named project",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Reel holds its source geometry while modal is open",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Reel releases its held geometry after return",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Effects off stops the paper animation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Effects off restores a nonsticky work stage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Static work navigation keeps all project choices",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Phone navigation opens a separate photography page",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Phone atlas fits its viewport",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Returning from photography preserves a working software page",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Software fallback opens Blender feature branches",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

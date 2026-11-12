@@ -1,0 +1,100 @@
+[
+  {
+    "file": "hero-1280-light.jpg",
+    "height": 720,
+    "theme": "light",
+    "url": "http://127.0.0.1:8091/#top",
+    "width": 1280
+  },
+  {
+    "file": "hero-390-light.jpg",
+    "height": 844,
+    "theme": "light",
+    "url": "http://127.0.0.1:8091/#top",
+    "width": 390
+  },
+  {
+    "file": "reel-1280-light.jpg",
+    "height": 720,
+    "theme": "light",
+    "url": "http://127.0.0.1:8091/#work",
+    "width": 1280
+  },
+  {
+    "file": "atlas-1280-light.jpg",
+    "height": 720,
+    "theme": "light",
+    "url": "http://127.0.0.1:8091/photography/",
+    "width": 1280
+  },
+  {
+    "file": "workspace-390-light.jpg",
+    "height": 844,
+    "theme": "light",
+    "url": "http://127.0.0.1:8091/",
+    "width": 390
+  },
+  {
+    "file": "hero-1280-dark.jpg",
+    "height": 720,
+    "theme": "dark",
+    "url": "http://127.0.0.1:8091/#top",
+    "width": 1280
+  },
+  {
+    "file": "hero-390-dark.jpg",
+    "height": 844,
+    "theme": "dark",
+    "url": "http://127.0.0.1:8091/#top",
+    "width": 390
+  },
+  {
+    "file": "atlas-1280-dark.jpg",
+    "height": 720,
+    "theme": "dark",
+    "url": "http://127.0.0.1:8091/photography/",
+    "width": 1280
+  },
+  {
+    "file": "reel-390-dark.jpg",
+    "height": 844,
+    "theme": "dark",
+    "url": "http://127.0.0.1:8091/#work",
+    "width": 390
+  },
+  {
+    "file": "photography-bridge-1280-dark.jpg",
+    "height": 720,
+    "theme": "dark",
+    "url": "http://127.0.0.1:8091/#photography-title",
+    "width": 1280
+  },
+  {
+    "file": "atlas-390-light.jpg",
+    "height": 844,
+    "theme": "light",
+    "url": "http://127.0.0.1:8091/photography/",
+    "width": 390
+  },
+  {
+    "file": "photography-bridge-1280-light.jpg",
+    "height": 720,
+    "theme": "light",
+    "url": "http://127.0.0.1:8091/#photography-title",
+    "width": 1280
+  },
+  {
+    "file": "user-681-light.jpg",
+    "height": 788,
+    "theme": "light",
+    "url": "http://127.0.0.1:8091/#top",
+    "width": 681
+  },
+  {
+    "file": "about-681-light.jpg",
+    "height": 788,
+    "theme": "light",
+    "url": "http://127.0.0.1:8091/#about",
+    "width": 681
+  }
+]
