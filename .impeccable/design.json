@@ -484,28 +484,28 @@
         "role": "neutral",
         "displayName": "Dark blue title paper",
         "tonalRamp": [
-          "oklch(0.15 0.0273 247.57)",
-          "oklch(0.25 0.0507 247.57)",
-          "oklch(0.36 0.0663 247.57)",
-          "oklch(0.47 0.0780 247.57)",
-          "oklch(0.59 0.0780 247.57)",
-          "oklch(0.71 0.0663 247.57)",
-          "oklch(0.83 0.0507 247.57)",
-          "oklch(0.95 0.0195 247.57)"
+          "oklch(0.15 0.0324 247.03)",
+          "oklch(0.25 0.0602 247.03)",
+          "oklch(0.36 0.0788 247.03)",
+          "oklch(0.47 0.0927 247.03)",
+          "oklch(0.59 0.0927 247.03)",
+          "oklch(0.71 0.0788 247.03)",
+          "oklch(0.83 0.0602 247.03)",
+          "oklch(0.95 0.0232 247.03)"
         ]
       },
       "paper-sheet-alt": {
         "role": "neutral",
         "displayName": "Muted cobalt title paper",
         "tonalRamp": [
-          "oklch(0.15 0.0300 247.70)",
-          "oklch(0.25 0.0557 247.70)",
-          "oklch(0.36 0.0729 247.70)",
-          "oklch(0.47 0.0857 247.70)",
-          "oklch(0.59 0.0857 247.70)",
-          "oklch(0.71 0.0729 247.70)",
-          "oklch(0.83 0.0557 247.70)",
-          "oklch(0.95 0.0214 247.70)"
+          "oklch(0.15 0.0306 245.88)",
+          "oklch(0.25 0.0569 245.88)",
+          "oklch(0.36 0.0744 245.88)",
+          "oklch(0.47 0.0875 245.88)",
+          "oklch(0.59 0.0875 245.88)",
+          "oklch(0.71 0.0744 245.88)",
+          "oklch(0.83 0.0569 245.88)",
+          "oklch(0.95 0.0219 245.88)"
         ]
       },
       "paper-ink": {
@@ -879,9 +879,9 @@
       "name": "Paper headline",
       "kind": "custom",
       "refersTo": "paper-title",
-      "description": "Live warm lettering printed on dark blue/cobalt torn paper. Whole strips float continuously in-view with independent folding edges; preview shows the static accessible material.",
+      "description": "Warm live lettering on an actual crumpled-paper image tinted blue, inside an alpha-edged strip. Twelve held rotation poses over three seconds (4fps); static accessible material shown in this preview.",
       "html": "<h1 class=\"ds-paper-title\"><span>I build software</span><span><em>for creative work.</em></span></h1>",
-      "css": ".ds-paper-title{font:500 clamp(30px,6.8vw,70px)/1.08 Anybody,sans-serif;letter-spacing:-.04em;margin:20px;color:#f5f0e6}.ds-paper-title>span{position:relative;display:table;padding:10px 22px 14px;isolation:isolate;transform:rotate(-1.4deg);filter:drop-shadow(0 9px 12px var(--shadow,rgba(0,6,19,.3)))}.ds-paper-title>span:before{content:\"\";position:absolute;inset:0;z-index:-1;background:#244e73;clip-path:polygon(0 3%,15% 0,28% 2%,44% 0,59% 2%,74% 0,90% 2%,100% 0,99% 98%,86% 100%,70% 98%,56% 100%,40% 98%,24% 100%,8% 98%,0 100%)}.ds-paper-title>span+span{margin:10px 0 0 18px;transform:rotate(.8deg)}.ds-paper-title>span+span:before{background:#2f5e88}.ds-paper-title em{font-style:normal;color:#d7ecff}.ds-paper-title>span:after{content:\"\";position:absolute;right:-1px;top:0;bottom:0;width:32px;background:linear-gradient(90deg,#183852,#3c7296 80%);clip-path:polygon(25% 2%,100% 0,98% 100%,18% 98%,33% 72%,14% 48%,32% 25%)}.ds-paper-title>span+span:after{background:linear-gradient(90deg,#1c4266,#4884ac 80%)}"
+      "css": ".ds-paper-title{font:500 clamp(30px,6.8vw,70px)/1.08 Anybody,sans-serif;letter-spacing:-.04em;margin:28px;color:#f5f0e6}.ds-paper-title>span{position:relative;display:table;padding:10px 22px 14px;isolation:isolate;transform:rotate(-1.4deg);filter:drop-shadow(1px 3px 2px #0003) drop-shadow(2px 9px 10px #0003)}.ds-paper-title>span:before{content:\"\";position:absolute;inset:-23px -36px -21px;z-index:-1;background:#467baa url(assets/paper-crumpled.jpg) 35% 42%/cover;background-blend-mode:multiply;mask:url(assets/paper-strip-mask.png) center/100% 100% no-repeat;-webkit-mask:url(assets/paper-strip-mask.png) center/100% 100% no-repeat;filter:contrast(1.24)}.ds-paper-title>span+span{margin:10px 0 0 18px;transform:rotate(.8deg)}.ds-paper-title>span+span:before{background-color:#3e719c;transform:rotate(180deg)}.ds-paper-title em{font-style:normal;color:#d7ecff}"
     },
     {
       "name": "Project branch navigation",

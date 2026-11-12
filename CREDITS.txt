@@ -47,3 +47,8 @@ Margin graphics: aircraft-mark.webp and car-mark.webp are orthographic silhouett
 Circuit background vehicle drawings: aircraft-circuit.webp and car-circuit.webp are visibility-tested technical projections of the credited SR-71 and P1 meshes. Source: model-source/render-circuit-marks.mjs. Camera sensor, component package and dimensioned volume diagrams are authored geometric linework. Earlier silhouette source assets are retained but no longer displayed.
 
 Lenis 1.3.27 — Darkroom Engineering. MIT license. Vendored from the official npm distribution; license in vendor/lenis/LICENSE.
+
+Paper title material (November 12, 2026)
+- Crumpled-paper texture: Texturelabs Paper 143, https://texturelabs.org/textures/paper_143/ . Used as an integrated element of this portfolio website, under https://texturelabs.org/terms/ . Copyright Texturelabs; not offered as a standalone texture or template.
+- Torn-strip alpha matte: https://tornpaperpng.com/assets/pack/torn-paper-edge-white-02.png , from https://tornpaperpng.com/ . Site permits personal/commercial use; paper base credited there to ambientCG Paper003 (CC0); tear contour supplied by tornpaperpng. Used as an alpha matte, not redistributed as a texture pack.
+- Motion reference: Mike Murphy, How To Animate Crumpled Paper Textures in After Effects, https://mikemurphy.ai/tutorials/crumpledpaper/ . Own CSS implementation of held rotational poses at 4fps.
