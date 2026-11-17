@@ -55,3 +55,7 @@ Paper title material (November 12, 2026)
 
 Research-led editorial motion (November 12, 2026)
 GSAP and ScrollTrigger 3.15.1, Copyright 2026 GreenSock. GSAP Standard License (not MIT), https://gsap.com/standard-license/ . Local distribution retains official proprietary headers. Official source: https://github.com/greensock/GSAP ; pinned package distribution https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ .
+
+Archivo Black — Omnibus-Type, SIL Open Font License 1.1. Locally hosted from https://github.com/google/fonts/tree/main/ofl/archivoblack . License: assets/ArchivoBlack-OFL.txt.
+
+GSAP SplitText 3.15.1 — GreenSock, GSAP Standard License (not MIT); locally hosted official distribution, original notice retained. https://gsap.com/docs/v3/Plugins/SplitText/ . React Bits and Aceternity demos informed independently authored interaction patterns; their component source is not redistributed or ported.

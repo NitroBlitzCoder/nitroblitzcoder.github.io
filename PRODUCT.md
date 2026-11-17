@@ -80,3 +80,13 @@ The user explicitly permits replacing the entire composition after research into
 
 
 12 November 2026 — latest user palette: creamy beige light theme; dark theme follows [the supplied Solarin reference](https://visme.co/blog/wp-content/uploads/2016/09/website16.jpg), with #2C3531 gunmetal, #116466 sapphire, #D9B08C tan, #FFCB9A peach and #D1E8E2 platinum. This supersedes previous cobalt/teal recommendations. Real title paper and ink now change with the mode. Preserve layout, motion, factual content and security policy.
+
+
+## 17 November 2026 — poster redesign, step 1
+
+Latest user brief supersedes earlier hero palette/material/layout directions. Preserve all existing content exactly, no factual additions or copy rewriting. Build only the hero before user review; project/About/toolkit redesign waits. Light: sand #E8D5B7, terracotta #A0522D headings, deep terracotta #7A3A1D body, cobalt #0047AB one focal accent. Dark: deep teal #0E4B44, cream #F7F0DC, orange #FF6B1A one focal accent, never orange body text. Flat poster composition, heavy Archivo Black type, whitespace, 300ms theme fade and finite initial reveal; native accessible button persists localStorage and honors system preference on first visit. Active contract: .impeccable/surfaces/poster-hero.md. Unreworked sections/archive remain legacy pending approval.
+
+
+## 17 November 2026 — restore and expand motion
+
+User likes the poster palettes but asks to return original effects, research premade text/scroll effects and implement many with freer composition. Hero-only review gate and flat/no-3D restriction are superseded by this request. Preserve every factual string. Apply approved palettes to both routes; retain native button theme preference. Active contract: .impeccable/surfaces/fluid-poster.md. Reuse licensed GSAP SplitText; independently implement referenced React Bits/Aceternity interaction ideas without copying their restricted/unverified component source. Original paper/Three/circuits, curved reel, viewer, comparison, lens and photo atlas return alongside new coordinated typography, image, timeline and toolkit choreography.

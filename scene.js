@@ -102,7 +102,8 @@ function buildLens() {
   const rubber = ringMaterial(0x101214, .1, .72);
   const metal = ringMaterial(0x777b7b, .9, .25);
   const darkMetal = ringMaterial(0x303638, .8, .3);
-  const red = ringMaterial(0xc72922, .45, .3);
+  const red = ringMaterial(getComputedStyle(document.documentElement).getPropertyValue('--paper').trim() || 0xc72922, .45, .3);
+  window.addEventListener('themechange',()=>red.color.set(getComputedStyle(document.documentElement).getPropertyValue('--paper').trim() || 0xc72922));
   const parts = [];
   function part(z, separation) {
     const group = new THREE.Group(); group.position.z = z; stage.root.add(group);

@@ -1,0 +1,38 @@
+/* Step 1: the user-pinned poster hero. Remaining sections retain their existing design. */
+@font-face{font-family:Archivo Black;src:url('./assets/ArchivoBlack-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+html:has(.poster-home){--poster-bg:#0E4B44;--poster-heading:#F7F0DC;--poster-body:#F7F0DC;--poster-accent:#FF6B1A;--poster-action-ink:#0E4B44}
+html[data-theme=light]:has(.poster-home){--poster-bg:#E8D5B7;--poster-heading:#A0522D;--poster-body:#7A3A1D;--poster-accent:#0047AB;--poster-action-ink:#E8D5B7}
+.poster-home .site-header{position:relative;z-index:10;background:var(--poster-bg);color:var(--poster-body)}
+.poster-home .site-header nav{width:88%;max-width:1440px;min-height:88px;border:0;padding:0;display:flex;gap:36px;flex-wrap:nowrap}
+.poster-home .wordmark{font:600 18px/1.2 Instrument,sans-serif;letter-spacing:-.025em;color:var(--poster-body)}
+.poster-home .nav-links{gap:28px;margin-left:auto;font-size:13px}.poster-home .nav-links a,.poster-home .nav-links button{color:var(--poster-body);font-size:13px}
+.poster-home .nav-links a[aria-current],.poster-home .nav-links a:hover{color:var(--poster-body);text-decoration:underline;text-underline-offset:6px}.poster-home .nav-label>span+span{display:none}.poster-home .nav-label>span{transform:none!important}
+.poster-theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:0;font:500 13px/1 Instrument,sans-serif;border:0;background:none;color:var(--poster-body);cursor:pointer;white-space:nowrap}
+.poster-theme-toggle svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.5}
+.poster-home .poster-hero{position:relative;z-index:2;background:var(--poster-bg);color:var(--poster-body);padding:0;overflow:clip;width:100%;max-width:none}
+.poster-home .poster-hero:before,.poster-home .poster-hero:after{display:none}
+.poster-inner{width:88%;max-width:1440px;margin:auto;min-height:calc(100svh - 88px);display:flex;flex-direction:column;justify-content:space-between;padding:38px 0 58px;gap:48px}
+.poster-home.editorial-home.fluid-home .poster-hero .poster-title{font:400 clamp(56px,8.7vw,154px)/.99 'Archivo Black',sans-serif;letter-spacing:-.035em;margin:0;max-width:none;color:var(--poster-heading);isolation:auto;overflow:visible}
+.poster-title>span{display:block;white-space:nowrap}.poster-title>span+span{margin-top:0}
+.poster-bottom{display:flex;justify-content:space-between;align-items:end;gap:50px}
+.poster-context{max-width:540px}.poster-institution{display:inline}.poster-context p{font:400 16px/1.6 Instrument,sans-serif;color:var(--poster-body);margin:0}.poster-context p+p{font-size:13px;margin-top:10px}.poster-context>a{display:none}
+.poster-actions{display:flex;align-items:center;gap:32px;flex:none}
+.poster-primary{display:inline-flex;align-items:center;justify-content:center;gap:24px;min-height:62px;padding:17px 24px;background:var(--poster-accent);color:var(--poster-action-ink);font:700 20px/1.2 Instrument,sans-serif;text-decoration:none;transition:transform .25s ease,background-color .3s ease,color .3s ease}
+.poster-contact{display:inline-flex;align-items:center;gap:18px;min-height:48px;font:500 16px/1.2 Instrument,sans-serif;color:var(--poster-body);text-decoration:underline;text-underline-offset:6px}
+.poster-actions .icon{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5}.poster-primary:hover{transform:translateY(-3px)}
+.poster-home :is(.site-header,.poster-hero) :focus-visible{outline:2px solid var(--poster-heading);outline-offset:6px}
+.poster-home :is(.site-header,.poster-hero),.poster-title,.poster-context p,.poster-theme-toggle,.poster-contact,.poster-home .wordmark,.poster-home .nav-links a,.poster-home .nav-links button{transition:background-color .3s ease,color .3s ease,border-color .3s ease}
+/* Retain the incumbent hero's real project preview and exact caption below the poster panel. */
+.poster-proof{width:88%;max-width:1440px;margin:0 auto;padding:64px 0 90px;border-top:1px solid currentColor}
+.poster-home .poster-proof .hero-showcase{display:block;width:100%;margin:0;padding:0;perspective:none}
+.poster-home .poster-proof .hero-image-shell{max-width:100%;transform:none;filter:none}
+.poster-home .poster-proof .hero-image-shell>img{width:100%;height:auto;border-radius:0}
+.poster-home .poster-proof .hero-showcase figcaption{padding-top:20px;color:var(--poster-body);font-size:14px}.poster-home .poster-proof .hero-feature-title{font-size:20px;color:var(--poster-body)}
+.poster-proof .hero-fragment,.poster-proof .hero-open-mark,.poster-auxiliary{display:none}
+.poster-home.poster-at-top #cursor-trail{display:none}
+@media(min-width:1600px){.poster-inner{padding-top:50px}.poster-bottom{padding-top:20px}}
+@media(max-width:1000px){.poster-home .site-header nav{gap:24px}.poster-home .nav-links{gap:20px}.poster-home .nav-links button{display:none}.poster-actions{gap:24px}.poster-primary{font-size:19px;padding-inline:20px}.poster-context p{font-size:15px}.poster-bottom{gap:32px}}
+@media(max-width:700px){.poster-institution{display:block}.poster-home .site-header nav{min-height:114px;display:grid;grid-template-columns:1fr auto;gap:6px 20px;padding:16px 0 12px}.poster-home .wordmark{font-size:17px}.poster-home .nav-links{grid-column:1/3;grid-row:2;display:flex;justify-content:space-between;margin:0;width:100%;gap:18px}.poster-home .nav-links a{min-height:40px;font-size:12px}.poster-theme-toggle{grid-column:2;grid-row:1;font-size:12px}.poster-inner{min-height:calc(100svh - 114px);padding:48px 0 45px;gap:52px}.poster-home.editorial-home.fluid-home .poster-hero .poster-title{font-size:clamp(40px,8.65vw,65px);line-height:1.05;letter-spacing:-.035em}.poster-bottom{align-items:start;flex-direction:column;gap:30px}.poster-context p{font-size:14px}.poster-context p+p{font-size:12px}.poster-actions{gap:24px;flex-wrap:wrap}.poster-primary{font-size:19px;min-height:58px;padding:16px 19px;gap:18px}.poster-contact{font-size:15px;gap:10px}.poster-proof{padding:42px 0 58px}.poster-home .poster-proof .hero-showcase figcaption{gap:20px;align-items:start}.poster-home .poster-proof .hero-feature-title{font-size:17px}.poster-home .poster-proof .hero-feature-description{font-size:12px}}
+@media(max-width:360px){.poster-primary{font-size:19px;padding-inline:14px;gap:12px}.poster-actions{gap:16px}.poster-contact{gap:8px}.poster-home .wordmark{font-size:15px}.poster-theme-toggle{font-size:11px;gap:7px}}
+@media(prefers-reduced-motion:reduce){.poster-home :is(.site-header,.poster-hero),.poster-title,.poster-context p,.poster-theme-toggle,.poster-contact,.poster-home .wordmark,.poster-home .nav-links a,.poster-home .nav-links button,.poster-primary{transition:none!important}.poster-primary:hover{transform:none}}
+.poster-home.still .poster-primary:hover{transform:none}

@@ -2,6 +2,16 @@
 
 Static GitHub Pages portfolio. No package installation, build process, backend, or API keys are required.
 
+## Current motion edition — 17 November 2026
+
+The current presentation combines the approved sand/terracotta/cobalt and teal/cream/orange palettes with the restored procedural background, curved project reel, branching screenshot viewer, scroll-driven images, separating lens and infinite photographic atlas. The sections below also describe retained modules from earlier iterations; `tile-field.js` is retained source, not the current homepage project presentation.
+
+`poster-hero.css` supplies the poster structure and Archivo Black display face. `motion-site.css` supplies the shared final palette, textured paper title and responsive composition. `motion-site.js` adds scoped GSAP SplitText word masks/blur, perspective screenshot unfolding, heading reveals, photo-print fan, timeline progress, scroll-velocity toolkit and contact-letter interactions. `motion-hero.js` restores the existing Three hero and lazy-loads the lower scenes. `theme-init.js` and `theme.js` persist theme preference and follow the system preference before a choice is saved. `poster-hero.js` is retained but no longer loaded by the homepage.
+
+SplitText 3.15.1 is the actual reused plugin, locally hosted alongside the matching GSAP/ScrollTrigger version. React Bits and Aceternity supplied interaction research, not copied component source; see RESEARCH.md and CREDITS.txt. No React runtime or build step was added. Ongoing hero/paper animation pauses offscreen and on hidden pages. Effects off and reduced motion revert the new text splitting, transforms and scroll choreography; the toolkit becomes a fully readable wrapping list. The featured screenshot returns to ordinary document flow in that mode.
+
+Current checks: 54 automated tests, 579 local resources plus route anchors and JavaScript module syntax, and browser review at 1280×720 and 390×844. Both themes, project selection/viewer, comparison keyboard input, lens scroll, archive filtering/viewing and effects switching were exercised. No horizontal overflow or console/CSP errors were observed after responsive fixes. OS reduced-motion handling was checked in source/tests; an OS preference switch and physical-device benchmark were not performed. Captures and final review notes are under `.impeccable/review/fluid-poster/`.
+
 ## Preview and deploy
 
 Run `python3 -m http.server 8000 --bind 127.0.0.1` from this folder and open http://127.0.0.1:8000. Use HTTP rather than opening index.html directly, because the model loaders use browser modules and fetch.
@@ -26,7 +36,7 @@ Deploy the repository root through the repository's existing GitHub Pages config
 - PRODUCT.md: confirmed product/content constraints.
 - DESIGN.md and .impeccable/design.json: documented final design system.
 
-The cars and aircraft are technical line drawings integrated into an upward-angled blue circuit background and have no click controls. The lens sequence responds to ordinary page scrolling and reverses naturally. The homepage retains its optical study and links to the separate `/photography/` archive of actual photographs. The lens is an illustrative assembly created for this website, not a manufacturer-specific engineering model.
+The cars and aircraft are technical line drawings integrated into an upward-angled, theme-colored circuit background and have no click controls. The lens sequence responds to ordinary page scrolling and reverses naturally. The homepage retains its optical study and links to the separate `/photography/` archive of actual photographs. The lens is an illustrative assembly created for this website, not a manufacturer-specific engineering model.
 
 ## Resume
 
@@ -36,7 +46,7 @@ The requested replacement PDF has not yet been supplied. Add it at assets/resume
 
 The lens loads near About. Vehicle references are small raster technical drawings, so their model files are not downloaded at runtime. Scene controllers coordinate scroll, resize and visibility. The hero and enhanced reel animate while visible; hidden/offscreen scenes pause. Mobile pixel ratio is capped. Static graphics retain their drawing buffers so demand-driven scenes remain available to browser snapshots.
 
-Effects off and the operating system's reduced-motion preference disable spatial choreography and the trail, and leave the lens in a static pose without changing the page layout. The software renderer also uses a static study. Append `?renderer=software#interests` to a local preview URL to exercise that fallback explicitly.
+Effects off and the operating system's reduced-motion preference disable spatial choreography and the trail, and leave the lens in a static pose. The new featured-image section uses ordinary flow in the static view. The software renderer also uses a static study. Append `?renderer=software#interests` to a local preview URL to exercise that fallback explicitly.
 
 The SVG cursor is rendered by the browser rather than moved with JavaScript. Native cursors remain for text, ranges, enlarged images, and modal content. Trails reset on leaving the document, blur, touch, resize, scrolling, dialogs, and effects changes.
 

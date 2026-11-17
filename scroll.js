@@ -2,7 +2,7 @@ import {createScrollRenderer} from './scroll-renderer.js';
 import {presentation,coveredImage,imageCrop,follow,clamp,smooth} from './scroll-motion.mjs';
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const cases=[...document.querySelectorAll('.case')];
-const intro=document.querySelector('.intro'),contact=document.querySelector('#contact');
+const intro=document.querySelector('.poster-inner')||document.querySelector('.intro'),contact=document.querySelector('#contact');
 const canvas=document.createElement('canvas');canvas.className='scroll-canvas';canvas.setAttribute('aria-hidden','true');canvas.hidden=true;document.body.append(canvas);
 const items=cases.map((section,mode)=>({section,mode,frame:section.querySelector(mode===1?'.comparison':'.image-button'),image:section.querySelector(mode===1?'.mosaic-overlay img':'.image-button img'),panel:null,reveal:null}));
 let renderer=null,failed=false,initialized=false,pending=0,lastTime=0,lastScroll=scrollY,velocity=0,enabled=window.portfolioEffects!==false&&!reduced.matches;

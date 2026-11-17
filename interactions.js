@@ -16,7 +16,7 @@
    });
    return [...element.querySelectorAll('.reveal-word')];
  }
- const titles = document.querySelectorAll('.tile-heading h2,.case-title,.about-content h2,.photo-page .intro h1');
+ const titles = document.body.classList.contains('motion-home') ? [] : document.querySelectorAll('.tile-heading h2,.case-title,.about-content h2,.photo-page .intro h1');
  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
    if (!entry.isIntersecting) return;
    observer.unobserve(entry.target);
@@ -29,7 +29,7 @@
  }), {threshold:.5});
  titles.forEach(title => observer.observe(title));
  // Long statements resolve as they pass the reading line, while remaining readable.
- const statements = [...document.querySelectorAll('.case-note')].map(el => ({el,words:split(el)}));
+ const statements = (document.body.classList.contains('motion-home') ? [] : [...document.querySelectorAll('.case-note')]).map(el => ({el,words:split(el)}));
  let frame = 0;
  function read() {
    frame = 0;

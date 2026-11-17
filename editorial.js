@@ -2,7 +2,7 @@
 (()=>{
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');let context;
  const allowed=()=>{let saved;try{saved=localStorage.getItem('sv-effects');}catch{}return !reduced.matches&&window.portfolioEffects!==false&&saved!=='off';};
- function setup(){context?.revert();context=null;const gsap=window.gsap,ScrollTrigger=window.ScrollTrigger;if(!gsap||!ScrollTrigger||!allowed())return;gsap.registerPlugin(ScrollTrigger);
+ function setup(){context?.revert();context=null;const gsap=window.gsap,ScrollTrigger=window.ScrollTrigger;if(!gsap||!ScrollTrigger||!allowed()||document.body.classList.contains('poster-home')||document.body.classList.contains('motion-photo'))return;gsap.registerPlugin(ScrollTrigger);
   context=gsap.context(()=>{
    if(document.body.classList.contains('editorial-home')){
     const compact=innerWidth<850,hero=document.querySelector('.hero');

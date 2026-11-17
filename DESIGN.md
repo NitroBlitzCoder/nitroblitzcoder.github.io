@@ -1,260 +1,245 @@
 ---
-name: Sriakshay Vaitla Portfolio
-description: An editorial software portfolio and separate photographic archive in a shared optical identity.
+name: "Sriakshay Vaitla Portfolio"
+description: "A moving poster portfolio and photographic archive with warm sand and deep teal themes."
 colors:
-  ink: "#2c3531"
-  paper: "#d1e8e2"
-  muted: "#b8c8c0"
-  red: "#ffcb9a"
-  line: "#52635b"
-  control-line: "#91a79b"
-  raised: "#35433d"
-  hover: "#3d4c45"
-  blue: "#d1e8e2"
-  blue-strong: "#116466"
-  glow: "rgba(17,100,102,.12)"
-  header: "#2c3531"
-  shadow: "rgba(9,19,16,.38)"
-  tile-idle: "#3d4c45"
-  tile-key: "#d9b08c"
-  tile-active: "#ffcb9a"
-  image-mat: "#d9b08c"
-  selection-ink: "#2c3531"
-  light-ink: "#f6efdf"
-  light-paper: "#3b332a"
-  light-muted: "#605342"
-  light-red: "#834329"
-  light-line: "#c5b398"
-  light-control-line: "#7a674f"
-  light-raised: "#e9ddc8"
-  light-hover: "#ded0b8"
-  light-blue: "#5f5443"
-  light-blue-strong: "#947655"
-  light-glow: "rgba(148,118,85,.07)"
-  light-header: "#f6efdf"
-  light-shadow: "rgba(79,57,30,.17)"
-  light-tile-idle: "#ded0b8"
-  light-tile-key: "#605342"
-  light-tile-active: "#834329"
-  light-image-mat: "#e5d3b7"
-  light-selection-ink: "#fff8ec"
-  paper-sheet: "#116466"
-  paper-sheet-alt: "#0d5759"
-  paper-ink: "#d1e8e2"
-  paper-emphasis: "#ffcb9a"
+  poster-light-background: "#E8D5B7"
+  poster-light-heading: "#A0522D"
+  poster-light-body: "#7A3A1D"
+  poster-light-accent: "#0047AB"
+  poster-dark-background: "#0E4B44"
+  poster-dark-text: "#F7F0DC"
+  poster-dark-accent: "#FF6B1A"
+  ink: "#0E4B44"
+  paper: "#F7F0DC"
+  muted: "#F7F0DC"
+  red: "#F7F0DC"
+  line: "color-mix(in srgb,#F7F0DC 30%,transparent)"
+  control-line: "#F7F0DC"
+  raised: "#0E4B44"
+  hover: "color-mix(in srgb,#F7F0DC 8%,#0E4B44)"
+  blue: "#F7F0DC"
+  header: "#0E4B44"
+  shadow: "rgba(0,28,25,.28)"
+  image-mat: "#0E4B44"
+  selection-ink: "#0E4B44"
+  motion-paper-fill: "#F7F0DC"
+  motion-paper-ink: "#0E4B44"
+  light-motion-paper-fill: "#A0522D"
+  light-motion-paper-ink: "#E8D5B7"
+  light-shadow: "rgba(73,35,17,.18)"
 typography:
   display:
-    fontFamily: "Anybody, sans-serif"
-    fontSize: "clamp(40px,4.4vw,64px)"
-    fontWeight: 500
-    lineHeight: 1.12
+    fontFamily: "Archivo Black, sans-serif"
+    fontSize: "clamp(56px,8.7vw,154px)"
+    fontWeight: 400
+    lineHeight: 0.99
     letterSpacing: "-0.035em"
   headline:
-    fontFamily: "Anybody, sans-serif"
-    fontSize: "clamp(46px,6vw,80px)"
-    fontWeight: 450
-    lineHeight: 1.08
+    fontFamily: "Archivo Black, sans-serif"
+    fontSize: "clamp(44px,6vw,88px)"
+    fontWeight: 400
+    lineHeight: 1.05
     letterSpacing: "-0.035em"
-  title:
-    fontFamily: "Anybody, sans-serif"
-    fontSize: "clamp(44px,6vw,86px)"
-    fontWeight: 450
-    lineHeight: 1.04
+  case-title:
+    fontFamily: "Archivo Black, sans-serif"
+    fontSize: "clamp(42px,7.3vw,104px)"
+    fontWeight: 400
+    lineHeight: 1.06
     letterSpacing: "-0.035em"
   photography-display:
-    fontFamily: "Anybody, sans-serif"
+    fontFamily: "Archivo Black, sans-serif"
     fontSize: "clamp(58px,7.5vw,96px)"
-    fontWeight: 450
+    fontWeight: 400
     lineHeight: 1.03
     letterSpacing: "-0.035em"
   body:
     fontFamily: "Instrument, sans-serif"
     fontSize: "16px"
     fontWeight: 400
-    lineHeight: 1.55
+    lineHeight: 1.6
   label:
     fontFamily: "Instrument, sans-serif"
     fontSize: "12px"
     fontWeight: 400
+  primary-label:
+    fontFamily: "Instrument, sans-serif"
+    fontSize: "20px"
+    fontWeight: 700
+    lineHeight: 1.2
 rounded:
+  case-image: "4px"
+  featured-image: "3px"
+  archive-image: "2px"
   comparison-handle: "50%"
-  comparison: "14px"
-  project-link: "8px"
-  theme-track: "20px"
 spacing:
   compact: "12px"
   control-gap: "16px"
   content-gap: "20px"
   section-gap: "30px"
 components:
+  poster-primary-light:
+    backgroundColor: "{colors.poster-light-accent}"
+    textColor: "{colors.poster-light-background}"
+    typography: "{typography.primary-label}"
+    padding: "17px 24px"
+  poster-primary-dark:
+    backgroundColor: "{colors.poster-dark-accent}"
+    textColor: "{colors.poster-dark-background}"
+    typography: "{typography.primary-label}"
+    padding: "17px 24px"
   paper-title:
-    backgroundColor: "{colors.paper-sheet}"
-    textColor: "{colors.paper-ink}"
+    backgroundColor: "{colors.motion-paper-fill}"
+    textColor: "{colors.motion-paper-ink}"
     typography: "{typography.display}"
-    padding: "5px 12px 9px"
-  paper-title-blue:
-    backgroundColor: "{colors.paper-sheet-alt}"
-    textColor: "{colors.paper-emphasis}"
+  paper-title-light:
+    backgroundColor: "{colors.light-motion-paper-fill}"
+    textColor: "{colors.light-motion-paper-ink}"
     typography: "{typography.display}"
-    padding: "5px 12px 9px"
-  text-link:
+  theme-button:
     textColor: "{colors.paper}"
-    typography: "{typography.body}"
-  text-link-hover:
-    textColor: "{colors.red}"
+    typography: "{typography.label}"
+    padding: "0"
   effects-button:
-    textColor: "{colors.muted}"
+    textColor: "{colors.paper}"
     padding: "0"
     typography: "{typography.label}"
-  project-body:
-    textColor: "{colors.muted}"
-    typography: "{typography.body}"
-  about-field:
-    backgroundColor: "{colors.raised}"
+  project-navigation:
     textColor: "{colors.paper}"
+    typography: "{typography.label}"
+  comparison-range:
+    textColor: "{colors.paper}"
+    width: "100%"
   photography-toolbar:
     backgroundColor: "{colors.header}"
     textColor: "{colors.paper}"
     padding: "16px 4vw"
+    typography: "{typography.label}"
+  photography-density:
+    textColor: "{colors.paper}"
+    typography: "{typography.label}"
   photography-viewer:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
-  theme-switch:
-    backgroundColor: "{colors.raised}"
-    textColor: "{colors.muted}"
-    rounded: "{rounded.theme-track}"
-    width: "76px"
-    height: "44px"
+  project-body:
+    textColor: "{colors.paper}"
+    typography: "{typography.body}"
 ---
 
 # Design System: Sriakshay Vaitla Portfolio
 
 ## Overview
 
-**Creative North Star: "Editorial Exposure Sheet"**
+**Creative North Star: "The Moving Poster Studio"**
 
-An editorial exposure sheet gives real software and photographs the weight of tangible objects. Warm parchment and cool petrol share a restrained copper interaction signal. Broad local typography, fine rules and generous asymmetric spacing make the work legible before optional movement begins.
+The moving poster studio pairs large, close-set typography with actual software evidence and photographic prints. Sand, terracotta and cobalt give the light theme its warmth and counterpoint; deep teal, cream and orange carry the dark theme. The shared identity reaches the complete main page and photography archive.
 
-The first viewport pairs the exact live paper headline with a real software screenshot. The crumpled-paper image and held rotations remain a supporting material; screenshot scale, curved project surfaces and scroll-fanning photographic prints carry the larger choreography. Both routes share the same material system. The active surface contract is `.impeccable/surfaces/editorial-studio.md`.
+Real crumpled paper, faint procedural circuitry, the original Three field, curved project surfaces and the contextual separating lens supply material depth. New word, image and chronology treatments follow the existing content. Reading surfaces stay quiet enough to evaluate the work, and native controls preserve every route when effects stop.
+
+This is a scan of the current implementation, not a claim that every viewport has passed visual review. The active contract is `.impeccable/surfaces/fluid-poster.md`. The 17 November restore-and-expand request supersedes the earlier hero-only review boundary and flat/no-3D restriction. Earlier palette accounts remain historical in PRODUCT.md and RESEARCH.md, rather than competing rules here.
 
 **Key Characteristics:**
-- Actual software evidence shares the opening viewport with identity.
-- Creamy beige by day; gunmetal, sapphire, platinum, peach and tan by night.
-- Anybody headings pair with Instrument Sans reading and controls.
-- Real crumpled paper holds twelve rotation poses over three seconds.
-- Image continuity connects introduction, reel, workspace and photographic portal.
-- Native controls, visible focus and static fallbacks preserve every content path.
+- Archivo Black display with Instrument Sans reading; Anybody remains inside retained viewer components.
+- One opposite-temperature focal accent, with base-colored body text and controls.
+- Real paper, screenshots and photographs supply the material identity.
+- Distinct compositions and coordinated optional motion connect projects, biography and archive.
+- Native navigation, focus, reduced motion and Effects off preserve access.
 
 ## Colors
 
-Creamy beige light surfaces pair with the user-supplied Solarin palette in dark mode. Frontmatter records the exact active `theme.css` primitives and the fixed title materials from the final editorial override. Existing keys remain stable: `ink` is background, `paper` is foreground, `blue` is cobalt-blue structure and legacy `red` is copper. The `light-` prefix records each day counterpart; it is not a second independent palette.
+Warm sand and terracotta meet a cobalt action in light mode; deep teal and cream meet an orange action in dark mode. The frontmatter owns the exact color values.
 
 ### Primary
 
-- **Structural color (`blue`, `blue-strong`):** identity emphasis, circuit routing, procedural hero atmosphere and contact. The strong companion remains available where the source uses it.
-
-### Secondary
-
-- **Orange (`red`):** action, focus, selected underlines, comparison divider, range accents and switch thumb.
+- **Cobalt / Orange focal accent:** primary project action, reel Explore, selected details and restrained action underlines. The action label uses the theme background, including deep teal on orange.
 
 ### Neutral
 
-- **Deep navy / cream (`ink`):** page fields. **Warm paper / navy ink (`paper`):** primary text.
-- **Muted, line, raised and hover:** metadata, rules and tonal control/background layers. **Header:** solid matching page material. **Glow, shadow and image mat:** atmosphere, object depth and image backing.
-- **Tile idle/key/active:** retained legacy roles; their presence does not reinstate the old project selector. **Selection ink:** text on copper selection/thumb.
-- **Paper sheet / alternate sheet:** theme-specific real-paper tints. **Paper ink / emphasis:** fixed warm lettering and pale emphasis. These print materials switch with the page theme: tan paper and dark ink by day, sapphire paper and platinum/peach lettering by night.
-- Software screenshots and photographs retain their own colors.
+- **Sand / Deep teal field:** full-page background, header, toolbar, image mats and modal fields.
+- **Deep terracotta / Cream reading ink:** body, metadata, ordinary controls and focus. **Terracotta / Cream headline ink:** large display headings and structural details.
+- **Paper tint and printed ink:** terracotta with sand lettering by day, cream with teal lettering by night. The photograph supplies the paper wrinkles; the existing alpha mask supplies its edge.
+- **Shadow:** theme-specific translucent object shading. Fine rules mix body ink at (30%); hover fields mix body ink at (8%) into the canvas.
 
-**The Shared Materials Rule.** Apply the selected theme across both routes; reserve copper for action, focus and selected feedback. Preserve original image colors.
+The retained CSS role names are compatibility aliases, not the former color identities: `ink` is the canvas; `paper`, `muted` and `control-line` use body ink; `red` and `blue` use headline ink; `raised`, `header` and `image-mat` use the canvas; `selection-ink` uses the canvas. `line`, `hover` and `shadow` retain their actual mixed/translucent definitions. These dark defaults are recorded in frontmatter. In light mode the same aliases resolve to light poster roles through `motion-site.css`; names containing red/blue do not mean those literal hues. Unused tile/blue-strong aliases, legacy `glow` and title-paper declarations are not additional palette commitments.
+
+**The Shared Palette Rule.** Apply the poster roles across both routes; preserve original image and physical lens colors.
+
+**The Accent Body Rule.** Use cobalt or orange for focal actions and selected details; never use orange as ordinary body text.
 
 ## Typography
 
-**Display Font:** Anybody, locally served, with sans-serif fallback.
-**Body Font:** Instrument Sans, locally served as Instrument, with sans-serif fallback.
-
-Wide, closely spaced display lettering gives images an editorial counterpart. Body text has open leading; metadata stays quiet. Frontmatter records the implemented base roles rather than inventing a modular scale.
+**Display Font:** locally hosted Archivo Black, sans-serif fallback (400). Its heavy drawn forms do not require a synthetic bold weight.
+**Body Font:** locally hosted Instrument Sans, exposed as `Instrument`, sans-serif fallback.
+**Retained Viewer Font:** Anybody, sans-serif fallback, in the incumbent project/viewer patterns that still use it.
 
 ### Hierarchy
 
-- **Display:** the supporting two-strip headline uses the display role, then `clamp(40px,7.3vw,60px)` below (850px) and `clamp(29px,7.6vw,42px)` with (1.14) leading below (600px).
-- **Headline:** the About greeting uses the headline role; the personal-practice heading is a (30px) variant.
-- **Title:** case headings use the title role; below (600px), `clamp(38px,10vw,52px)`. Reel titles use `clamp(32px,3.6vw,52px)`, then (32px)/(28px) at narrower breakpoints.
-- **Photography display:** the archive introduction uses its own recorded role. Atlas mode compacts it to `clamp(48px,5.8vw,78px)`. The homepage portal uses `clamp(50px,7vw,96px)`.
-- **Body:** the baseline role is (16px/1.55); case reading uses (16px/1.7), up to (58ch), and About uses (16px/1.75). Phone case text becomes (15px).
-- **Label:** the recorded (12px) role supports controls and metadata; observed local variants span (10–14px). Main navigation uses (12px), then (11px) on phones.
+- **Display:** the three-line live headline uses the display role. Below (700px), it uses `clamp(40px,8.65vw,65px)` with (1.05) leading. Only the final line receives real paper.
+- **Case title:** the case-title role spans the full case heading grid; below (700px), `clamp(36px,9.2vw,58px)`.
+- **Headline:** About uses the headline role. The photography bridge uses `clamp(45px,7vw,100px)`, and the reel heading uses `clamp(32px,4.4vw,62px)`. Existing archive atlas/mobile rules compact the photography-display role.
+- **Body:** hero context uses the body role; case reading uses (16px/1.7) with a maximum (58ch), and About uses (16px/1.75). Smaller factual descriptions retain their existing local sizes.
+- **Label:** Instrument controls and metadata vary by context, generally (10–14px); use the recorded label role as the common base. Main primary action is (20px/1.2), weight (700), then (19px) at smaller widths.
+- **Toolkit / Contact:** large Archivo Black connects the final sections. Toolkit uses `clamp(46px,5.5vw,82px)` and (1.25) leading; static mode wraps all words. Contact uses `clamp(50px,7vw,100px)` with a restrained accent underline.
 
-**The Two Voices Rule.** Anybody carries expressive headings; Instrument Sans carries reading and controls. Retained alternative font assets are not additional type roles.
+**The Three Type Roles Rule.** Use Archivo Black for the new display hierarchy, Instrument Sans for reading and controls, and retain Anybody where existing viewers already use it.
 
 ## Layout
 
-The main frame is `min(1440px,88%)`. A fine header rule anchors navigation. Desktop introduction uses a two-column (1fr/1.1fr) grid with a (7%) gap and a viewport-height field below the header. The left holds title/context/Work; the right holds a slightly turned MotionStudio screenshot, two smaller real source previews and a readable caption. Below (850px) these become one column, with the evidence following context and Work. Header height is measured with ResizeObserver into `--site-header-height` for reel sticky top/height and anchor clearance. The lower Blender preview sits at (50%) from the top, (29%) wide and (-5%) left, keeping the featured caption clear.
+The main frame is `min(1440px,88%)`. The sticky desktop header is (78px); below (700px) its two-row navigation is (114px). The opening panel subtracts header height from (100svh), with (42px 0 62px) padding; phone padding is (45px 0 45px). Three held headline lines dominate the upper region; role/graduation and native actions share the bottom on desktop and stack on phones. The real featured screenshot follows in its own (120svh) evidence runway, reduced to (105svh)/(85svh) below (1000px)/(700px); its sticky image becomes ordinary flow when effects stop.
 
-The enhanced reel uses a (185svh) runway with a sticky stage below the measured header, named project choices, caption and native previous/next/open/details controls. The caption rests on opaque `var(--ink)` with (14px) top padding; the instruction is a separate opaque `var(--ink)` label above the media, at (106px) top on desktop, then (164px)/(137px)/(128px) at the (1100px)/(850px)/(600px) breakpoints. These backing fields preserve text contrast independently of screenshot colors. Reduced motion and Effects off use a local nonsticky stage. Cases return to document flow: fine top rules, (105px 0 135px) spacing, asymmetric screenshot/text layouts and distinct compositions. Below (600px), case spacing becomes (65px 0 80px); image/text groups stack. MotionStudio's screenshot occupies (87%) and offsets (13%) on desktop, then fills the frame on phones.
+The curved reel keeps a measured sticky stage, named choices and explicit arrows, Explore and details controls. Text sits on opaque canvas backing above media. Cases use fine top rules, generous (95px 0 125px) spacing and full-width titles above asymmetric image/readout groups; phone case spacing becomes (65px 0 85px). Three real photo prints form a bridge to the archive.
 
-A large photography portal follows the cases: three actual prints overlap and fan during scroll. The link reaches the separate archive. About uses a flat tonal field and a two-column biography/lens layout, then a single column below (850px); direct contact closes the page.
+About is an ordinary biography and chronology beside the contextual lens. Its (1.2fr/.8fr) grid and (9%) gap become one column below (1000px). The timeline has a following progress rail and sticky date labels on larger screens; dates return to ordinary flow below (700px). Toolkit now occupies its own section using the unchanged existing toolkit text. Its horizontal path is calculated from actual content and viewport widths so the complete line travels into view. Contact closes the page with direct email and retained footer links.
 
-The project dialog begins at Overview with a complete image. Interface, Features and Engineering add a reading pane; Features has named child branches and breadcrumb/back navigation. Below (600px), reading and image areas stack with independent overflow.
-
-The archive retains Infinite atlas, Gallery wall and Contact sheet. Wall density is two-to-seven columns on desktop (four initially), two on phones; the sheet is eight columns, then four. A shared orientation filter applies to the same 253-photo set. The editorial wall uses (45px/28px) gaps, reduced to (28px/18px) at narrower widths. Native image links remain the baseline.
+The project dialog keeps Overview as its root and Interface, Features and Engineering branches, with parent paths and native keyboard/close behavior. The archive retains all (253) figures, Infinite atlas, Gallery wall and Contact sheet, plus orientation filtering and desktop density. Wall and contact sheet preserve native image links; the full viewer fits each image rather than cropping it, with thumbnails and (2×) overflow zoom. Responsive gallery layouts remain in the existing archive stylesheets.
 
 ## Elevation & Depth
 
-Reading fields and layout rules stay flat. Turned screenshot and print planes create object depth. The hero screenshot uses `drop-shadow(3px 18px 25px var(--shadow))`; case screenshots use `drop-shadow(2px 20px 28px var(--shadow))`. Portal prints use `2px 20px 35px var(--shadow)`, deepening on hover. The real paper uses two small diffuse drop shadows and its original crumple texture/alpha mask. It has no constructed polygon edge or independently animated fold. The reel/atlas keep restrained curvature; dialogs preserve image continuity before resting on sharp DOM images.
+Reading regions are flat fields with fine rules. Original photographs and software images supply visual evidence; real paper and optional Three/curved media/lens provide depth around them. No generated artwork or raster composition was produced for this direction. Screenshot planes flatten from shallow perspective during scroll; photo prints open into a loose fan.
 
-**The Object Depth Rule.** Keep editorial reading surfaces flat; concentrate depth on real screenshots, photographic prints and textured paper.
+The paper uses `drop-shadow(2px 8px 9px var(--motion-shadow))`; featured evidence uses `drop-shadow(2px 22px 30px var(--motion-shadow))`; case images use `drop-shadow(2px 18px 25px var(--motion-shadow))`; portal prints use `2px 18px 30px var(--motion-shadow)`. These are object shadows rather than a global elevated-card system.
+
+**The Object Depth Rule.** Keep editorial reading surfaces flat; concentrate material depth on real paper, screenshots, photographs and the contextual lens.
 
 ## Shapes
 
-Use square editorial regions and fine rules. Screenshot corners are small (4px in cases; 5px in the hero). The native comparison retains its (14px) frame and circular handle, while its editorial outer view uses (4px). About has square corners. Portal prints use rectangular image mats; the archive image links use (2px) corners. Circular reel/hero action controls and the rounded sliding theme track are functional exceptions. The title edge comes from the real alpha mask, not geometric clipping.
+Square page regions and rectangular actions frame the content. Case images use (4px) corners, featured evidence (3px) and archive links (2px). Retain the comparison's circular handle and native range, circular reel navigation and the existing viewer's functional forms. The paper silhouette comes from `assets/paper-strip-mask.png`, not invented polygon geometry. There is no universal pill or card treatment.
 
 ## Components
 
-### Evidence introduction and paper title
+### Header, preferences and actions
 
-The exact live headline, “I build software for creative work.”, sits on two real textured strips beside real software. The title uses an alpha mask, multiply tint and twelve held rotation poses over (3s), changing at (4fps). The second strip is offset (-1.25s); phone amplitude is reduced. In-view state, reduced motion and Effects off gate animation. The finite whole-strip entrance uses (950ms) with (160ms) stagger. The loading curtain remains hidden; content is never inert behind it. The optional faint hero renderer is supporting atmosphere and pauses offscreen/hidden; failed graphics retain live content.
+The native theme button remains visible on desktop and phone, with an action label for the destination theme. The shared controller persists `sv-theme` and follows the OS preference on first visit. Color transitions take (300ms), subject to reduced motion. Effects uses a native pressed state and `sv-effects`. Project action points to `#work`, Contact to `#contact`; primary action padding is (17px 24px), minimum height (62px), changing to (16px 19px)/(58px) on phones. Focus uses base ink with a (2px) outline and (6px) offset; the retained header/panel rule uses headline ink. Navigation rolls its existing labels on hover/focus; touch retains explicit links.
 
-The featured screenshot is a native link to the case and optionally opens the existing project workspace from its measured image rectangle. Returning from another project updates the featured source, caption and link together. GSAP scroll choreography scales/turns this evidence and moves the small previews; ordinary text remains readable without it.
+### Live title and evidence
 
-### Project reel and workspace
+GSAP SplitText (3.15.1) creates masked word pieces for the finite title entrance, with shallow rotation and blur resolving to readable text. The supporting sentence uses a separate brief blur reveal. The final headline line is a real crumpled-paper strip, using twelve held rotations over (3s), or (4fps). Paper motion pauses offscreen and when the document is hidden; reduced motion and Effects off remove it. The faint original Three field is optional atmosphere and stops rendering offscreen/hidden. The featured image unfolds from shallow perspective into a flat screenshot as it enters; its native link and exact caption remain useful without effects.
 
-Actual screenshot planes bend shallowly during scroll/drag. Named native buttons, arrows and stage keyboard controls select the same three projects. Explore opens the workspace; return coordinates selection and focus. Explicit named selection survives programmatic and focus-driven scroll; wheel, touch, stage drag or navigation keys resume scroll selection. While the native modal is open, measured top/height values keep the reel stage fixed in viewport geometry. Before return, native scroll aligns instantly to the displayed project beneath the opaque modal; the viewer records that return position so closing and the next wheel movement remain coherent. Native DOM images remain available for reduced motion, Effects off and missing/lost WebGL. Overview is the root; Interface provides (2×) overflow inspection, Features exposes existing feature records, and Engineering shows original technical text. Close/Escape, source links, breadcrumbs and return focus remain intact.
+### Reel, project workspace and comparison
 
-### Cases and comparison
+Actual screenshot planes keep the original curved reel and full branching workspace. Named native choices, previous/next, Explore, case links, Close/Escape and return focus remain essential. PhotoMosaic retains its meaningful original/result comparison, labelled native range, pointer divider, enlargement and zoom/pan controls. A viewer must settle to readable, sharp evidence and preserve its static fallback when graphics fail.
 
-Distinct software compositions retain native engineering disclosures and source links. The PhotoMosaic native range is the comparison source of truth; pointer divider capture, Zoom (4×), X/Y pan and Enlarge remain. Optional bounded elasticity/blur/sparks yield to motion preferences. Workspace Interface zoom and the live comparison are separate controls.
+### Display movement, chronology and toolkit
 
-### Photographic portal and archive
+Large section words lift through line masks with scroll; selected project text receives a short restrained blur/tilt treatment. About paragraphs and timeline entries shift without obscuring reading. The timeline rail fills with base body ink, and wide-screen year labels follow their entries. Fine-pointer magnetic actions provide bounded feedback. The toolkit line traverses exactly its overflow distance and applies clamped (±4deg) velocity skew that returns to zero at rest. Contact characters roll on pointer entry or keyboard focus. These are independently authored GSAP treatments informed by researched interaction ideas, not installed React Bits or Aceternity ports.
 
-The portal's three real images fan from a compressed stack through a reversible GSAP scroll timeline. Without effects, their CSS layout remains visible and the archive link works. The archive keeps optional WebGL atlas browsing plus native wall/sheet, orientation filtering, density, count and full-photo viewer. The atlas recycles existing photos; it adds no records. Drag/wheel, arrows, Enter/open and zoom/reset retain explicit controls. Reduced motion, Effects off and unavailable/lost WebGL keep or return to native wall/sheet. Hidden documents and open dialogs stop atlas frames. The full viewer keeps aspect-fit originals, nearby thumbnails, arrows, Close/Escape and (2×) overflow zoom.
+### Photography bridge and archive
 
-### Navigation, preferences and motion
+The original three prints fan during scroll and link to the complete archive. The archive headline receives a finite word/blur entry; its original atlas, wall, sheet, filter, density and native full-photo viewer remain. Mode changes refresh enhancement geometry. Photograph colors and local originals remain unchanged.
 
-Text controls use muted/default foreground and copper hover/focus; selected project/archive states use fine copper underlines. Focus is generally a (2px) outline with (5px) offset. Preserve the actual responsive control sizes and inspect them at each layout; do not infer every target is (44px).
+### Motion lifecycle and attribution
 
-The shared native checkbox switch is labeled Dark theme; checked means dark. Early initialization applies stored `sv-theme` or OS preference. Effects uses native pressed state and stored `sv-effects`. Local GSAP (3.15.1) and ScrollTrigger drive editorial choreography. Local Lenis (1.3.27) uses a single GSAP clock when available, otherwise its own RAF; it excludes dialogs/inputs/selects, pauses for modal/hidden state and is destroyed for reduced motion or Effects off. Native scroll remains the fallback. The archive honors the same motion preference while retaining its own native browsing paths.
+Actual local GSAP SplitText (3.15.1) is reused under the GSAP Standard License with notices preserved; it is not MIT. React Bits and Aceternity inform independently authored behaviors only; see RESEARCH.md for source/license distinctions. Existing Lenis uses one coordinated clock; do not add another scroll smoother. Motion setup owns a GSAP context and SplitText instances; teardown reverts both and removes owned callbacks/tweens. Reduced motion or Effects off restores static words, removes character pieces, hides the optional hero renderer and wraps every toolkit skill. Toggling back reinitializes eligible enhancements. The original reel, comparison, project viewer, lens and photo atlas retain their own controls and preference handling. No blocking loader or mandatory click gates background effects.
 
 ## Do's and Don'ts
 
 ### Do:
 - **Do** preserve exact factual content, actual screenshots and all 253 archive photographs.
-- **Do** keep named native controls, copper focus and a clear parent path through project branches.
+- **Do** retain named native project choices, accessible comparison controls and a clear parent path through project branches.
 - **Do** gate optional movement by reduced motion and Effects preferences and retain static image fallbacks.
-- **Do** use the real crumpled-paper assets and held rotations as a supporting title material.
+- **Do** use the real crumpled-paper texture and alpha mask with held rotations.
 
 ### Don't:
 - **Don't** require motion, hover, WebGL or a loading gate to reach the work.
 - **Don't** substitute generated artwork or generic equal cards for actual project and photographic evidence.
-- **Don't** describe the paper as polygon-cut geometry or continuously interpolated floating strips.
-- **Don't** mechanically invert photographs or alter originals when updating the archive.
-
-## Color and attention refinement — 12 November 2026
-
-Primary research supports contextual preference and relative salience, not a universally attractive hue. Preserve the teal/copper identity and let photographs supply broad chroma. The lighter parchment and distinct raised surfaces improve separation; copper remains the action/selection signal. Strong control edges use `--control-line` (#6d7d9f day / #627B80 night), separately from decorative rules. The theme track, orientation selector and enabled reel/atlas navigation use this edge. Image-link focus has an opaque canvas moat behind its copper outline. Body/secondary/teal/copper pairs exceed 4.5:1 on both canvas and raised surfaces; control edges exceed 3:1. See RESEARCH.md for sources and limits. Browser theme metadata follows the actual canvas token.
-
-## Palette correction — 12 November 2026
-
-The user rejected teal as bland. Current authority is cream/sky blue by day, deep navy/cobalt by night, with warm orange actions. This supersedes earlier teal/petrol recommendations; research informs contrast and hierarchy but does not override the user’s aesthetic preference. The actual crumpled title paper is retinted cobalt (#456EE8 / #3A60CF). Layout, imagery and motion remain the same.
-
-## User-selected themes — 12 November 2026
-
-Current palette authority supersedes the previous cobalt direction. Light mode uses cream #F6EFDF, beige #E9DDC8, brown ink #3B332A and warm tan paper. Dark mode follows the supplied Solarin/Visme reference: gunmetal #2C3531, sapphire #116466, platinum #D1E8E2, peach #FFCB9A and tan #D9B08C. Derived surface and control tones preserve contrast. Title component aliases root `--title-paper`, `--title-paper-alt`, `--title-ink` and `--title-emphasis`; light paper uses soft-light blending, dark paper multiply. Texture, mask and four-fps motion remain original.
+- **Don't** treat historical hero-only, flat/no-3D or Solarin documentation as current authority.
+- **Don't** mechanically invert photographs or alter local originals when updating the archive.
