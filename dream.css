@@ -1,0 +1,55 @@
+/* Bootstrap 5.3.3 Figure, with caption ink inherited from the active theme. */
+.figure {display:inline-block}
+.figure[hidden] {display:none}
+.figure-img {margin-bottom:.5rem;line-height:1}
+.figure-caption {font-size:.875em;color:var(--poster-body)}
+
+:root {
+  --page-pattern:url("assets/orbital-night.svg");
+  --page-ground:#103633;
+  --title-ink:#fff4dc;
+  --title-stock:#103633;
+}
+:root[data-theme=light] {
+  --page-pattern:url("assets/linen-waves.svg");
+  --page-ground:#eedec5;
+  --title-ink:#4b271c;
+  --title-stock:#f5e7d2;
+}
+body:is(.motion-home,.motion-photo),
+.motion-home :is(.poster-hero,.reel-stage,.about-shell,.kinetic-toolkit,footer),
+.motion-photo :is(.intro,.photo-atlas,.wall,footer) {
+  background-color:var(--page-ground);
+  background-image:var(--page-pattern);
+  background-size:960px 640px;
+  background-position:center top;
+  background-attachment:fixed;
+}
+.motion-home .poster-hero::after {display:none}
+.motion-home.editorial-home.fluid-home .poster-hero .poster-title {
+  color:var(--title-ink);background:var(--title-stock);
+  padding:.24em .22em .28em;box-decoration-break:clone;
+  border-block:1px solid var(--line);
+}
+.motion-home .poster-title .title-ending {color:inherit}
+.motion-home .interface-plate {background:transparent}
+.motion-home .contour-field {opacity:.28}
+.motion-home .poster-bottom {background:var(--title-stock);padding:20px;border-top:1px solid var(--line)}
+.motion-photo .wall figure.figure {background:var(--poster-bg);box-shadow:0 10px 25px -19px var(--poster-body)}
+.motion-photo .wall figure.figure[hidden]{display:none}
+
+body.field-active {isolation:isolate;background-image:none}
+.wave-surface {display:none}
+.field-active > .wave-surface {
+  display:block;position:fixed;inset:0;width:100%;height:100%;z-index:-1;
+  pointer-events:none;
+}
+.field-active.motion-home :is(.poster-hero,.work,.reel-stage,.case,.about-shell,.kinetic-toolkit,footer),
+.field-active.motion-photo :is(.intro,.photo-atlas,.wall,footer) {
+  background-color:transparent;background-image:none;
+}
+.field-active :is(.about-copy,.entry>div,.project-info) {
+  background-color:color-mix(in srgb,var(--page-ground) 85%,transparent);
+}
+.proximity-letter {transform-origin:50% 70%;transition:transform 100ms ease-out}
+@media(prefers-reduced-motion:reduce){.wave-surface{display:none!important}}

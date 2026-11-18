@@ -1,0 +1,40 @@
+/* The software desk and the photography contact sheet share margins and print rules. */
+.motion-home .circuit-background {display:none}
+.motion-home .poster-inner {
+  display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  align-content:center; align-items:center; gap:clamp(24px,4vw,80px);
+  min-height:calc(100svh - 78px); padding-block:clamp(32px,5vw,84px);
+}
+.motion-home.editorial-home.fluid-home .poster-hero .poster-title {
+  font-size:clamp(44px,5.6vw,103px); line-height:1.03;letter-spacing:-.04em
+}
+.motion-home .poster-title .title-ending {font-family:Georgia,serif;font-style:italic;font-weight:400}
+.motion-home .poster-bottom {grid-column:1/-1;border-top:1px solid var(--line);padding-top:24px}
+.interface-plate {
+  position:relative;isolation:isolate;aspect-ratio:1.13;display:grid;place-items:center;
+  color:var(--poster-body);overflow:clip;background-color:var(--hover);
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.contour-field {position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:.75;opacity:.5;pointer-events:none}
+.motion-home .interface-plate .hero-showcase {position:relative;width:83%;margin:0;padding:0;transform:rotate(-3deg);z-index:1}
+.motion-home .interface-plate .hero-image-shell {display:block;overflow:hidden;border-radius:3px;box-shadow:0 18px 32px -10px var(--shadow);transform:none}
+.interface-plate .hero-image-shell img {width:100%;display:block;height:auto}
+.motion-home .interface-plate figcaption {display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px;background:var(--poster-bg);color:var(--poster-body);font-size:12px}
+.interface-plate .hero-open-mark {display:none}
+.magnet-lines {position:absolute;right:3%;top:3%;width:30%;height:8%;display:grid;grid-template-columns:repeat(12,1fr);place-items:center}
+.magnet-lines i {width:7px;height:1.5px;background:currentColor;rotate:-30deg;transition:rotate .18s ease-out}
+.motion-home .reel-stage,.motion-home .case-heading,.motion-home .about-grid,.motion-photo .tools {border-top:1px solid var(--line)}
+.motion-home .case-heading h2,.motion-home #about-title,.motion-photo .intro h1 {letter-spacing:-.04em}
+.motion-photo .intro h1 span {font-family:Georgia,serif;font-style:italic;font-weight:400}
+.motion-photo .wall figure {padding:clamp(4px,.8vw,14px);background:var(--hover)}
+.motion-photo .wall figcaption {padding-top:10px;border-bottom:1px solid var(--line)}
+@media(max-width:760px){
+  .motion-home .poster-inner {grid-template-columns:1fr;gap:24px;min-height:auto;padding-block:30px}
+  .motion-home .interface-plate {aspect-ratio:1.65}
+  .motion-home .interface-plate .hero-showcase {width:67%}
+  .motion-home .interface-plate figcaption {font-size:10px}
+  .motion-home .poster-bottom {gap:16px}
+}
+@media(prefers-reduced-motion:reduce){.magnet-lines i{transition:none}}
+.interface-plate .hero-showcase {grid-area:1 / 1}

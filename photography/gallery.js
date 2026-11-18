@@ -9,7 +9,17 @@ zoom.addEventListener('click',()=>{const on=viewerStage.classList.toggle('zoomed
 let visible=figures,current=0,opener=null,serial=0,startX=0,openingOrigin=null;
 const count=document.querySelector('.count');
 function updateFilter(){const kind=document.querySelector('select').value;figures.forEach(f=>{f.hidden=kind!=='all'&&f.dataset.orientation!==kind;});visible=figures.filter(f=>!f.hidden);count.textContent=`${visible.length} photographs`;document.querySelector('.empty').hidden=visible.length>0;}
-document.querySelector('select').addEventListener('change',updateFilter);
+document.querySelector('select').addEventListener('change', () => {
+  const canAnimate = galleryMotion() && !wall.hidden && window.Flip;
+  const nearby = canAnimate ? visible.filter(figure => {
+    const rect = figure.getBoundingClientRect();
+    return rect.bottom >= 0 && rect.top <= innerHeight;
+  }) : [];
+  const before = nearby.length ? Flip.getState(nearby) : null;
+  updateFilter();
+  const remaining = nearby.filter(figure => !figure.hidden);
+  if (before && remaining.length) Flip.from(before, {targets: remaining, duration: .45, ease: 'power2.out'});
+});
 document.querySelector('input[type=range]').addEventListener('input',e=>{wall.style.setProperty('--columns',e.target.value);});
 document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{const apply=()=>{const mode=b.dataset.mode;wall.classList.toggle('index',mode==='index');wall.hidden=mode==='atlas';document.querySelector('.photo-atlas').hidden=mode!=='atlas';document.body.classList.toggle('atlas-mode',mode==='atlas');if(mode==='atlas')window.scrollTo({top:0,behavior:'instant'});document.querySelector('input[type=range]').disabled=mode==='index';document.querySelectorAll('[data-mode]').forEach(other=>other.setAttribute('aria-pressed',String(other===b)));document.dispatchEvent(new CustomEvent('photomodechange',{detail:mode}));};if(document.startViewTransition&&galleryMotion())document.startViewTransition(apply);else apply();}));
 function renderFilm(){film.replaceChildren();const first=Math.max(0,current-7),last=Math.min(visible.length,current+8);for(let i=first;i<last;i++){const button=document.createElement('button'),img=document.createElement('img');img.src=visible[i].querySelector('img').src;img.alt='';button.setAttribute('aria-label',`View photograph: ${visible[i].dataset.alt}`);button.setAttribute('aria-current',String(i===current));button.append(img);button.addEventListener('click',()=>show(i));film.append(button);}}
