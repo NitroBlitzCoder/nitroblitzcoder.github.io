@@ -59,3 +59,16 @@ GSAP and ScrollTrigger 3.15.1, Copyright 2026 GreenSock. GSAP Standard License (
 Archivo Black — Omnibus-Type, SIL Open Font License 1.1. Locally hosted from https://github.com/google/fonts/tree/main/ofl/archivoblack . License: assets/ArchivoBlack-OFL.txt.
 
 GSAP SplitText 3.15.1 — GreenSock, GSAP Standard License (not MIT); locally hosted official distribution, original notice retained. https://gsap.com/docs/v3/Plugins/SplitText/ . React Bits and Aceternity demos informed independently authored interaction patterns; their component source is not redistributed or ported.
+
+Canvas UI, vanilla WebGL components (Ripple, Laser, Grid, Magnify, Glass).
+https://canvasui.dev/ — MIT + Commons Clause. Registry source URLs are in
+each module. The two lenses are adapted to sample local image assets.
+
+Pretext v1.0.0 by Cheng Lou, MIT. https://github.com/chenglou/pretext
+The upstream license is included in vendor/pretext/LICENSE.
+
+Canvas UI by David Haz: Particle Object, ASCII Object, Particle Scroll,
+Glyph Rain and Decrypt Reveal. https://canvasui.dev/components
+Local adaptations use decorative bitmap inputs and document scrolling.
+Canvas UI license: vendor/canvas-ui/LICENSE. OrbitControls is from Three.js
+r180, distributed under the existing vendor/three/LICENSE.

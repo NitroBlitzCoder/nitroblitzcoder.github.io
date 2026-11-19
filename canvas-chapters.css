@@ -1,0 +1,74 @@
+.chapter-field {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.chapter-field canvas { position: absolute; display: block; }
+.chapter-field .object {
+  width: min(64vw, 920px);
+  height: 66vh;
+  right: -6vw;
+  bottom: -3vh;
+  opacity: .66;
+}
+.chapter-field .signal {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .55;
+  mask-image: linear-gradient(100deg, #0002, #0008 47%, black);
+}
+.field-active:has(.chapter-field canvas) > .wave-surface { opacity: .22; }
+#toolkit-title { position: relative; }
+#toolkit-title > .cipher-film {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  animation: decode-film 1.65s ease-in-out both;
+}
+@keyframes decode-film {
+  0% { opacity: 0; }
+  12%, 52% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@media (max-width: 650px) {
+  .chapter-field .object { width: 92vw; right: -20vw; bottom: 0; height: 43vh; opacity: .52; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chapter-field, .cipher-film { display: none; }
+}
+.motion-home .poster-inner:has(.hero-flight) { align-content:start; align-items:start; padding-top:clamp(14px,2vh,28px); gap:clamp(16px,2.6vw,44px); }
+.hero-flight {min-width:0}
+.motion-home.editorial-home.fluid-home .poster-hero .hero-flight .poster-title {
+  font-size:clamp(36px,4.45vw,81px); width:fit-content; max-width:100%; margin-inline:auto; text-align:center; padding:.12em .16em;
+}
+.hero-flight .poster-title > span {margin-inline:auto}
+.particle-study {position:relative;width:100%;isolation:isolate}
+.flight-study {height:clamp(198px,32vh,378px);margin-top:clamp(12px,2vh,24px)}
+.car-study {height:clamp(180px,27vw,320px);margin-block:1rem}
+.particle-study > :is(img,canvas) {position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain}
+.particle-study img {opacity:.7;object-position:center}
+.particle-study.object-ready img {visibility:hidden}
+.particle-study canvas {touch-action:pan-y!important;cursor:crosshair}
+.chapter-field .signal {mask-image:none;opacity:.34}
+.letter-surface {position:fixed;inset:0;pointer-events:none;z-index:7;opacity:0;transition:opacity .35s}
+.letter-surface.reading {opacity:.95;transition-duration:.08s}
+.letter-particles {display:block;width:100%;height:100%}
+.motion-home .lens-stage {pointer-events:auto;touch-action:pan-y;cursor:crosshair}
+@media(max-width:760px){.flight-study {height:clamp(150px,23.5vh,235px)}}
+@media(prefers-reduced-motion:reduce){.letter-surface {display:none}}
+.resolving-ink {mask-image:linear-gradient(to bottom,#0006 var(--ink-top),black calc(var(--ink-top) + 21vh),black var(--ink-line),#0006 calc(var(--ink-line) + 170px))}
+/* Keep the flight study in proportion to its column on portrait tablets. */
+.hero-flight { container-type:inline-size }
+.hero-flight .flight-study {height:clamp(136px,min(57cqw,32svh),378px)}
+.motion-home .lens-stage {height:auto;aspect-ratio:1.48;max-height:480px}
+@media (min-width:761px) and (max-width:1000px) and (orientation:portrait) {
+  .motion-home .poster-inner:has(.hero-flight) {min-height:auto;padding-bottom:clamp(40px,7vw,70px)}
+}
+@media (orientation:landscape) and (max-height:520px) {
+  .motion-home .lens-stage {max-height:72svh}
+}

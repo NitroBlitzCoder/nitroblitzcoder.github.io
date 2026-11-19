@@ -1,3 +1,4 @@
+import {particleLens} from './lens-particles.js';
 import * as THREE from 'three';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {createTimeline} from 'animejs';
@@ -40,7 +41,7 @@ function makeStage(id, background, {fov = 34, position = [0, 3, 10]} = {}) {
   const stage = {
     canvas, container, renderer, scene, camera, root, visible: false, ready: false, lost: false,
     softwareDrawn: false, update: () => {}, render() {
-      if (renderer.isSoftware && stage.softwareDrawn) return;
+      if (renderer.isSoftware && stage.softwareDrawn && id !== 'lens') return;
       if (stage.ready && stage.visible && !stage.lost && !document.hidden) {renderer.render(scene, camera); stage.softwareDrawn = true;}
     }, resize() {
       const rect = container.getBoundingClientRect();
@@ -86,6 +87,7 @@ function update() {
 }
 window.addEventListener('scroll', schedule, {passive: true});
 window.addEventListener('resize', schedule);
+matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', schedule);
 window.addEventListener('effectschange', event => {effects = event.detail; schedule();});
 window.addEventListener('viewerclosed', schedule);
 document.addEventListener('visibilitychange', () => {
@@ -181,6 +183,7 @@ function buildLens() {
     const angle = i * Math.PI / 2 + .4, screw = new THREE.Mesh(screwGeometry, screwMaterial);
     screw.rotation.x = Math.PI / 2; screw.position.set(Math.cos(angle)*.7, Math.sin(angle)*.7, .13); mount.add(screw);
   }
+  const animateParticles = particleLens(stage, parts, schedule);
   const timeline = createTimeline({autoplay: false});
   parts.forEach(({group, base, separation}, index) => {
     timeline.add(group.position, {z: [base, base + separation], duration: 1200, ease: 'inOut(3)'}, index * 75);
@@ -195,11 +198,12 @@ function buildLens() {
     const compact = innerWidth < 700;
     const about = $('#about'), aboutRect = about.getBoundingClientRect();
     const lensRect = stage.container.getBoundingClientRect();
-    const target = !effects || stage.renderer.isSoftware ? 0 : compact
+    const motion = effects && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const target = !motion ? 0 : compact
       ? clamp((innerHeight * .62 - lensRect.top) / (innerHeight * .58))
       : clamp((110 - aboutRect.top) / Math.max(1, about.offsetHeight - practice.offsetHeight));
     const now = performance.now(), elapsed = Math.min(50, now - lastUpdate || 16);lastUpdate = now;
-    if (followedProgress === null || !effects || stage.renderer.isSoftware) followedProgress = target;
+    if (followedProgress === null || !motion) followedProgress = target;
     else followedProgress += (target - followedProgress) * (1 - Math.exp(-elapsed / 75));
     if (Math.abs(target - followedProgress) < .0005) followedProgress = target;
     const progress = followedProgress;
@@ -216,8 +220,9 @@ function buildLens() {
     stage.camera.lookAt(0, 0, 0);
     practice.dataset.lensState = progress > .75 ? 'separated' : progress > .15 ? 'separating' : 'assembled';
     $('#lens-phase').textContent = progress > .75 ? 'A lens, in parts' : 'An optical study';
-    $('#lens-instruction').textContent = effects && !stage.renderer.isSoftware ? 'Photography + modeling' : 'Static lens study';
-    return progress !== target;
+    $('#lens-instruction').textContent = motion ? 'Photography + modeling' : 'Static lens study';
+    const settling = animateParticles(motion);
+    return settling || progress !== target;
   };
   schedule();
 }

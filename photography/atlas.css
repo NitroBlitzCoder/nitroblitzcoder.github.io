@@ -13,3 +13,28 @@
 .photo-page.still .photo{animation:none!important}
 
 .photo-page .intro h1 .reveal-word{display:inline-block}
+/* Let the gallery follow the live header and toolbar height during rotation,
+   font swaps, and layout transitions. */
+.photo-page.atlas-mode {height:100dvh;display:flex;flex-direction:column}
+.photo-page.atlas-mode > header {flex:none}
+.photo-page.atlas-mode > main {flex:1;min-height:0;display:flex;flex-direction:column}
+.photo-page.atlas-mode main > :is(.intro,.tools) {flex:none}
+.photo-page.atlas-mode .photo-atlas {flex:1;min-height:0}
+@media (orientation:landscape) and (max-height:520px) {
+  .photo-page.atlas-mode > header {padding-block:4px}
+  .photo-page.atlas-mode .intro {padding-block:2px}
+  .photo-page.atlas-mode .intro h1 {font-size:28px}
+  .photo-page.atlas-mode .intro p {display:none}
+  .photo-page.atlas-mode .tools {gap:2px 14px;padding-block:0}
+  .photo-page.atlas-mode .atlas-instruction {bottom:48px}
+  .photo-page.atlas-mode .atlas-tools {bottom:2px}
+}
+@media (orientation:landscape) and (max-height:520px) {
+  body.photo-page.motion-photo.atlas-mode > header {
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:2px 4vw;min-height:44px;
+  }
+  body.photo-page.motion-photo.atlas-mode main > .intro {padding:2px 4vw;min-height:0}
+  body.photo-page.motion-photo.atlas-mode .intro h1 {font-size:28px;line-height:1.05;margin:0}
+  body.photo-page.motion-photo.atlas-mode main > .tools {padding:0 4vw;gap:2px 12px}
+}

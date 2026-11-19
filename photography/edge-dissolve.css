@@ -1,0 +1,15 @@
+.wall .photo a:not(:focus-visible) img.edge-dissolve {
+  mask-image: var(--edge-map);
+  mask-size: var(--edge-width) var(--edge-height);
+  mask-position: var(--edge-x) var(--edge-y);
+  mask-repeat: no-repeat;
+  image-rendering: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wall .photo a img.edge-dissolve {mask-image:none}
+}
+.photo-fragments {pointer-events:none}
+body > .photo-fragments {position:fixed;inset:0;width:100%;height:100%;z-index:3}
+.photo-atlas > canvas.photo-fragments {z-index:1}
+.photo-atlas .atlas-instruction {z-index:2}
+@media(prefers-reduced-motion:reduce){.photo-fragments {display:none}}

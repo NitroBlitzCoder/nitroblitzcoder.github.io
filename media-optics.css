@@ -1,0 +1,12 @@
+.optical-host { isolation: isolate; }
+.optical-relative { position: relative; }
+.optical-host > canvas.media-optic {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+.viewer-stage.optical-host > button { z-index: 2; }
